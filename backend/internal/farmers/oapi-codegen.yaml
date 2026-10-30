@@ -1,0 +1,9 @@
+# oapi-codegen config for the farmers module. Run via `make gen` (go generate).
+# Spec: contracts/openapi/farmers.yaml (repo root).
+package: farmers
+output: api.gen.go
+generate:
+  models: true
+  chi-server: true
+  strict-server: true
+  embedded-spec: true

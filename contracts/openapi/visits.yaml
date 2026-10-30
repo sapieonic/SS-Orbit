@@ -1,0 +1,1020 @@
+openapi: 3.0.3
+info:
+  title: Orbit Visits API
+  version: 0.1.0
+  description: >-
+    Planned and logged FA field visits, the issues found with the salt-first advice given,
+    visit photos and farmer call-back requests.
+
+    FA writes (plan, log, cancel a visit, close a call-back) arrive as offline sync commands
+    through the sync module (PlanVisit, LogVisit, CancelVisit, CloseCallback), not here. This
+    spec covers photo upload for the FA app, the farmer app's visits and call-back screens, and
+    the HO portal's visit lists. Advice names only the salt and, when one exists, the Shanmukha
+    product; never a competitor brand. Dates are IST calendar days (YYYY-MM-DD).
+    HO users with an area scope (district_ids) see only visits of farmers in their districts
+    (the farmer's district when the visit was written).
+tags:
+  - name: fa
+  - name: farmer
+  - name: admin
+security:
+  - bearerAuth: []
+paths:
+  /v1/fa/visits/{visit_id}/photos/{photo_id}/upload-url:
+    post:
+      operationId: createVisitPhotoUpload
+      summary: Get a presigned upload URL for a visit photo
+      description: >-
+        The photo row is created by the LogVisit command, so sync the command first. The phone
+        then PUTs the image to the returned URL with the returned headers and calls confirm.
+        Only the FA who logged the visit may upload. content_type must match the one sent in LogVisit.
+      tags: [fa]
+      parameters:
+        - $ref: '#/components/parameters/VisitID'
+        - $ref: '#/components/parameters/PhotoID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhotoUploadRequest'
+      responses:
+        '200':
+          description: Where and how to upload.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhotoUpload'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/fa/visits/{visit_id}/photos/{photo_id}/confirm:
+    post:
+      operationId: confirmVisitPhotoUpload
+      summary: Confirm a visit photo was uploaded
+      description: >-
+        Checks the object exists in storage and marks the photo uploaded. Idempotent.
+        409 upload_missing if the object is not there yet.
+      tags: [fa]
+      parameters:
+        - $ref: '#/components/parameters/VisitID'
+        - $ref: '#/components/parameters/PhotoID'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhotoConfirmRequest'
+      responses:
+        '200':
+          description: The photo, now uploaded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitPhoto'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/farmer/visits:
+    get:
+      operationId: listMyVisits
+      summary: My visits (farmer app F4)
+      description: The farmer's logged visits, newest first, with the advice given in Telugu and English.
+      tags: [farmer]
+      parameters:
+        - name: limit
+          in: query
+          description: Page size, default 20, maximum 50.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of visits.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FarmerVisitPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/farmer/visits/next:
+    get:
+      operationId: getMyNextVisit
+      summary: Next planned FA visit
+      tags: [farmer]
+      responses:
+        '200':
+          description: The next planned visit, or null when none is planned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NextVisitResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/farmer/callbacks:
+    post:
+      operationId: requestCallback
+      summary: Ask your FA to call you back
+      description: >-
+        One open request at a time: if one is already open it is returned with 200 (safe to
+        retry from the offline outbox). 409 no_fa_assigned when the farmer has no FA yet.
+      tags: [farmer]
+      responses:
+        '200':
+          description: A request was already open; it is returned unchanged.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Callback'
+        '201':
+          description: Request created; the FA is alerted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Callback'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/farmer/callbacks/current:
+    get:
+      operationId: getMyOpenCallback
+      summary: The farmer's open call-back request, if any
+      tags: [farmer]
+      responses:
+        '200':
+          description: The open request, or null.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrentCallbackResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/farmer/callbacks/{callback_id}/cancel:
+    post:
+      operationId: cancelMyCallback
+      summary: Withdraw my call-back request
+      description: Idempotent. 409 callback_closed if the FA already closed it.
+      tags: [farmer]
+      parameters:
+        - name: callback_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: The cancelled request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Callback'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/visits:
+    get:
+      operationId: listVisits
+      summary: Search visits
+      description: >-
+        Newest first (by visit time, or the planned day for visits not logged). Roles admin, ops,
+        agronomy. Every filter is optional.
+      tags: [admin]
+      parameters:
+        - $ref: '#/components/parameters/FAFilter'
+        - name: farmer_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/VisitStatus'
+        - name: from
+          in: query
+          description: First day, inclusive (visit day in IST, or planned day).
+          schema:
+            type: string
+            format: date
+        - name: to
+          in: query
+          description: Last day, inclusive.
+          schema:
+            type: string
+            format: date
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of visits.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/visits/overdue:
+    get:
+      operationId: listOverdueVisits
+      summary: Due and missed visits
+      description: >-
+        Planned visits whose day has passed without a log (status missed, or still planned before
+        the nightly job ran), most recent day first. Roles admin, ops, agronomy.
+      tags: [admin]
+      parameters:
+        - $ref: '#/components/parameters/FAFilter'
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of overdue visits.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/visits/sample:
+    get:
+      operationId: sampleVisits
+      summary: Random sample of logged visits for QA review
+      description: >-
+        Draws a uniform random sample of logged visits whose visit day is in [from, to]. The
+        drawn visit IDs are written to the audit log. Roles admin, ops, agronomy.
+      tags: [admin]
+      parameters:
+        - $ref: '#/components/parameters/FromDate'
+        - $ref: '#/components/parameters/ToDate'
+        - $ref: '#/components/parameters/FAFilter'
+        - name: size
+          in: query
+          description: Number of visits to draw, default 20, maximum 100.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+      responses:
+        '200':
+          description: The sample (fewer items if fewer visits match).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitSample'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/visits/counts:
+    get:
+      operationId: getVisitCounts
+      summary: Visit counts per FA for a date range (dashboard)
+      description: >-
+        planned = visits scheduled for a day in the range (not cancelled); done = visits logged on a
+        day in the range; missed = scheduled in the range and the day passed without a log;
+        farmers_visited = distinct farmers among done. Only FAs with at least one visit are listed.
+        Range at most 366 days. All HO roles. district_id narrows to one district (the visit's
+        district is the farmer's); HO users with an area scope get 403 for a district outside it.
+        With group_by=day, days also carries one entry per day of the range (zero-filled, oldest
+        first) summed over the FAs that match, for the overview chart; days is null otherwise.
+      tags: [admin]
+      parameters:
+        - $ref: '#/components/parameters/FromDate'
+        - $ref: '#/components/parameters/ToDate'
+        - $ref: '#/components/parameters/FAFilter'
+        - name: district_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: group_by
+          in: query
+          description: fa (default) = per-FA items only; day = per-FA items plus the daily series.
+          schema:
+            type: string
+            enum: [fa, day]
+            x-enum-varnames: [GroupByFA, GroupByDay]
+            default: fa
+      responses:
+        '200':
+          description: Counts per FA.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitCounts'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/visits/{visit_id}:
+    get:
+      operationId: getVisit
+      summary: Visit detail with issues, advice and photos
+      description: Photo URLs are presigned GETs valid for 15 minutes. Roles admin, ops, agronomy.
+      tags: [admin]
+      parameters:
+        - $ref: '#/components/parameters/VisitID'
+      responses:
+        '200':
+          description: The visit.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitDetail'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Page size (default and maximum depend on the endpoint).
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque cursor from a previous page's next_cursor.
+      schema:
+        type: string
+        maxLength: 200
+    VisitID:
+      name: visit_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    PhotoID:
+      name: photo_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    FAFilter:
+      name: fa_id
+      in: query
+      description: Only this FA's visits.
+      schema:
+        type: string
+        format: uuid
+    FromDate:
+      name: from
+      in: query
+      required: true
+      description: First day, inclusive (IST).
+      schema:
+        type: string
+        format: date
+    ToDate:
+      name: to
+      in: query
+      required: true
+      description: Last day, inclusive (IST).
+      schema:
+        type: string
+        format: date
+  schemas:
+    VisitStatus:
+      type: string
+      enum: [planned, done, cancelled, missed]
+    PlannedSlot:
+      type: string
+      enum: [morning, afternoon, any]
+    Severity:
+      type: string
+      enum: [low, moderate, high]
+    VisitLatLng:
+      type: object
+      required: [lat, lng]
+      properties:
+        lat:
+          type: number
+          format: double
+        lng:
+          type: number
+          format: double
+    Advice:
+      type: object
+      description: >-
+        Salt-first advice as given on the visit (copied at log time from the rule the FA picked).
+        product_* and sku_id are null when no Shanmukha product maps to the salt (salt_only = true):
+        the farmer is told the salt name only. When the issue's advice_status is unresolved every
+        field is null (the server could not confirm the FA's rule).
+      required: [rule_id, rule_version, salt_id, salt_name, salt_name_te, sku_id, product_name, product_name_te,
+                 dose, dose_te, salt_only]
+      properties:
+        rule_id:
+          type: string
+          format: uuid
+          nullable: true
+          description: The exact advisory rule version used.
+        rule_version:
+          type: integer
+          format: int32
+          nullable: true
+        salt_id:
+          type: string
+          format: uuid
+          nullable: true
+        salt_name:
+          type: string
+          nullable: true
+        salt_name_te:
+          type: string
+          nullable: true
+        sku_id:
+          type: string
+          format: uuid
+          nullable: true
+        product_name:
+          type: string
+          nullable: true
+        product_name_te:
+          type: string
+          nullable: true
+        dose:
+          type: string
+          nullable: true
+          description: Dose per acre, English.
+        dose_te:
+          type: string
+          nullable: true
+        salt_only:
+          type: boolean
+    VisitIssue:
+      type: object
+      required: [id, issue_id, issue_name, issue_name_te, severity, advice_status, requested_rule_id,
+                 unresolved_reason, advice]
+      properties:
+        id:
+          type: string
+          format: uuid
+        issue_id:
+          type: string
+          format: uuid
+        issue_name:
+          type: string
+          nullable: true
+        issue_name_te:
+          type: string
+          nullable: true
+        severity:
+          $ref: '#/components/schemas/Severity'
+        advice_status:
+          type: string
+          enum: [given, unresolved]
+          description: >-
+            unresolved: the rule the FA picked offline was not an approved (or superseded) rule
+            for this issue, so no advice is recorded. The visit is kept; HO follows up.
+        requested_rule_id:
+          type: string
+          format: uuid
+          nullable: true
+          description: The advisory_rule_id the FA app sent.
+        unresolved_reason:
+          type: string
+          nullable: true
+        advice:
+          $ref: '#/components/schemas/Advice'
+    Visit:
+      type: object
+      required: [id, farmer_id, farmer_name, farmer_name_te, farmer_phone_masked, village_id, village_name,
+                 village_name_te, plot_id, season_id, fa_id, fa_name, status, planned_for, planned_slot, purpose,
+                 visited_at, location, farmer_present, stage_id, stage_name, stage_name_te, notes, photo_count,
+                 issues, created_at, updated_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        farmer_name:
+          type: string
+          nullable: true
+          description: The farmer's current name (null if the farmers lookup is unavailable).
+        farmer_name_te:
+          type: string
+          nullable: true
+        farmer_phone_masked:
+          type: string
+          nullable: true
+          example: '+91******2345'
+        village_id:
+          type: string
+          format: uuid
+          nullable: true
+          description: The farmer's current village.
+        village_name:
+          type: string
+          nullable: true
+        village_name_te:
+          type: string
+          nullable: true
+        plot_id:
+          type: string
+          format: uuid
+        season_id:
+          type: string
+          format: uuid
+        fa_id:
+          type: string
+          format: uuid
+        fa_name:
+          type: string
+          nullable: true
+        status:
+          $ref: '#/components/schemas/VisitStatus'
+        planned_for:
+          type: string
+          format: date
+          nullable: true
+        planned_slot:
+          allOf:
+            - $ref: '#/components/schemas/PlannedSlot'
+          nullable: true
+        purpose:
+          type: string
+          nullable: true
+        visited_at:
+          type: string
+          format: date-time
+          nullable: true
+        location:
+          allOf:
+            - $ref: '#/components/schemas/VisitLatLng'
+          nullable: true
+        farmer_present:
+          type: boolean
+          nullable: true
+        stage_id:
+          type: string
+          format: uuid
+          nullable: true
+        stage_name:
+          type: string
+          nullable: true
+        stage_name_te:
+          type: string
+          nullable: true
+        notes:
+          type: string
+          nullable: true
+        photo_count:
+          type: integer
+          format: int32
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/VisitIssue'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    VisitDetail:
+      type: object
+      required: [visit, photos]
+      properties:
+        visit:
+          $ref: '#/components/schemas/Visit'
+        photos:
+          type: array
+          items:
+            $ref: '#/components/schemas/VisitPhoto'
+    VisitPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Visit'
+        next_cursor:
+          type: string
+          nullable: true
+    VisitSample:
+      type: object
+      required: [from, to, size, items]
+      properties:
+        from:
+          type: string
+          format: date
+        to:
+          type: string
+          format: date
+        size:
+          type: integer
+          description: Requested sample size.
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Visit'
+    FAVisitCounts:
+      type: object
+      required: [fa_id, fa_name, planned, done, missed, farmers_visited]
+      properties:
+        fa_id:
+          type: string
+          format: uuid
+        fa_name:
+          type: string
+          nullable: true
+        planned:
+          type: integer
+        done:
+          type: integer
+        missed:
+          type: integer
+        farmers_visited:
+          type: integer
+    VisitCounts:
+      type: object
+      required: [from, to, items, days]
+      properties:
+        from:
+          type: string
+          format: date
+        to:
+          type: string
+          format: date
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FAVisitCounts'
+        days:
+          type: array
+          nullable: true
+          description: Only with group_by=day; null otherwise.
+          items:
+            $ref: '#/components/schemas/DayVisitCounts'
+    DayVisitCounts:
+      type: object
+      required: [date, planned, done, missed]
+      properties:
+        date:
+          type: string
+          format: date
+        planned:
+          type: integer
+          description: Visits scheduled for this day (not cancelled).
+        done:
+          type: integer
+          description: Visits logged on this day.
+        missed:
+          type: integer
+          description: Scheduled for this day and the day passed without a log.
+    VisitPhoto:
+      type: object
+      required: [id, visit_id, content_type, bytes, uploaded_at, url]
+      properties:
+        id:
+          type: string
+          format: uuid
+        visit_id:
+          type: string
+          format: uuid
+        content_type:
+          type: string
+        bytes:
+          type: integer
+          format: int32
+          nullable: true
+        uploaded_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: Null until the phone has uploaded it.
+        url:
+          type: string
+          nullable: true
+          description: Presigned GET URL (HO only, once uploaded).
+    PhotoUploadRequest:
+      type: object
+      additionalProperties: false
+      required: [content_type, bytes]
+      properties:
+        content_type:
+          type: string
+          enum: [image/jpeg, image/png, image/webp]
+        bytes:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 10485760
+          description: Size of the file the phone will upload (at most 10 MB).
+    PhotoUpload:
+      type: object
+      required: [photo_id, storage_key, url, method, headers, expires_at]
+      properties:
+        photo_id:
+          type: string
+          format: uuid
+        storage_key:
+          type: string
+        url:
+          type: string
+        method:
+          type: string
+          example: PUT
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Headers the phone must send with the upload.
+        expires_at:
+          type: string
+          format: date-time
+    PhotoConfirmRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        sha256:
+          type: string
+          pattern: '^[0-9a-f]{64}$'
+    FAName:
+      type: object
+      required: [id, name, name_te]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        name_te:
+          type: string
+          nullable: true
+    FarmerAdvice:
+      type: object
+      description: One issue found and what to spray. Shanmukha product or salt only, never another brand.
+      required: [issue_name, issue_name_te, severity, advice_pending, salt_name, salt_name_te, sku_id, product_name,
+                 product_name_te, dose, dose_te, salt_only]
+      properties:
+        issue_name:
+          type: string
+          nullable: true
+        issue_name_te:
+          type: string
+          nullable: true
+        severity:
+          $ref: '#/components/schemas/Severity'
+        advice_pending:
+          type: boolean
+          description: The issue was found but no advice could be recorded; the FA will follow up.
+        salt_name:
+          type: string
+          nullable: true
+        salt_name_te:
+          type: string
+          nullable: true
+        sku_id:
+          type: string
+          format: uuid
+          nullable: true
+          description: Opens the product card (F8a).
+        product_name:
+          type: string
+          nullable: true
+        product_name_te:
+          type: string
+          nullable: true
+        dose:
+          type: string
+          nullable: true
+        dose_te:
+          type: string
+          nullable: true
+        salt_only:
+          type: boolean
+          description: True when no Shanmukha product maps to the salt ("ask the shop").
+    FarmerVisit:
+      type: object
+      required: [id, plot_id, visited_at, fa, stage_name, stage_name_te, issues]
+      properties:
+        id:
+          type: string
+          format: uuid
+        plot_id:
+          type: string
+          format: uuid
+        visited_at:
+          type: string
+          format: date-time
+        fa:
+          allOf:
+            - $ref: '#/components/schemas/FAName'
+          nullable: true
+        stage_name:
+          type: string
+          nullable: true
+        stage_name_te:
+          type: string
+          nullable: true
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/FarmerAdvice'
+    FarmerVisitPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FarmerVisit'
+        next_cursor:
+          type: string
+          nullable: true
+    NextVisit:
+      type: object
+      required: [visit_id, plot_id, planned_for, planned_slot, purpose, fa]
+      properties:
+        visit_id:
+          type: string
+          format: uuid
+        plot_id:
+          type: string
+          format: uuid
+        planned_for:
+          type: string
+          format: date
+        planned_slot:
+          $ref: '#/components/schemas/PlannedSlot'
+        purpose:
+          type: string
+          nullable: true
+        fa:
+          allOf:
+            - $ref: '#/components/schemas/FAName'
+          nullable: true
+    NextVisitResponse:
+      type: object
+      required: [next_visit]
+      properties:
+        next_visit:
+          allOf:
+            - $ref: '#/components/schemas/NextVisit'
+          nullable: true
+    Callback:
+      type: object
+      required: [id, farmer_id, fa_id, status, requested_at, closed_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        fa_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [open, closed, cancelled]
+        requested_at:
+          type: string
+          format: date-time
+        closed_at:
+          type: string
+          format: date-time
+          nullable: true
+    CurrentCallbackResponse:
+      type: object
+      required: [callback]
+      properties:
+        callback:
+          allOf:
+            - $ref: '#/components/schemas/Callback'
+          nullable: true
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorBody'
+    ErrorBody:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          description: Stable machine-readable code (not_found, validation_failed, conflict, version_mismatch, ...).
+          example: validation_failed
+        message:
+          type: string
+          description: Human-readable English message.
+        details:
+          type: object
+          additionalProperties: true
+          description: 'Optional context, e.g. {"fields": {"phone": "invalid"}}.'
+  responses:
+    BadRequest:
+      description: The request is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing, invalid or expired token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Authenticated but not allowed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Conflict:
+      description: State conflict (version mismatch, duplicate, wrong status).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    TooManyRequests:
+      description: Rate limited; see Retry-After.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

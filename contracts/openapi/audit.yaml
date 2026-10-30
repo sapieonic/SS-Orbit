@@ -1,0 +1,281 @@
+openapi: 3.0.3
+info:
+  title: Orbit Audit API
+  version: 0.1.0
+  description: >-
+    Read-only access to the append-only audit log for the HO portal: who did
+    what, when, on which record. Roles admin, finance and ops; HO users with an
+    area scope (district_ids) are not allowed because audit rows carry no district.
+    REFERENCE MODULE: other modules copy this layout.
+tags:
+  - name: audit
+security:
+  - bearerAuth: []
+paths:
+  /v1/admin/audit:
+    get:
+      operationId: listAuditEvents
+      summary: Search the audit log
+      description: Newest first. Every filter is optional; combine them freely.
+      tags: [audit]
+      parameters:
+        - name: entity_type
+          in: query
+          schema:
+            type: string
+            pattern: '^[a-z][a-z_]{0,63}$'
+        - name: entity_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: actor_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: farmer_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: action
+          in: query
+          description: Action prefix, e.g. "farmers." or "masters.rule_".
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 100
+        - name: from
+          in: query
+          description: Inclusive lower bound on occurred_at (RFC 3339).
+          schema:
+            type: string
+            format: date-time
+        - name: to
+          in: query
+          description: Exclusive upper bound on occurred_at (RFC 3339).
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of audit events.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditEventPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/audit/chain/{entity_type}/{entity_id}:
+    get:
+      operationId: getAuditChain
+      summary: Full history of one record
+      description: Every audit event for one record, oldest first.
+      tags: [audit]
+      parameters:
+        - name: entity_type
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-z][a-z_]{0,63}$'
+        - name: entity_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: limit
+          in: query
+          description: Page size, default 200, maximum 500.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 500
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of the record's audit events, oldest first.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditEventPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Page size (default and maximum depend on the endpoint).
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque cursor from a previous page's next_cursor.
+      schema:
+        type: string
+        maxLength: 200
+  schemas:
+    AuditEvent:
+      type: object
+      description: One audit_log row. Before/after/meta are free-form JSON snapshots.
+      required: [id, occurred_at, actor_kind, actor_id, on_behalf_of, action, entity_type, entity_id,
+                 farmer_id, plot_id, season_id, before, after, meta, ip, device_id, request_id]
+      properties:
+        id:
+          type: string
+          format: uuid
+        occurred_at:
+          type: string
+          format: date-time
+        actor_kind:
+          type: string
+          enum: [farmer, fa, ho, system]
+        actor_id:
+          type: string
+          format: uuid
+          nullable: true
+        on_behalf_of:
+          type: string
+          format: uuid
+          nullable: true
+          description: The farmer an FA acted for in assisted mode.
+        action:
+          type: string
+          example: farmers.enrolled
+        entity_type:
+          type: string
+          example: farmer
+        entity_id:
+          type: string
+          format: uuid
+          nullable: true
+        farmer_id:
+          type: string
+          format: uuid
+          nullable: true
+        plot_id:
+          type: string
+          format: uuid
+          nullable: true
+        season_id:
+          type: string
+          format: uuid
+          nullable: true
+        before:
+          type: object
+          additionalProperties: true
+          nullable: true
+        after:
+          type: object
+          additionalProperties: true
+          nullable: true
+        meta:
+          type: object
+          additionalProperties: true
+          nullable: true
+        ip:
+          type: string
+          nullable: true
+        device_id:
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          nullable: true
+    AuditEventPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuditEvent'
+        next_cursor:
+          type: string
+          nullable: true
+          description: Pass as ?cursor= to get the next page; null on the last page.
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorBody'
+    ErrorBody:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          description: Stable machine-readable code (not_found, validation_failed, conflict, version_mismatch, ...).
+          example: validation_failed
+        message:
+          type: string
+          description: Human-readable English message.
+        details:
+          type: object
+          additionalProperties: true
+          description: 'Optional context, e.g. {"fields": {"phone": "invalid"}}.'
+  responses:
+    BadRequest:
+      description: The request is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing, invalid or expired token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Authenticated but not allowed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Conflict:
+      description: State conflict (version mismatch, duplicate, wrong status).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    TooManyRequests:
+      description: Rate limited; see Retry-After.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

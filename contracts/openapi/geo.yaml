@@ -1,0 +1,1136 @@
+openapi: 3.0.3
+info:
+  title: Orbit Geo API
+  version: 0.1.0
+  description: >-
+    District / mandal / village hierarchy (LGD codes, Telugu names) and FA
+    allocations to areas. Allocation drives "Look for FAs" in the farmer app,
+    "Farmers near me" in the FA app and new-farmer alert routing (ADM-04).
+
+    HO masters (/v1/admin/geo/...): every HO role can read; admin and ops can
+    write. HO users with an area scope (district_ids) only see and change their
+    districts. Farmers pick their village with /v1/farmer/villages.
+tags:
+  - name: geo
+  - name: allocations
+security:
+  - bearerAuth: []
+paths:
+  /v1/admin/geo/tree:
+    get:
+      operationId: getAdminGeoTree
+      summary: District and mandal tree with village counts
+      description: Districts with their mandals, sorted by name. Filtered to the caller's area scope.
+      tags: [geo]
+      responses:
+        '200':
+          description: The tree.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoTree'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/geo/districts:
+    get:
+      operationId: listDistricts
+      summary: List districts
+      description: Sorted by name. Filtered to the caller's area scope.
+      tags: [geo]
+      responses:
+        '200':
+          description: All districts the caller can see.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistrictList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createDistrict
+      summary: Add a district
+      description: Admin or ops without an area scope.
+      tags: [geo]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DistrictCreate'
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/District'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/geo/districts/{district_id}:
+    patch:
+      operationId: updateDistrict
+      summary: Edit a district
+      description: Only the fields sent are changed.
+      tags: [geo]
+      parameters:
+        - $ref: '#/components/parameters/DistrictID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DistrictUpdate'
+      responses:
+        '200':
+          description: Updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/District'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/geo/mandals:
+    get:
+      operationId: listMandals
+      summary: List mandals
+      description: Sorted by district then name. Filtered to the caller's area scope.
+      tags: [geo]
+      parameters:
+        - name: district_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Mandals.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MandalList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createMandal
+      summary: Add a mandal to a district
+      tags: [geo]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MandalCreate'
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mandal'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/geo/mandals/{mandal_id}:
+    patch:
+      operationId: updateMandal
+      summary: Edit a mandal
+      description: Only the fields sent are changed. A mandal cannot move to another district.
+      tags: [geo]
+      parameters:
+        - $ref: '#/components/parameters/MandalID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MandalUpdate'
+      responses:
+        '200':
+          description: Updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mandal'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/geo/villages:
+    get:
+      operationId: listVillages
+      summary: List or search villages
+      description: >-
+        Without q: every village matching the filters, oldest first, keyset
+        paginated. With q: the best matches on name or name_te (prefix matches
+        first, then trigram similarity), up to limit, and next_cursor is null.
+      tags: [geo]
+      parameters:
+        - $ref: '#/components/parameters/VillageQuery'
+        - name: mandal_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: district_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of villages.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VillagePage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createVillage
+      summary: Add a village to a mandal
+      tags: [geo]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VillageCreate'
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Village'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/geo/villages/{village_id}:
+    get:
+      operationId: getVillage
+      summary: One village with its mandal and district
+      tags: [geo]
+      parameters:
+        - $ref: '#/components/parameters/VillageID'
+      responses:
+        '200':
+          description: The village.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Village'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateVillage
+      summary: Edit a village
+      description: >-
+        Only the fields sent are changed. lat and lng go together. A village
+        cannot move to another mandal.
+      tags: [geo]
+      parameters:
+        - $ref: '#/components/parameters/VillageID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VillageUpdate'
+      responses:
+        '200':
+          description: Updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Village'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/geo/village-imports:
+    post:
+      operationId: importVillages
+      summary: Bulk import villages from CSV
+      description: >-
+        CSV with a header row. Columns (any order, case-insensitive):
+        district, mandal, village (required), name_te, lgd_code, lat, lng
+        (optional). Districts and mandals are matched by name, ignoring case.
+        Idempotent on (mandal, village name): an existing village is updated
+        with the non-empty values in its row. All or nothing: if any row is
+        invalid nothing is written and the response is 400 validation_failed
+        with details.fields keyed "row N" (N = line number in the file).
+        Admin or ops; area-scoped users may only import into their districts.
+      tags: [geo]
+      parameters:
+        - name: create_missing
+          in: query
+          description: Create districts and mandals named in the file that do not exist yet (default false).
+          schema:
+            type: boolean
+      requestBody:
+        required: true
+        content:
+          text/csv:
+            schema:
+              type: string
+            example: |
+              district,mandal,village,name_te,lgd_code,lat,lng
+              Rangareddy,Serilingampally,Kondapur,కొండాపూర్,574123,17.4699,78.3578
+      responses:
+        '200':
+          description: Import applied.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VillageImportResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/allocations:
+    get:
+      operationId: listAllocations
+      summary: List FA allocations
+      description: >-
+        Current allocations (valid_to null) unless include_ended. Newest first,
+        keyset paginated. district_id matches allocations at or below the
+        district; mandal_id at or below the mandal; village_id village-level
+        allocations of that village. Filtered to the caller's area scope.
+      tags: [allocations]
+      parameters:
+        - name: fa_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: district_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: mandal_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: village_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: include_ended
+          in: query
+          schema:
+            type: boolean
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of allocations.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllocationPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createAllocation
+      summary: Allocate an FA to a village, mandal or district
+      description: >-
+        One current lead per area: allocating a second lead returns 409
+        area_has_lead (details.fa_id, details.allocation_id = the current lead).
+        The same FA twice on one area returns 409 allocation_exists. Admin or ops.
+      tags: [allocations]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AllocationCreate'
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Allocation'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/allocations/{allocation_id}/end:
+    post:
+      operationId: endAllocation
+      summary: End an allocation now
+      description: Sets valid_to to now. 409 allocation_ended if it already ended. Admin or ops.
+      tags: [allocations]
+      parameters:
+        - name: allocation_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: The ended allocation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Allocation'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/allocations/handover:
+    post:
+      operationId: handoverAllocations
+      summary: Move all of one FA's current allocations to another FA
+      description: >-
+        In one transaction, ends every current allocation of from_fa_id and
+        gives to_fa_id the same areas (same level and lead flag). If to_fa_id
+        already covers an area it keeps that allocation (upgraded to lead when
+        the old one was the lead). Farmers are NOT reassigned here: call the
+        farmers module's reassign endpoint next with affected_village_ids.
+        Calling it again after a successful hand-over moves nothing. Admin or ops.
+      tags: [allocations]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HandoverRequest'
+      responses:
+        '200':
+          description: Hand-over done.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HandoverResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/farmer/villages:
+    get:
+      operationId: searchFarmerVillages
+      summary: Pick your village (farmer self sign-up)
+      description: >-
+        Search by name or Telugu name (prefix matches first, then trigram
+        similarity). Without q, villages matching the filters sorted by name.
+        Returns at most limit items; no pagination.
+      tags: [geo]
+      parameters:
+        - $ref: '#/components/parameters/VillageQuery'
+        - name: mandal_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: district_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: limit
+          in: query
+          description: Default 20, maximum 50.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+      responses:
+        '200':
+          description: Matching villages.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VillageList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/farmer/geo/tree:
+    get:
+      operationId: getFarmerGeoTree
+      summary: District and mandal tree for the village picker
+      description: Lets the app browse district, then mandal, then /v1/farmer/villages?mandal_id=.
+      tags: [geo]
+      responses:
+        '200':
+          description: The tree.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoTree'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Page size (default and maximum depend on the endpoint).
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque cursor from a previous page's next_cursor.
+      schema:
+        type: string
+        maxLength: 200
+    DistrictID:
+      name: district_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    MandalID:
+      name: mandal_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    VillageID:
+      name: village_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    VillageQuery:
+      name: q
+      in: query
+      description: Part of the village name, in English or Telugu.
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 100
+  schemas:
+    LGDCode:
+      type: string
+      description: Local Government Directory code.
+      pattern: '^[0-9]{1,10}$'
+    District:
+      type: object
+      required: [id, name, name_te, lgd_code, state, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          example: Rangareddy
+        name_te:
+          type: string
+          nullable: true
+          example: రంగారెడ్డి
+        lgd_code:
+          type: string
+          nullable: true
+        state:
+          type: string
+          example: Telangana
+        created_at:
+          type: string
+          format: date-time
+    DistrictCreate:
+      type: object
+      required: [name]
+      additionalProperties: false
+      properties:
+        name:
+          $ref: '#/components/schemas/PlaceName'
+        name_te:
+          $ref: '#/components/schemas/PlaceName'
+        lgd_code:
+          $ref: '#/components/schemas/LGDCode'
+        state:
+          $ref: '#/components/schemas/PlaceName'
+    DistrictUpdate:
+      type: object
+      minProperties: 1
+      additionalProperties: false
+      properties:
+        name:
+          $ref: '#/components/schemas/PlaceName'
+        name_te:
+          $ref: '#/components/schemas/PlaceName'
+        lgd_code:
+          $ref: '#/components/schemas/LGDCode'
+        state:
+          $ref: '#/components/schemas/PlaceName'
+    DistrictList:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/District'
+    PlaceName:
+      type: string
+      minLength: 1
+      maxLength: 100
+    Mandal:
+      type: object
+      required: [id, district_id, district_name, district_name_te, name, name_te, lgd_code, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        district_id:
+          type: string
+          format: uuid
+        district_name:
+          type: string
+        district_name_te:
+          type: string
+          nullable: true
+        name:
+          type: string
+          example: Serilingampally
+        name_te:
+          type: string
+          nullable: true
+          example: శేరిలింగంపల్లి
+        lgd_code:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+    MandalCreate:
+      type: object
+      required: [district_id, name]
+      additionalProperties: false
+      properties:
+        district_id:
+          type: string
+          format: uuid
+        name:
+          $ref: '#/components/schemas/PlaceName'
+        name_te:
+          $ref: '#/components/schemas/PlaceName'
+        lgd_code:
+          $ref: '#/components/schemas/LGDCode'
+    MandalUpdate:
+      type: object
+      minProperties: 1
+      additionalProperties: false
+      properties:
+        name:
+          $ref: '#/components/schemas/PlaceName'
+        name_te:
+          $ref: '#/components/schemas/PlaceName'
+        lgd_code:
+          $ref: '#/components/schemas/LGDCode'
+    MandalList:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mandal'
+    Village:
+      type: object
+      description: A village with its mandal and district (names in English and Telugu).
+      required: [id, name, name_te, lgd_code, lat, lng, mandal_id, mandal_name, mandal_name_te,
+                 district_id, district_name, district_name_te, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          example: Kondapur
+        name_te:
+          type: string
+          nullable: true
+          example: కొండాపూర్
+        lgd_code:
+          type: string
+          nullable: true
+        lat:
+          type: number
+          format: double
+          nullable: true
+          description: Centroid latitude (WGS 84), null when unknown.
+        lng:
+          type: number
+          format: double
+          nullable: true
+        mandal_id:
+          type: string
+          format: uuid
+        mandal_name:
+          type: string
+        mandal_name_te:
+          type: string
+          nullable: true
+        district_id:
+          type: string
+          format: uuid
+        district_name:
+          type: string
+        district_name_te:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+    VillageCreate:
+      type: object
+      required: [mandal_id, name]
+      additionalProperties: false
+      properties:
+        mandal_id:
+          type: string
+          format: uuid
+        name:
+          $ref: '#/components/schemas/PlaceName'
+        name_te:
+          $ref: '#/components/schemas/PlaceName'
+        lgd_code:
+          $ref: '#/components/schemas/LGDCode'
+        lat:
+          $ref: '#/components/schemas/Latitude'
+        lng:
+          $ref: '#/components/schemas/Longitude'
+    VillageUpdate:
+      type: object
+      minProperties: 1
+      additionalProperties: false
+      properties:
+        name:
+          $ref: '#/components/schemas/PlaceName'
+        name_te:
+          $ref: '#/components/schemas/PlaceName'
+        lgd_code:
+          $ref: '#/components/schemas/LGDCode'
+        lat:
+          $ref: '#/components/schemas/Latitude'
+        lng:
+          $ref: '#/components/schemas/Longitude'
+    Latitude:
+      type: number
+      format: double
+      minimum: -90
+      maximum: 90
+    Longitude:
+      type: number
+      format: double
+      minimum: -180
+      maximum: 180
+    VillageList:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Village'
+    VillagePage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Village'
+        next_cursor:
+          type: string
+          nullable: true
+          description: Pass as ?cursor= to get the next page; null on the last page.
+    VillageImportResult:
+      type: object
+      required: [rows, created, updated, unchanged, districts_created, mandals_created]
+      properties:
+        rows:
+          type: integer
+          description: Data rows read (header excluded).
+        created:
+          type: integer
+        updated:
+          type: integer
+        unchanged:
+          type: integer
+        districts_created:
+          type: integer
+        mandals_created:
+          type: integer
+    GeoTree:
+      type: object
+      required: [districts]
+      properties:
+        districts:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeDistrict'
+    TreeDistrict:
+      type: object
+      required: [id, name, name_te, lgd_code, village_count, mandals]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        name_te:
+          type: string
+          nullable: true
+        lgd_code:
+          type: string
+          nullable: true
+        village_count:
+          type: integer
+        mandals:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeMandal'
+    TreeMandal:
+      type: object
+      required: [id, name, name_te, lgd_code, village_count]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        name_te:
+          type: string
+          nullable: true
+        lgd_code:
+          type: string
+          nullable: true
+        village_count:
+          type: integer
+    AllocationLevel:
+      type: string
+      enum: [village, mandal, district]
+    FARef:
+      type: object
+      description: The FA as identity knows them; null in an allocation when identity could not be asked.
+      required: [id, code, name, name_te, status]
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+          example: FA-KDP-014
+        name:
+          type: string
+        name_te:
+          type: string
+          nullable: true
+        status:
+          type: string
+          enum: [active, leaving, inactive]
+    Allocation:
+      type: object
+      description: >-
+        An FA's allocation to one area. area_* describe the allocated area at
+        its level; mandal_* (null for district level) and district_* give the
+        context. village_id is set only for village-level allocations.
+      required: [id, fa_id, fa, level, area_id, area_name, area_name_te, village_id, mandal_id, mandal_name,
+                 mandal_name_te, district_id, district_name, district_name_te, is_lead, valid_from, valid_to,
+                 created_by, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        fa_id:
+          type: string
+          format: uuid
+        fa:
+          allOf:
+            - $ref: '#/components/schemas/FARef'
+          nullable: true
+        level:
+          $ref: '#/components/schemas/AllocationLevel'
+        area_id:
+          type: string
+          format: uuid
+        area_name:
+          type: string
+        area_name_te:
+          type: string
+          nullable: true
+        village_id:
+          type: string
+          format: uuid
+          nullable: true
+        mandal_id:
+          type: string
+          format: uuid
+          nullable: true
+        mandal_name:
+          type: string
+          nullable: true
+        mandal_name_te:
+          type: string
+          nullable: true
+        district_id:
+          type: string
+          format: uuid
+        district_name:
+          type: string
+        district_name_te:
+          type: string
+          nullable: true
+        is_lead:
+          type: boolean
+        valid_from:
+          type: string
+          format: date-time
+        valid_to:
+          type: string
+          format: date-time
+          nullable: true
+        created_by:
+          type: string
+          format: uuid
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+    AllocationCreate:
+      type: object
+      required: [fa_id, level, area_id]
+      additionalProperties: false
+      properties:
+        fa_id:
+          type: string
+          format: uuid
+        level:
+          $ref: '#/components/schemas/AllocationLevel'
+        area_id:
+          type: string
+          format: uuid
+          description: The village, mandal or district ID, per level.
+        is_lead:
+          type: boolean
+          default: true
+          description: The lead FA is the one farmers and alerts go to first. One current lead per area.
+    AllocationPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Allocation'
+        next_cursor:
+          type: string
+          nullable: true
+          description: Pass as ?cursor= to get the next page; null on the last page.
+    HandoverRequest:
+      type: object
+      required: [from_fa_id, to_fa_id]
+      additionalProperties: false
+      properties:
+        from_fa_id:
+          type: string
+          format: uuid
+        to_fa_id:
+          type: string
+          format: uuid
+    HandoverResult:
+      type: object
+      required: [from_fa_id, to_fa_id, ended_allocation_ids, allocations, affected_village_ids]
+      properties:
+        from_fa_id:
+          type: string
+          format: uuid
+        to_fa_id:
+          type: string
+          format: uuid
+        ended_allocation_ids:
+          type: array
+          description: from_fa_id's allocations that were ended.
+          items:
+            type: string
+            format: uuid
+        allocations:
+          type: array
+          description: to_fa_id's allocations for the moved areas (new or kept).
+          items:
+            $ref: '#/components/schemas/Allocation'
+        affected_village_ids:
+          type: array
+          description: Every village the moved areas cover; pass to the farmers reassign endpoint.
+          items:
+            type: string
+            format: uuid
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorBody'
+    ErrorBody:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          description: Stable machine-readable code (not_found, validation_failed, conflict, version_mismatch, ...).
+          example: validation_failed
+        message:
+          type: string
+          description: Human-readable English message.
+        details:
+          type: object
+          additionalProperties: true
+          description: 'Optional context, e.g. {"fields": {"phone": "invalid"}}.'
+  responses:
+    BadRequest:
+      description: The request is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing, invalid or expired token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Authenticated but not allowed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Conflict:
+      description: State conflict (version mismatch, duplicate, wrong status).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    TooManyRequests:
+      description: Rate limited; see Retry-After.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

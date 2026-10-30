@@ -1,0 +1,9 @@
+# oapi-codegen config for the masters module. Run via `make gen` (go generate).
+# Spec: contracts/openapi/masters.yaml (repo root).
+package: masters
+output: api.gen.go
+generate:
+  models: true
+  chi-server: true
+  strict-server: true
+  embedded-spec: true

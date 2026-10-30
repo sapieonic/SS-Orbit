@@ -1,0 +1,1803 @@
+openapi: 3.0.3
+info:
+  title: Orbit Identity API
+  version: 0.1.0
+  description: >-
+    Sign-in for farmers (phone + SMS OTP), field assistants (HO-issued login ID +
+    password) and HO users (email + password + TOTP); refresh-token rotation with
+    reuse detection; device registry with remote wipe; HO management of FA logins
+    and HO users; the consent OTP the FA app uses at enrolment (FAR-04). Login failures
+    always return the same generic message. Attempts are rate limited per
+    account/phone and per IP (429 with Retry-After).
+
+    Temporary passwords (new FA/HO logins, admin resets) work for 72 hours; after that
+    sign-in answers 401 `temp_password_expired` and an admin must reset again. Tokens
+    issued while the password is temporary carry a must-change flag: every guarded
+    route except the password change, /v1/admin/me, refresh and logout answers 403
+    `password_change_required`. After changing the password, refresh to get a token
+    without the flag.
+
+    Every guarded route can also answer 401 `device_revoked` (farmer/FA device
+    revoked), 401 `session_revoked` (HO session signed out or user disabled) and 413
+    `payload_too_large` (body over the limit, 2 MB by default).
+tags:
+  - name: auth
+    description: Sign-in, refresh and sign-out (no token needed).
+  - name: consent
+    description: Consent OTP for FA-assisted enrolment (FA app, online).
+  - name: devices
+    description: App device heartbeat and HO device management.
+  - name: field-assistants
+    description: HO management of FA logins (roles admin, ops).
+  - name: ho-users
+    description: HO users and roles (role admin only, except the name directory).
+security:
+  - bearerAuth: []
+paths:
+  /v1/auth/app-config:
+    get:
+      operationId: getAppConfig
+      summary: App release settings (forced update, feature flags)
+      description: >-
+        Read by the farmer and FA apps at start, before sign-in. An app whose version is
+        below min_version must stop and send the user to store_url. latest_version is
+        never below min_version; an app below it may offer the update. flags are feature
+        switches (unknown flags must be ignored). The values come from server config and
+        change rarely, so the response is cacheable for 5 minutes. The device heartbeats
+        also return min_version.
+      tags: [auth]
+      security: []
+      parameters:
+        - name: app
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [farmer, fa]
+      responses:
+        '200':
+          description: Release settings.
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              example: public, max-age=300
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppConfig'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /v1/auth/otp/request:
+    post:
+      operationId: requestOtp
+      summary: Send a sign-in OTP to a farmer's phone
+      description: >-
+        Sends a 6-digit code by SMS (Telugu by default). A new request replaces the
+        previous code. Limited per phone (one every 30 s, a few per hour) and per IP.
+        The response never says whether the phone is already registered. When the server
+        has the farmer app's signature hash configured, the SMS is in the Android SMS
+        Retriever format ("<#>" first, the 11-character hash on the last line), so the app
+        can read the code without a tap; otherwise use the SMS User Consent API.
+      tags: [auth]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OtpRequest'
+      responses:
+        '200':
+          description: Code sent.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OtpSent'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/auth/otp/verify:
+    post:
+      operationId: verifyOtp
+      summary: Verify the OTP and sign the farmer in
+      description: >-
+        On success the farmer record is found or created (self sign-up), the device is
+        registered and a session is created. Errors: 400 `otp_invalid` (wrong code,
+        details.attempts_left) or `otp_expired` (no live code, expired, used, or too many
+        wrong tries: request a new one); 401 `device_revoked` (wipe and use a new install ID).
+      tags: [auth]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OtpVerify'
+      responses:
+        '200':
+          description: Signed in.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FarmerSession'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/auth/fa/login:
+    post:
+      operationId: faLogin
+      summary: FA sign-in with login ID and password
+      description: >-
+        Registers or refreshes the device. Any failure (unknown ID, wrong password,
+        inactive login) is 401 `unauthorized` with the same message; a revoked device is
+        401 `device_revoked`; a correct temporary password older than 72 hours is 401
+        `temp_password_expired`. When must_change_password is true the token only works
+        for POST /v1/fa/me/password (403 `password_change_required` elsewhere).
+      tags: [auth]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FALogin'
+      responses:
+        '200':
+          description: Signed in.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FASession'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/auth/ho/login:
+    post:
+      operationId: hoLogin
+      summary: HO sign-in with email, password and TOTP
+      description: >-
+        Two-step sign-in is required for every HO user. Wrong email/password/code is 401
+        `unauthorized` (one message for all). If the user has not set up TOTP yet the
+        response is 401 `totp_enrolment_required` (only after a correct password): call
+        /v1/auth/ho/totp/start then /confirm. A correct temporary password older than 72
+        hours is 401 `temp_password_expired`.
+      tags: [auth]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HOLogin'
+      responses:
+        '200':
+          description: Signed in.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HOSession'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/auth/ho/totp/start:
+    post:
+      operationId: startTotpEnrolment
+      summary: Start TOTP set-up (first sign-in, or after an admin reset)
+      description: >-
+        Checks email + password and returns a new secret as an otpauth:// URL for the
+        authenticator app. Calling it again replaces the pending secret. Refused (409
+        `totp_already_enabled`) once TOTP is set up; an admin must reset it first.
+      tags: [auth]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TotpStart'
+      responses:
+        '200':
+          description: Pending secret created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TotpEnrolment'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/auth/ho/totp/confirm:
+    post:
+      operationId: confirmTotpEnrolment
+      summary: Confirm TOTP set-up with a code and sign in
+      tags: [auth]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TotpConfirm'
+      responses:
+        '200':
+          description: TOTP enabled and signed in.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HOSession'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/auth/refresh:
+    post:
+      operationId: refreshSession
+      summary: Swap a refresh token for a new token pair
+      description: >-
+        Refresh tokens rotate: each is accepted once. A retry with the token just rotated
+        (lost response on a slow network, or two parallel refreshes) within 60 seconds,
+        while its successor is still unused, returns that same successor refresh token
+        with a fresh access token. Any other reuse of a rotated token revokes the whole
+        session family (401 `refresh_reused`). Also 401 when the session expired or was
+        revoked, the device was revoked (`device_revoked`), the login was deactivated, or
+        the temporary password expired (`temp_password_expired`). The new access token
+        reflects the account as it is now (role, area, must-change flag).
+      tags: [auth]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+      responses:
+        '200':
+          description: New tokens.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenPair'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/auth/logout:
+    post:
+      operationId: logout
+      summary: Sign out (revoke the session)
+      description: >-
+        Revokes the session of the bearer access token, or of the refresh token in the
+        body. Always 204, also when the session is unknown or already revoked.
+      tags: [auth]
+      security:
+        - {}
+        - bearerAuth: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+      responses:
+        '204':
+          description: Signed out.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /v1/fa/me/password:
+    post:
+      operationId: changeFAPassword
+      summary: FA changes their own password
+      description: >-
+        Required after a temporary password (401 `temp_password_expired` once it is over
+        72 hours old). Signs out the FA's other sessions. The current access token keeps
+        its must-change flag; call /v1/auth/refresh to get one without it.
+      tags: [auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+      responses:
+        '204':
+          description: Password changed.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/fa/consent-otp/request:
+    post:
+      operationId: requestConsentOtp
+      summary: Send the consent SMS to a farmer being enrolled
+      description: >-
+        Sends the farmer an SMS (Telugu by default) explaining that they agree to join
+        the programme and share their data with Shanmukha Agritec, with a 6-digit code.
+        The farmer reads the code out to the FA only if they agree. A new request
+        replaces the previous code for that phone. Limited per phone (one every 30 s, a
+        few per hour) and per FA. Needs network: the app falls back to enrolment without
+        OTP consent (RecordConsent later) when offline.
+      tags: [consent]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OtpRequest'
+      responses:
+        '200':
+          description: Code sent.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OtpSent'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/fa/consent-otp/verify:
+    post:
+      operationId: verifyConsentOtp
+      summary: Check the consent code and get a consent proof
+      description: >-
+        Checks the code the farmer read out. Only the FA who asked for the code can use
+        it, once. Returns otp_proof, a signed token bound to this FA and phone, valid for
+        7 days: put it in EnrolFarmer.consent.otp_proof or RecordConsent.otp_proof.
+        Errors as for sign-in codes: 400 `otp_invalid` (details.attempts_left) or
+        `otp_expired`.
+      tags: [consent]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentOtpVerify'
+      responses:
+        '200':
+          description: Consent verified.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentProof'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/fa/devices/me:
+    put:
+      operationId: faDeviceHeartbeat
+      summary: FA app heartbeat and push-token update
+      description: >-
+        Updates last seen, app details and the push token. wipe=true tells the app to
+        delete local data and sign out (device revoked or login deactivated). Revoked FA
+        devices are normally stopped earlier by the API with 401 `device_revoked`.
+      tags: [devices]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceUpdate'
+      responses:
+        '200':
+          description: Device status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceStatus'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/farmer/devices/me:
+    put:
+      operationId: farmerDeviceHeartbeat
+      summary: Farmer app heartbeat and push-token update
+      description: Same as the FA heartbeat. wipe=true when the device was revoked.
+      tags: [devices]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceUpdate'
+      responses:
+        '200':
+          description: Device status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceStatus'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/admin/me:
+    get:
+      operationId: getMe
+      summary: The signed-in HO user
+      tags: [ho-users]
+      responses:
+        '200':
+          description: The current HO user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HOUser'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/me/password:
+    post:
+      operationId: changeHOPassword
+      summary: HO user changes their own password
+      description: >-
+        Required after a temporary password (401 `temp_password_expired` once it is over
+        72 hours old). Signs out the user's other sessions. The current access token keeps
+        its must-change flag; call /v1/auth/refresh to get one without it.
+      tags: [ho-users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+      responses:
+        '204':
+          description: Password changed.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /v1/admin/devices:
+    get:
+      operationId: listDevices
+      summary: Devices of one FA or farmer
+      description: Newest first, revoked devices included. Roles admin and ops.
+      tags: [devices]
+      parameters:
+        - name: subject_kind
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [fa, farmer]
+        - name: subject_id
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of devices.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DevicePage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/devices/{device_id}/revoke:
+    post:
+      operationId: revokeDevice
+      summary: Revoke a device (remote wipe)
+      description: >-
+        Signs out every session on the device and tells the app to wipe itself at its
+        next contact. Revoking an already revoked device changes nothing. Roles admin and ops.
+      tags: [devices]
+      parameters:
+        - $ref: '#/components/parameters/DeviceID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceRevoke'
+      responses:
+        '200':
+          description: The revoked device.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/admin/field-assistants:
+    get:
+      operationId: listFieldAssistants
+      summary: Search FAs
+      description: >-
+        Newest first. q matches name, login ID or phone. Roles admin and ops. An HO user
+        with an area scope sees only FAs allocated in their districts (FAs with no
+        allocation: unscoped users and admins only); the same rule applies to every
+        /v1/admin/field-assistants/{fa_id} route and to FA devices (404 outside scope).
+      tags: [field-assistants]
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 100
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/FAStatus'
+        - name: not_synced_since
+          in: query
+          description: >-
+            Only FAs whose last sync is before this time, or who have never synced (the
+            "not synced in 24 h" view).
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of FAs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldAssistantPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createFieldAssistant
+      summary: Issue an FA login
+      description: >-
+        Give either `code` (e.g. FA-KDP-014) or `area_code` (e.g. KDP) and the next free
+        number is used. The temporary password is returned once and never again; the FA
+        must change it at first sign-in. 409 `code_taken` if the code exists.
+      tags: [field-assistants]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FieldAssistantCreate'
+      responses:
+        '201':
+          description: Login issued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldAssistantCreated'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/field-assistants/stats:
+    get:
+      operationId: getFieldAssistantStats
+      summary: FA counts for the HO overview
+      description: >-
+        Active, leaving and inactive FAs, and how many synced in the last 24 hours (any
+        status), within the caller's area scope. Any HO role.
+      tags: [field-assistants]
+      responses:
+        '200':
+          description: The counts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldAssistantStats'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/field-assistants/{fa_id}:
+    get:
+      operationId: getFieldAssistant
+      summary: One FA
+      tags: [field-assistants]
+      parameters:
+        - $ref: '#/components/parameters/FAID'
+      responses:
+        '200':
+          description: The FA.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldAssistant'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateFieldAssistant
+      summary: Update an FA's profile
+      description: >-
+        Only the fields sent change. For name_te, working_hours and photo_key an empty
+        string clears the value. The login ID never changes.
+      tags: [field-assistants]
+      parameters:
+        - $ref: '#/components/parameters/FAID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FieldAssistantPatch'
+      responses:
+        '200':
+          description: The updated FA.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldAssistant'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/admin/field-assistants/{fa_id}/status:
+    post:
+      operationId: setFieldAssistantStatus
+      summary: Set an FA's status
+      description: >-
+        active, leaving (still works; hand-over planned) or inactive. Inactive signs the
+        FA out everywhere and revokes their devices, so the app wipes itself.
+      tags: [field-assistants]
+      parameters:
+        - $ref: '#/components/parameters/FAID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FAStatusChange'
+      responses:
+        '200':
+          description: The updated FA.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldAssistant'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/admin/field-assistants/{fa_id}/reset-password:
+    post:
+      operationId: resetFieldAssistantPassword
+      summary: Give an FA a new temporary password
+      description: Shown once. Signs the FA out everywhere; devices stay registered.
+      tags: [field-assistants]
+      parameters:
+        - $ref: '#/components/parameters/FAID'
+      responses:
+        '200':
+          description: The temporary password.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TempPassword'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/admin/field-assistants/{fa_id}/sign-out:
+    post:
+      operationId: signOutFieldAssistant
+      summary: Sign an FA out of all devices
+      description: Revokes every session. The FA can sign in again with their password.
+      tags: [field-assistants]
+      parameters:
+        - $ref: '#/components/parameters/FAID'
+      responses:
+        '204':
+          description: Signed out.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/admin/ho-users:
+    get:
+      operationId: listHOUsers
+      summary: Search HO users
+      description: Newest first. q matches name or email. Role admin only.
+      tags: [ho-users]
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 100
+        - name: role
+          in: query
+          schema:
+            $ref: '#/components/schemas/HORole'
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/HOStatus'
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of HO users.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HOUserPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createHOUser
+      summary: Invite an HO user
+      description: >-
+        Creates the user with a temporary password (returned once). At first sign-in
+        they set up TOTP and change the password. 409 `email_taken` if the email exists.
+      tags: [ho-users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HOUserCreate'
+      responses:
+        '201':
+          description: User created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HOUserCreated'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/ho-users/directory:
+    get:
+      operationId: getHOUserDirectory
+      summary: Names of every HO user
+      description: >-
+        Every HO user (any status) with name, role and status only, sorted by name, so
+        any HO role can show who made or approved a rule, an advisory or an audit entry.
+        All HO roles. Not paged: HO users number in the tens.
+      tags: [ho-users]
+      responses:
+        '200':
+          description: Every HO user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HOUserDirectory'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/ho-users/{user_id}:
+    get:
+      operationId: getHOUser
+      summary: One HO user
+      tags: [ho-users]
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      responses:
+        '200':
+          description: The HO user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HOUser'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateHOUser
+      summary: Change an HO user's name, role or districts
+      description: >-
+        Only the fields sent change. An empty district_ids list means all districts. You
+        cannot change your own role or districts, and the last admin cannot be demoted
+        (409 `last_admin`). Takes effect at the user's next token refresh.
+      tags: [ho-users]
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HOUserPatch'
+      responses:
+        '200':
+          description: The updated user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HOUser'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/ho-users/{user_id}/status:
+    post:
+      operationId: setHOUserStatus
+      summary: Deactivate or reactivate an HO user
+      description: >-
+        disabled signs the user out everywhere. You cannot change your own status, and the
+        last admin cannot be disabled (409 `last_admin`).
+      tags: [ho-users]
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HOUserStatusChange'
+      responses:
+        '200':
+          description: The updated user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HOUser'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/ho-users/{user_id}/reset-password:
+    post:
+      operationId: resetHOUserPassword
+      summary: Give an HO user a new temporary password
+      description: Shown once. Signs the user out everywhere. Not for your own account.
+      tags: [ho-users]
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      responses:
+        '200':
+          description: The temporary password.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TempPassword'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/admin/ho-users/{user_id}/reset-totp:
+    post:
+      operationId: resetHOUserTotp
+      summary: Clear an HO user's TOTP (lost phone)
+      description: The user sets it up again at next sign-in. Signs them out everywhere. Not for your own account.
+      tags: [ho-users]
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      responses:
+        '204':
+          description: TOTP cleared.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Page size (default and maximum depend on the endpoint).
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque cursor from a previous page's next_cursor.
+      schema:
+        type: string
+        maxLength: 200
+    FAID:
+      name: fa_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    UserID:
+      name: user_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    DeviceID:
+      name: device_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    OtpRequest:
+      type: object
+      required: [phone]
+      properties:
+        phone:
+          type: string
+          minLength: 10
+          maxLength: 20
+          description: Indian mobile number in any common format; normalised to +91XXXXXXXXXX.
+          example: '98480 12345'
+        language:
+          type: string
+          enum: [te, en]
+          default: te
+          description: Language of the SMS (the login screen's language chip).
+    OtpSent:
+      type: object
+      required: [phone_masked, expires_in_seconds, resend_after_seconds]
+      properties:
+        phone_masked:
+          type: string
+          example: '+91******2345'
+        expires_in_seconds:
+          type: integer
+        resend_after_seconds:
+          type: integer
+          example: 30
+    DeviceInfo:
+      type: object
+      description: The app install signing in. device_key is a random install ID kept by the app.
+      required: [device_key]
+      properties:
+        device_key:
+          type: string
+          minLength: 8
+          maxLength: 128
+          pattern: '^[A-Za-z0-9._:-]+$'
+        model:
+          type: string
+          maxLength: 100
+        os_version:
+          type: string
+          maxLength: 50
+        app_version:
+          type: string
+          maxLength: 50
+        push_token:
+          type: string
+          maxLength: 4096
+    ConsentOtpVerify:
+      type: object
+      required: [phone, code]
+      properties:
+        phone:
+          type: string
+          minLength: 10
+          maxLength: 20
+        code:
+          type: string
+          pattern: '^[0-9]{6}$'
+    ConsentProof:
+      type: object
+      required: [phone, otp_proof, verified_at, expires_at]
+      properties:
+        phone:
+          type: string
+          description: The farmer's phone, normalised (+91XXXXXXXXXX). The proof is bound to it.
+          example: '+919848012345'
+        otp_proof:
+          type: string
+          description: Signed proof for EnrolFarmer.consent.otp_proof / RecordConsent.otp_proof.
+        verified_at:
+          type: string
+          format: date-time
+        expires_at:
+          type: string
+          format: date-time
+          description: The proof is rejected after this (7 days).
+    FieldAssistantStats:
+      type: object
+      required: [active, leaving, inactive, synced_last_24h]
+      properties:
+        active:
+          type: integer
+        leaving:
+          type: integer
+        inactive:
+          type: integer
+        synced_last_24h:
+          type: integer
+          description: FAs whose last sync was within the last 24 hours.
+    OtpVerify:
+      type: object
+      required: [phone, code, device]
+      properties:
+        phone:
+          type: string
+          minLength: 10
+          maxLength: 20
+        code:
+          type: string
+          pattern: '^[0-9]{6}$'
+        device:
+          $ref: '#/components/schemas/DeviceInfo'
+    TokenPair:
+      type: object
+      required: [token_type, access_token, access_expires_at, refresh_token, refresh_expires_at]
+      properties:
+        token_type:
+          type: string
+          enum: [Bearer]
+        access_token:
+          type: string
+        access_expires_at:
+          type: string
+          format: date-time
+        refresh_token:
+          type: string
+          description: Opaque; single use (rotated on every refresh).
+        refresh_expires_at:
+          type: string
+          format: date-time
+    FarmerSession:
+      type: object
+      required: [tokens, farmer_id, device_id, is_new, farmer_status]
+      properties:
+        tokens:
+          $ref: '#/components/schemas/TokenPair'
+        farmer_id:
+          type: string
+          format: uuid
+        device_id:
+          type: string
+          format: uuid
+        is_new:
+          type: boolean
+          description: True when this sign-in created the farmer (self sign-up).
+        farmer_status:
+          type: string
+          enum: [pending_profile, active, inactive]
+          nullable: true
+          description: >-
+            Routing hint for the app: pending_profile means go to consent and village
+            selection. Null if it could not be read; the app then asks the farmer profile.
+    OfflinePolicy:
+      type: object
+      description: How the FA app may work offline. The PIN itself never leaves the phone.
+      required: [pin_length, offline_grace_days, pin_max_attempts]
+      properties:
+        pin_length:
+          type: integer
+          example: 4
+        offline_grace_days:
+          type: integer
+          example: 7
+          description: Days the PIN keeps working without a password sign-in.
+        pin_max_attempts:
+          type: integer
+          example: 5
+          description: Wrong PINs before the app requires the password.
+    FALogin:
+      type: object
+      required: [code, password, device]
+      properties:
+        code:
+          type: string
+          minLength: 3
+          maxLength: 32
+          description: Login ID issued by HO, e.g. FA-KDP-014 (case-insensitive).
+        password:
+          type: string
+          minLength: 1
+          maxLength: 128
+        device:
+          $ref: '#/components/schemas/DeviceInfo'
+    FASession:
+      type: object
+      required: [tokens, device_id, field_assistant, must_change_password, offline_policy]
+      properties:
+        tokens:
+          $ref: '#/components/schemas/TokenPair'
+        device_id:
+          type: string
+          format: uuid
+        field_assistant:
+          $ref: '#/components/schemas/FieldAssistant'
+        must_change_password:
+          type: boolean
+        offline_policy:
+          $ref: '#/components/schemas/OfflinePolicy'
+    HOLogin:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          minLength: 3
+          maxLength: 254
+        password:
+          type: string
+          minLength: 1
+          maxLength: 128
+        totp_code:
+          type: string
+          pattern: '^[0-9]{6}$'
+    TotpStart:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          minLength: 3
+          maxLength: 254
+        password:
+          type: string
+          minLength: 1
+          maxLength: 128
+    TotpConfirm:
+      type: object
+      required: [email, password, totp_code]
+      properties:
+        email:
+          type: string
+          minLength: 3
+          maxLength: 254
+        password:
+          type: string
+          minLength: 1
+          maxLength: 128
+        totp_code:
+          type: string
+          pattern: '^[0-9]{6}$'
+    TotpEnrolment:
+      type: object
+      required: [otpauth_url, secret]
+      properties:
+        otpauth_url:
+          type: string
+          description: Render as a QR code for the authenticator app.
+        secret:
+          type: string
+          description: Base32 secret, for typing in by hand.
+    HOSession:
+      type: object
+      required: [tokens, user, must_change_password]
+      properties:
+        tokens:
+          $ref: '#/components/schemas/TokenPair'
+        user:
+          $ref: '#/components/schemas/HOUser'
+        must_change_password:
+          type: boolean
+    RefreshRequest:
+      type: object
+      required: [refresh_token]
+      properties:
+        refresh_token:
+          type: string
+          minLength: 20
+          maxLength: 200
+    LogoutRequest:
+      type: object
+      properties:
+        refresh_token:
+          type: string
+          minLength: 20
+          maxLength: 200
+    PasswordChange:
+      type: object
+      required: [current_password, new_password]
+      properties:
+        current_password:
+          type: string
+          minLength: 1
+          maxLength: 128
+        new_password:
+          type: string
+          minLength: 8
+          maxLength: 128
+          description: At least 8 characters with a letter and a digit; not the login ID or the old password.
+    DeviceUpdate:
+      type: object
+      properties:
+        model:
+          type: string
+          maxLength: 100
+        os_version:
+          type: string
+          maxLength: 50
+        app_version:
+          type: string
+          maxLength: 50
+        push_token:
+          type: string
+          maxLength: 4096
+    DeviceStatus:
+      type: object
+      required: [device_id, wipe, server_time, min_version, update_required]
+      properties:
+        device_id:
+          type: string
+          format: uuid
+        wipe:
+          type: boolean
+          description: Delete all local data and sign out now.
+        server_time:
+          type: string
+          format: date-time
+        min_version:
+          type: string
+          description: Oldest app version allowed (as in GET /v1/auth/app-config).
+          example: 1.4.0
+        update_required:
+          type: boolean
+          description: >-
+            True when the app_version sent is below min_version: the app must stop and
+            ask for the update. False when no app_version was sent.
+    AppConfig:
+      type: object
+      required: [app, min_version, latest_version, store_url, flags]
+      properties:
+        app:
+          type: string
+          enum: [farmer, fa]
+        min_version:
+          type: string
+          description: Versions below this must update before use ("0.0.0" forces nothing).
+          example: 1.4.0
+        latest_version:
+          type: string
+          description: Newest released version (never below min_version).
+          example: 1.6.2
+        store_url:
+          type: string
+          nullable: true
+          description: Where to update (Play Store link); null when not configured.
+        flags:
+          type: object
+          additionalProperties:
+            type: boolean
+          description: Feature switches by name. Unknown names must be ignored.
+    Device:
+      type: object
+      required: [id, subject_kind, subject_id, model, os_version, app_version, has_push_token,
+                 revoked_at, revoke_reason, last_seen_at, last_sync_at, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        subject_kind:
+          type: string
+          enum: [fa, farmer]
+        subject_id:
+          type: string
+          format: uuid
+        model:
+          type: string
+          nullable: true
+        os_version:
+          type: string
+          nullable: true
+        app_version:
+          type: string
+          nullable: true
+        has_push_token:
+          type: boolean
+        revoked_at:
+          type: string
+          format: date-time
+          nullable: true
+        revoke_reason:
+          type: string
+          nullable: true
+        last_seen_at:
+          type: string
+          format: date-time
+          nullable: true
+        last_sync_at:
+          type: string
+          format: date-time
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+    DevicePage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Device'
+        next_cursor:
+          type: string
+          nullable: true
+    DeviceRevoke:
+      type: object
+      required: [reason]
+      properties:
+        reason:
+          type: string
+          minLength: 1
+          maxLength: 200
+          example: Phone lost
+    FAStatus:
+      type: string
+      enum: [active, leaving, inactive]
+    FALevel:
+      type: string
+      enum: [village, mandal, district]
+    FieldAssistant:
+      type: object
+      required: [id, code, name, name_te, phone, level, languages, working_hours, photo_key, status,
+                 must_change_password, last_login_at, last_sync_at, app_version, created_at, updated_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+          example: FA-KDP-014
+        name:
+          type: string
+        name_te:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          example: '+919848012345'
+        level:
+          $ref: '#/components/schemas/FALevel'
+        languages:
+          type: array
+          items:
+            type: string
+        working_hours:
+          type: string
+          nullable: true
+        photo_key:
+          type: string
+          nullable: true
+        status:
+          $ref: '#/components/schemas/FAStatus'
+        must_change_password:
+          type: boolean
+        last_login_at:
+          type: string
+          format: date-time
+          nullable: true
+        last_sync_at:
+          type: string
+          format: date-time
+          nullable: true
+        app_version:
+          type: string
+          nullable: true
+          description: App version on the FA's most recently seen live device (lists only).
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    FieldAssistantPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldAssistant'
+        next_cursor:
+          type: string
+          nullable: true
+    FieldAssistantCreate:
+      type: object
+      required: [name, phone, level]
+      properties:
+        code:
+          type: string
+          pattern: '^FA-[A-Z]{2,5}-[0-9]{3,4}$'
+          description: Login ID to use. Give this or area_code.
+        area_code:
+          type: string
+          pattern: '^[A-Z]{2,5}$'
+          description: Short area code (e.g. KDP for Kondapur); the next number is picked.
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        name_te:
+          type: string
+          maxLength: 100
+        phone:
+          type: string
+          minLength: 10
+          maxLength: 20
+        level:
+          $ref: '#/components/schemas/FALevel'
+        languages:
+          type: array
+          maxItems: 5
+          items:
+            type: string
+            pattern: '^[a-z]{2}$'
+          description: Default ["te"].
+        working_hours:
+          type: string
+          maxLength: 100
+          example: Mon-Sat 8 am - 5 pm
+        photo_key:
+          type: string
+          maxLength: 300
+    FieldAssistantCreated:
+      type: object
+      required: [field_assistant, temp_password]
+      properties:
+        field_assistant:
+          $ref: '#/components/schemas/FieldAssistant'
+        temp_password:
+          type: string
+          description: Shown once. Hand it to the FA; they must change it at first sign-in.
+    FieldAssistantPatch:
+      type: object
+      minProperties: 1
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        name_te:
+          type: string
+          maxLength: 100
+        phone:
+          type: string
+          minLength: 10
+          maxLength: 20
+        level:
+          $ref: '#/components/schemas/FALevel'
+        languages:
+          type: array
+          minItems: 1
+          maxItems: 5
+          items:
+            type: string
+            pattern: '^[a-z]{2}$'
+        working_hours:
+          type: string
+          maxLength: 100
+        photo_key:
+          type: string
+          maxLength: 300
+    FAStatusChange:
+      type: object
+      required: [status]
+      properties:
+        status:
+          $ref: '#/components/schemas/FAStatus'
+    TempPassword:
+      type: object
+      required: [temp_password]
+      properties:
+        temp_password:
+          type: string
+          description: Shown once.
+    HORole:
+      type: string
+      enum: [admin, agronomy, finance, ops]
+    HOStatus:
+      type: string
+      enum: [invited, active, disabled]
+    HOUser:
+      type: object
+      required: [id, email, name, role, district_ids, status, totp_enabled, must_change_password,
+                 last_login_at, created_at, updated_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+        name:
+          type: string
+        role:
+          $ref: '#/components/schemas/HORole'
+        district_ids:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Area scope; empty means all districts.
+        status:
+          $ref: '#/components/schemas/HOStatus'
+        totp_enabled:
+          type: boolean
+        must_change_password:
+          type: boolean
+        last_login_at:
+          type: string
+          format: date-time
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    HOUserDirectory:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/HOUserDirectoryEntry'
+    HOUserDirectoryEntry:
+      type: object
+      required: [id, name, role, status]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        role:
+          $ref: '#/components/schemas/HORole'
+        status:
+          $ref: '#/components/schemas/HOStatus'
+    HOUserPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/HOUser'
+        next_cursor:
+          type: string
+          nullable: true
+    HOUserCreate:
+      type: object
+      required: [email, name, role]
+      properties:
+        email:
+          type: string
+          minLength: 3
+          maxLength: 254
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        role:
+          $ref: '#/components/schemas/HORole'
+        district_ids:
+          type: array
+          maxItems: 50
+          items:
+            type: string
+            format: uuid
+    HOUserCreated:
+      type: object
+      required: [user, temp_password]
+      properties:
+        user:
+          $ref: '#/components/schemas/HOUser'
+        temp_password:
+          type: string
+          description: Shown once.
+    HOUserPatch:
+      type: object
+      minProperties: 1
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        role:
+          $ref: '#/components/schemas/HORole'
+        district_ids:
+          type: array
+          maxItems: 50
+          items:
+            type: string
+            format: uuid
+    HOUserStatusChange:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+          enum: [active, disabled]
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorBody'
+    ErrorBody:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          description: Stable machine-readable code (not_found, validation_failed, conflict, version_mismatch, ...).
+          example: validation_failed
+        message:
+          type: string
+          description: Human-readable English message.
+        details:
+          type: object
+          additionalProperties: true
+          description: 'Optional context, e.g. {"fields": {"phone": "invalid"}}.'
+  responses:
+    BadRequest:
+      description: The request is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing, invalid or expired token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Authenticated but not allowed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Conflict:
+      description: State conflict (version mismatch, duplicate, wrong status).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    TooManyRequests:
+      description: Rate limited; see Retry-After.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

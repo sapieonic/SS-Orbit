@@ -1,0 +1,9 @@
+# oapi-codegen config for the messaging module. Run via `make gen` (go generate).
+# Spec: contracts/openapi/messaging.yaml (repo root).
+package: messaging
+output: api.gen.go
+generate:
+  models: true
+  chi-server: true
+  strict-server: true
+  embedded-spec: true

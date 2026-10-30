@@ -1,0 +1,1270 @@
+openapi: 3.0.3
+info:
+  title: Orbit Messaging API
+  version: 0.1.0
+  description: >-
+    Advisories (compose, approve, schedule, fan-out), the farmer inbox ("My Crop
+    Advisory"), the farmer web page for a notice (voice note reachable from an SMS or
+    WhatsApp link), FA alerts and HO alerts. Telugu is required for farmer-facing text;
+    English is optional. Paths are absolute; the surface guard enforces token kind.
+tags:
+  - name: advisories
+  - name: inbox
+  - name: alerts
+  - name: hooks
+security:
+  - bearerAuth: []
+paths:
+  /v1/admin/advisories:
+    post:
+      operationId: createAdvisory
+      summary: Create an advisory draft
+      description: >-
+        Roles admin, agronomy, ops. HO users with an area scope can only target their
+        own districts: district_ids must be a subset of their scope (403 otherwise),
+        and an empty district list becomes their scope. If the title or text (Telugu or
+        English) mentions an active product or salt name, names_product must be true
+        (400 validation_failed naming the term). When
+        audio_content_type or image_content_type is given, the response carries a
+        presigned upload URL for each; upload before submitting.
+      tags: [advisories]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdvisoryCreate'
+      responses:
+        '201':
+          description: The draft and its upload URLs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdvisoryCreated'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    get:
+      operationId: listAdvisories
+      summary: List advisories
+      description: Newest first. HO users with an area scope see advisories targeted inside their districts.
+      tags: [advisories]
+      parameters:
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/AdvisoryStatus'
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of advisories.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdvisoryPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/advisories/preview:
+    post:
+      operationId: previewAdvisoryRecipients
+      summary: Count the farmers a target would reach now
+      description: >-
+        The count is an estimate: recipients are resolved again when the advisory
+        is sent. Area scope applies as for create.
+      tags: [advisories]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdvisoryPreviewRequest'
+      responses:
+        '200':
+          description: Recipient count.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdvisoryPreview'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/advisories/{advisory_id}:
+    parameters:
+      - $ref: '#/components/parameters/AdvisoryID'
+    get:
+      operationId: getAdvisory
+      summary: Get an advisory with its reach so far
+      tags: [advisories]
+      responses:
+        '200':
+          description: The advisory.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Advisory'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateAdvisory
+      summary: Edit a draft (including one Agronomy sent back)
+      description: >-
+        Only drafts can be edited; an advisory Agronomy rejected is a draft again, with
+        review_note saying why (the note stays until it is resubmitted). Absent fields are
+        unchanged; title_en or body_en "" removes the English text. The same checks as
+        create apply to the result: area scope on the target, and names_product must be
+        true when the text names an active product or salt. The editor is recorded, and
+        the approver must be neither the author nor the last editor (409 for any other
+        status). audio_content_type / image_content_type replace the media and return new
+        upload URLs; remove_audio / remove_image drop it. Roles admin, agronomy, ops.
+      tags: [advisories]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdvisoryUpdate'
+      responses:
+        '200':
+          description: The edited draft and any new upload URLs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdvisoryCreated'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/advisories/{advisory_id}/submit:
+    parameters:
+      - $ref: '#/components/parameters/AdvisoryID'
+    post:
+      operationId: submitAdvisory
+      summary: Submit a draft to be sent now or at send_at
+      description: >-
+        An advisory that names a product goes to pending_approval and is scheduled
+        when Agronomy approves it; any other advisory is scheduled straight away. The
+        product-mention check of create is repeated here (product names may have been
+        added since).
+        Omit send_at (or pass a past time) to send as soon as possible. Uploaded
+        audio and image must exist. Roles admin, agronomy, ops.
+      tags: [advisories]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdvisorySubmit'
+      responses:
+        '200':
+          description: The advisory after submission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Advisory'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/advisories/{advisory_id}/approve:
+    parameters:
+      - $ref: '#/components/parameters/AdvisoryID'
+    post:
+      operationId: approveAdvisory
+      summary: Approve an advisory that names a product (Agronomy)
+      description: Role agronomy only, and the approver must not be the author.
+      tags: [advisories]
+      responses:
+        '200':
+          description: The advisory, now scheduled.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Advisory'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/advisories/{advisory_id}/reject:
+    parameters:
+      - $ref: '#/components/parameters/AdvisoryID'
+    post:
+      operationId: rejectAdvisory
+      summary: Send an advisory back to draft with a note (Agronomy)
+      tags: [advisories]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdvisoryReject'
+      responses:
+        '200':
+          description: The advisory, back in draft.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Advisory'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/advisories/{advisory_id}/cancel:
+    parameters:
+      - $ref: '#/components/parameters/AdvisoryID'
+    post:
+      operationId: cancelAdvisory
+      summary: Cancel an advisory before it starts sending
+      tags: [advisories]
+      responses:
+        '200':
+          description: The cancelled advisory.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Advisory'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /v1/admin/advisories/{advisory_id}/recipients:
+    parameters:
+      - $ref: '#/components/parameters/AdvisoryID'
+    get:
+      operationId: listAdvisoryRecipients
+      summary: Farmers who received an advisory, with delivery status per channel
+      tags: [advisories]
+      parameters:
+        - name: limit
+          in: query
+          description: Page size, default 100, maximum 500.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 500
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of recipients, in the order notices were created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecipientPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/admin/alerts:
+    get:
+      operationId: listHOAlerts
+      summary: HO alerts for the overview (new farmers, farmers without an FA, FAs offline)
+      description: >-
+        Newest first. HO users with an area scope see alerts in their districts only.
+        fa_offline is raised at most once a day per active FA that has not synced for
+        48 hours (district_id is the FA's first allocated district; payload has
+        fa_code, fa_name, last_sync_at and all district_ids).
+      tags: [alerts]
+      parameters:
+        - name: kind
+          in: query
+          schema:
+            type: string
+            enum: [new_farmer, farmer_without_fa, fa_offline]
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of HO alerts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HOAlertPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/fa-alerts:
+    post:
+      operationId: createHONote
+      summary: Send a note to an FA (shows in the FA app's Alerts tab)
+      description: Roles admin, agronomy, ops.
+      tags: [alerts]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HONoteCreate'
+      responses:
+        '201':
+          description: The FA alert.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FAAlert'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/fa/alerts:
+    get:
+      operationId: listFAAlerts
+      summary: The FA's alerts, newest first
+      description: The same alerts are in the offline snapshot (section alerts); acknowledge with the AckAlert sync command.
+      tags: [alerts]
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [open, acknowledged, closed]
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of alerts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FAAlertPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/farmer/notices:
+    get:
+      operationId: listFarmerNotices
+      summary: My Crop Advisory inbox, newest first
+      tags: [inbox]
+      parameters:
+        - name: limit
+          in: query
+          description: Page size, default 30, maximum 100.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of notices.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoticePage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/farmer/notices/unread-count:
+    get:
+      operationId: getUnreadNoticeCount
+      summary: Number of unread notices (badge)
+      tags: [inbox]
+      responses:
+        '200':
+          description: Unread count.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnreadCount'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/farmer/notices/{notice_id}/read:
+    parameters:
+      - $ref: '#/components/parameters/NoticeID'
+    post:
+      operationId: markNoticeRead
+      summary: Mark a notice read (idempotent)
+      tags: [inbox]
+      responses:
+        '204':
+          description: Marked.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/farmer/notices/{notice_id}/listened:
+    parameters:
+      - $ref: '#/components/parameters/NoticeID'
+    post:
+      operationId: markNoticeListened
+      summary: Record that the farmer played the voice note (idempotent; also marks read)
+      tags: [inbox]
+      responses:
+        '204':
+          description: Marked.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/web/notices/{notice_id}:
+    parameters:
+      - $ref: '#/components/parameters/NoticeID'
+    get:
+      operationId: getWebNotice
+      summary: A notice for the farmer web page opened from an SMS or WhatsApp link
+      description: >-
+        Needs the signed link token (kind web, purpose "notice:<notice_id>") as ?t= or
+        bearer. audio_url is a short-lived presigned URL for the voice note.
+      tags: [inbox]
+      parameters:
+        - name: t
+          in: query
+          description: Signed link token (alternative to the Authorization header).
+          schema:
+            type: string
+            maxLength: 2048
+      responses:
+        '200':
+          description: The notice.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notice'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/web/notices/{notice_id}/listened:
+    parameters:
+      - $ref: '#/components/parameters/NoticeID'
+    post:
+      operationId: markWebNoticeListened
+      summary: Record a play of the voice note on the web page (idempotent)
+      tags: [inbox]
+      parameters:
+        - name: t
+          in: query
+          description: Signed link token (alternative to the Authorization header).
+          schema:
+            type: string
+            maxLength: 2048
+      responses:
+        '204':
+          description: Marked.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /hooks/sms/{provider}:
+    post:
+      operationId: smsDeliveryReport
+      summary: SMS provider delivery report (STUB)
+      description: >-
+        Accepts and logs the callback. STUB: no provider is integrated yet, so the
+        signature is not checked and delivery rows are not updated.
+      tags: [hooks]
+      security: []
+      parameters:
+        - name: provider
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-z0-9_-]{1,32}$'
+      responses:
+        '204':
+          description: Accepted.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Page size (default and maximum depend on the endpoint).
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque cursor from a previous page's next_cursor.
+      schema:
+        type: string
+        maxLength: 200
+    AdvisoryID:
+      name: advisory_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    NoticeID:
+      name: notice_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    AdvisoryStatus:
+      type: string
+      enum: [draft, pending_approval, scheduled, sending, sent, cancelled]
+    AdvisoryChannel:
+      type: string
+      enum: [push, sms, whatsapp, in_app]
+      description: >-
+        in_app is always on (every recipient gets a notice in My Crop Advisory);
+        push, sms and whatsapp add deliveries. The SMS is a fixed DLT template: the title
+        (cut to 30 characters) and a link to the advisory's web page with the full text
+        and voice note; the advisory text itself is not in the SMS. No WhatsApp provider is integrated yet:
+        whatsapp deliveries are recorded as skipped with error whatsapp_not_configured
+        and nothing is sent.
+    AdvisoryTarget:
+      type: object
+      description: >-
+        Recipients must match every non-empty list (AND across lists, any-of within a
+        list); an empty or missing list means any. For example district_ids [Kadapa]
+        with village_ids [Kondapur] reaches only Kondapur, and a mandal outside the
+        chosen districts reaches nobody. Only active farmers are targeted; promotional
+        advisories also need programme consent.
+      properties:
+        crop_ids:
+          type: array
+          maxItems: 50
+          items:
+            type: string
+            format: uuid
+        district_ids:
+          type: array
+          maxItems: 50
+          items:
+            type: string
+            format: uuid
+        mandal_ids:
+          type: array
+          maxItems: 200
+          items:
+            type: string
+            format: uuid
+        village_ids:
+          type: array
+          maxItems: 1000
+          items:
+            type: string
+            format: uuid
+        stage_codes:
+          type: array
+          maxItems: 50
+          items:
+            type: string
+            minLength: 1
+            maxLength: 64
+        plan:
+          type: string
+          enum: [free, premium]
+          nullable: true
+    AdvisoryCreate:
+      type: object
+      required: [title_te, body_te, target, channels]
+      properties:
+        sender:
+          type: string
+          enum: [ho, civ]
+          default: ho
+        title_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+        body_te:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        title_en:
+          type: string
+          minLength: 1
+          maxLength: 120
+        body_en:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        names_product:
+          type: boolean
+          default: false
+          description: >-
+            True if the advisory names a Shanmukha product. Needs Agronomy approval and
+            is promotional. The server also scans title and text for product and salt
+            names and refuses false when one appears; set it yourself when only the
+            audio or image names a product.
+        class:
+          type: string
+          enum: [service, promotional]
+          description: Defaults to promotional when names_product is true, otherwise service.
+        target:
+          $ref: '#/components/schemas/AdvisoryTarget'
+        channels:
+          type: array
+          minItems: 1
+          maxItems: 4
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/AdvisoryChannel'
+        audio_content_type:
+          type: string
+          enum: [audio/mpeg, audio/mp4, audio/aac, audio/ogg, audio/wav]
+          description: Set to get an upload URL for a voice note.
+        image_content_type:
+          type: string
+          enum: [image/jpeg, image/png, image/webp]
+          description: Set to get an upload URL for an image.
+    AdvisoryUpdate:
+      type: object
+      description: Changes to a draft. Absent fields are unchanged.
+      properties:
+        sender:
+          type: string
+          enum: [ho, civ]
+        title_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+        body_te:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        title_en:
+          type: string
+          maxLength: 120
+          description: '"" removes the English title.'
+        body_en:
+          type: string
+          maxLength: 2000
+          description: '"" removes the English text.'
+        names_product:
+          type: boolean
+        class:
+          type: string
+          enum: [service, promotional]
+          description: When absent, derived again from names_product.
+        target:
+          $ref: '#/components/schemas/AdvisoryTarget'
+        channels:
+          type: array
+          minItems: 1
+          maxItems: 4
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/AdvisoryChannel'
+        audio_content_type:
+          type: string
+          enum: [audio/mpeg, audio/mp4, audio/aac, audio/ogg, audio/wav]
+          description: Replace the voice note; the response has the upload URL.
+        image_content_type:
+          type: string
+          enum: [image/jpeg, image/png, image/webp]
+          description: Replace the image; the response has the upload URL.
+        remove_audio:
+          type: boolean
+          default: false
+        remove_image:
+          type: boolean
+          default: false
+    Upload:
+      type: object
+      required: [url, method, headers, expires_at]
+      properties:
+        url:
+          type: string
+        method:
+          type: string
+          example: PUT
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        expires_at:
+          type: string
+          format: date-time
+    AdvisoryCreated:
+      type: object
+      required: [advisory, audio_upload, image_upload]
+      properties:
+        advisory:
+          $ref: '#/components/schemas/Advisory'
+        audio_upload:
+          allOf:
+            - $ref: '#/components/schemas/Upload'
+          nullable: true
+        image_upload:
+          allOf:
+            - $ref: '#/components/schemas/Upload'
+          nullable: true
+    AdvisoryStats:
+      type: object
+      required: [notices, read, listened, deliveries]
+      properties:
+        notices:
+          type: integer
+        read:
+          type: integer
+        listened:
+          type: integer
+        deliveries:
+          type: object
+          description: 'Delivery counts keyed "<channel>.<status>", e.g. {"sms.sent": 120, "sms.failed": 3}.'
+          additionalProperties:
+            type: integer
+    Advisory:
+      type: object
+      required: [id, sender, title_te, body_te, title_en, body_en, audio_key, image_key, audio_url, image_url,
+                 names_product, class, target, channels, status, scheduled_for, sent_at, recipient_count,
+                 created_by, updated_by, approved_by, approved_at, review_note, created_at, updated_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        sender:
+          type: string
+          enum: [ho, civ]
+        title_te:
+          type: string
+        body_te:
+          type: string
+        title_en:
+          type: string
+          nullable: true
+        body_en:
+          type: string
+          nullable: true
+        audio_key:
+          type: string
+          nullable: true
+        image_key:
+          type: string
+          nullable: true
+        audio_url:
+          type: string
+          nullable: true
+          description: Presigned GET URL for the voice note (short-lived), if uploaded.
+        image_url:
+          type: string
+          nullable: true
+        names_product:
+          type: boolean
+        class:
+          type: string
+          enum: [service, promotional]
+        target:
+          $ref: '#/components/schemas/AdvisoryTarget'
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdvisoryChannel'
+        status:
+          $ref: '#/components/schemas/AdvisoryStatus'
+        scheduled_for:
+          type: string
+          format: date-time
+          nullable: true
+        sent_at:
+          type: string
+          format: date-time
+          nullable: true
+        recipient_count:
+          type: integer
+          nullable: true
+        created_by:
+          type: string
+          format: uuid
+        updated_by:
+          type: string
+          format: uuid
+          nullable: true
+          description: Who last edited the draft (null if never edited after creation).
+        approved_by:
+          type: string
+          format: uuid
+          nullable: true
+        approved_at:
+          type: string
+          format: date-time
+          nullable: true
+        review_note:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        stats:
+          $ref: '#/components/schemas/AdvisoryStats'
+    AdvisoryPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Advisory'
+        next_cursor:
+          type: string
+          nullable: true
+    AdvisoryPreviewRequest:
+      type: object
+      required: [target]
+      properties:
+        target:
+          $ref: '#/components/schemas/AdvisoryTarget'
+    AdvisoryPreview:
+      type: object
+      required: [recipient_count]
+      properties:
+        recipient_count:
+          type: integer
+    AdvisorySubmit:
+      type: object
+      properties:
+        send_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            When to send; omit or null to send now. SMS and push wait for 07:00 IST
+            during quiet hours (21:00-07:00), also when a retry falls in them. At send
+            time a farmer who was deactivated (or, for promotional advisories, withdrew
+            programme consent) is skipped.
+    AdvisoryReject:
+      type: object
+      required: [note]
+      properties:
+        note:
+          type: string
+          minLength: 1
+          maxLength: 1000
+    RecipientDelivery:
+      type: object
+      required: [channel, status, error, sent_at, attempts]
+      properties:
+        channel:
+          type: string
+          enum: [push, sms, whatsapp]
+        status:
+          type: string
+          enum: [queued, sent, delivered, failed, skipped]
+        error:
+          type: string
+          nullable: true
+          description: >-
+            Why it failed or was skipped, e.g. no push token, whatsapp_not_configured,
+            farmer_inactive, no_programme_consent.
+        sent_at:
+          type: string
+          format: date-time
+          nullable: true
+        attempts:
+          type: integer
+    Recipient:
+      type: object
+      required: [notice_id, farmer_id, farmer_name, farmer_name_te, phone_masked, created_at, read_at,
+                 listened_at, deliveries]
+      properties:
+        notice_id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        farmer_name:
+          type: string
+          nullable: true
+        farmer_name_te:
+          type: string
+          nullable: true
+        phone_masked:
+          type: string
+          nullable: true
+          example: '+91******2345'
+          description: Null only if the farmer could not be looked up.
+        created_at:
+          type: string
+          format: date-time
+        read_at:
+          type: string
+          format: date-time
+          nullable: true
+        listened_at:
+          type: string
+          format: date-time
+          nullable: true
+        deliveries:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecipientDelivery'
+    RecipientPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+        next_cursor:
+          type: string
+          nullable: true
+    HOAlert:
+      type: object
+      required: [id, kind, farmer_id, fa_id, district_id, payload, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        kind:
+          type: string
+          enum: [new_farmer, farmer_without_fa, fa_offline]
+        farmer_id:
+          type: string
+          format: uuid
+          nullable: true
+        fa_id:
+          type: string
+          format: uuid
+          nullable: true
+          description: The FA who was notified (new_farmer).
+        district_id:
+          type: string
+          format: uuid
+          nullable: true
+        payload:
+          type: object
+          additionalProperties: true
+          description: >-
+            Display details captured when the alert was raised: farmer_name, farmer_name_te,
+            source, village_name, mandal_name, district_name, fa_name.
+        created_at:
+          type: string
+          format: date-time
+    HOAlertPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/HOAlert'
+        next_cursor:
+          type: string
+          nullable: true
+    HONoteCreate:
+      type: object
+      required: [fa_id, title]
+      properties:
+        fa_id:
+          type: string
+          format: uuid
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        body:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        title_te:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Telugu title, shown to FAs whose first language is Telugu.
+        body_te:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        farmer_id:
+          type: string
+          format: uuid
+          description: Optional farmer the note is about.
+    FAAlert:
+      type: object
+      description: >-
+        title/body are English; title_te/body_te are the Telugu text (null when there is
+        none, e.g. older alerts or an English-only HO note). Show the FA's first language
+        and fall back to the other. Push notifications are sent in the FA's first language.
+      required: [id, fa_id, kind, farmer_id, ref_id, title, body, title_te, body_te, status, created_at,
+                 acknowledged_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        fa_id:
+          type: string
+          format: uuid
+        kind:
+          type: string
+          enum: [new_farmer, callback, invoice_check, ho_note]
+        farmer_id:
+          type: string
+          format: uuid
+          nullable: true
+        ref_id:
+          type: string
+          format: uuid
+          nullable: true
+          description: The record the alert is about (farmer for new_farmer, callback for callback).
+        title:
+          type: string
+        body:
+          type: string
+          nullable: true
+        title_te:
+          type: string
+          nullable: true
+        body_te:
+          type: string
+          nullable: true
+        status:
+          type: string
+          enum: [open, acknowledged, closed]
+        created_at:
+          type: string
+          format: date-time
+        acknowledged_at:
+          type: string
+          format: date-time
+          nullable: true
+        farmer_name:
+          type: string
+          nullable: true
+        farmer_phone:
+          type: string
+          nullable: true
+    FAAlertPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FAAlert'
+        next_cursor:
+          type: string
+          nullable: true
+    Notice:
+      type: object
+      required: [id, kind, sender, title_te, body_te, title_en, body_en, audio_url, ref_type, ref_id,
+                 pinned, read_at, listened_at, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        kind:
+          type: string
+          enum: [advisory, visit_advice, system]
+        sender:
+          type: string
+          enum: [ho, civ, fa, system]
+          description: Shown as the card's tag (HO or CIV).
+        title_te:
+          type: string
+        body_te:
+          type: string
+        title_en:
+          type: string
+          nullable: true
+        body_en:
+          type: string
+          nullable: true
+        audio_url:
+          type: string
+          nullable: true
+          description: Presigned GET URL for the voice note (short-lived).
+        ref_type:
+          type: string
+          nullable: true
+          description: What the notice is about (visit, farmer, fa_assignment), if anything.
+        ref_id:
+          type: string
+          format: uuid
+          nullable: true
+        pinned:
+          type: boolean
+        read_at:
+          type: string
+          format: date-time
+          nullable: true
+        listened_at:
+          type: string
+          format: date-time
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+    NoticePage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notice'
+        next_cursor:
+          type: string
+          nullable: true
+    UnreadCount:
+      type: object
+      required: [unread]
+      properties:
+        unread:
+          type: integer
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorBody'
+    ErrorBody:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          description: Stable machine-readable code (not_found, validation_failed, conflict, version_mismatch, ...).
+          example: validation_failed
+        message:
+          type: string
+          description: Human-readable English message.
+        details:
+          type: object
+          additionalProperties: true
+          description: 'Optional context, e.g. {"fields": {"phone": "invalid"}}.'
+  responses:
+    BadRequest:
+      description: The request is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing, invalid or expired token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Authenticated but not allowed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Conflict:
+      description: State conflict (version mismatch, duplicate, wrong status).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    TooManyRequests:
+      description: Rate limited; see Retry-After.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

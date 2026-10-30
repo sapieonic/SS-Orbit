@@ -1,0 +1,13 @@
+# Local config and data
+.env
+.data/
+# Build output
+/bin/
+/api
+/worker
+/migrate
+/seed
+/devtoken
+*.test
+*.out
+coverage.*

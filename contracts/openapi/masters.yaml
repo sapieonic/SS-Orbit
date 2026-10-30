@@ -1,0 +1,1794 @@
+openapi: 3.0.3
+info:
+  title: Orbit Masters API
+  version: 0.1.0
+  description: >-
+    Crops and stages, issues, salts, Shanmukha SKUs, versioned advisory rules
+    (issue -> salt -> optional Shanmukha product) and dealers (ADM-08).
+    HO reads: every HO role. HO writes: admin and agronomy (ops too for dealers).
+    Advisory rules are maker-checker: anyone who can write drafts them, only
+    agronomy approves, and never their own draft. Rows that other records point
+    to are deactivated, never deleted. Every change the FA app can see bumps the
+    masters version (part of the FA snapshot cache key).
+tags:
+  - name: masters
+security:
+  - bearerAuth: []
+paths:
+  /v1/admin/masters/version:
+    get:
+      operationId: getMastersVersion
+      summary: Current masters version
+      tags: [masters]
+      responses:
+        '200':
+          description: The version counter bumped on every publish.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MastersVersion'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /v1/admin/masters/crops:
+    get:
+      operationId: listCrops
+      summary: List crops with their stages
+      tags: [masters]
+      parameters:
+        - $ref: '#/components/parameters/ActiveFilter'
+        - $ref: '#/components/parameters/Limit200'
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of crops, oldest first.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CropPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createCrop
+      summary: Add a crop, optionally with its stage calendar
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CropCreate'
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CropView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/crops/{crop_id}:
+    parameters:
+      - $ref: '#/components/parameters/CropID'
+    get:
+      operationId: getCrop
+      summary: One crop with all its stages (inactive ones too)
+      tags: [masters]
+      responses:
+        '200':
+          description: The crop.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CropView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateCrop
+      summary: Edit or (de)activate a crop
+      description: Omitted fields are unchanged. The code is permanent.
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CropUpdate'
+      responses:
+        '200':
+          description: The updated crop.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CropView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /v1/admin/masters/crops/{crop_id}/stages:
+    parameters:
+      - $ref: '#/components/parameters/CropID'
+    put:
+      operationId: replaceCropStages
+      summary: Replace the crop's stage calendar
+      description: >-
+        Stages are matched by code. Listed stages are created or updated and
+        numbered in list order; stages left out are deactivated, never deleted,
+        because seasons and visits point at them. Day ranges must be ascending
+        and must not overlap.
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StagesReplace'
+      responses:
+        '200':
+          description: The crop with its new calendar.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CropView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /v1/admin/masters/salts:
+    get:
+      operationId: listSalts
+      summary: List salts (active ingredients)
+      tags: [masters]
+      parameters:
+        - $ref: '#/components/parameters/ActiveFilter'
+        - $ref: '#/components/parameters/Search'
+        - $ref: '#/components/parameters/Limit200'
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of salts, oldest first.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaltPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createSalt
+      summary: Add a salt
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaltCreate'
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaltView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/salts/{salt_id}:
+    parameters:
+      - $ref: '#/components/parameters/SaltID'
+    patch:
+      operationId: updateSalt
+      summary: Edit or (de)activate a salt
+      description: >-
+        Omitted fields are unchanged. A salt used by a live rule cannot be
+        deactivated (409 in_use); publish a new rule version first.
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaltUpdate'
+      responses:
+        '200':
+          description: The updated salt.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaltView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/skus:
+    get:
+      operationId: listSkus
+      summary: List Shanmukha SKUs
+      tags: [masters]
+      parameters:
+        - name: salt_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - $ref: '#/components/parameters/ActiveFilter'
+        - $ref: '#/components/parameters/Search'
+        - $ref: '#/components/parameters/Limit200'
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of SKUs, oldest first.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkuPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createSku
+      summary: Add a Shanmukha SKU
+      description: Shanmukha products only; competitor brands are never stored (FA-09).
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkuCreate'
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkuView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/skus/{sku_id}:
+    parameters:
+      - $ref: '#/components/parameters/SkuID'
+    patch:
+      operationId: updateSku
+      summary: Edit or (de)activate a SKU
+      description: >-
+        Omitted fields are unchanged; the code is permanent. A SKU named by a
+        live rule cannot be deactivated or moved to another salt (409 in_use).
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkuUpdate'
+      responses:
+        '200':
+          description: The updated SKU.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkuView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/issues:
+    get:
+      operationId: listIssues
+      summary: List pests, diseases and deficiencies
+      tags: [masters]
+      parameters:
+        - name: crop_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: type
+          in: query
+          schema:
+            $ref: '#/components/schemas/IssueType'
+        - $ref: '#/components/parameters/ActiveFilter'
+        - $ref: '#/components/parameters/Limit200'
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of issues, oldest first.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssuePage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createIssue
+      summary: Add an issue to a crop
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueCreate'
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/issues/{issue_id}:
+    parameters:
+      - $ref: '#/components/parameters/IssueID'
+    patch:
+      operationId: updateIssue
+      summary: Edit or (de)activate an issue
+      description: Omitted fields are unchanged. The crop is permanent.
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueUpdate'
+      responses:
+        '200':
+          description: The updated issue.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/dealers:
+    get:
+      operationId: listDealers
+      summary: List dealers
+      tags: [masters]
+      parameters:
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/DealerStatus'
+        - name: village_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: sku_id
+          in: query
+          description: Only dealers stocking this SKU.
+          schema:
+            type: string
+            format: uuid
+        - $ref: '#/components/parameters/Search'
+        - $ref: '#/components/parameters/Limit200'
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of dealers, oldest first.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DealerPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createDealer
+      summary: Add a dealer
+      description: Starts as to_verify unless a status is given. Only active dealers with a pinned location reach farmers.
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DealerCreate'
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DealerView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /v1/admin/masters/dealers/{dealer_id}:
+    parameters:
+      - $ref: '#/components/parameters/DealerID'
+    get:
+      operationId: getDealer
+      summary: One dealer
+      tags: [masters]
+      responses:
+        '200':
+          description: The dealer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DealerView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateDealer
+      summary: Edit, verify or deactivate a dealer
+      description: >-
+        Omitted fields are unchanged; sku_ids, when sent, replaces the stocked
+        list. A dealer needs a pinned location to become active.
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DealerUpdate'
+      responses:
+        '200':
+          description: The updated dealer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DealerView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /v1/admin/masters/rules:
+    get:
+      operationId: listRules
+      summary: List advisory rule versions
+      description: Every version is kept. Filter by rule_key for one rule's history.
+      tags: [masters]
+      parameters:
+        - name: rule_key
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: issue_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: crop_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/RuleStatus'
+        - $ref: '#/components/parameters/Limit200'
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of rule versions, oldest first.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RulePage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createRuleDraft
+      summary: Draft a new rule, or a new version of an existing rule
+      description: >-
+        Without rule_key a new rule is started (one rule per issue and salt: 409
+        rule_exists names the existing key). With rule_key the draft becomes the
+        next version of that rule (one open draft per rule: 409 draft_exists).
+        The SKU, if given, must contain the chosen salt.
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleCreate'
+      responses:
+        '201':
+          description: The new draft.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/rules/{rule_id}:
+    parameters:
+      - $ref: '#/components/parameters/RuleID'
+    get:
+      operationId: getRule
+      summary: One rule version
+      tags: [masters]
+      responses:
+        '200':
+          description: The rule version.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateRuleDraft
+      summary: Rewrite a draft that has not been submitted yet
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleDraftUpdate'
+      responses:
+        '200':
+          description: The updated draft.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/rules/{rule_id}/submit:
+    parameters:
+      - $ref: '#/components/parameters/RuleID'
+    post:
+      operationId: submitRule
+      summary: Send a draft to Agronomy for approval
+      description: A submitted draft can no longer be edited; Agronomy approves or rejects it.
+      tags: [masters]
+      responses:
+        '200':
+          description: The submitted draft.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/rules/{rule_id}/approve:
+    parameters:
+      - $ref: '#/components/parameters/RuleID'
+    post:
+      operationId: approveRule
+      summary: Approve a submitted draft and make it live
+      description: >-
+        Agronomy only, and never the draft's author. The previous live version
+        of the rule is superseded in the same transaction and the masters
+        version is bumped, so the change reaches the apps at their next sync.
+      tags: [masters]
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleReview'
+      responses:
+        '200':
+          description: The live rule version.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/admin/masters/rules/{rule_id}/reject:
+    parameters:
+      - $ref: '#/components/parameters/RuleID'
+    post:
+      operationId: rejectRule
+      summary: Reject a draft
+      description: Agronomy only. The note tells the author what to change.
+      tags: [masters]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleRejection'
+      responses:
+        '200':
+          description: The rejected draft.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleView'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /v1/farmer/crops:
+    get:
+      operationId: listFarmerCrops
+      summary: Active crops with their stage calendars (Telugu first)
+      description: Also returns today's season codes (season_codes) for the season picker.
+      tags: [masters]
+      responses:
+        '200':
+          description: Every active crop.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FarmerCropList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /v1/farmer/dealers:
+    get:
+      operationId: listNearbyDealers
+      summary: Active dealers near a point, nearest first
+      tags: [masters]
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          schema:
+            type: number
+            format: double
+            minimum: -90
+            maximum: 90
+        - name: lng
+          in: query
+          required: true
+          schema:
+            type: number
+            format: double
+            minimum: -180
+            maximum: 180
+        - name: radius_km
+          in: query
+          description: Search radius, default 25 km.
+          schema:
+            type: number
+            format: double
+            minimum: 0.1
+            maximum: 100
+        - name: sku_id
+          in: query
+          description: Only dealers stocking this SKU.
+          schema:
+            type: string
+            format: uuid
+        - name: limit
+          in: query
+          description: Maximum dealers returned, default 20.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+      responses:
+        '200':
+          description: Nearby dealers, nearest first.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NearbyDealerList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Page size (default and maximum depend on the endpoint).
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque cursor from a previous page's next_cursor.
+      schema:
+        type: string
+        maxLength: 200
+    Limit200:
+      name: limit
+      in: query
+      description: Page size, default 50, maximum 200.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 200
+    ActiveFilter:
+      name: active
+      in: query
+      description: Only active (true) or only inactive (false) rows; omit for both.
+      schema:
+        type: boolean
+    Search:
+      name: q
+      in: query
+      description: Case-insensitive name (or code) substring.
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 100
+    CropID:
+      name: crop_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    SaltID:
+      name: salt_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    SkuID:
+      name: sku_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    IssueID:
+      name: issue_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    DealerID:
+      name: dealer_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    RuleID:
+      name: rule_id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorBody'
+    ErrorBody:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          description: Stable machine-readable code (not_found, validation_failed, conflict, version_mismatch, ...).
+          example: validation_failed
+        message:
+          type: string
+          description: Human-readable English message.
+        details:
+          type: object
+          additionalProperties: true
+          description: 'Optional context, e.g. {"fields": {"phone": "invalid"}}.'
+    MastersVersion:
+      type: object
+      required: [version, updated_at]
+      properties:
+        version:
+          type: integer
+          format: int64
+        updated_at:
+          type: string
+          format: date-time
+
+    StageView:
+      type: object
+      required: [id, code, name, name_te, seq, start_day, end_day, active]
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+        name:
+          type: string
+        name_te:
+          type: string
+        seq:
+          type: integer
+          format: int32
+        start_day:
+          type: integer
+          format: int32
+          description: Days after sowing, inclusive.
+        end_day:
+          type: integer
+          format: int32
+          description: Days after sowing, inclusive.
+        active:
+          type: boolean
+    StageSpec:
+      type: object
+      required: [code, name, name_te, start_day, end_day]
+      properties:
+        code:
+          type: string
+          pattern: '^[a-z][a-z0-9_]{0,39}$'
+        name:
+          type: string
+          minLength: 1
+          maxLength: 80
+        name_te:
+          type: string
+          minLength: 1
+          maxLength: 80
+        start_day:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 1000
+        end_day:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 1000
+    StagesReplace:
+      type: object
+      required: [stages]
+      properties:
+        stages:
+          type: array
+          minItems: 1
+          maxItems: 30
+          items:
+            $ref: '#/components/schemas/StageSpec'
+
+    CropView:
+      type: object
+      required: [id, code, name, name_te, duration_days, active, created_at, stages]
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+        name:
+          type: string
+        name_te:
+          type: string
+        duration_days:
+          type: integer
+          format: int32
+          nullable: true
+        active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        stages:
+          type: array
+          description: Calendar order; active stages first.
+          items:
+            $ref: '#/components/schemas/StageView'
+    CropCreate:
+      type: object
+      required: [code, name, name_te]
+      properties:
+        code:
+          type: string
+          pattern: '^[a-z][a-z0-9_]{0,39}$'
+          example: cotton
+        name:
+          type: string
+          minLength: 1
+          maxLength: 80
+        name_te:
+          type: string
+          minLength: 1
+          maxLength: 80
+        duration_days:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 1000
+        stages:
+          type: array
+          maxItems: 30
+          items:
+            $ref: '#/components/schemas/StageSpec'
+    CropUpdate:
+      type: object
+      minProperties: 1
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 80
+        name_te:
+          type: string
+          minLength: 1
+          maxLength: 80
+        duration_days:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 1000
+        active:
+          type: boolean
+    CropPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CropView'
+        next_cursor:
+          type: string
+          nullable: true
+
+    SaltView:
+      type: object
+      required: [id, name, name_te, active, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          example: Mancozeb 75% WP
+        name_te:
+          type: string
+          nullable: true
+        active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+    SaltCreate:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        name_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+    SaltUpdate:
+      type: object
+      minProperties: 1
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        name_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+        active:
+          type: boolean
+    SaltPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaltView'
+        next_cursor:
+          type: string
+          nullable: true
+
+    SkuView:
+      type: object
+      required: [id, code, product_name, product_name_te, salt_id, pack_size, mrp_paise, cashback_eligible, active,
+                 created_at, updated_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+          example: SH-EB-250
+        product_name:
+          type: string
+        product_name_te:
+          type: string
+          nullable: true
+        salt_id:
+          type: string
+          format: uuid
+        pack_size:
+          type: string
+          example: 250 g
+        mrp_paise:
+          type: integer
+          format: int64
+          description: MRP per pack in paise. The cashback cap is 5% of MRP x quantity.
+        cashback_eligible:
+          type: boolean
+        active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    SkuCreate:
+      type: object
+      required: [code, product_name, salt_id, pack_size, mrp_paise]
+      properties:
+        code:
+          type: string
+          pattern: '^[A-Z0-9][A-Z0-9-]{1,39}$'
+        product_name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        product_name_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+        salt_id:
+          type: string
+          format: uuid
+        pack_size:
+          type: string
+          minLength: 1
+          maxLength: 40
+        mrp_paise:
+          $ref: '#/components/schemas/MrpPaise'
+        cashback_eligible:
+          type: boolean
+          default: true
+    SkuUpdate:
+      type: object
+      minProperties: 1
+      properties:
+        product_name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        product_name_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+        salt_id:
+          type: string
+          format: uuid
+        pack_size:
+          type: string
+          minLength: 1
+          maxLength: 40
+        mrp_paise:
+          $ref: '#/components/schemas/MrpPaise'
+        cashback_eligible:
+          type: boolean
+        active:
+          type: boolean
+    MrpPaise:
+      type: integer
+      format: int64
+      minimum: 1
+      maximum: 10000000
+      description: MRP per pack in paise, at most Rs 1,00,000 (10000000 paise).
+    SkuPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SkuView'
+        next_cursor:
+          type: string
+          nullable: true
+
+    IssueType:
+      type: string
+      enum: [pest, disease, deficiency]
+    IssueView:
+      type: object
+      required: [id, crop_id, type, name, name_te, active, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        crop_id:
+          type: string
+          format: uuid
+        type:
+          $ref: '#/components/schemas/IssueType'
+        name:
+          type: string
+        name_te:
+          type: string
+        active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+    IssueCreate:
+      type: object
+      required: [crop_id, type, name, name_te]
+      properties:
+        crop_id:
+          type: string
+          format: uuid
+        type:
+          $ref: '#/components/schemas/IssueType'
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        name_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+    IssueUpdate:
+      type: object
+      minProperties: 1
+      properties:
+        type:
+          $ref: '#/components/schemas/IssueType'
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        name_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+        active:
+          type: boolean
+    IssuePage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/IssueView'
+        next_cursor:
+          type: string
+          nullable: true
+
+    GeoPoint:
+      type: object
+      required: [lat, lng]
+      properties:
+        lat:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+        lng:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+    DealerStatus:
+      type: string
+      enum: [to_verify, active, inactive]
+    DealerView:
+      type: object
+      required: [id, name, name_te, phone, village_id, village_name, mandal_name, location, status, source, sku_ids,
+                 created_at, updated_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        name_te:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+          description: E.164.
+        village_id:
+          type: string
+          format: uuid
+          nullable: true
+        village_name:
+          type: string
+          nullable: true
+        mandal_name:
+          type: string
+          nullable: true
+        location:
+          type: object
+          nullable: true
+          required: [lat, lng]
+          properties:
+            lat:
+              type: number
+              format: double
+            lng:
+              type: number
+              format: double
+        status:
+          $ref: '#/components/schemas/DealerStatus'
+        source:
+          type: string
+          enum: [ho, farmer_bill]
+        sku_ids:
+          type: array
+          items:
+            type: string
+            format: uuid
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    DealerCreate:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        name_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+        phone:
+          type: string
+          minLength: 10
+          maxLength: 20
+        village_id:
+          type: string
+          format: uuid
+        location:
+          $ref: '#/components/schemas/GeoPoint'
+        status:
+          $ref: '#/components/schemas/DealerStatus'
+        sku_ids:
+          type: array
+          maxItems: 500
+          items:
+            type: string
+            format: uuid
+    DealerUpdate:
+      type: object
+      minProperties: 1
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        name_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+        phone:
+          type: string
+          minLength: 10
+          maxLength: 20
+        village_id:
+          type: string
+          format: uuid
+        location:
+          $ref: '#/components/schemas/GeoPoint'
+        status:
+          $ref: '#/components/schemas/DealerStatus'
+        sku_ids:
+          type: array
+          maxItems: 500
+          items:
+            type: string
+            format: uuid
+    DealerPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DealerView'
+        next_cursor:
+          type: string
+          nullable: true
+
+    RuleStatus:
+      type: string
+      enum: [draft, approved, superseded, rejected]
+    RuleView:
+      type: object
+      description: >-
+        One version of an issue -> salt -> product rule. sku_id null means
+        "salt only". status approved means live.
+      required: [id, rule_key, version, issue_id, crop_id, issue_type, issue_name, issue_name_te, salt_id, salt_name,
+                 salt_name_te, sku_id, sku_code, product_name, product_name_te, dose_per_acre, dose_per_acre_te,
+                 status, change_note, created_by, created_at, submitted_by, submitted_at, approved_by, approved_at,
+                 rejected_by, rejected_at, review_note]
+      properties:
+        id:
+          type: string
+          format: uuid
+        rule_key:
+          type: string
+          format: uuid
+          description: Stable identity across versions.
+        version:
+          type: integer
+          format: int32
+        issue_id:
+          type: string
+          format: uuid
+        crop_id:
+          type: string
+          format: uuid
+        issue_type:
+          $ref: '#/components/schemas/IssueType'
+        issue_name:
+          type: string
+        issue_name_te:
+          type: string
+        salt_id:
+          type: string
+          format: uuid
+        salt_name:
+          type: string
+        salt_name_te:
+          type: string
+          nullable: true
+        sku_id:
+          type: string
+          format: uuid
+          nullable: true
+        sku_code:
+          type: string
+          nullable: true
+        product_name:
+          type: string
+          nullable: true
+        product_name_te:
+          type: string
+          nullable: true
+        dose_per_acre:
+          type: string
+        dose_per_acre_te:
+          type: string
+        status:
+          $ref: '#/components/schemas/RuleStatus'
+        change_note:
+          type: string
+          nullable: true
+        created_by:
+          type: string
+          format: uuid
+        created_at:
+          type: string
+          format: date-time
+        submitted_by:
+          type: string
+          format: uuid
+          nullable: true
+        submitted_at:
+          type: string
+          format: date-time
+          nullable: true
+        approved_by:
+          type: string
+          format: uuid
+          nullable: true
+        approved_at:
+          type: string
+          format: date-time
+          nullable: true
+        rejected_by:
+          type: string
+          format: uuid
+          nullable: true
+        rejected_at:
+          type: string
+          format: date-time
+          nullable: true
+        review_note:
+          type: string
+          nullable: true
+    RuleCreate:
+      type: object
+      required: [issue_id, salt_id, dose_per_acre, dose_per_acre_te]
+      properties:
+        rule_key:
+          type: string
+          format: uuid
+          description: Omit to start a new rule; set to draft its next version.
+        issue_id:
+          type: string
+          format: uuid
+        salt_id:
+          type: string
+          format: uuid
+        sku_id:
+          type: string
+          format: uuid
+          nullable: true
+          description: Shanmukha SKU containing the salt; omit or null for "salt only".
+        dose_per_acre:
+          type: string
+          minLength: 1
+          maxLength: 120
+          example: 80 g per acre
+        dose_per_acre_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+          example: ఎకరానికి 80 గ్రా
+        change_note:
+          type: string
+          maxLength: 500
+    RuleDraftUpdate:
+      type: object
+      required: [salt_id, sku_id, dose_per_acre, dose_per_acre_te, change_note]
+      properties:
+        salt_id:
+          type: string
+          format: uuid
+        sku_id:
+          type: string
+          format: uuid
+          nullable: true
+        dose_per_acre:
+          type: string
+          minLength: 1
+          maxLength: 120
+        dose_per_acre_te:
+          type: string
+          minLength: 1
+          maxLength: 120
+        change_note:
+          type: string
+          maxLength: 500
+          nullable: true
+    RuleReview:
+      type: object
+      properties:
+        note:
+          type: string
+          maxLength: 500
+    RuleRejection:
+      type: object
+      required: [note]
+      properties:
+        note:
+          type: string
+          minLength: 1
+          maxLength: 500
+    RulePage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleView'
+        next_cursor:
+          type: string
+          nullable: true
+
+    FarmerStage:
+      type: object
+      required: [id, code, name_te, name, seq, start_day, end_day]
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+        name_te:
+          type: string
+        name:
+          type: string
+        seq:
+          type: integer
+          format: int32
+        start_day:
+          type: integer
+          format: int32
+        end_day:
+          type: integer
+          format: int32
+    FarmerCrop:
+      type: object
+      required: [id, code, name_te, name, duration_days, stages]
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+        name_te:
+          type: string
+        name:
+          type: string
+        duration_days:
+          type: integer
+          format: int32
+          nullable: true
+        stages:
+          type: array
+          items:
+            $ref: '#/components/schemas/FarmerStage'
+    FarmerCropList:
+      type: object
+      required: [version, items, season_codes]
+      properties:
+        version:
+          type: integer
+          format: int64
+          description: Masters version the list was built from.
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FarmerCrop'
+        season_codes:
+          $ref: '#/components/schemas/SeasonCodes'
+    SeasonCodes:
+      type: object
+      description: >-
+        Season codes to offer when a season is started, from today's IST date. Calendar:
+        summer-YYYY 1 Apr-31 May, kharif-YYYY 1 Jun-31 Oct, rabi-YYYY-YY 1 Nov-31 Mar (YYYY is the
+        November's year). all_open is previous, current and next, oldest first (a crop sown last
+        season may still be standing). valid_until is the last day of current. The FA snapshot's
+        masters section carries the same object as season_codes.
+      required: [current, next, all_open, valid_until]
+      properties:
+        current:
+          type: string
+          example: kharif-2026
+        next:
+          type: string
+          example: rabi-2026-27
+        all_open:
+          type: array
+          items:
+            type: string
+          example: [summer-2026, kharif-2026, rabi-2026-27]
+        valid_until:
+          type: string
+          format: date
+          example: '2026-10-31'
+    NearbyDealerView:
+      type: object
+      required: [id, name_te, name, phone, location, distance_m]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name_te:
+          type: string
+          nullable: true
+        name:
+          type: string
+        phone:
+          type: string
+          nullable: true
+        location:
+          $ref: '#/components/schemas/GeoPoint'
+        distance_m:
+          type: integer
+          format: int32
+          description: Straight-line distance in metres.
+    NearbyDealerList:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NearbyDealerView'
+  responses:
+    BadRequest:
+      description: The request is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing, invalid or expired token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Authenticated but not allowed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Conflict:
+      description: State conflict (version mismatch, duplicate, wrong status).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    TooManyRequests:
+      description: Rate limited; see Retry-After.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

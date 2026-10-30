@@ -1,0 +1,9 @@
+# oapi-codegen config for the audit module. Run via `make gen` (go generate).
+# Spec: contracts/openapi/audit.yaml (repo root).
+package: audit
+output: api.gen.go
+generate:
+  models: true
+  chi-server: true
+  strict-server: true
+  embedded-spec: true

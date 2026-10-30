@@ -1,0 +1,11 @@
+.env
+.data/
+/backend/bin/
+.DS_Store
+
+# Wireframe HTML files (about 20 MB) stay out of the repo; text extracts live in docs/source/.
+/docs/source/originals/*.html
+
+# Python bytecode from tools/
+__pycache__/
+*.pyc

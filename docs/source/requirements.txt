@@ -1,0 +1,861 @@
+['word/', 'word/_rels/', 'word/_rels/document.xml.rels', 'word/document.xml', 'word/styles.xml', 'docProps/', 'docProps/core.xml', 'word/numbering.xml', '_rels/', '_rels/.rels', 'word/_rels/header1.xml.rels', 'word/_rels/footer1.xml.rels', 'word/header1.xml', 'word/footer1.xml', '[Content_Types].xml', 'docProps/custom.xml', 'docProps/app.xml', 'word/footnotes.xml', 'word/_rels/footnotes.xml.rels', 'word/endnotes.xml', 'word/_rels/endnotes.xml.rels', 'word/settings.xml', 'word/comments.xml', 'word/_rels/comments.xml.rels', 'word/fontTable.xml', 'word/_rels/fontTable.xml.rels']
+media: ['word/media/', 'word/media/60166c450a9ea1aaa43ccc242090638b3a6596b1.jpg', 'word/media/040a7b34edcbda0542b1d49d9ce9ad73445ea420.jpg', 'word/media/8f336e25669af10069809b89a23609ddd6e8f76a.jpg', 'word/media/e0cbf5d8bb13a8749dc313a157ca43a62786628c.jpg', 'word/media/1a2c63e3c1dc98d740890d3749ed673b01ab7261.jpg', 'word/media/7f934dbfb57dace23e3df851131f0791334851ef.jpg', 'word/media/c1f2c86a8eded0e024d74908a1e48e6cea3ee0c4.jpg', 'word/media/1888916454b8329dc893d54655333fbfc42ea1c9.jpg', 'word/media/da452bdb6dfa4379e6476f9cfafdd127d61720d0.jpg', 'word/media/2e6c5e6090585213b7d790140dcae69e168ba87e.jpg', 'word/media/1b86118ab54ce915740818eae8edd402bf037554.jpg', 'word/media/0477f34ec0549b52efbaed9fdae455ccca4ed76e.jpg', 'word/media/871199e90323c180e2f7c08a74f3f65292c79c74.jpg', 'word/media/487c6cf31cbcbe65815cf8b9f042a70094792b90.jpg', 'word/media/c62d15c1a113f37bfba8d11f2fd9b5841f6f299d.jpg', 'word/media/e6704d70ed4cf2ab7698853b6f68aee75f87dc43.jpg', 'word/media/d0acc3a94afd5d5d8a392d133cd04652b406456a.jpg']
+ORBIT SHIFTING
+App Development Requirements
+Farmer app  |  Field Assistant (FA) app  |  Admin dashboard
+Item
+Detail
+Organisation
+Shanmukha Agritec Limited
+Programme
+Orbit Shifting (Orbit Shift)
+Document type
+Business and functional requirements, screen by screen
+Source
+Orbit Shift App Development Overview deck (18 slides), which combines the App Development Blueprint, the Farmer App UI Draft and the Minutes of Meeting dated 17-10-26
+Version / date
+Version 1.0  |  26 October 2026
+Status
+Draft for review by Business, Agronomy, Finance, Operations and Tech teams
+Priority key:  Must = needed for the release it belongs to  ·  Should = important, can follow  ·  TBC = agreed in the MoM, release phase not yet fixed
+Contents
+1. Introduction
+2. System overview
+3. What each interface must do
+4. Farmer app requirements
+5. Plans, Premium and access control
+6. Field Assistant (FA) app requirements
+7. Admin dashboard requirements
+8. Cross-interface workflows
+9. Partner feeds and payments
+10. Data requirements
+11. Non-functional requirements and build approach
+12. Build roadmap
+13. Open decisions and points to confirm
+Appendix A. Requirement ID summary
+Heading1: 1. Introduction
+Heading2: 1.1 Purpose
+This document states what the Orbit Shifting app must do, in a form the development team, vendors and internal stakeholders can plan, build and test against. It follows the App Development Overview deck screen by screen and includes the decisions from the meeting of 17-10-26.
+Heading2: 1.2 Product in one line
+One farmer-first app on one Orbit backend, with three interfaces (Farmer, Field Assistant and Admin), four partner feeds plus Razorpay payments, Free and Premium plans, and 5% cashback on eligible Shanmukha products.
+Heading2: 1.3 The three interfaces
+Interface
+Users
+Platform
+Main job
+Farmer app
+Registered farmers
+Android, Telugu first, voice help
+Get advice, services and help from the FA; pay and earn cashback
+Field Assistant (FA) app
+Company field staff
+Android, works offline
+Find farmers, plan and log visits, give salt-first advice, verify invoices
+Admin dashboard
+Head Office (HO) team
+Web portal with a mobile view
+Manage people, logins, advisory, services, cashback and analytics
+Heading2: 1.4 Definitions
+Term
+Meaning
+FA
+Field Assistant, allocated to farmers by village, mandal or district
+HO
+Head Office team using the Admin dashboard
+CIV
+Source of crop advisory notices alongside HO, as named in the MoM of 17-10-26 (full form to be confirmed)
+Salt
+Active ingredient recommended for a pest, disease or deficiency
+SKU master
+Admin-managed list of Shanmukha products eligible for cashback
+Self-KYC
+Identity check done by the farmer before the first cashback payout
+Razorpay
+Payment gateway for Premium plans and services, inside the app
+MoM
+Minutes of Meeting dated 17-10-26
+Heading1: 2. System overview
+All three interfaces read and write the same farmer record on one Orbit backend. Each partner connects through its own adapter, so a partner can change without changing the apps.
+ [IMAGE]
+Figure 1: One platform, three interfaces
+Heading2: 2.1 Orbit Core Platform modules
+Module
+Responsibility
+Login &amp; roles
+Phone/OTP login for farmers, issued logins for FAs, role-based access for HO
+Farmer &amp; farm profiles
+Farmer, plots, location, acreage, assigned FA
+Crop calendar &amp; alerts
+Crop stages, reminders and rule-based alerts
+Visits &amp; advisory
+Visit plans, visit logs, issues, salt recommendations, advisory notices
+Salt-to-product master
+Mapping of salts to Shanmukha products
+Plans &amp; entitlements
+Free and Premium plans; which features each plan opens
+Purchases &amp; cashback
+Invoices, verification, 5% cashback ledger, payouts
+Analytics &amp; reports
+Activation, visits, advice follow-through, conversion
+ID
+Requirement
+Acceptance criteria
+Priority
+SYS-01
+All three interfaces shall use one backend and one farmer database.
+A change made in any interface is visible in the other two without re-entry.
+Must
+SYS-02
+Each partner feed shall connect through its own adapter with caching, retries and monitoring.
+Switching a partner needs no app release.
+Must
+SYS-03
+Every record shall carry Farmer ID + Plot ID + Season ID.
+Any visit, advice or purchase can be traced to one farm and season.
+Must
+Heading1: 3. What each interface must do
+Each role sees only what it needs. Items marked (MoM) were agreed in the meeting of 17-10-26.
+ [IMAGE]
+Figure 2: Responsibilities of the three interfaces
+Farmer app
+FA app
+Admin dashboard
+Phone-number login (MoM)
+Login issued by HO (MoM)
+Farmers, villages, FAs, roles
+Free &amp; Premium tiers (MoM)
+Same login to replacement FA (MoM)
+Issue &amp; reassign FA logins (MoM)
+Look for FAs + call (MoM)
+Farmers near me + call (MoM)
+New-farmer alert (MoM)
+My visits (MoM)
+Visit calendar &amp; tracking (MoM)
+Send crop advisory (MoM)
+My Crop Advisory, HO &amp; CIV (MoM)
+New-farmer alert (MoM)
+Crop-stage alert rules
+AI bot (MoM)
+Enrol farmer, geotag plot
+Service requests &amp; proof
+Premium &amp; services via Razorpay (MoM)
+Visit &amp; crop-stage log
+Plans, cashback, KYC
+Calendar, weather, soil, schemes
+Recommend salt, see product
+Salt-to-product master
+Wallet, 5% cashback, UPI
+Works offline, syncs later
+Engagement analytics
+Heading1: 4. Farmer app requirements
+Design rules for every farmer screen: icons first and words second; Telugu by default with a speaker button; big, high-contrast buttons; one task per screen; light on data; the FA always one tap away.
+Heading2: 4.1 Sign in, home and finding the FA
+ [IMAGE]
+Figure 3: Farmer app screens 1–3: login, home, Look for FAs
+Heading3: Screen 1: Phone + OTP login
+Purpose: First screen. Farmer signs in with a mobile number; no password or long form.
+Screen elements:
+ListParagraph: - Language chip (Telugu default)
+ListParagraph: - Orbit Shifting logo and tagline
+ListParagraph: - Mobile number field with +91 prefix
+ListParagraph: - Send OTP button; 6-digit OTP boxes; Verify &amp; continue
+ListParagraph: - Hear instructions (voice) link
+ID
+Requirement
+Acceptance criteria
+Priority
+FAR-01
+Farmers shall log in with their phone number and a 6-digit OTP sent by SMS. (MoM)
+Login works with a valid number and OTP; wrong OTP is rejected; resend is offered after 30 seconds.
+Must
+FAR-02
+The app shall default to Telugu and offer language change on the login screen.
+Language choice persists after login.
+Must
+FAR-03
+A voice button shall read each step aloud.
+Tapping it plays the instructions for the current step.
+Must
+FAR-04
+Farmer consent shall be captured at registration.
+No data reaches a vendor without a stored consent record.
+Must
+Heading3: Screen 2: Home and services
+Purpose: Everything a farmer needs daily, visible without scrolling.
+Screen elements:
+ListParagraph: - Greeting with name, village, crop and acreage; notification bell
+ListParagraph: - Weather strip (temperature and rain outlook) with plan badge (Free/Premium)
+ListParagraph: - Nine service tiles: Calendar, Soil Test, Weather, Pest Help, Schemes, Wallet, Services, AI Bot, Advisory
+ListParagraph: - Padlock on tiles that need Premium or payment
+ListParagraph: - “Your FA” card with call button and Look for FAs link
+ListParagraph: - Bottom tabs: Home, Visits, Advisory, Wallet
+ID
+Requirement
+Acceptance criteria
+Priority
+FAR-05
+Home shall show the farmer’s name, village, crop, acreage, plan and local weather.
+Values match the farmer profile and the weather feed for the farm location.
+Must
+FAR-06
+Service tiles shall show a padlock when the farmer’s plan does not include them.
+Tapping a locked tile opens the upgrade or pay screen.
+Must
+FAR-07
+Home shall show the assigned FA with a one-tap call button.
+Call opens the phone dialler with the FA’s number.
+Must
+Heading3: Screen 3: Look for FAs
+Purpose: Shows the FAs allocated to the farmer’s area and lets the farmer contact them.
+Screen elements:
+ListParagraph: - Filter: Village / Mandal / District
+ListParagraph: - FA cards: name, level and area, distance, working hours or languages
+ListParagraph: - Call and chat buttons on each card
+ListParagraph: - Hint: tap call to reach your FA directly
+ID
+Requirement
+Acceptance criteria
+Priority
+FAR-08
+“Look for FAs” shall list FAs allocated to the farmer’s village, mandal or district. (MoM)
+Changing the filter updates the list; list comes from Admin allocation.
+Must
+FAR-09
+Farmers shall be able to call the FA directly from this page. (MoM)
+Call button opens the dialler; chat opens the chosen chat app.
+Must
+Heading2: 4.2 Visits, advisory and AI help
+ [IMAGE]
+Figure 4: Farmer app screens 4–6: My visits, My Crop Advisory, AI bot
+Heading3: Screen 4: My visits
+Purpose: Shows every visit the FA has made to the farmer’s farm or plot.
+Screen elements:
+ListParagraph: - Plot selector (plot, crop, acreage)
+ListParagraph: - Next visit banner with date and “FA will call before” note
+ListParagraph: - Timeline of past visits: date, FA name, crop stage, issue, advice given, photo count
+ID
+Requirement
+Acceptance criteria
+Priority
+FAR-10
+Farmers shall view visits made by their FA to each farm/plot. (MoM)
+Each saved FA visit log appears on the farmer’s timeline for that plot.
+Must
+FAR-11
+The next planned visit shall be shown when the FA has scheduled one.
+Banner shows the date from the FA calendar.
+Should
+Heading3: Screen 5: My Crop Advisory
+Purpose: Receives advisory notices from HO and CIV as notifications.
+Screen elements:
+ListParagraph: - Notification cards tagged HO or CIV, with time received
+ListParagraph: - Title and short instruction on each card
+ListParagraph: - Personal notices addressed to the farmer and plot
+ListParagraph: - Note that notices are tagged to the farmer ID
+ID
+Requirement
+Acceptance criteria
+Priority
+FAR-12
+“My Crop Advisory” shall receive advisory from HO and CIV as push and in-app notifications. (MoM)
+A notice sent from Admin appears on targeted farmers’ phones and in the list.
+Must
+FAR-13
+Each notice shall be tagged to the farmer ID so the farmer is identified. (MoM)
+Admin can see which farmers received each notice.
+Must
+Heading3: Screen 6: AI bot
+Purpose: Answers farmer queries in Telugu or English, by text or voice.
+Screen elements:
+ListParagraph: - Chat bubbles for bot and farmer
+ListParagraph: - Quick replies: Send photo, Call FA
+ListParagraph: - Input bar with microphone
+ID
+Requirement
+Acceptance criteria
+Priority
+FAR-14
+The app shall include an AI bot for farmer queries. (MoM)
+Bot answers common crop questions; scope to be confirmed.
+TBC
+FAR-15
+The bot shall offer to send a photo or call the FA when it cannot resolve a query.
+Hand-off buttons appear in the conversation.
+TBC
+Heading2: 4.3 Premium, services and wallet
+ [IMAGE]
+Figure 5: Farmer app screens 7–9: plans, services, wallet
+Heading3: Screen 7: Choose your plan
+Purpose: Lets the farmer upgrade from Free to Premium and pay in the app.
+Screen elements:
+ListParagraph: - Free card (current plan) with included features
+ListParagraph: - Premium card with features and price per season (price TBC)
+ListParagraph: - Pay with Razorpay button; UPI, cards, net banking
+ListParagraph: - Note: unlocks instantly after payment
+ID
+Requirement
+Acceptance criteria
+Priority
+FAR-16
+Farmers shall have two tiers: Free and Premium. (MoM)
+Plan badge and locked tiles reflect the current tier.
+Must
+FAR-17
+Farmers shall pay for Premium inside the app through Razorpay. (MoM)
+Successful payment upgrades the plan immediately; failure leaves the plan unchanged.
+Must
+Heading3: Screen 8: Services
+Purpose: Book add-on services and pay for services taken.
+Screen elements:
+ListParagraph: - Book a service: Soil testing, Drone spraying, Sticky traps &amp; kits, Weather station
+ListParagraph: - Services taken: service, date, plot, amount due, Pay now
+ListParagraph: - Paid services marked as paid
+ID
+Requirement
+Acceptance criteria
+Priority
+FAR-18
+A Services section shall let farmers book services and pay for services taken. (MoM)
+Paid status updates after Razorpay confirms payment; Admin sees the same status.
+Must
+Heading3: Screen 9: Wallet and cashback
+Purpose: Shows cashback earned on Shanmukha products and lets the farmer withdraw.
+Screen elements:
+ListParagraph: - Available balance
+ListParagraph: - Pending, Withdrawn and Reversed amounts
+ListParagraph: - Upload invoice and Withdraw to UPI buttons
+ListParagraph: - Recent invoices with status; self-KYC status
+ID
+Requirement
+Acceptance criteria
+Priority
+FAR-19
+Farmers shall upload invoices with product and dealer details to claim 5% cashback.
+Invoice enters the verification queue with status Pending.
+Must
+FAR-20
+The wallet shall show Pending, Available, Withdrawn and Reversed balances.
+Balances match the cashback ledger.
+Must
+FAR-21
+Farmers shall complete self-KYC before the first UPI withdrawal.
+Withdraw is blocked until KYC is complete.
+Must
+Heading1: 5. Plans, Premium and access control
+Free to start, paid for depth. The server checks the farmer’s plan before any feature opens.
+ [IMAGE]
+Figure 6: Free vs Premium vs add-on services
+Free: acquire and activate
+Premium: recurring value
+Add-on services: pay per delivery
+Farmer and farm profile
+Personalised stage advisory
+Soil testing
+Crop calendar, reminders
+Soil report interpretation
+Drone spraying
+FA contact and callback
+Weather and risk alerts
+Monitoring kits, sticky traps
+Look for FAs, My visits
+Priority FA follow-up
+Personal weather-station packages
+Browse schemes
+Multiple plots and crops
+Other field services
+Purchase history, wallet
+Heading3: Access flow
+ListParagraph: - Farmer opens a feature
+ListParagraph: - Server checks the plan
+ListParagraph: - If included, the feature opens
+ListParagraph: - If not included, the upgrade screen is shown
+ListParagraph: - Farmer pays via Razorpay and the feature unlocks at once
+ID
+Requirement
+Acceptance criteria
+Priority
+PLN-01
+Plan checks shall run on the server for every gated feature.
+A modified app cannot open Premium features without a valid plan.
+Must
+PLN-02
+Admins shall configure plans, prices and what Premium includes.
+Changes apply to new purchases without an app release.
+Must
+Heading1: 6. Field Assistant (FA) app requirements
+Heading2: 6.1 Login, nearby farmers and visit calendar
+ [IMAGE]
+Figure 7: FA app screens 1–3: login, farmers near me, visit calendar
+Heading3: Screen 1: Issued login
+Purpose: FA signs in with credentials given by HO; no self sign-up.
+Screen elements:
+ListParagraph: - Login ID and password fields
+ListParagraph: - Log in button; “Works offline” tag
+ListParagraph: - Note: login issued by HO; handed to the new FA if an FA is replaced
+ID
+Requirement
+Acceptance criteria
+Priority
+FA-01
+FA credentials shall be issued to each FA by HO; FAs cannot self-register. (MoM)
+Only IDs created in Admin can log in.
+TBC
+FA-02
+When an FA is replaced, the same credentials shall be handed to the replacement FA. (MoM)
+After reassignment, the new FA logs in with the same ID and sees the allocated farmers.
+TBC
+Heading3: Screen 2: Farmers near me
+Purpose: Shows farmers in and around the FA’s location.
+Screen elements:
+ListParagraph: - Map with FA position and farmer pins
+ListParagraph: - New-farmer banner (e.g. “Raju P joined today”)
+ListParagraph: - Farmer list: name, distance, crop, plot, call button
+ID
+Requirement
+Acceptance criteria
+Priority
+FA-03
+FAs shall view farmers in and around their location on a map and list. (MoM)
+List is sorted nearest first and limited to the FA’s allocated area.
+TBC
+FA-04
+FAs shall call a farmer from the list to inform them about a visit. (MoM)
+Call button opens the dialler.
+TBC
+Heading3: Screen 3: Visit calendar
+Purpose: Keeps track of every planned visit.
+Screen elements:
+ListParagraph: - Week strip with today highlighted
+ListParagraph: - Confirmation: “Called Ravi K, visit added to calendar”
+ListParagraph: - Visits for the day: time, farmer, plot, purpose, status (Planned / New / Done)
+ListParagraph: - Add visit button
+ID
+Requirement
+Acceptance criteria
+Priority
+FA-05
+A visit agreed on the call shall be added to the FA calendar so that visits are tracked. (MoM)
+Visit appears in the FA calendar and in the farmer’s My visits as the next visit.
+TBC
+Heading2: 6.2 Enrolment, visit log and alerts
+ [IMAGE]
+Figure 8: FA app screens 4–6: enrol and geotag, visit log, alerts
+Heading3: Screen 4: Enrol farmer and geotag
+Purpose: FA registers a farmer, the farm boundary and the crop in three steps.
+Screen elements:
+ListParagraph: - Steps: Farmer, Farm, Crop
+ListParagraph: - Farmer name and mobile; village and mandal
+ListParagraph: - Geotag plot on a map with area (acres)
+ListParagraph: - Save &amp; next; “saved offline, syncs when online”
+ID
+Requirement
+Acceptance criteria
+Priority
+FA-06
+FAs shall enrol farmers and geotag plots, recording crop and sowing date.
+Plot boundary and area are saved against the farmer.
+Must
+FA-07
+Enrolment shall work offline and sync when online.
+Records captured offline appear in Admin after sync without duplicates.
+Must
+Heading3: Screen 5: Visit log and advice
+Purpose: Records what the FA saw and advised on each visit.
+Screen elements:
+ListParagraph: - Crop stage selector
+ListParagraph: - Issue type: Pest / Disease / Deficiency; issue name and severity
+ListParagraph: - Photo capture
+ListParagraph: - Recommend salt from the approved list
+ListParagraph: - Result: Shanmukha product found and shown to the farmer, or salt only
+ListParagraph: - Save visit (works offline)
+ID
+Requirement
+Acceptance criteria
+Priority
+FA-08
+FAs shall log crop stage, issue, severity and photos for each visit.
+Saved log appears in the farmer’s My visits.
+Must
+FA-09
+FAs shall pick a salt from the approved list; the system shall show the matching Shanmukha product if one exists.
+If no product exists, only the salt is shown; no competitor brand is shown or stored.
+Must
+Heading3: Screen 6: Alerts
+Purpose: Brings new farmers, invoices to verify and HO notes to the FA.
+Screen elements:
+ListParagraph: - New farmer card with Call and Plan visit buttons; note “also sent to HO”
+ListParagraph: - Invoice card with Approve / Reject
+ListParagraph: - HO note card
+ID
+Requirement
+Acceptance criteria
+Priority
+FA-10
+When a farmer joins, the FA and HO (Admin) shall both be alerted. (MoM)
+Alert reaches the allocated FA and the Admin dashboard within minutes of registration.
+TBC
+FA-11
+FAs shall verify farmer invoices (eligible product, valid, not a duplicate).
+Approved invoices move to HO check; rejected ones notify the farmer.
+Must
+Heading1: 7. Admin dashboard requirements
+The dashboard runs as a web portal for HO, with the same modules available in a mobile view (shown in the figures).
+Heading2: 7.1 Overview, people and advisory
+ [IMAGE]
+Figure 9: Admin screens 1–3: overview, FAs and logins, send advisory
+Heading3: Screen 1: Overview and alerts
+Purpose: Live status of the programme and new farmers.
+Screen elements:
+ListParagraph: - KPI tiles: farmers, Premium farmers, active FAs, visits per week
+ListParagraph: - Visits per day chart
+ListParagraph: - New farmer alerts with the FA notified
+Heading3: Screen 2: FAs and logins
+Purpose: Manage FAs, their logins and their areas.
+Screen elements:
+ListParagraph: - Search by FA, village or mandal
+ListParagraph: - FA list: name, login ID, area, status (Active / Reassign)
+ListParagraph: - Hand over login card: Reassign, Allocate area
+Heading3: Screen 3: Send crop advisory
+Purpose: Send advisory notices to targeted farmers.
+Screen elements:
+ListParagraph: - From: HO or CIV
+ListParagraph: - Target by crop, area and crop stage; count of farmers reached
+ListParagraph: - Message box; channels Push, SMS, In-app
+ListParagraph: - Send advisory; automatic crop-stage rule shown
+ID
+Requirement
+Acceptance criteria
+Priority
+ADM-01
+The overview shall show farmers, Premium farmers, active FAs and visits, with new-farmer alerts.
+Numbers match the database; alerts appear when farmers register.
+Must
+ADM-02
+HO (Admin) shall be alerted whenever a farmer joins. (MoM)
+Alert names the farmer, area and the FA notified.
+TBC
+ADM-03
+Admins shall create FA logins and reassign a login to a replacement FA. (MoM)
+Reassigned login keeps the allocated farmers; the old user can no longer log in.
+TBC
+ADM-04
+Admins shall allocate FAs to villages, mandals and districts.
+Allocation drives Look for FAs and Farmers near me.
+Must
+ADM-05
+HO shall send advisory as HO or CIV to farmers filtered by crop, area and stage, by push, SMS and in-app. (MoM)
+Targeted farmers receive the notice in My Crop Advisory; reach count is recorded.
+TBC
+Heading2: 7.2 Operations, masters and analytics
+ [IMAGE]
+Figure 10: Admin screens 4–6: services and cashback, advisory master, analytics
+Heading3: Screen 4: Services and cashback
+Purpose: Run service delivery, invoice checks and KYC.
+Screen elements:
+ListParagraph: - Tabs: Services, Invoices, KYC
+ListParagraph: - Service requests with status (Requested, Scheduled, Done) and proof
+ListParagraph: - Invoice check queue with SKU and duplicate checks; Approve 5% / Reject
+Heading3: Screen 5: Advisory master
+Purpose: Maintain the issue, salt and product mapping.
+Screen elements:
+ListParagraph: - Rows: issue, salt, Shanmukha product or “salt only”
+ListParagraph: - Also managed: plans and pricing, SKU master, crop-stage alert rules
+Heading3: Screen 6: Engagement analytics
+Purpose: Track how farmers engage over the season.
+Screen elements:
+ListParagraph: - Funnel: registered, active, followed advice, bought product, Premium
+ListParagraph: - Advice follow-through %, visits per FA per week
+ID
+Requirement
+Acceptance criteria
+Priority
+ADM-06
+Admins shall manage service requests with status and delivery proof.
+Status changes are visible to the farmer in Services.
+Must
+ADM-07
+Admins shall approve or reject invoices after SKU and duplicate checks; approval credits 5% cashback.
+Ledger entry is created on approval and reversed if the invoice is cancelled.
+Must
+ADM-08
+Admins shall maintain the salt-to-product master, SKU master, plans and alert rules.
+Changes take effect in the apps without a release.
+Must
+ADM-09
+Admins shall view engagement analytics.
+Funnel and KPIs refresh at least daily.
+Should
+Heading1: 8. Cross-interface workflows
+Heading2: 8.1 Workflow 1: farmer joining and visits
+ [IMAGE]
+Figure 11: Joining and visits across Farmer, FA and Admin
+Step
+Interface
+What happens
+1
+Farmer
+Farmer joins with phone + OTP
+2
+FA + Admin
+Both receive a new-farmer alert
+3
+FA
+FA finds the farmer nearby and calls about the visit
+4
+FA
+Visit is added to the FA calendar
+5
+FA
+Visit and crop-stage log captured (offline)
+6
+Farmer + Admin
+Farmer sees it in My visits; visit counts in analytics
+Side flow
+Admin → Farmer
+HO / CIV advisory notice reaches My Crop Advisory at any time in the season
+Heading2: 8.2 Workflow 2: advice to cashback
+ [IMAGE]
+Figure 12: Advice, purchase, verification and cashback
+Step
+Interface
+What happens
+1
+FA
+FA records the issue and picks a salt
+2
+System (master)
+Checks whether Shanmukha sells a product with that salt
+3
+Farmer
+Sees the Shanmukha product with dealer name and map (or salt only)
+4
+Farmer
+Buys and uploads the invoice
+5
+FA + Admin
+FA verifies the invoice; HO verifies there is no duplicate
+6
+Farmer
+5% cashback credited to the wallet, then withdrawn to UPI after self-KYC
+ID
+Requirement
+Acceptance criteria
+Priority
+WF-01
+Every step in both workflows shall be logged with user, time and record IDs.
+Audit trail shows the full chain for any visit or invoice.
+Must
+WF-02
+Advisory logs shall record FA, date and content version.
+Each advice entry is traceable to the approved content used.
+Must
+Heading1: 9. Partner feeds and payments
+ [IMAGE]
+Figure 13: Partner feeds and payments
+Partner
+We receive
+Shows in
+How we connect
+Soil testing
+Sample status, nutrient report
+Soil tab, FA visit view
+Order push; report by webhook; PDF and values stored
+Weather &amp; crop monitoring
+Forecast, rainfall, alerts by location
+Home, crop-stage alerts
+Pulled by farm location; cached and refreshed on schedule
+Schemes, insurance, finance
+Scheme, insurance and lender options
+Schemes &amp; Finance tab
+Content feed or deep link; consent first
+Loyalty programme
+Points, tiers, redemptions
+Rewards tab
+Single sign-on handoff; points sync
+Razorpay
+Payment status
+Premium upgrade, Services
+In-app payment gateway
+ID
+Requirement
+Acceptance criteria
+Priority
+INT-01
+No farmer data shall be shared with a partner without recorded consent.
+Consent record exists for every outbound data share.
+Must
+INT-02
+Weather and content shall be cached for weak networks.
+Home shows the last saved weather when offline.
+Must
+Heading1: 10. Data requirements
+Every record hangs off one farmer, one plot and one season.
+ [IMAGE]
+Figure 14: The data that ties it all together
+Entity
+Key fields
+Farmer
+Mobile, language, assigned FA, plan
+Farm / plot
+Location, boundary, acreage
+Crop season
+Crop, sowing date, stage
+Field visit
+Date, FA, observations, photos
+Advisory
+Issue, salt, product, version
+Purchase
+Invoice, product, dealer, value
+Cashback
+Ledger entries, KYC status, payouts
+Subscription
+Plan, validity, Razorpay payments
+Soil report
+Vendor values and PDF
+Weather snapshot
+Forecast for the farm
+Scheme leads
+Consent recorded
+Loyalty link
+Vendor member ID
+Notifications
+Advisory and alerts sent, source (HO/CIV), recipients
+Note: Rule: every record carries Farmer ID + Plot ID + Season ID, so data, advice and purchases trace back to one farm.
+Heading1: 11. Non-functional requirements and build approach
+ [IMAGE]
+Figure 15: Build approach and must-have qualities
+ID
+Requirement
+Acceptance criteria
+Priority
+NFR-01
+Telugu first with voice help on every farmer screen.
+All farmer screens available in Telugu with read-aloud.
+Must
+NFR-02
+Big, high-contrast, icon-first design readable in sunlight.
+Usability test with 5–10 farmers passes without help.
+Must
+NFR-03
+One task per screen; no long forms.
+Each farmer flow step asks for one input.
+Must
+NFR-04
+Offline-first FA app with background sync.
+FA can enrol, log visits and save advice with no network.
+Must
+NFR-05
+Light on data: small screens, cached weather and content.
+Home loads on a 2G/3G connection.
+Must
+NFR-06
+Privacy and consent before any vendor data share.
+See INT-01.
+Must
+NFR-07
+Security and audit: KYC data protected, every change logged.
+Audit log shows who changed what and when.
+Must
+NFR-08
+A person is always near: FA and call button on the farmer home.
+FA card present on Home for every farmer with an allocated FA.
+Must
+Heading3: Recommended build (to be confirmed by the tech team)
+Component
+Recommendation
+Mobile apps
+One cross-platform codebase, Android first
+Backend
+Modular API, single database
+Admin
+Web portal with role-based access, plus mobile view
+Messaging
+Push, SMS and in-app
+Hosting &amp; payments
+India-region cloud; Razorpay
+Heading1: 12. Build roadmap
+Release a working core first, then money flows and partner feeds. Timelines are fixed after Phase 0.
+ [IMAGE]
+Figure 16: Build roadmap
+Phase
+Scope
+Phase 0: Discovery &amp; contracts
+Confirm plans and pricing; vendor API access and sandboxes; salt-to-product master; payout and KYC partner; languages, Android first
+Phase 1: Core MVP
+Phone/OTP login, farm and crop profile; FA app with visit logs; advisory with salt choice; crop-stage reminders; weather feed, admin basics
+Phase 2: Money &amp; partners
+Subscriptions and Razorpay payments; soil-test vendor integration; invoice capture and 5% cashback; self-KYC and UPI payout; loyalty link, service requests
+Phase 3: Growth
+Schemes, insurance and finance feed; engagement analytics; personalised alerts; drone and kit bookings; renewal nudges
+Note: Features agreed in the MoM (Look for FAs, My visits, AI bot, My Crop Advisory, FA logins and handover, Farmers near me, Visit calendar, new-farmer alerts to FA and HO) are marked TBC until they are placed in a phase.
+Heading1: 13. Open decisions and points to confirm
+ [IMAGE]
+Figure 17: Decisions to close before development starts
+#
+Decision
+Owner
+1
+Plans, prices and what Premium includes
+Business
+2
+Salt-to-Shanmukha product mapping, and who approves it
+Agronomy
+3
+Cashback eligibility rules and wallet or payout structure
+Finance, compliance
+4
+Vendor contracts, API access and data-sharing terms
+Tech, procurement
+5
+How invoices are verified: dealer feed or upload
+Operations
+6
+Languages, platforms and offline scope
+Product, tech
+Heading3: Points to confirm from the MoM
+ListParagraph: - Which phase each MoM feature goes in
+ListParagraph: - Full form and role of CIV in advisory
+ListParagraph: - Who issues and reassigns FA logins (assumed HO)
+ListParagraph: - AI bot scope, languages and data sources
+ListParagraph: - Services list and prices in the Services section
+ListParagraph: - Final Free / Premium tags for each feature
+Heading1: Appendix A. Requirement ID summary
+Prefix
+Area
+Count
+Section
+SYS
+System and architecture
+3
+2
+FAR
+Farmer app
+21
+4
+PLN
+Plans and access control
+2
+5
+FA
+Field Assistant app
+11
+6
+ADM
+Admin dashboard
+9
+7
+WF
+Cross-interface workflows
+2
+8
+INT
+Partner feeds and payments
+2
+9
+NFR
+Non-functional
+8
+11
+Total
+58
+Names, numbers, prices and product labels in the figures are sample data for illustration only.

@@ -1,0 +1,113 @@
+# sqlc: one entry per module. Each module's queries may only touch its own
+# tables (CONVENTIONS section 2), but every entry sees the full schema.
+# Shared Go options are defined once (&go_opts) and merged into each entry.
+#
+# PostGIS: sqlc does not know geography; select it as GeoJSON text
+#   ST_AsGeoJSON(boundary)::text AS boundary_geojson
+# and write it with
+#   ST_GeomFromGeoJSON(sqlc.narg('boundary_geojson')::text)::geography
+version: "2"
+sql:
+  - engine: postgresql
+    name: identity
+    schema: migrations
+    queries: internal/identity/queries
+    gen:
+      go:
+        <<: &go_opts
+          package: store
+          sql_package: pgx/v5
+          emit_json_tags: true
+          json_tags_case_style: snake
+          emit_interface: true
+          emit_empty_slices: true
+          emit_pointers_for_null_types: true
+          overrides:
+            - db_type: uuid
+              go_type: github.com/google/uuid.UUID
+            - db_type: uuid
+              nullable: true
+              go_type: github.com/google/uuid.NullUUID
+            - db_type: pg_catalog.timestamptz
+              go_type: time.Time
+            - db_type: pg_catalog.timestamptz
+              nullable: true
+              go_type:
+                type: time.Time
+                pointer: true
+            - db_type: timestamptz
+              go_type: time.Time
+            - db_type: timestamptz
+              nullable: true
+              go_type:
+                type: time.Time
+                pointer: true
+            - db_type: date
+              go_type: time.Time
+            - db_type: date
+              nullable: true
+              go_type:
+                type: time.Time
+                pointer: true
+            - db_type: jsonb
+              go_type: encoding/json.RawMessage
+            - db_type: jsonb
+              nullable: true
+              go_type: encoding/json.RawMessage
+        out: internal/identity/store
+  - engine: postgresql
+    name: geo
+    schema: migrations
+    queries: internal/geo/queries
+    gen:
+      go:
+        <<: *go_opts
+        out: internal/geo/store
+  - engine: postgresql
+    name: farmers
+    schema: migrations
+    queries: internal/farmers/queries
+    gen:
+      go:
+        <<: *go_opts
+        out: internal/farmers/store
+  - engine: postgresql
+    name: masters
+    schema: migrations
+    queries: internal/masters/queries
+    gen:
+      go:
+        <<: *go_opts
+        out: internal/masters/store
+  - engine: postgresql
+    name: visits
+    schema: migrations
+    queries: internal/visits/queries
+    gen:
+      go:
+        <<: *go_opts
+        out: internal/visits/store
+  - engine: postgresql
+    name: messaging
+    schema: migrations
+    queries: internal/messaging/queries
+    gen:
+      go:
+        <<: *go_opts
+        out: internal/messaging/store
+  - engine: postgresql
+    name: sync
+    schema: migrations
+    queries: internal/sync/queries
+    gen:
+      go:
+        <<: *go_opts
+        out: internal/sync/store
+  - engine: postgresql
+    name: audit
+    schema: migrations
+    queries: internal/audit/queries
+    gen:
+      go:
+        <<: *go_opts
+        out: internal/audit/store

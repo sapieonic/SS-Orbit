@@ -1,0 +1,1456 @@
+openapi: 3.0.3
+info:
+  title: Orbit Sync API
+  version: 0.1.0
+  description: >-
+    FA offline sync. Snapshot down, commands up: the FA app pulls one gzipped
+    snapshot of everything it keeps offline (GET /v1/fa/sync/snapshot, with an
+    ETag), and pushes what the FA did offline as a batch of idempotent commands
+    (POST /v1/fa/sync/commands). There is no incremental sync: when either
+    version in /v1/fa/sync/status changes, the app pulls a fresh snapshot.
+    HO reviews stored commands (conflicts, rejections) under /v1/admin/sync.
+tags:
+  - name: sync
+security:
+  - bearerAuth: []
+paths:
+  /v1/fa/sync/commands:
+    post:
+      operationId: submitSyncCommands
+      summary: Push a batch of offline commands
+      description: >-
+        Commands are processed in order. Each command ID is an idempotency key:
+        a command already stored for this FA returns its stored result and is
+        not applied again. If the server hits an infrastructure error, it stops
+        and returns the results so far with retry_from set to the index of the
+        first unprocessed command; the app resends from there later. A command
+        the server fails to apply 5 times is stored as rejected with error
+        "server_could_not_apply" so the queue moves on. A payload the database
+        cannot store (bad text, out-of-range value, constraint violation) is
+        rejected at once. The response carries the FA's current territory and masters versions; if
+        they differ from the app's snapshot, the app pulls a new snapshot.
+      tags: [sync]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommandBatch'
+      responses:
+        '200':
+          description: Results for the processed commands, in request order.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommandBatchResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/fa/sync/snapshot:
+    get:
+      operationId: getSyncSnapshot
+      summary: Download the FA's offline snapshot
+      description: >-
+        Everything the FA app keeps offline, as one JSON document, gzip-encoded
+        (Content-Encoding gzip) unless the client does not accept gzip. The
+        ETag is "t{territory_version}-m{masters_version}"; send it back in
+        If-None-Match to get 304 when nothing changed.
+      tags: [sync]
+      parameters:
+        - name: If-None-Match
+          in: header
+          schema:
+            type: string
+            maxLength: 500
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+            maxLength: 500
+      responses:
+        '200':
+          description: The snapshot.
+          headers:
+            ETag:
+              schema:
+                type: string
+            Content-Encoding:
+              description: gzip, when the client accepts it.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+        '304':
+          description: The app's snapshot is current.
+          headers:
+            ETag:
+              schema:
+                type: string
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/fa/sync/status:
+    get:
+      operationId: getSyncStatus
+      summary: Current snapshot versions (cheap poll)
+      description: >-
+        The FA's current territory and masters versions and the matching
+        snapshot ETag. The app polls this and pulls a snapshot only when the
+        ETag differs from the one it holds.
+      tags: [sync]
+      responses:
+        '200':
+          description: Current versions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyncStatus'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /v1/admin/sync/commands:
+    get:
+      operationId: listSyncCommands
+      summary: Review stored sync commands
+      description: >-
+        Newest first. For reviewing conflicts and rejections. Roles admin and
+        ops; HO users with an area scope are not allowed (commands carry no
+        district). Per-FA last sync time is on the FA record (identity).
+        Commands the server failed to apply carry failed_attempts and
+        last_error; dead-lettered ones are rejected with error
+        "server_could_not_apply". Applied and merged commands are kept 180
+        days, conflicts and rejections a year.
+      tags: [sync]
+      parameters:
+        - name: fa_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/CommandStatus'
+        - name: type
+          in: query
+          schema:
+            type: string
+            pattern: '^[A-Za-z][A-Za-z0-9_]{0,63}$'
+        - name: from
+          in: query
+          description: Inclusive lower bound on received_at (RFC 3339).
+          schema:
+            type: string
+            format: date-time
+        - name: to
+          in: query
+          description: Exclusive upper bound on received_at (RFC 3339).
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          description: Page size, default 50, maximum 200.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A page of stored commands.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoredCommandPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Page size (default and maximum depend on the endpoint).
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque cursor from a previous page's next_cursor.
+      schema:
+        type: string
+        maxLength: 200
+  schemas:
+    CommandBatch:
+      type: object
+      required: [commands]
+      properties:
+        commands:
+          type: array
+          minItems: 1
+          maxItems: 200
+          items:
+            $ref: '#/components/schemas/CommandIn'
+    CommandIn:
+      type: object
+      required: [id, type, payload]
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Generated on the phone; the idempotency key.
+        type:
+          type: string
+          pattern: '^[A-Za-z][A-Za-z0-9_]{0,63}$'
+          example: LogVisit
+          description: Command type (CONVENTIONS section 6). Unknown types are rejected.
+        payload:
+          type: object
+          additionalProperties: true
+          description: >-
+            Command-specific payload, snake_case JSON. The shape per type is
+            documented by the <Type>Payload schemas (see SyncCommandPayloads):
+            EnrolFarmer, RecordConsent, SavePlot, StartSeason, UpdateFarmer,
+            PlanVisit, LogVisit, CancelVisit, CloseCallback, AckAlert. The owning
+            module validates it; this spec does not.
+          x-go-type: json.RawMessage
+        client_created_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: When the FA did this on the phone.
+    CommandStatus:
+      type: string
+      enum: [applied, merged, conflict, rejected]
+    CommandResult:
+      type: object
+      description: Outcome of one command, as stored.
+      required: [id, status, entity_id, merged_into, conflict, error]
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The command ID.
+        status:
+          $ref: '#/components/schemas/CommandStatus'
+        entity_id:
+          type: string
+          format: uuid
+          nullable: true
+          description: The entity the command created or changed (null when rejected before it was known).
+        merged_into:
+          type: string
+          format: uuid
+          nullable: true
+          description: For merged, the existing entity the app should use instead (e.g. the farmer with that phone).
+        conflict:
+          allOf:
+            - $ref: '#/components/schemas/Conflict'
+          nullable: true
+        error:
+          type: string
+          nullable: true
+          description: For rejected, why (English; the app shows it and drops the command).
+    Conflict:
+      type: object
+      required: [field, yours, theirs]
+      properties:
+        field:
+          type: string
+        yours:
+          description: The value the FA sent.
+        theirs:
+          description: The value on the server.
+    CommandBatchResult:
+      type: object
+      required: [results, retry_from, territory_version, masters_version]
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommandResult'
+        retry_from:
+          type: integer
+          nullable: true
+          description: >-
+            Index of the first command not processed because of a server-side
+            failure; resend commands from this index later. Null when every
+            command was processed.
+        territory_version:
+          type: integer
+          format: int64
+        masters_version:
+          type: integer
+          format: int64
+    Snapshot:
+      type: object
+      required: [territory_version, masters_version, generated_at, sections]
+      properties:
+        territory_version:
+          type: integer
+          format: int64
+        masters_version:
+          type: integer
+          format: int64
+        generated_at:
+          type: string
+          format: date-time
+        sections:
+          type: object
+          description: >-
+            Section name -> content, from the modules that own the data. The
+            per-section item schemas (Snap*) document the shapes for client
+            code generation; they are documentation only (the server writes
+            pre-encoded JSON and does not validate it against them), and
+            unknown sections may appear.
+          additionalProperties: true
+          x-go-type: map[string]any
+          properties:
+            farmers:
+              type: array
+              items:
+                $ref: '#/components/schemas/SnapFarmer'
+            plots:
+              type: array
+              items:
+                $ref: '#/components/schemas/SnapPlot'
+            seasons:
+              type: array
+              items:
+                $ref: '#/components/schemas/SnapSeason'
+            visits:
+              type: array
+              items:
+                $ref: '#/components/schemas/SnapVisit'
+            callbacks:
+              type: array
+              items:
+                $ref: '#/components/schemas/SnapCallback'
+            alerts:
+              type: array
+              items:
+                $ref: '#/components/schemas/SnapAlert'
+            masters:
+              $ref: '#/components/schemas/SnapMasters'
+            villages:
+              type: array
+              items:
+                $ref: '#/components/schemas/SnapVillage'
+    SyncStatus:
+      type: object
+      required: [territory_version, masters_version, etag]
+      properties:
+        territory_version:
+          type: integer
+          format: int64
+        masters_version:
+          type: integer
+          format: int64
+        etag:
+          type: string
+          example: '"t12-m3"'
+          description: The ETag the current snapshot has.
+    StoredCommand:
+      type: object
+      required: [id, fa_id, device_id, type, status, payload, result, client_created_at, received_at, failed_attempts, last_error]
+      properties:
+        id:
+          type: string
+          format: uuid
+        fa_id:
+          type: string
+          format: uuid
+        device_id:
+          type: string
+          format: uuid
+          nullable: true
+        type:
+          type: string
+        status:
+          $ref: '#/components/schemas/CommandStatus'
+        payload:
+          type: object
+          additionalProperties: true
+        result:
+          $ref: '#/components/schemas/CommandResult'
+        client_created_at:
+          type: string
+          format: date-time
+          nullable: true
+        received_at:
+          type: string
+          format: date-time
+        failed_attempts:
+          type: integer
+          format: int32
+          nullable: true
+          description: >-
+            Server-side (infrastructure) failures before the command was
+            stored; null when it never failed. 5 means it was dead-lettered.
+        last_error:
+          type: string
+          nullable: true
+          description: The last server error (internal detail, for HO admins only).
+    StoredCommandPage:
+      type: object
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/StoredCommand'
+        next_cursor:
+          type: string
+          nullable: true
+          description: Pass as ?cursor= to get the next page; null on the last page.
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorBody'
+    ErrorBody:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          description: Stable machine-readable code (not_found, validation_failed, conflict, version_mismatch, ...).
+          example: validation_failed
+        message:
+          type: string
+          description: Human-readable English message.
+        details:
+          type: object
+          additionalProperties: true
+          description: 'Optional context, e.g. {"fields": {"phone": "invalid"}}.'
+    SnapFarmer:
+      type: object
+      description: >-
+        One farmer the FA may act on (farmers module). Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, phone, name, name_te, language, village_id, source, photo_key, plan, status, consents_granted, consent_pending, profile_completed_at, version, created_at, updated_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        phone:
+          type: string
+        name:
+          type: string
+          nullable: true
+        name_te:
+          type: string
+          nullable: true
+        language:
+          type: string
+        village_id:
+          type: string
+          format: uuid
+          nullable: true
+        source:
+          type: string
+        photo_key:
+          type: string
+          nullable: true
+        plan:
+          type: string
+        status:
+          type: string
+        consents_granted:
+          type: array
+          items:
+            type: string
+        consent_pending:
+          type: boolean
+          description: >-
+            No programme consent yet (enrolled without a valid consent OTP proof).
+            The app shows it and sends RecordConsent once the farmer agrees.
+        profile_completed_at:
+          type: string
+          format: date-time
+          nullable: true
+        version:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    SnapPlot:
+      type: object
+      description: >-
+        A plot of one of those farmers (farmers module). Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, farmer_id, label, village_id, boundary, pin, area_acres, area_source, gps_accuracy_m, status, version, updated_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        label:
+          type: string
+        village_id:
+          type: string
+          format: uuid
+          nullable: true
+        boundary:
+          nullable: true
+          description: GeoJSON Polygon/MultiPolygon, or null.
+        pin:
+          allOf:
+            - $ref: '#/components/schemas/SnapPoint'
+          nullable: true
+        area_acres:
+          type: number
+          format: double
+        area_source:
+          type: string
+        gps_accuracy_m:
+          type: number
+          format: double
+          nullable: true
+        status:
+          type: string
+        version:
+          type: integer
+          format: int32
+        updated_at:
+          type: string
+          format: date-time
+    SnapPoint:
+      type: object
+      description: >-
+        A GPS point. Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [lat, lng]
+      properties:
+        lat:
+          type: number
+          format: double
+        lng:
+          type: number
+          format: double
+    SnapSeason:
+      type: object
+      description: >-
+        A season on one of those plots (farmers module). Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, farmer_id, plot_id, season_code, crop_id, sowing_date, previous_crop_id, status, version, updated_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        plot_id:
+          type: string
+          format: uuid
+        season_code:
+          type: string
+        crop_id:
+          type: string
+          format: uuid
+        sowing_date:
+          type: string
+          format: date
+          nullable: true
+        previous_crop_id:
+          type: string
+          format: uuid
+          nullable: true
+        status:
+          type: string
+        version:
+          type: integer
+          format: int32
+        updated_at:
+          type: string
+          format: date-time
+    SnapVisit:
+      type: object
+      description: >-
+        A planned visit, or one of the 3 latest completed visits per farmer (visits module). Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, farmer_id, plot_id, season_id, fa_id, status, planned_for, planned_slot, purpose, visited_at, farmer_present, stage_id, stage_name, stage_name_te, notes, photo_count, issues]
+      properties:
+        id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        plot_id:
+          type: string
+          format: uuid
+        season_id:
+          type: string
+          format: uuid
+        fa_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+        planned_for:
+          type: string
+          format: date
+          nullable: true
+        planned_slot:
+          type: string
+          nullable: true
+        purpose:
+          type: string
+          nullable: true
+        visited_at:
+          type: string
+          format: date-time
+          nullable: true
+        farmer_present:
+          type: boolean
+          nullable: true
+        stage_id:
+          type: string
+          format: uuid
+          nullable: true
+        stage_name:
+          type: string
+          nullable: true
+        stage_name_te:
+          type: string
+          nullable: true
+        notes:
+          type: string
+          nullable: true
+        photo_count:
+          type: integer
+          format: int32
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapVisitIssue'
+    SnapVisitIssue:
+      type: object
+      description: >-
+        An issue found on a visit with the advice given. Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, issue_id, issue_name, issue_name_te, severity, advice_status, rule_id, salt_id, salt_name, salt_name_te, sku_id, product_name, product_name_te, dose, dose_te]
+      properties:
+        id:
+          type: string
+          format: uuid
+        issue_id:
+          type: string
+          format: uuid
+        issue_name:
+          type: string
+          nullable: true
+        issue_name_te:
+          type: string
+          nullable: true
+        severity:
+          type: string
+          description: low | moderate | high
+        advice_status:
+          type: string
+          description: >-
+            given | unresolved. Unresolved means the rule the FA picked did not
+            check out; every advice field (rule, salt, SKU, product, dose) is null.
+        rule_id:
+          type: string
+          format: uuid
+          nullable: true
+        salt_id:
+          type: string
+          format: uuid
+          nullable: true
+        salt_name:
+          type: string
+          nullable: true
+        salt_name_te:
+          type: string
+          nullable: true
+        sku_id:
+          type: string
+          format: uuid
+          nullable: true
+        product_name:
+          type: string
+          nullable: true
+        product_name_te:
+          type: string
+          nullable: true
+        dose:
+          type: string
+          nullable: true
+        dose_te:
+          type: string
+          nullable: true
+    SnapCallback:
+      type: object
+      description: >-
+        An open call-back request for the FA (visits module). Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, farmer_id, requested_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        requested_at:
+          type: string
+          format: date-time
+    SnapAlert:
+      type: object
+      description: >-
+        An FA alert that is not closed (messaging module). Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, fa_id, kind, farmer_id, ref_id, title, body, title_te, body_te, status, created_at, acknowledged_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        fa_id:
+          type: string
+          format: uuid
+        kind:
+          type: string
+          description: new_farmer | callback | invoice_check | ho_note
+        farmer_id:
+          type: string
+          format: uuid
+          nullable: true
+        ref_id:
+          type: string
+          format: uuid
+          nullable: true
+        title:
+          type: string
+          description: English text.
+        body:
+          type: string
+          nullable: true
+        title_te:
+          type: string
+          nullable: true
+          description: Telugu text; null for alerts written before Telugu was added (show title).
+        body_te:
+          type: string
+          nullable: true
+        status:
+          type: string
+          description: open | acknowledged | closed
+        created_at:
+          type: string
+          format: date-time
+        acknowledged_at:
+          type: string
+          format: date-time
+          nullable: true
+    SnapMasters:
+      type: object
+      description: >-
+        Crops, issues, salts, SKUs and approved rules, the same for every FA (masters module). Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [version, crops, issues, salts, skus, rules, season_codes]
+      properties:
+        version:
+          type: integer
+          format: int64
+        season_codes:
+          $ref: '#/components/schemas/SnapSeasonCodes'
+        crops:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapCrop'
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapIssue'
+        salts:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapSalt'
+        skus:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapSKU'
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapRule'
+    SnapSeasonCodes:
+      type: object
+      description: >-
+        Season codes for today (IST calendar), for StartSeason. Recomputed daily, not tied
+        to the masters version; valid until valid_until. Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [current, next, all_open, valid_until]
+      properties:
+        current:
+          type: string
+        next:
+          type: string
+        all_open:
+          type: array
+          items:
+            type: string
+        valid_until:
+          type: string
+          format: date
+    SnapCrop:
+      type: object
+      description: >-
+        Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, code, name, name_te, duration_days, stages]
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+        name:
+          type: string
+        name_te:
+          type: string
+        duration_days:
+          type: integer
+          format: int32
+          nullable: true
+        stages:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapStage'
+    SnapStage:
+      type: object
+      description: >-
+        Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, code, name, name_te, seq, start_day, end_day]
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+        name:
+          type: string
+        name_te:
+          type: string
+        seq:
+          type: integer
+          format: int32
+        start_day:
+          type: integer
+          format: int32
+        end_day:
+          type: integer
+          format: int32
+    SnapIssue:
+      type: object
+      description: >-
+        Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, crop_id, type, name, name_te]
+      properties:
+        id:
+          type: string
+          format: uuid
+        crop_id:
+          type: string
+          format: uuid
+        type:
+          type: string
+        name:
+          type: string
+        name_te:
+          type: string
+    SnapSalt:
+      type: object
+      description: >-
+        Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, name, name_te]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        name_te:
+          type: string
+          nullable: true
+    SnapSKU:
+      type: object
+      description: >-
+        Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, code, product_name, product_name_te, salt_id, pack_size, mrp_paise, cashback_eligible]
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+        product_name:
+          type: string
+        product_name_te:
+          type: string
+          nullable: true
+        salt_id:
+          type: string
+          format: uuid
+        pack_size:
+          type: string
+        mrp_paise:
+          type: integer
+          format: int64
+        cashback_eligible:
+          type: boolean
+    SnapRule:
+      type: object
+      description: >-
+        Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, rule_key, version, issue_id, salt_id, sku_id, dose_per_acre, dose_per_acre_te]
+      properties:
+        id:
+          type: string
+          format: uuid
+        rule_key:
+          type: string
+          format: uuid
+        version:
+          type: integer
+          format: int32
+        issue_id:
+          type: string
+          format: uuid
+        salt_id:
+          type: string
+          format: uuid
+        sku_id:
+          type: string
+          format: uuid
+          nullable: true
+        dose_per_acre:
+          type: string
+        dose_per_acre_te:
+          type: string
+    SnapVillage:
+      type: object
+      description: >-
+        A village in the FA's area, for offline enrolment (geo module). Documentation of a snapshot item (x-orbit-doc-only): the owning module's JSON is authoritative and the response is not validated against it.
+      x-orbit-doc-only: true
+      required: [id, name, name_te, lgd_code, lat, lng, mandal_id, mandal_name, mandal_name_te, district_id, district_name, district_name_te, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        name_te:
+          type: string
+          nullable: true
+        lgd_code:
+          type: string
+          nullable: true
+        lat:
+          type: number
+          format: double
+          nullable: true
+        lng:
+          type: number
+          format: double
+          nullable: true
+        mandal_id:
+          type: string
+          format: uuid
+        mandal_name:
+          type: string
+        mandal_name_te:
+          type: string
+          nullable: true
+        district_id:
+          type: string
+          format: uuid
+        district_name:
+          type: string
+        district_name_te:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+    SyncCommandPayloads:
+      type: object
+      description: >-
+        Index of the sync command payloads, one property per command type
+        (CommandIn.type -> CommandIn.payload). Documentation only
+        (x-orbit-doc-only), so client generators emit typed payload models;
+        nothing on the wire has this shape.
+      x-orbit-doc-only: true
+      properties:
+        EnrolFarmer:
+          $ref: '#/components/schemas/EnrolFarmerPayload'
+        RecordConsent:
+          $ref: '#/components/schemas/RecordConsentPayload'
+        SavePlot:
+          $ref: '#/components/schemas/SavePlotPayload'
+        StartSeason:
+          $ref: '#/components/schemas/StartSeasonPayload'
+        UpdateFarmer:
+          $ref: '#/components/schemas/UpdateFarmerPayload'
+        PlanVisit:
+          $ref: '#/components/schemas/PlanVisitPayload'
+        LogVisit:
+          $ref: '#/components/schemas/LogVisitPayload'
+        CancelVisit:
+          $ref: '#/components/schemas/CancelVisitPayload'
+        CloseCallback:
+          $ref: '#/components/schemas/CloseCallbackPayload'
+        AckAlert:
+          $ref: '#/components/schemas/AckAlertPayload'
+    EnrolFarmerPayload:
+      type: object
+      description: >-
+        EnrolFarmer (farmers module): enrol a farmer on the FA's phone. farmer_id
+        is generated on the phone; if the phone number already belongs to a
+        farmer the result is merged (merged_into is the farmer to use). Without a
+        valid consent.otp_proof the farmer is enrolled consent pending. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [farmer_id, phone, name, language, village_id, consent]
+      properties:
+        farmer_id:
+          type: string
+          format: uuid
+        phone:
+          type: string
+          description: 10-digit Indian mobile number (+91 optional).
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        name_te:
+          type: string
+          nullable: true
+        language:
+          type: string
+          enum: [te, en]
+        village_id:
+          type: string
+          format: uuid
+        photo_key:
+          type: string
+          nullable: true
+          description: >-
+            Key from POST /v1/fa/farmers/{farmer_id}/photo/upload-url for this
+            farmer_id; any other key is dropped (the enrolment is kept).
+        consent:
+          $ref: '#/components/schemas/EnrolFarmerConsent'
+    EnrolFarmerConsent:
+      type: object
+      description: >-
+        The consent the farmer gave on the FA's phone (FAR-04). With an
+        otp_proof, purposes must include programme and notice_version is
+        required. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      properties:
+        purposes:
+          type: array
+          items:
+            $ref: '#/components/schemas/SyncConsentPurpose'
+        otp_proof:
+          type: string
+          nullable: true
+          description: The proof from POST /v1/fa/consent-otp/verify (null or empty = consent pending).
+        audio_played:
+          type: boolean
+          description: The consent notice audio was played to the farmer.
+        notice_version:
+          type: string
+    SyncConsentPurpose:
+      type: string
+      enum: [programme, soil_partner, schemes_finance, loyalty]
+      description: >-
+        Consent purpose. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+    RecordConsentPayload:
+      type: object
+      description: >-
+        RecordConsent (farmers module): consent captured after an enrolment that
+        had no valid proof. The proof must be for this FA and the farmer's phone. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [farmer_id, purposes, otp_proof, notice_version]
+      properties:
+        farmer_id:
+          type: string
+          format: uuid
+        purposes:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/SyncConsentPurpose'
+        otp_proof:
+          type: string
+          minLength: 1
+        audio_played:
+          type: boolean
+        notice_version:
+          type: string
+          minLength: 1
+    SavePlotPayload:
+      type: object
+      description: >-
+        SavePlot (farmers module): create or update a plot. A boundary or a pin is
+        required; area_source boundary needs boundary_geojson (the server measures
+        the area), typed uses area_acres. An update must carry expected_version
+        (the version the FA saw), else a conflict comes back. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [plot_id, farmer_id, label, area_acres, area_source]
+      properties:
+        plot_id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        label:
+          type: string
+          minLength: 1
+          maxLength: 60
+        boundary_geojson:
+          nullable: true
+          description: GeoJSON Polygon (object, or a string holding one), or null.
+        pin:
+          allOf:
+            - $ref: '#/components/schemas/SnapPoint'
+          nullable: true
+        area_acres:
+          type: number
+          format: double
+          description: More than 0, at most 10000. Ignored for area_source boundary.
+        area_source:
+          type: string
+          enum: [boundary, typed]
+        gps_accuracy_m:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 9999
+          nullable: true
+        expected_version:
+          type: integer
+          format: int32
+          nullable: true
+          description: Required when updating an existing plot.
+    StartSeasonPayload:
+      type: object
+      description: >-
+        StartSeason (farmers module) starts a crop season on a plot. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [season_id, farmer_id, plot_id, season_code, crop_id]
+      properties:
+        season_id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        plot_id:
+          type: string
+          format: uuid
+        season_code:
+          type: string
+          pattern: '^[a-z]+-[0-9]{4}(-[0-9]{2})?$'
+          example: kharif-2026
+        crop_id:
+          type: string
+          format: uuid
+        sowing_date:
+          type: string
+          format: date
+          nullable: true
+        previous_crop_id:
+          type: string
+          format: uuid
+          nullable: true
+    UpdateFarmerPayload:
+      type: object
+      description: >-
+        UpdateFarmer (farmers module): change a farmer's profile. A field the
+        server changed since expected_version comes back as a conflict. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [farmer_id, expected_version, fields]
+      properties:
+        farmer_id:
+          type: string
+          format: uuid
+        expected_version:
+          type: integer
+          format: int32
+        fields:
+          $ref: '#/components/schemas/UpdateFarmerFields'
+    UpdateFarmerFields:
+      type: object
+      description: >-
+        Fields to change; null or absent = unchanged. At least one is required. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      properties:
+        name:
+          type: string
+          nullable: true
+          maxLength: 100
+        name_te:
+          type: string
+          nullable: true
+        language:
+          type: string
+          enum: [te, en]
+          nullable: true
+        village_id:
+          type: string
+          format: uuid
+          nullable: true
+        photo_key:
+          type: string
+          nullable: true
+          description: >-
+            Key from POST /v1/fa/farmers/{farmer_id}/photo/upload-url for this farmer; must be
+            under farmers/{farmer_id}/.
+    SyncVisitSlot:
+      type: string
+      enum: [morning, afternoon, any]
+      description: >-
+        Part of the day a visit is planned for. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+    PlanVisitPayload:
+      type: object
+      description: >-
+        PlanVisit (visits module) plans a visit for one of the FA's farmers. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [visit_id, farmer_id, plot_id, season_id, planned_for, planned_slot]
+      properties:
+        visit_id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        plot_id:
+          type: string
+          format: uuid
+        season_id:
+          type: string
+          format: uuid
+        planned_for:
+          type: string
+          format: date
+        planned_slot:
+          $ref: '#/components/schemas/SyncVisitSlot'
+        purpose:
+          type: string
+          nullable: true
+    LogVisitPayload:
+      type: object
+      description: >-
+        LogVisit (visits module): record a visit (a planned one, or a new
+        visit_id). Each issue carries the advisory rule the FA picked from the
+        masters snapshot; a rule that does not check out is stored as unresolved
+        advice, never a rejection. At most 20 issues and 20 photos. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [visit_id, farmer_id, plot_id, season_id, visited_at, farmer_present]
+      properties:
+        visit_id:
+          type: string
+          format: uuid
+        farmer_id:
+          type: string
+          format: uuid
+        plot_id:
+          type: string
+          format: uuid
+        season_id:
+          type: string
+          format: uuid
+        visited_at:
+          type: string
+          format: date-time
+          description: Not more than 15 minutes in the future.
+        location:
+          allOf:
+            - $ref: '#/components/schemas/SnapPoint'
+          nullable: true
+        farmer_present:
+          type: boolean
+        stage_id:
+          type: string
+          format: uuid
+          nullable: true
+        notes:
+          type: string
+          nullable: true
+        issues:
+          type: array
+          maxItems: 20
+          items:
+            $ref: '#/components/schemas/LogVisitIssue'
+        photos:
+          type: array
+          maxItems: 20
+          items:
+            $ref: '#/components/schemas/LogVisitPhoto'
+        next_visit:
+          allOf:
+            - $ref: '#/components/schemas/LogVisitNextVisit'
+          nullable: true
+    LogVisitIssue:
+      type: object
+      description: >-
+        An issue found on the visit. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [issue_visit_id, issue_id, severity]
+      properties:
+        issue_visit_id:
+          type: string
+          format: uuid
+          description: Generated on the phone; unique within the visit.
+        issue_id:
+          type: string
+          format: uuid
+        severity:
+          type: string
+          enum: [low, moderate, high]
+        advisory_rule_id:
+          type: string
+          format: uuid
+          nullable: true
+          description: The rule (SnapRule.id) the FA picked; null leaves the issue unresolved.
+    LogVisitPhoto:
+      type: object
+      description: >-
+        A photo taken on the visit; upload it with the visit photo upload URL
+        for this photo_id. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [photo_id, content_type]
+      properties:
+        photo_id:
+          type: string
+          format: uuid
+        content_type:
+          type: string
+          enum: [image/jpeg, image/png, image/webp]
+    LogVisitNextVisit:
+      type: object
+      description: >-
+        The follow-up visit to plan in the same command. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [visit_id, planned_for, planned_slot]
+      properties:
+        visit_id:
+          type: string
+          format: uuid
+          description: A new visit ID (not the logged visit's).
+        planned_for:
+          type: string
+          format: date
+        planned_slot:
+          $ref: '#/components/schemas/SyncVisitSlot'
+    CancelVisitPayload:
+      type: object
+      description: >-
+        CancelVisit (visits module) cancels a planned visit of the FA. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [visit_id]
+      properties:
+        visit_id:
+          type: string
+          format: uuid
+        reason:
+          type: string
+          nullable: true
+    CloseCallbackPayload:
+      type: object
+      description: >-
+        CloseCallback (visits module) closes a call-back request assigned to the FA. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [callback_id]
+      properties:
+        callback_id:
+          type: string
+          format: uuid
+        note:
+          type: string
+          nullable: true
+    AckAlertPayload:
+      type: object
+      description: >-
+        AckAlert (messaging module) acknowledges one of the FA's alerts; idempotent. Documentation of a sync command payload (x-orbit-doc-only): the owning module validates the JSON; the server does not check it against this schema.
+      x-orbit-doc-only: true
+      required: [alert_id]
+      properties:
+        alert_id:
+          type: string
+          format: uuid
+  responses:
+    BadRequest:
+      description: The request is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing, invalid or expired token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Authenticated but not allowed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Conflict:
+      description: State conflict (version mismatch, duplicate, wrong status).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    TooManyRequests:
+      description: Rate limited; see Retry-After.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

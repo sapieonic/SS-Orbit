@@ -1,0 +1,14 @@
+# Keep the build context to what `go build ./cmd/...` needs.
+.env
+.env.*
+!.env.example
+.data/
+bin/
+**/*_test.go
+**/testdata/
+*.tmp.yaml
+docs/
+implementation-plan.md
+README.md
+.git
+.DS_Store

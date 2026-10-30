@@ -1,0 +1,9 @@
+# oapi-codegen config for the sync module. Run via `make gen` (go generate).
+# Spec: contracts/openapi/sync.yaml (repo root).
+package: sync
+output: api.gen.go
+generate:
+  models: true
+  chi-server: true
+  strict-server: true
+  embedded-spec: true
