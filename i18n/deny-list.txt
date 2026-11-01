@@ -1,0 +1,37 @@
+# Terms that must never appear in i18n/te.json or i18n/en.json.
+#
+# Owned by Agronomy: they add and remove entries, and changes to this file need
+# their review. These are starter entries only, not a complete list.
+#
+# One term per line, case-insensitive. Latin-script terms match whole words
+# only ("upl" does not match "upload"); Telugu terms match anywhere in the text.
+# Product, salt and dose names belong in the masters database, never in UI
+# strings, so chemical names are listed here too.
+
+# Competitor brands
+bayer
+syngenta
+upl
+dhanuka
+coromandel
+corteva
+basf
+fmc
+rallis
+pi industries
+crystal crop
+insecticides india
+godrej agrovet
+sumitomo
+బేయర్
+సింజెంటా
+
+# Chemical / salt names (advice shows these from the database only)
+chlorpyrifos
+imidacloprid
+mancozeb
+glyphosate
+monocrotophos
+emamectin
+acephate
+profenofos

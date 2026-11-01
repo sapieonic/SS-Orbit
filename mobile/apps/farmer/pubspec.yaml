@@ -1,0 +1,30 @@
+name: farmer
+description: Orbit Shifting Farmer app (Telugu first).
+publish_to: none
+version: 0.1.0+1
+resolution: workspace
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.38.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^3.4.3
+  go_router: ^18.1.2
+  intl: ^0.20.3
+  orbit_core:
+  orbit_l10n:
+  orbit_ui:
+  orbit_voice:
+  url_launcher: ^6.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

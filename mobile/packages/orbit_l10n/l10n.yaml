@@ -1,0 +1,12 @@
+# flutter gen-l10n config. The ARB files are written by tools/i18n/build.dart
+# from i18n/*.json; run `melos run gen:l10n` from mobile/ to regenerate both.
+arb-dir: lib/l10n
+template-arb-file: app_te.arb
+output-dir: lib/l10n/generated
+output-localization-file: orbit_localizations.dart
+output-class: OrbitLocalizations
+preferred-supported-locales: [te]
+nullable-getter: false
+required-resource-attributes: true
+use-named-parameters: true
+format: true

@@ -1,0 +1,11 @@
+{
+  "$description": "Field Assistant app overrides: blue primary, 15 px body.",
+  "primary": {
+    "$type": "color",
+    "base": { "$value": "{color.blue.base}", "$description": "Primary buttons, active tab, selected chips." },
+    "strong": { "$value": "{color.blue.strong}", "$description": "Text on the primary tint." },
+    "tint": { "$value": "{color.blue.tint}" }
+  },
+  "body-text": { "$type": "typography", "$value": "{type.body}", "$description": "Default body text." },
+  "screen-title": { "$type": "typography", "$value": "{type.h2}", "$description": "Screen header title." }
+}

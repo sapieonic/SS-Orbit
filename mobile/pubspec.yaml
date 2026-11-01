@@ -1,0 +1,58 @@
+name: orbit_mobile
+description: Orbit Shifting mobile workspace (Farmer app, FA app, shared packages).
+publish_to: none
+
+environment:
+  sdk: ^3.13.0
+
+workspace:
+  - apps/farmer
+  - packages/orbit_core
+  - packages/orbit_l10n
+  - packages/orbit_ui
+  - packages/orbit_voice
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  melos: ^8.10.0
+
+melos:
+  scripts:
+    gen:tokens:
+      description: design/tokens -> orbit_ui generated Dart tokens.
+      run: dart run ../tools/tokens/build.dart
+    gen:l10n:
+      description: i18n/*.json -> orbit_l10n ARB files -> AppLocalizations.
+      run: dart run ../tools/i18n/build.dart && melos exec --scope=orbit_l10n -- flutter gen-l10n
+    gen:
+      description: Run every generator.
+      run: melos run gen:tokens && melos run gen:l10n
+    analyze:
+      description: Analyze every package with infos as failures.
+      run: melos exec -- flutter analyze --fatal-infos
+    test:
+      description: Run tests in every package that has them.
+      run: melos exec --dir-exists=test -- flutter test
+    format:check:
+      description: Fail if any Dart file in mobile/, tools/tokens or tools/i18n is not dart format clean.
+      run: dart format --output=none --set-exit-if-changed . ../tools/tokens ../tools/i18n
+    check:
+      description: Local check. Regenerate tokens and strings, analyze (fatal infos), run all tests. Fine with uncommitted work.
+      run: melos run gen && melos run analyze && melos run test
+    check:ci:
+      description: CI check. Format, generated code committed and fresh, analyze, test. Fails on a dirty tree.
+      run: |
+        set -e
+        melos run format:check
+        dart run ../tools/tokens/build.dart --check
+        dart run ../tools/i18n/build.dart --check
+        melos exec --scope=orbit_l10n -- flutter gen-l10n
+        if [ -n "$(git status --porcelain -- . ../i18n ../design)" ]; then
+          echo "Generated files are stale or uncommitted:"
+          git status --porcelain -- . ../i18n ../design
+          git diff --stat -- . ../i18n ../design
+          echo "Run 'melos run gen' (or 'make tokens i18n' from the repo root) and commit the result."
+          exit 1
+        fi
+        melos run analyze
+        melos run test

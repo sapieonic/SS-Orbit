@@ -1,0 +1,31 @@
+name: orbit_voice
+description: Listen button playback for Orbit (bundled Telugu voice prompts and cached notice audio).
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.38.0"
+
+# Dependency direction: orbit_voice -> orbit_l10n (for the voice key map and
+# asset paths). orbit_l10n never imports orbit_voice, and orbit_voice never
+# imports orbit_ui: the app wires VoicePlayer.state to orbit_ui's ListenButton.
+dependencies:
+  audio_session: ^0.2.4
+  flutter:
+    sdk: flutter
+  just_audio: ^0.10.6
+  orbit_l10n:
+  path_provider: ^2.1.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  # Recorded Telugu prompts, copied here from i18n/voice/te/ by
+  # tools/i18n/build.dart (`melos run gen:l10n`). Keep the .gitkeep so the
+  # folder exists before the first recording lands.
+  assets:
+    - assets/voice/te/

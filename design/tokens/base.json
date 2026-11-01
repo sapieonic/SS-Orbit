@@ -1,0 +1,189 @@
+{
+  "$description": "Orbit base tokens: raw palette, type, space, radius, size and elevation. Values come from the wireframes (design/implementation-plan.md). Apps read these through semantic.json and apps/*.json, not directly.",
+  "color": {
+    "$type": "color",
+    "ink": { "$value": "#1B2420", "$description": "Primary text; dark bars and the floating Listen pill." },
+    "ink-2": { "$value": "#4E5852", "$description": "Secondary text, table headers." },
+    "muted": { "$value": "#67726C", "$description": "Meta text, inactive tabs. Not for farmer body text." },
+    "white": { "$value": "#FFFFFF" },
+    "black": { "$value": "#000000", "$description": "Shadow base only." },
+    "canvas": { "$value": "#F9FAF7", "$description": "Page background." },
+    "canvas-2": { "$value": "#F4F6F1", "$description": "Segmented control track, table header, sunken areas." },
+    "line": { "$value": "#E1E5DE", "$description": "Card and divider lines (decorative, 1.28:1)." },
+    "line-strong": { "$value": "#C9CEC6", "$description": "Chip and outlined-button borders (decorative)." },
+    "line-input": { "$value": "#89938D", "$description": "Input and control borders. The plan's #8A948E is 3.13:1 on white but 2.99:1 on canvas; one step darker gives 3.17:1 and 3.03:1 (WCAG 1.4.11)." },
+    "green": {
+      "base": { "$value": "#2C7A4B", "$description": "Success, done, call buttons. White on it 5.26:1." },
+      "strong": { "$value": "#24673F", "$description": "Text on green tint (5.81:1)." },
+      "tint": { "$value": "#E1F1E7" }
+    },
+    "red": {
+      "base": { "$value": "#B4443A", "$description": "Errors, high severity, reject. White on it 5.49:1." },
+      "strong": { "$value": "#8E3128" },
+      "tint": { "$value": "#F8E3E0" }
+    },
+    "amber": {
+      "base": { "$value": "#B47713", "$description": "Warning icons and borders only: white text on it fails (3.76:1)." },
+      "strong": { "$value": "#7A4F08", "$description": "Warning text; 6.28:1 on amber tint." },
+      "tint": { "$value": "#FBF0D6" }
+    },
+    "yellow": { "$value": "#F6C343", "$description": "Highlight badges, always with ink text." },
+    "orange": { "$value": "#D2731A", "$description": "Accent dots and icons only (3.38:1 with white)." },
+    "saffron": {
+      "base": { "$value": "#A9560C", "$description": "Farmer primary. White on it 5.22:1." },
+      "strong": { "$value": "#7E3F08", "$description": "Text on saffron tint." },
+      "tint": { "$value": "#FCEEDF" }
+    },
+    "blue": {
+      "base": { "$value": "#2263A6", "$description": "FA primary. White on it 6.17:1." },
+      "strong": { "$value": "#174A80" },
+      "tint": { "$value": "#E3EDF8" },
+      "border": { "$value": "#C3D6EE", "$description": "Selected chip border in the FA app." }
+    },
+    "purple": {
+      "base": { "$value": "#5B3B8F", "$description": "HO admin primary (web). Kept here so the palette is complete." },
+      "strong": { "$value": "#432B6B" },
+      "tint": { "$value": "#EFE9F7" },
+      "mid": { "$value": "#8D76B5" }
+    },
+    "map": {
+      "land": { "$value": "#E6EEDC" },
+      "plot-1": { "$value": "#7F9C63" },
+      "plot-2": { "$value": "#91AD74" },
+      "plot-3": { "$value": "#6A8A50" }
+    },
+    "scrim": { "$value": "#00000080", "$description": "Sheet backdrop, black at 50%." },
+    "on-dark-18": { "$value": "#FFFFFF2E", "$description": "White at 18%: chips and fills on primary or ink bars." },
+    "on-dark-22": { "$value": "#FFFFFF38", "$description": "White at 22%: borders on primary or ink bars." }
+  },
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "latin": { "$value": "Figtree", "$description": "Latin text and all digits (has the rupee sign)." },
+      "telugu": { "$value": "Noto Sans Telugu", "$description": "Telugu script; fallback after Figtree." }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "regular": { "$value": 400 },
+      "medium": { "$value": 500 },
+      "semibold": { "$value": 600, "$description": "Not shipped as a file; renders with the 700 file." },
+      "bold": { "$value": 700 },
+      "extrabold": { "$value": 800 }
+    },
+    "line-height": {
+      "$type": "number",
+      "body": { "$value": 1.5, "$description": "Telugu body: room for stacked conjuncts and vowel signs." },
+      "heading": { "$value": 1.3, "$description": "Telugu headings." },
+      "latin-body": { "$value": 1.4, "$description": "Latin-only body (web admin)." },
+      "latin-heading": { "$value": 1.2, "$description": "Latin-only headings (web admin)." }
+    }
+  },
+  "type": {
+    "$type": "typography",
+    "display": {
+      "$value": { "fontSize": 40, "fontWeight": "{font.weight.extrabold}", "lineHeight": "{font.line-height.heading}", "letterSpacing": 0 },
+      "$description": "Wallet balance, big numbers."
+    },
+    "h1": {
+      "$value": { "fontSize": 26, "fontWeight": "{font.weight.extrabold}", "lineHeight": "{font.line-height.heading}", "letterSpacing": 0 },
+      "$description": "Farmer screen title, admin page title, OTP digits."
+    },
+    "h2": {
+      "$value": { "fontSize": 22, "fontWeight": "{font.weight.bold}", "lineHeight": "{font.line-height.heading}", "letterSpacing": 0 },
+      "$description": "Section titles, FA screen title."
+    },
+    "h3": {
+      "$value": { "fontSize": 18, "fontWeight": "{font.weight.bold}", "lineHeight": "{font.line-height.heading}", "letterSpacing": 0 },
+      "$description": "Card titles."
+    },
+    "label-lg": {
+      "$value": { "fontSize": 16, "fontWeight": "{font.weight.bold}", "lineHeight": "{font.line-height.heading}", "letterSpacing": 0 },
+      "$description": "Telugu-first labels and button text (wireframe Telugu 16/700)."
+    },
+    "body-lg": {
+      "$value": { "fontSize": 16, "fontWeight": "{font.weight.medium}", "lineHeight": "{font.line-height.body}", "letterSpacing": 0 },
+      "$description": "Farmer body text (default in the farmer app)."
+    },
+    "body": {
+      "$value": { "fontSize": 15, "fontWeight": "{font.weight.medium}", "lineHeight": "{font.line-height.body}", "letterSpacing": 0 },
+      "$description": "FA body text."
+    },
+    "body-sm": {
+      "$value": { "fontSize": 14, "fontWeight": "{font.weight.regular}", "lineHeight": "{font.line-height.body}", "letterSpacing": 0 },
+      "$description": "Admin body and table cells."
+    },
+    "caption": {
+      "$value": { "fontSize": 13, "fontWeight": "{font.weight.medium}", "lineHeight": "{font.line-height.body}", "letterSpacing": 0 },
+      "$description": "Meta lines and the English sub-line under a Telugu label."
+    },
+    "micro": {
+      "$value": { "fontSize": 12, "fontWeight": "{font.weight.semibold}", "lineHeight": "{font.line-height.body}", "letterSpacing": 0 },
+      "$description": "Pills, tags, table headers. The farmer app never goes below this."
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "2": { "$value": 2 },
+    "4": { "$value": 4 },
+    "6": { "$value": 6 },
+    "8": { "$value": 8, "$description": "Also the minimum gap between touch targets." },
+    "10": { "$value": 10 },
+    "12": { "$value": 12, "$description": "Card padding." },
+    "16": { "$value": 16, "$description": "Screen side padding." },
+    "20": { "$value": 20 },
+    "24": { "$value": 24 },
+    "32": { "$value": 32 }
+  },
+  "radius": {
+    "$type": "dimension",
+    "xs": { "$value": 4 },
+    "sm": { "$value": 8 },
+    "md": { "$value": 10, "$description": "Admin default." },
+    "lg": { "$value": 14, "$description": "Mobile card and button default." },
+    "xl": { "$value": 18 },
+    "sheet": { "$value": 24, "$description": "Top corners of bottom sheets." },
+    "pill": { "$value": 999 }
+  },
+  "size": {
+    "$type": "dimension",
+    "control": {
+      "sm": { "$value": 40, "$description": "Admin compact (dense tables only)." },
+      "md": { "$value": 44, "$description": "Admin." },
+      "lg": { "$value": 48, "$description": "Mobile minimum touch target." },
+      "xl": { "$value": 56, "$description": "Mobile primary action." },
+      "xxl": { "$value": 64, "$description": "Farmer main action, FA big buttons." }
+    },
+    "icon": {
+      "sm": { "$value": 16 },
+      "md": { "$value": 20 },
+      "lg": { "$value": 24, "$description": "Default; Lucide 24 px grid." },
+      "xl": { "$value": 32 },
+      "xxl": { "$value": 40, "$description": "State card illustration icon." }
+    },
+    "avatar": {
+      "md": { "$value": 48 },
+      "lg": { "$value": 56 }
+    },
+    "tile": {
+      "min-height": { "$value": 112, "$description": "Home grid tile." }
+    },
+    "frame": {
+      "width": { "$value": 360, "$description": "Design and golden-test phone width." }
+    }
+  },
+  "elevation": {
+    "$type": "shadow",
+    "e1": {
+      "$value": [{ "color": "#0000001F", "offsetX": 0, "offsetY": 1, "blur": 3, "spread": 0 }],
+      "$description": "Cards."
+    },
+    "e2": {
+      "$value": [{ "color": "#00000026", "offsetX": 0, "offsetY": 2, "blur": 6, "spread": 0 }],
+      "$description": "Menus, popovers."
+    },
+    "e3": {
+      "$value": [{ "color": "#00000080", "offsetX": 0, "offsetY": 8, "blur": 20, "spread": -8 }],
+      "$description": "Floating Listen button, sheets."
+    }
+  }
+}

@@ -1,0 +1,3060 @@
+{
+  "common.allow": {
+    "description": "Button that asks for a phone permission (location, camera).",
+    "max_len": 18,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.app_name": {
+    "description": "App and programme name; brand, never translated.",
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.audio_error": {
+    "description": "Listen button after playback failed.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.audio_loading": {
+    "description": "Listen button while the audio loads.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.audio_unavailable": {
+    "description": "Listen button when no recording exists for this screen or notice.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.back": {
+    "description": "Back button (wireframe F9b).",
+    "max_len": 10,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.call": {
+    "description": "Call button (opens the dialler).",
+    "max_len": 10,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.call_name": {
+    "description": "Call button naming the person. Wireframe has \"సురేష్‌కు కాల్ చేయండి\"; \"గారికి\" is used so the suffix fits any name, including names in Latin script.",
+    "max_len": 36,
+    "placeholders": {
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.cancel": {
+    "description": "Cancel button in dialogs.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.choose": {
+    "description": "Generic choose / select label.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.close": {
+    "description": "Close button for sheets and dialogs.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.coming_soon": {
+    "description": "Label on locked tiles and features not built yet.",
+    "max_len": 14,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.date_full": {
+    "description": "A full date with year, e.g. \"12 అక్టో, 2026\". Use on consents and seasons.",
+    "placeholders": {
+      "date": {
+        "format": "yMMMd",
+        "type": "DateTime"
+      }
+    },
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.date_short": {
+    "description": "A day and short month, e.g. \"12 అక్టో\". Use on list rows.",
+    "placeholders": {
+      "date": {
+        "format": "MMMd",
+        "type": "DateTime"
+      }
+    },
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.date_weekday": {
+    "description": "A date with short weekday and month, e.g. \"గురు, 29 అక్టో\". Use for visit dates.",
+    "placeholders": {
+      "date": {
+        "format": "MMMEd",
+        "type": "DateTime"
+      }
+    },
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.days_ago": {
+    "description": "Relative time on cards.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.done": {
+    "description": "Done button at the end of a flow.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.dot_join": {
+    "description": "Joins two short facts on one line (wireframe style \"Kondapur · Cotton\").",
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    },
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.edit": {
+    "description": "Edit / change button.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.help": {
+    "description": "Help label (wireframe F10).",
+    "max_len": 10,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.helpline": {
+    "description": "Helpline label; the number comes from app config.",
+    "max_len": 16,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.hours_ago": {
+    "description": "Relative time on cards (wireframe F5 \"2 h ago\").",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.later": {
+    "description": "Dismiss button for optional prompts.",
+    "max_len": 10,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.listen": {
+    "description": "Listen button: plays the voice prompt or voice note.",
+    "max_len": 10,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.loading": {
+    "description": "Shown while a screen loads.",
+    "max_len": 18,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.minutes_ago": {
+    "description": "Relative time on cards.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.next": {
+    "description": "Continue / next step button (wireframe F9a).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.no": {
+    "description": "No answer (wireframe F1a).",
+    "max_len": 10,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.offline": {
+    "description": "Offline banner title (wireframe states).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.ok": {
+    "description": "Generic OK / acknowledge button.",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.open_settings": {
+    "description": "Button that opens the phone settings after a permission was denied.",
+    "max_len": 22,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.read": {
+    "description": "Read button (opens the full text).",
+    "max_len": 10,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.retry": {
+    "description": "Retry button on error cards (wireframe F7b, F9c).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.save": {
+    "description": "Save button.",
+    "max_len": 16,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.saved_at": {
+    "description": "Banner under cached data: when it was saved. Wireframe F2 \"Saved at 7:00 am\".",
+    "max_len": 28,
+    "placeholders": {
+      "time": {
+        "format": "jm",
+        "type": "DateTime"
+      }
+    },
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.search": {
+    "description": "Search field label.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.sign_out": {
+    "description": "Sign-out button.",
+    "max_len": 18,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.step_of": {
+    "description": "Step header in multi-step flows (one input per screen).",
+    "max_len": 20,
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.stop": {
+    "description": "Stop button while audio plays.",
+    "max_len": 10,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.today": {
+    "description": "Relative day label (wireframe F2).",
+    "max_len": 10,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.tomorrow": {
+    "description": "Relative day label (wireframe F2).",
+    "max_len": 10,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.undo": {
+    "description": "Undo action on a snackbar.",
+    "max_len": 14,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.unknown": {
+    "description": "Shown when a value is missing or an enum value is new to this app version.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.update_available": {
+    "description": "Dismissable \"new version\" card.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.update_button": {
+    "description": "Opens the store page.",
+    "max_len": 16,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.update_required_body": {
+    "description": "Blocking forced-update screen body.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.update_required_title": {
+    "description": "Blocking forced-update screen title.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.whatsapp": {
+    "description": "WhatsApp chat button; brand, never translated.",
+    "max_len": 10,
+    "placeholders": {},
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.yes": {
+    "description": "Yes answer.",
+    "max_len": 10,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "common.yesterday": {
+    "description": "Relative day label.",
+    "max_len": 10,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Common (both apps)",
+    "voice": false
+  },
+  "enum.advice_status.given": {
+    "description": "Visit issue advice status.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.advice_status.unresolved": {
+    "description": "Visit issue advice status: the FA will follow up.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.area_source.boundary": {
+    "description": "How a plot area was found.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.area_source.typed": {
+    "description": "How a plot area was found.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.area_unit.acre": {
+    "description": "Area unit (app-side; 40 guntas = 1 acre).",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.area_unit.gunta": {
+    "description": "Area unit (app-side; 40 guntas = 1 acre).",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.callback_status.cancelled": {
+    "description": "Call-back request status.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.callback_status.closed": {
+    "description": "Call-back request status.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.callback_status.open": {
+    "description": "Call-back request status (wireframe F3).",
+    "max_len": 20,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.consent_method.app": {
+    "description": "How the consent was given.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.consent_method.fa_otp": {
+    "description": "How the consent was given.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.consent_method.ho": {
+    "description": "How the consent was given.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.consent_purpose.loyalty": {
+    "description": "Consent purpose.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.consent_purpose.programme": {
+    "description": "Consent purpose.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.consent_purpose.schemes_finance": {
+    "description": "Consent purpose.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.consent_purpose.soil_partner": {
+    "description": "Consent purpose.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.consent_state.granted": {
+    "description": "App-side consent state: granted = true.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.consent_state.never_asked": {
+    "description": "App-side consent state: granted = null.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.consent_state.withdrawn": {
+    "description": "App-side consent state: granted = false.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.coverage_level.district": {
+    "description": "FA coverage level; F3 tab (wireframe).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.coverage_level.mandal": {
+    "description": "FA coverage level; F3 tab (wireframe).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.coverage_level.village": {
+    "description": "FA coverage level; F3 tab (wireframe).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.farmer_plan.free": {
+    "description": "Plan badge (wireframe F7).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.farmer_plan.premium": {
+    "description": "Plan badge (wireframe F7).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.farmer_status.active": {
+    "description": "Farmer status.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.farmer_status.inactive": {
+    "description": "Farmer status.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.farmer_status.pending_profile": {
+    "description": "Farmer status.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.language.en": {
+    "description": "Language chip; always shown in its own script (wireframe F1).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.language.te": {
+    "description": "Language chip; always shown in its own script (wireframe F1).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.notice_sender.civ": {
+    "description": "Notice source tag (wireframe F5); CIV full name is an open decision.",
+    "max_len": 20,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.notice_sender.fa": {
+    "description": "Notice source tag.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.notice_sender.ho": {
+    "description": "Notice source tag (wireframe F5).",
+    "max_len": 20,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.notice_sender.system": {
+    "description": "Notice source tag for system notices.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.planned_slot.afternoon": {
+    "description": "Planned visit slot.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.planned_slot.any": {
+    "description": "Planned visit slot.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.planned_slot.morning": {
+    "description": "Planned visit slot.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.season_kind.kharif": {
+    "description": "First part of a season code (kharif-2026).",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.season_kind.rabi": {
+    "description": "First part of a season code (rabi-2026-27).",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.season_kind.summer": {
+    "description": "First part of a season code (summer-2026).",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.season_status.abandoned": {
+    "description": "Season status and close-season outcome (crop lost or given up).",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.season_status.active": {
+    "description": "Season status.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.season_status.harvested": {
+    "description": "Season status and close-season outcome.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.severity.high": {
+    "description": "Issue severity.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.severity.low": {
+    "description": "Issue severity (wireframe F4).",
+    "max_len": 20,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.severity.moderate": {
+    "description": "Issue severity (wireframe F4).",
+    "max_len": 20,
+    "placeholders": {},
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.visit_status.cancelled": {
+    "description": "Visit status.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.visit_status.done": {
+    "description": "Visit status.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.visit_status.missed": {
+    "description": "Visit status.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "enum.visit_status.planned": {
+    "description": "Visit status.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Enum labels",
+    "voice": false
+  },
+  "error.active_season_exists": {
+    "description": "409 on start season.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.callback_closed": {
+    "description": "409 callback_closed on undo.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.detail.attempts_left": {
+    "description": "Added after an error message when details.attempts_left is present (otp_invalid).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.detail.retry_after_seconds": {
+    "description": "Added after an error message when the app puts the Retry-After seconds in details.retry_after_seconds.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.device_revoked": {
+    "description": "401 device_revoked: the app wipes local data and goes to sign-in.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.forbidden": {
+    "description": "403 forbidden (e.g. deactivated farmer).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.internal": {
+    "description": "500 internal.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.invalid_cursor": {
+    "description": "400 invalid_cursor on a paged list.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.invalid_request": {
+    "description": "400 invalid_request (malformed body or query).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.network": {
+    "description": "App-side code: no connection.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.no_fa_assigned": {
+    "description": "409 no_fa_assigned on call-back request.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.not_found": {
+    "description": "404 not_found.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.not_in_your_area": {
+    "description": "Sync reject reason on EnrolFarmer (FA app).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.otp_expired": {
+    "description": "400 otp_expired on OTP verify.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.otp_invalid": {
+    "description": "400 otp_invalid on OTP verify. Pair with error.detail.attempts_left.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.password_change_required": {
+    "description": "403 password_change_required (FA app).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.payload_too_large": {
+    "description": "413 payload_too_large.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.phone_taken": {
+    "description": "409 phone_taken.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.photo_already_uploaded": {
+    "description": "409 photo_already_uploaded (FA app).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.profile_already_complete": {
+    "description": "409 on complete-profile; the app carries on to Home.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.profile_incomplete": {
+    "description": "409 profile_incomplete.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.rate_limited": {
+    "description": "429 rate_limited. Pair with error.detail.retry_after_seconds (from the Retry-After header).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.refresh_reused": {
+    "description": "401 refresh_reused on /v1/auth/refresh.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.registered_with_another_fa": {
+    "description": "Sync reject reason on EnrolFarmer (FA app).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.season_exists": {
+    "description": "409 season_exists on start season.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.season_not_active": {
+    "description": "409 season_not_active on close season.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.session_revoked": {
+    "description": "401 session_revoked.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.temp_password_expired": {
+    "description": "401 temp_password_expired (FA app).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.timeout": {
+    "description": "App-side code: the request timed out.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.unauthorized": {
+    "description": "401 unauthorized after a failed refresh.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.unavailable": {
+    "description": "503 unavailable.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.unknown": {
+    "description": "Fallback for any code this app version does not know.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.upload_missing": {
+    "description": "409 upload_missing on photo confirm (FA app).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.validation_failed": {
+    "description": "400 validation_failed (details.fields names the fields).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "error.version_mismatch": {
+    "description": "409 version_mismatch (FA app).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Errors (both apps)",
+    "voice": false
+  },
+  "farmer.advice.advised_by": {
+    "description": "Byline (wireframe \"Advised by Suresh · 12 Oct\").",
+    "placeholders": {
+      "date": {
+        "format": "MMMd",
+        "type": "DateTime"
+      },
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.ask_at_shop_body": {
+    "description": "F8b instruction (wireframe; the cashback sentence is dropped until Phase 2).",
+    "placeholders": {},
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.ask_at_shop_label": {
+    "description": "F8b label above the salt name (wireframe \"ASK FOR THIS AT THE SHOP\").",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.dealer_distance": {
+    "description": "Dealer distance; km is pre-formatted, e.g. 1.8.",
+    "placeholders": {
+      "km": {
+        "example": "1.8",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.location_needed": {
+    "description": "Dealer list without location permission.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.nearby_dealers": {
+    "description": "Dealer list header (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.no_dealers": {
+    "description": "Empty dealer list.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.no_product": {
+    "description": "F8b line (wireframe).",
+    "max_len": 32,
+    "placeholders": {},
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.product_title": {
+    "description": "F8a title (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.salt_title": {
+    "description": "F8b title (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.show_at_shop": {
+    "description": "F8a button that opens the full-screen card (wireframe).",
+    "max_len": 32,
+    "placeholders": {},
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.show_shopkeeper": {
+    "description": "Full-screen card header (wireframe).",
+    "max_len": 32,
+    "placeholders": {},
+    "screen": "F8a/F8b Advice detail",
+    "voice": false
+  },
+  "farmer.advice.title": {
+    "description": "Neutral advice header while loading, pending or not found (promises neither a product nor a salt).",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F8 Advice",
+    "voice": false
+  },
+  "farmer.advice.voice_help_pending": {
+    "description": "Voice prompt for an advice item the FA has not filled in yet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F8 Advice",
+    "voice": true
+  },
+  "farmer.advice.voice_help_product": {
+    "description": "Voice prompt for F8a.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F8a/F8b Advice detail",
+    "voice": true
+  },
+  "farmer.advice.voice_help_salt": {
+    "description": "Voice prompt for F8b.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F8a/F8b Advice detail",
+    "voice": true
+  },
+  "farmer.calendar.day": {
+    "description": "Progress line when the crop has no duration.",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "F11 Crop calendar",
+    "voice": false
+  },
+  "farmer.calendar.day_of": {
+    "description": "Progress line (wireframe \"day 137 of about 170\").",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "F11 Crop calendar",
+    "voice": false
+  },
+  "farmer.calendar.no_season": {
+    "description": "No active season.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F11 Crop calendar",
+    "voice": false
+  },
+  "farmer.calendar.no_sowing_date": {
+    "description": "Season without a sowing date; only the FA can add it.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F11 Crop calendar",
+    "voice": false
+  },
+  "farmer.calendar.now": {
+    "description": "Marker on the current stage (wireframe \"(now)\").",
+    "max_len": 10,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F11 Crop calendar",
+    "voice": false
+  },
+  "farmer.calendar.tasks": {
+    "description": "Tasks section header (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F11 Crop calendar",
+    "voice": false
+  },
+  "farmer.calendar.tasks_later": {
+    "description": "Shown in place of the task list (calendar module not built).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F11 Crop calendar",
+    "voice": false
+  },
+  "farmer.calendar.title": {
+    "description": "F11 title (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F11 Crop calendar",
+    "voice": false
+  },
+  "farmer.calendar.voice_help": {
+    "description": "Voice prompt for F11.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F11 Crop calendar",
+    "voice": true
+  },
+  "farmer.consent.agree": {
+    "description": "Primary button: grants the programme consent (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F1a Consent",
+    "voice": false
+  },
+  "farmer.consent.declined": {
+    "description": "Shown after \"Not now\".",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1a Consent",
+    "voice": false
+  },
+  "farmer.consent.not_now": {
+    "description": "Secondary button: does not grant.",
+    "max_len": 16,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1a Consent",
+    "voice": false
+  },
+  "farmer.consent.point_change": {
+    "description": "Consent point 3 (wireframe).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1a Consent",
+    "voice": false
+  },
+  "farmer.consent.point_partners": {
+    "description": "Consent point 2 (wireframe).",
+    "placeholders": {},
+    "screen": "F1a Consent",
+    "voice": false
+  },
+  "farmer.consent.point_safe": {
+    "description": "Consent point 1 (wireframe).",
+    "placeholders": {},
+    "screen": "F1a Consent",
+    "voice": false
+  },
+  "farmer.consent.purpose": {
+    "description": "Programme purpose, shown above the three points (notice_version is bundled with this text).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1a Consent",
+    "voice": false
+  },
+  "farmer.consent.saved": {
+    "description": "Snackbar after the consent is stored.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1a Consent",
+    "voice": false
+  },
+  "farmer.consent.title": {
+    "description": "Consent screen title (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F1a Consent",
+    "voice": false
+  },
+  "farmer.consent.voice_help": {
+    "description": "Voice prompt that reads the whole consent notice (purpose first); audio_played is sent when it plays to the end.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1a Consent",
+    "voice": true
+  },
+  "farmer.consent.voice_help_declined": {
+    "description": "Voice prompt for the \"Not now\" sheet of the consent screen.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1a Consent",
+    "voice": true
+  },
+  "farmer.consents.agree": {
+    "description": "Grants the consent.",
+    "max_len": 16,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.changed_on": {
+    "description": "When the consent was last set.",
+    "placeholders": {
+      "date": {
+        "format": "yMMMd",
+        "type": "DateTime"
+      }
+    },
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.desc_loyalty": {
+    "description": "What the loyalty consent covers.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.desc_programme": {
+    "description": "What the programme consent covers.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.desc_schemes_finance": {
+    "description": "What the schemes_finance consent covers.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.desc_soil_partner": {
+    "description": "What the soil_partner consent covers.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.empty": {
+    "description": "Consents screen when the list came back empty; Try again below.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.subtitle": {
+    "description": "Consents list subtitle (wireframe).",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.title": {
+    "description": "Consents list title (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.voice_help": {
+    "description": "Voice prompt for the consents list.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": true
+  },
+  "farmer.consents.withdraw": {
+    "description": "Withdraws the consent.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.withdraw_body": {
+    "description": "Withdraw dialog body, under the purpose name.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.withdraw_programme_voice": {
+    "description": "Voice prompt for the withdraw dialog of the programme consent (with the warning).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": true
+  },
+  "farmer.consents.withdraw_programme_warning": {
+    "description": "Extra warning when withdrawing the programme consent.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.withdraw_title": {
+    "description": "Withdraw confirmation title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": false
+  },
+  "farmer.consents.withdraw_voice": {
+    "description": "Voice prompt for the withdraw-consent dialog (any purpose but programme).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Consents",
+    "voice": true
+  },
+  "farmer.farm.add_plot": {
+    "description": "Button to add a plot (wireframe).",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.change_name": {
+    "description": "Profile name action.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.change_name_voice": {
+    "description": "Voice prompt for the change-name dialog.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": true
+  },
+  "farmer.farm.change_photo": {
+    "description": "Profile photo action.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.close_season": {
+    "description": "Plot action.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.consents": {
+    "description": "Row label (wireframe).",
+    "max_len": 16,
+    "placeholders": {},
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.consents_hint": {
+    "description": "Row subtitle (wireframe \"who can see what\").",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.from_gallery": {
+    "description": "Photo source option (wireframe F9b).",
+    "max_len": 20,
+    "placeholders": {},
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.help": {
+    "description": "Row label; dials the helpline (wireframe).",
+    "max_len": 16,
+    "placeholders": {},
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.language": {
+    "description": "Row label (wireframe).",
+    "max_len": 16,
+    "placeholders": {},
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.language_changed": {
+    "description": "Snackbar after the language changes.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.no_crop": {
+    "description": "Plot without an active season.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.photo_updated": {
+    "description": "Snackbar after the photo upload.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.plot": {
+    "description": "Default plot name when the plot has no label (wireframe \"పొలం 1\").",
+    "max_len": 16,
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    },
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.plots": {
+    "description": "Section header above the plot cards.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.sign_out_body": {
+    "description": "Sign-out confirmation body.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.sign_out_title": {
+    "description": "Sign-out confirmation title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.sign_out_voice": {
+    "description": "Voice prompt for the sign-out confirmation.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": true
+  },
+  "farmer.farm.sown_on": {
+    "description": "Plot row line (wireframe \"sown 12 Jun\").",
+    "placeholders": {
+      "date": {
+        "format": "MMMd",
+        "type": "DateTime"
+      }
+    },
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.sows_on": {
+    "description": "Plot row and crop calendar line when the sowing date is still ahead (counterpart of sown_on).",
+    "placeholders": {
+      "date": {
+        "format": "MMMd",
+        "type": "DateTime"
+      }
+    },
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.start_season": {
+    "description": "Plot action.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.take_photo": {
+    "description": "Photo source option.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.title": {
+    "description": "F10 title (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.village_change_note": {
+    "description": "Note under the village (not editable here).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.farm.voice_help": {
+    "description": "Voice prompt for F10.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 My farm",
+    "voice": true
+  },
+  "farmer.farm.your_fa": {
+    "description": "Row label; opens F3 (wireframe).",
+    "max_len": 16,
+    "placeholders": {},
+    "screen": "F10 My farm",
+    "voice": false
+  },
+  "farmer.fas.call_failed": {
+    "description": "Snack bar when the phone has no dialer (tablet); shows the number to call by hand. Also used on Home.",
+    "placeholders": {
+      "phone": {
+        "example": "+919000000014",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.call_hint": {
+    "description": "Hint above the list.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.callback": {
+    "description": "Call-back request button (wireframe).",
+    "max_len": 32,
+    "placeholders": {},
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.callback_cancelled": {
+    "description": "Snackbar after Undo.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.callback_sent": {
+    "description": "Call-back sent title (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.callback_sent_body": {
+    "description": "Call-back sent line (wireframe \"Suresh will call you today\").",
+    "placeholders": {
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.count": {
+    "description": "Count under the tabs.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.languages": {
+    "description": "FA card line.",
+    "placeholders": {
+      "languages": {
+        "example": "తెలుగు, English",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.lead": {
+    "description": "Badge on the lead FA for the area.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.title": {
+    "description": "F3 title (wireframe).",
+    "max_len": 32,
+    "placeholders": {},
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.voice_help": {
+    "description": "Voice prompt for F3.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": true
+  },
+  "farmer.fas.whatsapp_failed": {
+    "description": "Snack bar when WhatsApp could not be opened.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.whatsapp_message": {
+    "description": "Text pre-filled in the WhatsApp chat (wa.me ?text=).",
+    "placeholders": {
+      "name": {
+        "example": "రవి",
+        "type": "String"
+      },
+      "village": {
+        "example": "కొండాపూర్",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.working_hours": {
+    "description": "FA card line; hours text comes from the server.",
+    "placeholders": {
+      "hours": {
+        "example": "9 am - 6 pm",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.fas.your_fa": {
+    "description": "Badge on the farmer's own FA (wireframe).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "F3 Look for FAs",
+    "voice": false
+  },
+  "farmer.home.area": {
+    "description": "Plot area as acres and guntas, spelled out; a zero part is left out (\"2 ఎకరాలు\", \"20 గుంటలు\", \"2 ఎకరాలు 20 గుంటలు\").",
+    "max_len": 24,
+    "placeholders": {
+      "acres": {
+        "type": "int"
+      },
+      "guntas": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.fa_verified": {
+    "description": "FA card subtitle.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.greeting": {
+    "description": "Home greeting (wireframe \"నమస్కారం, రవి\").",
+    "max_len": 32,
+    "placeholders": {
+      "name": {
+        "example": "రవి",
+        "type": "String"
+      }
+    },
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.locked_body": {
+    "description": "Sheet body for a locked tile.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.locked_title": {
+    "description": "Sheet shown when a locked tile is tapped.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.locked_voice": {
+    "description": "Voice prompt for the coming-soon sheet of a locked Home tile.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": true
+  },
+  "farmer.home.look_for_fas": {
+    "description": "Link from the FA card to F3.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.next_visit": {
+    "description": "Label above the next visit date (wireframe F4).",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.no_next_visit": {
+    "description": "Shown when there is no planned visit.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.no_plot_body": {
+    "description": "Home card body when the farmer has no plot yet; the button opens My farm.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.no_plot_title": {
+    "description": "Home card when the farmer has no plot yet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.tile_advisory": {
+    "description": "Home tile (wireframe nav label).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.tile_ask": {
+    "description": "Home tile, locked until Phase 3 (wireframe).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.tile_calendar": {
+    "description": "Home tile (wireframe).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.tile_pests": {
+    "description": "Home tile; opens visits/advice (wireframe).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.tile_premium": {
+    "description": "Home tile, locked until Phase 2 (wireframe).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.tile_schemes": {
+    "description": "Home tile, locked until Phase 3 (wireframe).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.tile_services": {
+    "description": "Home tile, locked until Phase 2 (wireframe).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.tile_soil_test": {
+    "description": "Home tile, locked until Phase 2 (wireframe).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.tile_wallet": {
+    "description": "Home tile, locked until Phase 2 (wireframe).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.tile_weather": {
+    "description": "Home tile, locked until the feed exists (wireframe).",
+    "max_len": 18,
+    "placeholders": {},
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.unread": {
+    "description": "Bell badge accessibility label.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.voice_help": {
+    "description": "Voice prompt for Home.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": true
+  },
+  "farmer.home.weather_soon": {
+    "description": "Weather card placeholder (feed not built; hidden in prod).",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.home.your_fa": {
+    "description": "FA card title (wireframe \"మీ FA: సురేష్\").",
+    "max_len": 32,
+    "placeholders": {
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "screen": "F2 Home",
+    "voice": false
+  },
+  "farmer.inbox.empty_body": {
+    "description": "Empty inbox body.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F5 Crop advisory",
+    "voice": false
+  },
+  "farmer.inbox.empty_title": {
+    "description": "Empty inbox title.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F5 Crop advisory",
+    "voice": false
+  },
+  "farmer.inbox.for_your_field": {
+    "description": "Tag on personal notices (wireframe).",
+    "max_len": 20,
+    "placeholders": {},
+    "screen": "F5 Crop advisory",
+    "voice": false
+  },
+  "farmer.inbox.listened": {
+    "description": "Tag after the voice note played to the end.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F5 Crop advisory",
+    "voice": false
+  },
+  "farmer.inbox.new_count": {
+    "description": "Count next to the title (wireframe \"3 new\").",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "F5 Crop advisory",
+    "voice": false
+  },
+  "farmer.inbox.no_audio": {
+    "description": "Shown instead of Listen when audio_url is null.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F5 Crop advisory",
+    "voice": false
+  },
+  "farmer.inbox.no_audio_voice": {
+    "description": "Voice prompt on a notice that has no voice note of its own (audio_url is null).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F5 Crop advisory",
+    "voice": true
+  },
+  "farmer.inbox.pinned": {
+    "description": "Tag on pinned notices (wireframe \"PINNED\").",
+    "max_len": 14,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F5 Crop advisory",
+    "voice": false
+  },
+  "farmer.inbox.title": {
+    "description": "F5 title (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F5 Crop advisory",
+    "voice": false
+  },
+  "farmer.inbox.unread": {
+    "description": "Tag on unread notices.",
+    "max_len": 10,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F5 Crop advisory",
+    "voice": false
+  },
+  "farmer.inbox.voice_help": {
+    "description": "Voice prompt for F5.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F5 Crop advisory",
+    "voice": true
+  },
+  "farmer.login.account_paused": {
+    "description": "Shown after sign-in when farmer_status is inactive.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.call_helpline": {
+    "description": "Button that dials the helpline (wireframe states).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.change_number": {
+    "description": "Link back to the phone step.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.choose_language": {
+    "description": "Label above the language chips.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.no_otp": {
+    "description": "Link under the OTP boxes (wireframe states).",
+    "max_len": 20,
+    "placeholders": {},
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.no_otp_help": {
+    "description": "Sheet shown for \"OTP not received?\". Voice OTP (call me) is not built, so the helpline is offered instead.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.otp_autofill": {
+    "description": "Reserved for SMS autofill (not wired yet): hint under the OTP boxes once the app reads the SMS by itself.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.otp_hint": {
+    "description": "Hint under the OTP boxes (no SMS autofill yet).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.otp_sent": {
+    "description": "Snackbar after (re)sending the OTP.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.otp_sent_to": {
+    "description": "OTP step subtitle; phone is phone_masked from the server.",
+    "placeholders": {
+      "phone": {
+        "example": "+91 98xxxxxx10",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.otp_title": {
+    "description": "OTP step title.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.otp_waiting": {
+    "description": "Shown while SMS autofill waits for the OTP.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.paused_title": {
+    "description": "Title of the account paused card (farmer_status inactive).",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.phone_hint": {
+    "description": "Phone field hint (+91 prefix is shown by the field).",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.phone_invalid": {
+    "description": "Inline error on the phone field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.phone_subtitle": {
+    "description": "Phone step subtitle.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.phone_title": {
+    "description": "Phone step title.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.resend": {
+    "description": "Resend button after the countdown.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.resend_in": {
+    "description": "Resend countdown; time is m:ss, e.g. 0:24.",
+    "max_len": 32,
+    "placeholders": {
+      "time": {
+        "example": "0:24",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.send_otp": {
+    "description": "Primary button on the phone step.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.tagline": {
+    "description": "Tag line under the app name on the phone step.",
+    "max_len": 48,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.use_sim_number": {
+    "description": "Phone number hint picker button (wireframe \"From SIM\").",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.verify": {
+    "description": "Primary button on the OTP step.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": false
+  },
+  "farmer.login.voice_help_no_otp": {
+    "description": "Voice prompt for the \"OTP not received?\" sheet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": true
+  },
+  "farmer.login.voice_help_otp": {
+    "description": "Voice prompt for the OTP step (Listen button).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": true
+  },
+  "farmer.login.voice_help_paused": {
+    "description": "Voice prompt for the account paused screen (Listen button).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": true
+  },
+  "farmer.login.voice_help_phone": {
+    "description": "Voice prompt for the phone step (Listen button).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F1 Phone and OTP login",
+    "voice": true
+  },
+  "farmer.name.done": {
+    "description": "Shown after complete-profile succeeds.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Name entry (complete profile)",
+    "voice": false
+  },
+  "farmer.name.finish": {
+    "description": "Primary button: calls complete-profile.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Name entry (complete profile)",
+    "voice": false
+  },
+  "farmer.name.hint": {
+    "description": "Name field hint.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Name entry (complete profile)",
+    "voice": false
+  },
+  "farmer.name.required": {
+    "description": "Inline error when the name is blank.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Name entry (complete profile)",
+    "voice": false
+  },
+  "farmer.name.subtitle": {
+    "description": "Name step subtitle.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Name entry (complete profile)",
+    "voice": false
+  },
+  "farmer.name.title": {
+    "description": "Name step title.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Name entry (complete profile)",
+    "voice": false
+  },
+  "farmer.name.voice_help": {
+    "description": "Voice prompt for the name step.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Name entry (complete profile)",
+    "voice": true
+  },
+  "farmer.nav.advisory": {
+    "description": "Bottom tab.",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Bottom nav (farmer)",
+    "voice": false
+  },
+  "farmer.nav.farm": {
+    "description": "Bottom tab (replaces Wallet until Phase 2).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Bottom nav (farmer)",
+    "voice": false
+  },
+  "farmer.nav.home": {
+    "description": "Bottom tab.",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Bottom nav (farmer)",
+    "voice": false
+  },
+  "farmer.nav.visits": {
+    "description": "Bottom tab.",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Bottom nav (farmer)",
+    "voice": false
+  },
+  "farmer.nav.wallet": {
+    "description": "Bottom tab (Phase 2; hidden in 1b).",
+    "max_len": 12,
+    "placeholders": {},
+    "screen": "Bottom nav (farmer)",
+    "voice": false
+  },
+  "farmer.plot_add.accuracy": {
+    "description": "GPS accuracy line.",
+    "placeholders": {
+      "meters": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.acres": {
+    "description": "Acres input label.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.area_invalid": {
+    "description": "Inline error: no area typed (0 acres and 0 guntas).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.area_title": {
+    "description": "Area step title.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.area_too_big": {
+    "description": "Inline error: area above the app's cap for one field (maxPlotAcres, below the API's 10000).",
+    "placeholders": {
+      "max": {
+        "example": "100",
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.guntas": {
+    "description": "Guntas input label.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.guntas_hint": {
+    "description": "Hint under the area inputs.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.guntas_invalid": {
+    "description": "Inline error.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.label_hint": {
+    "description": "Label field hint.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.label_title": {
+    "description": "Optional label step title.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.locating": {
+    "description": "While GPS locks.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.location_denied": {
+    "description": "Location permission denied.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.mark_spot": {
+    "description": "Pin step button.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.no_location": {
+    "description": "Location step when neither the village nor another plot has a location.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.pin_body": {
+    "description": "Pin step body.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.pin_title": {
+    "description": "Pin step title.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.save": {
+    "description": "Final step button.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.saved": {
+    "description": "Snackbar after the plot is saved.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.title": {
+    "description": "Add plot title.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.village_pin_body": {
+    "description": "Location step body while GPS is not wired.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.village_pin_title": {
+    "description": "Location step title while GPS is not wired: the village location is used as the pin.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.plot_add.voice_help_area": {
+    "description": "Voice prompt for the area step.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": true
+  },
+  "farmer.plot_add.voice_help_label": {
+    "description": "Voice prompt for the field name step.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": true
+  },
+  "farmer.plot_add.voice_help_pin": {
+    "description": "Voice prompt for the pin step.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": true
+  },
+  "farmer.plot_add.voice_help_village_pin": {
+    "description": "Voice prompt for the location step while GPS is not wired.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": true
+  },
+  "farmer.plot_add.weak_gps": {
+    "description": "Accuracy too low.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Add plot",
+    "voice": false
+  },
+  "farmer.season_close.closed": {
+    "description": "Snackbar after the season is closed.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Close season",
+    "voice": false
+  },
+  "farmer.season_close.no_undo": {
+    "description": "Warning before closing.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Close season",
+    "voice": false
+  },
+  "farmer.season_close.question": {
+    "description": "Outcome question; options are enum.season_status.harvested/abandoned.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Close season",
+    "voice": false
+  },
+  "farmer.season_close.title": {
+    "description": "Close season title.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Close season",
+    "voice": false
+  },
+  "farmer.season_close.voice_help": {
+    "description": "Voice prompt for close season.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Close season",
+    "voice": true
+  },
+  "farmer.season_start.current": {
+    "description": "Tag on the current season code.",
+    "max_len": 16,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Start season",
+    "voice": false
+  },
+  "farmer.season_start.not_sown": {
+    "description": "Skips the sowing date.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Start season",
+    "voice": false
+  },
+  "farmer.season_start.previous_crop": {
+    "description": "Optional previous crop step.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Start season",
+    "voice": false
+  },
+  "farmer.season_start.season_label": {
+    "description": "Season picker option, e.g. \"రబీ 2026-27\"; season from enum.season_kind.",
+    "placeholders": {
+      "season": {
+        "example": "రబీ",
+        "type": "String"
+      },
+      "year": {
+        "example": "2026-27",
+        "type": "String"
+      }
+    },
+    "screen": "F10 Start season",
+    "voice": false
+  },
+  "farmer.season_start.skip": {
+    "description": "Skips an optional step.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Start season",
+    "voice": false
+  },
+  "farmer.season_start.sowing_date": {
+    "description": "Sowing date step.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Start season",
+    "voice": false
+  },
+  "farmer.season_start.started": {
+    "description": "Snackbar after the season is saved.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Start season",
+    "voice": false
+  },
+  "farmer.season_start.title": {
+    "description": "Start season title.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Start season",
+    "voice": false
+  },
+  "farmer.season_start.voice_help": {
+    "description": "Voice prompt for start season.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Start season",
+    "voice": true
+  },
+  "farmer.season_start.which_crop": {
+    "description": "Crop picker step.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Start season",
+    "voice": false
+  },
+  "farmer.season_start.which_season": {
+    "description": "Season picker step (codes from season_codes.all_open).",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F10 Start season",
+    "voice": false
+  },
+  "farmer.state.call_fa": {
+    "description": "Action on the no-visits card (wireframe).",
+    "max_len": 20,
+    "placeholders": {},
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": false
+  },
+  "farmer.state.error_title": {
+    "description": "Generic error card title.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": false
+  },
+  "farmer.state.error_voice": {
+    "description": "Voice prompt for the error card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": true
+  },
+  "farmer.state.no_advice_voice": {
+    "description": "Voice prompt for the empty inbox.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": true
+  },
+  "farmer.state.no_fa_action": {
+    "description": "Action on the no-FA card (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": false
+  },
+  "farmer.state.no_fa_title": {
+    "description": "Home with no FA assigned (wireframe).",
+    "placeholders": {},
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": false
+  },
+  "farmer.state.no_fa_voice": {
+    "description": "Voice prompt for the no-FA card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": true
+  },
+  "farmer.state.no_visits_body": {
+    "description": "F4 empty card body (wireframe).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": false
+  },
+  "farmer.state.no_visits_title": {
+    "description": "F4 empty card title (wireframe).",
+    "max_len": 28,
+    "placeholders": {},
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": false
+  },
+  "farmer.state.no_visits_voice": {
+    "description": "Voice prompt for the no-visits card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": true
+  },
+  "farmer.state.offline_body": {
+    "description": "Offline card body (wireframe \"Showing saved ... from 7:00 am\").",
+    "placeholders": {
+      "time": {
+        "format": "jm",
+        "type": "DateTime"
+      }
+    },
+    "review": "pending",
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": false
+  },
+  "farmer.state.offline_nothing_saved": {
+    "description": "Offline with no cached data.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": false
+  },
+  "farmer.state.offline_nothing_voice": {
+    "description": "Voice prompt for the offline card when nothing is saved on the phone.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": true
+  },
+  "farmer.state.offline_title": {
+    "description": "Offline card title (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": false
+  },
+  "farmer.state.offline_voice": {
+    "description": "Voice prompt for the offline banner shown over saved details (Home).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Empty, offline and error states (farmer)",
+    "voice": true
+  },
+  "farmer.village.browse": {
+    "description": "Button that opens the district > mandal > village browser.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": false
+  },
+  "farmer.village.choose_district": {
+    "description": "Browser step 1.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": false
+  },
+  "farmer.village.choose_mandal": {
+    "description": "Browser step 2.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": false
+  },
+  "farmer.village.choose_village": {
+    "description": "Browser step 3.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": false
+  },
+  "farmer.village.confirm": {
+    "description": "Confirm button after choosing a village.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": false
+  },
+  "farmer.village.no_results": {
+    "description": "Empty search result.",
+    "placeholders": {
+      "query": {
+        "example": "కొండాపూర్",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": false
+  },
+  "farmer.village.result_area": {
+    "description": "Second line of a village search result.",
+    "placeholders": {
+      "district": {
+        "example": "రంగారెడ్డి",
+        "type": "String"
+      },
+      "mandal": {
+        "example": "శేరిలింగంపల్లి",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": false
+  },
+  "farmer.village.search_hint": {
+    "description": "Search field hint (Telugu or English).",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": false
+  },
+  "farmer.village.subtitle": {
+    "description": "Village picker subtitle.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": false
+  },
+  "farmer.village.title": {
+    "description": "Village picker title.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": false
+  },
+  "farmer.village.voice_help": {
+    "description": "Voice prompt for the village picker.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "Village picker",
+    "voice": true
+  },
+  "farmer.visits.advice_pending": {
+    "description": "Issue whose advice_status is unresolved.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.by_fa": {
+    "description": "Visit row header (wireframe \"12 అక్టో · సురేష్\").",
+    "placeholders": {
+      "date": {
+        "format": "MMMd",
+        "type": "DateTime"
+      },
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.call_before": {
+    "description": "Next visit banner note (wireframe \"Suresh will call before coming\").",
+    "placeholders": {
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.medicine": {
+    "description": "Advised product line (wireframe \"మందు: Sample 5 SG\").",
+    "placeholders": {
+      "name": {
+        "example": "Sample 5 SG",
+        "type": "String"
+      }
+    },
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.next_visit": {
+    "description": "Next visit banner label (wireframe).",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.no_issues": {
+    "description": "Visit with no issues.",
+    "max_len": 32,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.photos": {
+    "description": "Photo count on a visit row.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.salt_only": {
+    "description": "Line on salt-only advice (wireframe).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.see_advice": {
+    "description": "Opens the advice detail (F8a/F8b).",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.shanmukha_product": {
+    "description": "Tag on an advised Shanmukha product (wireframe).",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.stage": {
+    "description": "Crop stage at the visit; stage name comes from the server. Telugu stage names already include the word (\"పూత దశ\"), English ones don't (\"Flowering\"), so only English adds it.",
+    "placeholders": {
+      "stage": {
+        "example": "పూత దశ",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.title": {
+    "description": "F4 title (wireframe).",
+    "max_len": 24,
+    "placeholders": {},
+    "screen": "F4 My visits",
+    "voice": false
+  },
+  "farmer.visits.voice_help": {
+    "description": "Voice prompt for F4.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "F4 My visits",
+    "voice": true
+  }
+}
