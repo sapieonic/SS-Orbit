@@ -1,0 +1,11 @@
+{
+  "$description": "Farmer app overrides: saffron-brown primary, 16 px body.",
+  "primary": {
+    "$type": "color",
+    "base": { "$value": "{color.saffron.base}", "$description": "Primary buttons, links, selected states." },
+    "strong": { "$value": "{color.saffron.strong}", "$description": "Text on the primary tint." },
+    "tint": { "$value": "{color.saffron.tint}" }
+  },
+  "body-text": { "$type": "typography", "$value": "{type.body-lg}", "$description": "Default body text." },
+  "screen-title": { "$type": "typography", "$value": "{type.h1}", "$description": "Screen header title." }
+}

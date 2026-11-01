@@ -1,13 +1,15 @@
 # Backend CI: formatting, vet, generated-code freshness and all tests against
 # Postgres+PostGIS and Redis (same images as dev/docker-compose.yml).
+# Only the two tools the contracts job runs are in the path filter; tools/tokens and tools/i18n
+# belong to the mobile workflow.
 name: backend
 
 on:
   pull_request:
-    paths: ["backend/**", "contracts/**", "tools/**", ".github/workflows/backend.yml"]
+    paths: ["backend/**", "contracts/**", "tools/list-endpoints.py", "tools/bundle-specs.py", ".github/workflows/backend.yml"]
   push:
     branches: [main]
-    paths: ["backend/**", "contracts/**", "tools/**", ".github/workflows/backend.yml"]
+    paths: ["backend/**", "contracts/**", "tools/list-endpoints.py", "tools/bundle-specs.py", ".github/workflows/backend.yml"]
 
 permissions:
   contents: read

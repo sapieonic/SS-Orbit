@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"testing"
-	"time"
 
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
@@ -202,8 +201,12 @@ func TestAckAlertAndSnapshot(t *testing.T) {
 	assert.Equal(t, f.Phone, *page.Items[0].FarmerPhone)
 	assert.NotNil(t, page.Items[0].AcknowledgedAt)
 
-	// Old alerts drop out of the snapshot.
-	e.clock.Advance((snapshotAlertDays + 1) * 24 * time.Hour)
+	// Old alerts drop out of the snapshot. created_at comes from the
+	// database's clock, not the fake one, so date the rows back instead of
+	// moving the fake clock (that only worked while the real date was close
+	// to noonIST).
+	e.exec(`UPDATE fa_alerts SET created_at = $2 WHERE fa_id = $1`,
+		fa.ID, e.clock.Now().AddDate(0, 0, -(snapshotAlertDays+1)))
 	snap, err = treg.Build(context.Background(), fa.ID)
 	require.NoError(t, err)
 	assert.Empty(t, snap[territory.SectionAlerts])

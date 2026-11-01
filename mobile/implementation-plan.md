@@ -94,7 +94,8 @@ Melos scripts (root `pubspec.yaml`, `melos:` section):
 | `melos run gen:api` | regenerates `orbit_api` from `contracts/build/mobile.yaml` (below) |
 | `melos run gen:tokens` / `gen:l10n` | `design/tokens/` -> `orbit_ui`; `i18n/*.json` -> ARB -> `flutter gen-l10n` |
 | `melos run gen` | all of the above + `build_runner` (drift, freezed, json_serializable) in every package |
-| `melos run check` | `gen`, then `git diff --exit-code` (generated code must be committed), `analyze`, `test` |
+| `melos run check` | `gen`, `analyze`, `test` (local; no git check) |
+| `melos run check:ci` | format check, generators in `--check` mode, then fails if generated files differ from git (they must be committed), `analyze`, `test` |
 
 ### Generated API client (orbit_api)
 
@@ -457,8 +458,9 @@ phone's Telugu TTS as the main path (plan: patchy on cheap phones).
 ## Release
 
 - Flavours `dev`, `staging`, `prod` (different application IDs for dev/staging so they install side by side).
-- CI `.github/workflows/mobile.yml`, path-filtered on `mobile/**`, `contracts/**`, `design/**`, `i18n/**`: FVM
-  Flutter, `melos bootstrap`, `melos run check`, build both app bundles. Tag `fa-app/x.y.z+n` or
+- CI `.github/workflows/mobile.yml`, path-filtered on `mobile/**`, `design/**`, `i18n/**` and the two tools (add
+  `contracts/**` once `orbit_api` is generated): Flutter from `.fvmrc`, `flutter pub get`, `melos run check:ci`,
+  then a build (today the Farmer dev debug APK; later both app bundles). Tag `fa-app/x.y.z+n` or
   `farmer-app/x.y.z+n` -> Fastlane `supply` to the Play internal track, promote to closed testing by hand.
 - Signing: Play App Signing; the upload key lives in a GitHub environment secret, never in the repo.
 - FA app stays on the closed testing track (FAs added by email list). Farmer app: closed testing for the 1b
@@ -471,7 +473,7 @@ Week 0 is Mon 9 Nov 2026. Phase 0 = wk 0-4, Phase 1a = wk 4-12 (to ~1 Feb 2027),
 
 | # | Phase | Milestone | Done when |
 |---|---|---|---|
-| M0 | 0 | Workspace: Melos, FVM, both app shells with flavours, `orbit_api` generated from `contracts/build/mobile.yaml` (`make backend-specs` + generator), app-config check at start, `orbit_core` dio + error mapping, tokens and l10n pipelines with a first `design/tokens/` and `i18n/te.json`/`en.json`, CI, skeleton FA app on the Play internal track. Spikes: GPS boundary walk on a Rs 8k phone, offline tiles, snapshot pull + parse of the seeded territory, Telugu TTS quality | `melos run check` green in CI; the FA shell logs in to the dev backend and prints the snapshot section counts; spike notes written in `mobile/docs/spikes.md` |
+| M0 | 0 | Workspace: Melos, FVM, both app shells with flavours, `orbit_api` generated from `contracts/build/mobile.yaml` (`make backend-specs` + generator), app-config check at start, `orbit_core` dio + error mapping, tokens and l10n pipelines with a first `design/tokens/` and `i18n/te.json`/`en.json`, CI, skeleton FA app on the Play internal track. Spikes: GPS boundary walk on a Rs 8k phone, offline tiles, snapshot pull + parse of the seeded territory, Telugu TTS quality | `melos run check:ci` green in CI; the FA shell logs in to the dev backend and prints the snapshot section counts; spike notes written in `mobile/docs/spikes.md` |
 | M1 | 1a | FA auth: login, temp password change + refresh, PIN set/unlock, 7-day grace, lock-out, single-flight refresh, heartbeat, wipe on `device_revoked`/`wipe: true`, forced update | Seeded FA logs in; an FA with a reset password is forced through change password and gets a clean token; PIN opens the app in airplane mode; HO revoke wipes the phone at the next call; raising `APP_MIN_VERSION_FA` blocks the old build after its outbox is pushed |
 | M2 | 1a | Snapshot store: Drift schema, ETag/304, isolate parse, Farmers near me list + map, Farmer 360 (read-only), alerts list | Snapshot of the seeded territory loads in < 3 s on a 2 GB phone; second pull is a 304; an HO change (e.g. farmer edit) shows after `sync/status` changes |
 | M3 | 1a | Outbox + sync engine + Sync screen: ordering, batching, backoff, `retry_from`, results, projection replay, conflict UI, WorkManager | Unit suite above passes; killing the app during a push loses or duplicates nothing; a forced conflict (HO edits a plot while the FA is offline) resolves with both buttons |
@@ -514,7 +516,7 @@ On the backend backlog (build around them, mock or hide in the UI; item numbers 
 
 ## Definition of done (mobile/)
 
-- `melos run check` green in CI; generated client, Drift schemas, tokens and ARB files committed and up to date.
+- `melos run check:ci` green in CI; generated client, Drift schemas, tokens and ARB files committed and up to date.
 - Both apps build release bundles for all flavours; FA app on the closed testing track by the 1a pilot, farmer
   app by 1b.
 - Every wireframe screen in scope for 1a/1b is built, or explicitly hidden with the gap it waits on.

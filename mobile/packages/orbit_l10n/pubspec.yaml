@@ -1,0 +1,27 @@
+name: orbit_l10n
+description: Orbit UI strings (Telugu first, English) generated from i18n/*.json, plus the voice prompt key map.
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.38.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  # Same range as flutter_localizations in the pinned Flutter (and the farmer
+  # app); move it with them on a Flutter upgrade.
+  intl: ^0.20.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  # Lets `flutter gen-l10n` run (see l10n.yaml). The generated files are
+  # committed under lib/l10n/generated/.
+  generate: true

@@ -1,0 +1,57 @@
+name: orbit_ui
+description: Orbit design system for Flutter (tokens, theme, fonts, components). Shared by the Farmer and FA apps.
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.38.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Lucide icon font (ISC), one font family so release icon tree-shaking
+  # subsets it to the glyphs we use. Pinned: apps reach it only through
+  # OrbitIcons, so it can be swapped without touching app code.
+  flutter_lucide: 1.57.0
+
+dev_dependencies:
+  flutter_localizations:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  # Only affects this package's own test runs (flutter_lucide asks for it).
+  uses-material-design: true
+
+  # Font licences, shown on the app's licence page via OrbitFonts.registerLicenses().
+  assets:
+    - fonts/OFL-Figtree.txt
+    - fonts/OFL-NotoSansTelugu.txt
+
+  # Static instances, one file per shipped weight (400, 500, 700, 800). A request
+  # for 600 (type.micro) resolves to the 700 file by Flutter's CSS-style matching.
+  # Family names match design/tokens/base.json (font.family.*).
+  fonts:
+    - family: Figtree
+      fonts:
+        - asset: fonts/Figtree-Regular.ttf
+          weight: 400
+        - asset: fonts/Figtree-Medium.ttf
+          weight: 500
+        - asset: fonts/Figtree-Bold.ttf
+          weight: 700
+        - asset: fonts/Figtree-ExtraBold.ttf
+          weight: 800
+    - family: Noto Sans Telugu
+      fonts:
+        - asset: fonts/NotoSansTelugu-Regular.ttf
+          weight: 400
+        - asset: fonts/NotoSansTelugu-Medium.ttf
+          weight: 500
+        - asset: fonts/NotoSansTelugu-Bold.ttf
+          weight: 700
+        - asset: fonts/NotoSansTelugu-ExtraBold.ttf
+          weight: 800

@@ -1,0 +1,43 @@
+# Mobile CI: dart format, generated tokens/strings committed and fresh, analyze, tests,
+# and a debug APK of the Farmer app (dev flavour). Flutter version comes from mobile/.fvmrc,
+# melos is pinned to the version in mobile/pubspec.lock.
+name: mobile
+
+on:
+  pull_request:
+    paths: ["mobile/**", "design/**", "i18n/**", "tools/tokens/**", "tools/i18n/**", ".github/workflows/mobile.yml"]
+  push:
+    branches: [main]
+    paths: ["mobile/**", "design/**", "i18n/**", "tools/tokens/**", "tools/i18n/**", ".github/workflows/mobile.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v5
+      - name: Read Flutter version
+        id: fvm
+        run: echo "version=$(jq -r .flutter .fvmrc)" >> "$GITHUB_OUTPUT"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.fvm.outputs.version }}
+          channel: stable
+          cache: true
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+      - run: flutter pub get
+      - run: dart pub global activate melos 8.10.0
+      - name: Format, generated code is fresh, analyze, test
+        run: melos run check:ci
+      - name: Build Farmer app (dev, debug)
+        working-directory: mobile/apps/farmer
+        run: flutter build apk --debug --flavor dev

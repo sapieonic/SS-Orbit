@@ -1,0 +1,75 @@
+{
+  "$description": "Orbit semantic tokens: what a colour is for. Same in every app. Contrast fixes from the design plan are applied here (text on tints uses the -strong colours, input borders use line-input).",
+  "text": {
+    "$type": "color",
+    "primary": { "$value": "{color.ink}" },
+    "secondary": { "$value": "{color.ink-2}" },
+    "muted": { "$value": "{color.muted}", "$description": "Meta lines only; 5.00:1 on surface, 4.77:1 on canvas." },
+    "on-filled": { "$value": "{color.white}", "$description": "Text and icons on primary, success, danger and ink fills." },
+    "on-highlight": { "$value": "{color.ink}", "$description": "Text on the yellow highlight badge." }
+  },
+  "surface": {
+    "$type": "color",
+    "default": { "$value": "{color.white}", "$description": "Cards, sheets, inputs." },
+    "canvas": { "$value": "{color.canvas}", "$description": "Page background." },
+    "sunken": { "$value": "{color.canvas-2}", "$description": "Segmented track, table header." },
+    "inverse": { "$value": "{color.ink}", "$description": "Dark bars and the floating Listen pill." },
+    "highlight": { "$value": "{color.yellow}" },
+    "scrim": { "$value": "{color.scrim}" }
+  },
+  "border": {
+    "$type": "color",
+    "subtle": { "$value": "{color.line}", "$description": "Card edges and dividers (decorative)." },
+    "strong": { "$value": "{color.line-strong}", "$description": "Chip edges (decorative)." },
+    "input": { "$value": "{color.line-input}", "$description": "Inputs and controls that need 3:1." }
+  },
+  "status": {
+    "$type": "color",
+    "$description": "fg: icons, fills and borders. strong: text on tint or white. tint: backgrounds.",
+    "success": {
+      "fg": { "$value": "{color.green.base}" },
+      "strong": { "$value": "{color.green.strong}" },
+      "tint": { "$value": "{color.green.tint}" }
+    },
+    "warning": {
+      "fg": { "$value": "{color.amber.base}" },
+      "strong": { "$value": "{color.amber.strong}" },
+      "tint": { "$value": "{color.amber.tint}" }
+    },
+    "danger": {
+      "fg": { "$value": "{color.red.base}" },
+      "strong": { "$value": "{color.red.strong}" },
+      "tint": { "$value": "{color.red.tint}" }
+    }
+  },
+  "severity": {
+    "$type": "color",
+    "low": {
+      "fg": { "$value": "{color.green.base}" },
+      "strong": { "$value": "{color.green.strong}" },
+      "tint": { "$value": "{color.green.tint}" }
+    },
+    "moderate": {
+      "fg": { "$value": "{color.amber.base}" },
+      "strong": { "$value": "{color.amber.strong}" },
+      "tint": { "$value": "{color.amber.tint}" }
+    },
+    "high": {
+      "fg": { "$value": "{color.red.base}" },
+      "strong": { "$value": "{color.red.strong}" },
+      "tint": { "$value": "{color.red.tint}" }
+    }
+  },
+  "action": {
+    "$type": "color",
+    "call": { "$value": "{color.green.base}", "$description": "Call buttons." },
+    "danger": { "$value": "{color.red.base}" },
+    "accent": { "$value": "{color.orange}", "$description": "Dots and icons only, never text." }
+  },
+  "on-primary-bar": {
+    "$type": "color",
+    "fg": { "$value": "{color.white}", "$description": "Text and icons on a primary or ink bar." },
+    "fill": { "$value": "{color.on-dark-18}", "$description": "Chips and buttons on a bar." },
+    "border": { "$value": "{color.on-dark-22}" }
+  }
+}

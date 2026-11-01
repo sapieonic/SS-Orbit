@@ -1,0 +1,2581 @@
+{
+  "@@locale": "te",
+  "commonAllow": "అనుమతి ఇవ్వండి",
+  "@commonAllow": {
+    "description": "Button that asks for a phone permission (location, camera).",
+    "x-key": "common.allow",
+    "x-screen": "Common (both apps)"
+  },
+  "commonAppName": "Orbit Shifting",
+  "@commonAppName": {
+    "description": "App and programme name; brand, never translated.",
+    "x-key": "common.app_name",
+    "x-screen": "Common (both apps)"
+  },
+  "commonAudioError": "ఆడియో ప్లే కాలేదు",
+  "@commonAudioError": {
+    "description": "Listen button after playback failed.",
+    "x-key": "common.audio_error",
+    "x-screen": "Common (both apps)"
+  },
+  "commonAudioLoading": "ఆడియో వస్తోంది…",
+  "@commonAudioLoading": {
+    "description": "Listen button while the audio loads.",
+    "x-key": "common.audio_loading",
+    "x-screen": "Common (both apps)"
+  },
+  "commonAudioUnavailable": "ఈ ఆడియో ఇంకా లేదు",
+  "@commonAudioUnavailable": {
+    "description": "Listen button when no recording exists for this screen or notice.",
+    "x-key": "common.audio_unavailable",
+    "x-screen": "Common (both apps)"
+  },
+  "commonBack": "వెనక్కి",
+  "@commonBack": {
+    "description": "Back button (wireframe F9b).",
+    "x-key": "common.back",
+    "x-screen": "Common (both apps)"
+  },
+  "commonCall": "కాల్",
+  "@commonCall": {
+    "description": "Call button (opens the dialler).",
+    "x-key": "common.call",
+    "x-screen": "Common (both apps)"
+  },
+  "commonCallName": "{name} గారికి కాల్ చేయండి",
+  "@commonCallName": {
+    "description": "Call button naming the person. Wireframe has \"సురేష్‌కు కాల్ చేయండి\"; \"గారికి\" is used so the suffix fits any name, including names in Latin script.",
+    "placeholders": {
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "x-key": "common.call_name",
+    "x-screen": "Common (both apps)"
+  },
+  "commonCancel": "రద్దు",
+  "@commonCancel": {
+    "description": "Cancel button in dialogs.",
+    "x-key": "common.cancel",
+    "x-screen": "Common (both apps)"
+  },
+  "commonChoose": "ఎంచుకోండి",
+  "@commonChoose": {
+    "description": "Generic choose / select label.",
+    "x-key": "common.choose",
+    "x-screen": "Common (both apps)"
+  },
+  "commonClose": "మూసివేయండి",
+  "@commonClose": {
+    "description": "Close button for sheets and dialogs.",
+    "x-key": "common.close",
+    "x-screen": "Common (both apps)"
+  },
+  "commonComingSoon": "త్వరలో",
+  "@commonComingSoon": {
+    "description": "Label on locked tiles and features not built yet.",
+    "x-key": "common.coming_soon",
+    "x-screen": "Common (both apps)"
+  },
+  "commonDateFull": "{date}",
+  "@commonDateFull": {
+    "description": "A full date with year, e.g. \"12 అక్టో, 2026\". Use on consents and seasons.",
+    "placeholders": {
+      "date": {
+        "format": "yMMMd",
+        "type": "DateTime"
+      }
+    },
+    "x-key": "common.date_full",
+    "x-screen": "Common (both apps)"
+  },
+  "commonDateShort": "{date}",
+  "@commonDateShort": {
+    "description": "A day and short month, e.g. \"12 అక్టో\". Use on list rows.",
+    "placeholders": {
+      "date": {
+        "format": "MMMd",
+        "type": "DateTime"
+      }
+    },
+    "x-key": "common.date_short",
+    "x-screen": "Common (both apps)"
+  },
+  "commonDateWeekday": "{date}",
+  "@commonDateWeekday": {
+    "description": "A date with short weekday and month, e.g. \"గురు, 29 అక్టో\". Use for visit dates.",
+    "placeholders": {
+      "date": {
+        "format": "MMMEd",
+        "type": "DateTime"
+      }
+    },
+    "x-key": "common.date_weekday",
+    "x-screen": "Common (both apps)"
+  },
+  "commonDaysAgo": "{count, plural, one{1 రోజు క్రితం} other{{count} రోజుల క్రితం}}",
+  "@commonDaysAgo": {
+    "description": "Relative time on cards.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "common.days_ago",
+    "x-screen": "Common (both apps)"
+  },
+  "commonDone": "పూర్తయింది",
+  "@commonDone": {
+    "description": "Done button at the end of a flow.",
+    "x-key": "common.done",
+    "x-screen": "Common (both apps)"
+  },
+  "commonDotJoin": "{first} · {second}",
+  "@commonDotJoin": {
+    "description": "Joins two short facts on one line (wireframe style \"Kondapur · Cotton\").",
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    },
+    "x-key": "common.dot_join",
+    "x-screen": "Common (both apps)"
+  },
+  "commonEdit": "మార్చండి",
+  "@commonEdit": {
+    "description": "Edit / change button.",
+    "x-key": "common.edit",
+    "x-screen": "Common (both apps)"
+  },
+  "commonHelp": "సహాయం",
+  "@commonHelp": {
+    "description": "Help label (wireframe F10).",
+    "x-key": "common.help",
+    "x-screen": "Common (both apps)"
+  },
+  "commonHelpline": "సహాయ కేంద్రం",
+  "@commonHelpline": {
+    "description": "Helpline label; the number comes from app config.",
+    "x-key": "common.helpline",
+    "x-screen": "Common (both apps)"
+  },
+  "commonHoursAgo": "{count, plural, one{1 గంట క్రితం} other{{count} గంటల క్రితం}}",
+  "@commonHoursAgo": {
+    "description": "Relative time on cards (wireframe F5 \"2 h ago\").",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "common.hours_ago",
+    "x-screen": "Common (both apps)"
+  },
+  "commonLater": "తర్వాత",
+  "@commonLater": {
+    "description": "Dismiss button for optional prompts.",
+    "x-key": "common.later",
+    "x-screen": "Common (both apps)"
+  },
+  "commonListen": "వినండి",
+  "@commonListen": {
+    "description": "Listen button: plays the voice prompt or voice note.",
+    "x-key": "common.listen",
+    "x-screen": "Common (both apps)"
+  },
+  "commonLoading": "లోడ్ అవుతోంది…",
+  "@commonLoading": {
+    "description": "Shown while a screen loads.",
+    "x-key": "common.loading",
+    "x-screen": "Common (both apps)"
+  },
+  "commonMinutesAgo": "{count, plural, one{1 నిమిషం క్రితం} other{{count} నిమిషాల క్రితం}}",
+  "@commonMinutesAgo": {
+    "description": "Relative time on cards.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "common.minutes_ago",
+    "x-screen": "Common (both apps)"
+  },
+  "commonNext": "ముందుకు",
+  "@commonNext": {
+    "description": "Continue / next step button (wireframe F9a).",
+    "x-key": "common.next",
+    "x-screen": "Common (both apps)"
+  },
+  "commonNo": "వద్దు",
+  "@commonNo": {
+    "description": "No answer (wireframe F1a).",
+    "x-key": "common.no",
+    "x-screen": "Common (both apps)"
+  },
+  "commonOffline": "ఇంటర్నెట్ లేదు",
+  "@commonOffline": {
+    "description": "Offline banner title (wireframe states).",
+    "x-key": "common.offline",
+    "x-screen": "Common (both apps)"
+  },
+  "commonOk": "సరే",
+  "@commonOk": {
+    "description": "Generic OK / acknowledge button.",
+    "x-key": "common.ok",
+    "x-screen": "Common (both apps)"
+  },
+  "commonOpenSettings": "సెట్టింగ్స్ తెరవండి",
+  "@commonOpenSettings": {
+    "description": "Button that opens the phone settings after a permission was denied.",
+    "x-key": "common.open_settings",
+    "x-screen": "Common (both apps)"
+  },
+  "commonRead": "చదవండి",
+  "@commonRead": {
+    "description": "Read button (opens the full text).",
+    "x-key": "common.read",
+    "x-screen": "Common (both apps)"
+  },
+  "commonRetry": "మళ్ళీ ప్రయత్నించండి",
+  "@commonRetry": {
+    "description": "Retry button on error cards (wireframe F7b, F9c).",
+    "x-key": "common.retry",
+    "x-screen": "Common (both apps)"
+  },
+  "commonSave": "సేవ్ చేయండి",
+  "@commonSave": {
+    "description": "Save button.",
+    "x-key": "common.save",
+    "x-screen": "Common (both apps)"
+  },
+  "commonSavedAt": "{time} కి సేవ్ చేసింది",
+  "@commonSavedAt": {
+    "description": "Banner under cached data: when it was saved. Wireframe F2 \"Saved at 7:00 am\".",
+    "placeholders": {
+      "time": {
+        "format": "jm",
+        "type": "DateTime"
+      }
+    },
+    "x-key": "common.saved_at",
+    "x-screen": "Common (both apps)"
+  },
+  "commonSearch": "వెతకండి",
+  "@commonSearch": {
+    "description": "Search field label.",
+    "x-key": "common.search",
+    "x-screen": "Common (both apps)"
+  },
+  "commonSignOut": "లాగౌట్",
+  "@commonSignOut": {
+    "description": "Sign-out button.",
+    "x-key": "common.sign_out",
+    "x-screen": "Common (both apps)"
+  },
+  "commonStepOf": "{step}/{total}",
+  "@commonStepOf": {
+    "description": "Step header in multi-step flows (one input per screen).",
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    },
+    "x-key": "common.step_of",
+    "x-screen": "Common (both apps)"
+  },
+  "commonStop": "ఆపండి",
+  "@commonStop": {
+    "description": "Stop button while audio plays.",
+    "x-key": "common.stop",
+    "x-screen": "Common (both apps)"
+  },
+  "commonToday": "ఈ రోజు",
+  "@commonToday": {
+    "description": "Relative day label (wireframe F2).",
+    "x-key": "common.today",
+    "x-screen": "Common (both apps)"
+  },
+  "commonTomorrow": "రేపు",
+  "@commonTomorrow": {
+    "description": "Relative day label (wireframe F2).",
+    "x-key": "common.tomorrow",
+    "x-screen": "Common (both apps)"
+  },
+  "commonUndo": "రద్దు చేయండి",
+  "@commonUndo": {
+    "description": "Undo action on a snackbar.",
+    "x-key": "common.undo",
+    "x-screen": "Common (both apps)"
+  },
+  "commonUnknown": "తెలియదు",
+  "@commonUnknown": {
+    "description": "Shown when a value is missing or an enum value is new to this app version.",
+    "x-key": "common.unknown",
+    "x-screen": "Common (both apps)"
+  },
+  "commonUpdateAvailable": "కొత్త వెర్షన్ వచ్చింది",
+  "@commonUpdateAvailable": {
+    "description": "Dismissable \"new version\" card.",
+    "x-key": "common.update_available",
+    "x-screen": "Common (both apps)"
+  },
+  "commonUpdateButton": "అప్‌డేట్ చేయండి",
+  "@commonUpdateButton": {
+    "description": "Opens the store page.",
+    "x-key": "common.update_button",
+    "x-screen": "Common (both apps)"
+  },
+  "commonUpdateRequiredBody": "కొనసాగడానికి కొత్త వెర్షన్ ఇన్‌స్టాల్ చేయండి.",
+  "@commonUpdateRequiredBody": {
+    "description": "Blocking forced-update screen body.",
+    "x-key": "common.update_required_body",
+    "x-screen": "Common (both apps)"
+  },
+  "commonUpdateRequiredTitle": "యాప్ అప్‌డేట్ చేయండి",
+  "@commonUpdateRequiredTitle": {
+    "description": "Blocking forced-update screen title.",
+    "x-key": "common.update_required_title",
+    "x-screen": "Common (both apps)"
+  },
+  "commonWhatsapp": "WhatsApp",
+  "@commonWhatsapp": {
+    "description": "WhatsApp chat button; brand, never translated.",
+    "x-key": "common.whatsapp",
+    "x-screen": "Common (both apps)"
+  },
+  "commonYes": "అవును",
+  "@commonYes": {
+    "description": "Yes answer.",
+    "x-key": "common.yes",
+    "x-screen": "Common (both apps)"
+  },
+  "commonYesterday": "నిన్న",
+  "@commonYesterday": {
+    "description": "Relative day label.",
+    "x-key": "common.yesterday",
+    "x-screen": "Common (both apps)"
+  },
+  "enumAdviceStatusGiven": "సలహా ఇచ్చారు",
+  "@enumAdviceStatusGiven": {
+    "description": "Visit issue advice status.",
+    "x-key": "enum.advice_status.given",
+    "x-screen": "Enum labels"
+  },
+  "enumAdviceStatusUnresolved": "సలహా రావాలి",
+  "@enumAdviceStatusUnresolved": {
+    "description": "Visit issue advice status: the FA will follow up.",
+    "x-key": "enum.advice_status.unresolved",
+    "x-screen": "Enum labels"
+  },
+  "enumAreaSourceBoundary": "పొలం చుట్టూ నడిచి కొలిచారు",
+  "@enumAreaSourceBoundary": {
+    "description": "How a plot area was found.",
+    "x-key": "enum.area_source.boundary",
+    "x-screen": "Enum labels"
+  },
+  "enumAreaSourceTyped": "రైతు చెప్పిన విస్తీర్ణం",
+  "@enumAreaSourceTyped": {
+    "description": "How a plot area was found.",
+    "x-key": "enum.area_source.typed",
+    "x-screen": "Enum labels"
+  },
+  "enumAreaUnitAcre": "ఎకరాలు",
+  "@enumAreaUnitAcre": {
+    "description": "Area unit (app-side; 40 guntas = 1 acre).",
+    "x-key": "enum.area_unit.acre",
+    "x-screen": "Enum labels"
+  },
+  "enumAreaUnitGunta": "గుంటలు",
+  "@enumAreaUnitGunta": {
+    "description": "Area unit (app-side; 40 guntas = 1 acre).",
+    "x-key": "enum.area_unit.gunta",
+    "x-screen": "Enum labels"
+  },
+  "enumCallbackStatusCancelled": "రద్దు చేశారు",
+  "@enumCallbackStatusCancelled": {
+    "description": "Call-back request status.",
+    "x-key": "enum.callback_status.cancelled",
+    "x-screen": "Enum labels"
+  },
+  "enumCallbackStatusClosed": "FA కాల్ చేశారు",
+  "@enumCallbackStatusClosed": {
+    "description": "Call-back request status.",
+    "x-key": "enum.callback_status.closed",
+    "x-screen": "Enum labels"
+  },
+  "enumCallbackStatusOpen": "అభ్యర్థన పంపాం",
+  "@enumCallbackStatusOpen": {
+    "description": "Call-back request status (wireframe F3).",
+    "x-key": "enum.callback_status.open",
+    "x-screen": "Enum labels"
+  },
+  "enumConsentMethodApp": "యాప్‌లో",
+  "@enumConsentMethodApp": {
+    "description": "How the consent was given.",
+    "x-key": "enum.consent_method.app",
+    "x-screen": "Enum labels"
+  },
+  "enumConsentMethodFaOtp": "FA ద్వారా, OTP తో",
+  "@enumConsentMethodFaOtp": {
+    "description": "How the consent was given.",
+    "x-key": "enum.consent_method.fa_otp",
+    "x-screen": "Enum labels"
+  },
+  "enumConsentMethodHo": "షణ్ముఖ ఆఫీసు ద్వారా",
+  "@enumConsentMethodHo": {
+    "description": "How the consent was given.",
+    "x-key": "enum.consent_method.ho",
+    "x-screen": "Enum labels"
+  },
+  "enumConsentPurposeLoyalty": "క్యాష్‌బ్యాక్, బహుమతులు",
+  "@enumConsentPurposeLoyalty": {
+    "description": "Consent purpose.",
+    "x-key": "enum.consent_purpose.loyalty",
+    "x-screen": "Enum labels"
+  },
+  "enumConsentPurposeProgramme": "ఆర్బిట్ కార్యక్రమం",
+  "@enumConsentPurposeProgramme": {
+    "description": "Consent purpose.",
+    "x-key": "enum.consent_purpose.programme",
+    "x-screen": "Enum labels"
+  },
+  "enumConsentPurposeSchemesFinance": "పథకాలు, రుణాలు, బీమా",
+  "@enumConsentPurposeSchemesFinance": {
+    "description": "Consent purpose.",
+    "x-key": "enum.consent_purpose.schemes_finance",
+    "x-screen": "Enum labels"
+  },
+  "enumConsentPurposeSoilPartner": "మట్టి పరీక్ష కంపెనీ",
+  "@enumConsentPurposeSoilPartner": {
+    "description": "Consent purpose.",
+    "x-key": "enum.consent_purpose.soil_partner",
+    "x-screen": "Enum labels"
+  },
+  "enumConsentStateGranted": "ఒప్పుకున్నారు",
+  "@enumConsentStateGranted": {
+    "description": "App-side consent state: granted = true.",
+    "x-key": "enum.consent_state.granted",
+    "x-screen": "Enum labels"
+  },
+  "enumConsentStateNeverAsked": "ఇంకా అడగలేదు",
+  "@enumConsentStateNeverAsked": {
+    "description": "App-side consent state: granted = null.",
+    "x-key": "enum.consent_state.never_asked",
+    "x-screen": "Enum labels"
+  },
+  "enumConsentStateWithdrawn": "వద్దన్నారు",
+  "@enumConsentStateWithdrawn": {
+    "description": "App-side consent state: granted = false.",
+    "x-key": "enum.consent_state.withdrawn",
+    "x-screen": "Enum labels"
+  },
+  "enumCoverageLevelDistrict": "జిల్లా",
+  "@enumCoverageLevelDistrict": {
+    "description": "FA coverage level; F3 tab (wireframe).",
+    "x-key": "enum.coverage_level.district",
+    "x-screen": "Enum labels"
+  },
+  "enumCoverageLevelMandal": "మండలం",
+  "@enumCoverageLevelMandal": {
+    "description": "FA coverage level; F3 tab (wireframe).",
+    "x-key": "enum.coverage_level.mandal",
+    "x-screen": "Enum labels"
+  },
+  "enumCoverageLevelVillage": "గ్రామం",
+  "@enumCoverageLevelVillage": {
+    "description": "FA coverage level; F3 tab (wireframe).",
+    "x-key": "enum.coverage_level.village",
+    "x-screen": "Enum labels"
+  },
+  "enumFarmerPlanFree": "ఉచితం",
+  "@enumFarmerPlanFree": {
+    "description": "Plan badge (wireframe F7).",
+    "x-key": "enum.farmer_plan.free",
+    "x-screen": "Enum labels"
+  },
+  "enumFarmerPlanPremium": "ప్రీమియం",
+  "@enumFarmerPlanPremium": {
+    "description": "Plan badge (wireframe F7).",
+    "x-key": "enum.farmer_plan.premium",
+    "x-screen": "Enum labels"
+  },
+  "enumFarmerStatusActive": "యాక్టివ్",
+  "@enumFarmerStatusActive": {
+    "description": "Farmer status.",
+    "x-key": "enum.farmer_status.active",
+    "x-screen": "Enum labels"
+  },
+  "enumFarmerStatusInactive": "ఆపివేశారు",
+  "@enumFarmerStatusInactive": {
+    "description": "Farmer status.",
+    "x-key": "enum.farmer_status.inactive",
+    "x-screen": "Enum labels"
+  },
+  "enumFarmerStatusPendingProfile": "నమోదు పూర్తి కాలేదు",
+  "@enumFarmerStatusPendingProfile": {
+    "description": "Farmer status.",
+    "x-key": "enum.farmer_status.pending_profile",
+    "x-screen": "Enum labels"
+  },
+  "enumLanguageEn": "English",
+  "@enumLanguageEn": {
+    "description": "Language chip; always shown in its own script (wireframe F1).",
+    "x-key": "enum.language.en",
+    "x-screen": "Enum labels"
+  },
+  "enumLanguageTe": "తెలుగు",
+  "@enumLanguageTe": {
+    "description": "Language chip; always shown in its own script (wireframe F1).",
+    "x-key": "enum.language.te",
+    "x-screen": "Enum labels"
+  },
+  "enumNoticeSenderCiv": "CIV",
+  "@enumNoticeSenderCiv": {
+    "description": "Notice source tag (wireframe F5); CIV full name is an open decision.",
+    "x-key": "enum.notice_sender.civ",
+    "x-screen": "Enum labels"
+  },
+  "enumNoticeSenderFa": "మీ FA",
+  "@enumNoticeSenderFa": {
+    "description": "Notice source tag.",
+    "x-key": "enum.notice_sender.fa",
+    "x-screen": "Enum labels"
+  },
+  "enumNoticeSenderHo": "షణ్ముఖ",
+  "@enumNoticeSenderHo": {
+    "description": "Notice source tag (wireframe F5).",
+    "x-key": "enum.notice_sender.ho",
+    "x-screen": "Enum labels"
+  },
+  "enumNoticeSenderSystem": "ఆర్బిట్",
+  "@enumNoticeSenderSystem": {
+    "description": "Notice source tag for system notices.",
+    "x-key": "enum.notice_sender.system",
+    "x-screen": "Enum labels"
+  },
+  "enumPlannedSlotAfternoon": "మధ్యాహ్నం",
+  "@enumPlannedSlotAfternoon": {
+    "description": "Planned visit slot.",
+    "x-key": "enum.planned_slot.afternoon",
+    "x-screen": "Enum labels"
+  },
+  "enumPlannedSlotAny": "రోజులో ఎప్పుడైనా",
+  "@enumPlannedSlotAny": {
+    "description": "Planned visit slot.",
+    "x-key": "enum.planned_slot.any",
+    "x-screen": "Enum labels"
+  },
+  "enumPlannedSlotMorning": "ఉదయం",
+  "@enumPlannedSlotMorning": {
+    "description": "Planned visit slot.",
+    "x-key": "enum.planned_slot.morning",
+    "x-screen": "Enum labels"
+  },
+  "enumSeasonKindKharif": "ఖరీఫ్",
+  "@enumSeasonKindKharif": {
+    "description": "First part of a season code (kharif-2026).",
+    "x-key": "enum.season_kind.kharif",
+    "x-screen": "Enum labels"
+  },
+  "enumSeasonKindRabi": "రబీ",
+  "@enumSeasonKindRabi": {
+    "description": "First part of a season code (rabi-2026-27).",
+    "x-key": "enum.season_kind.rabi",
+    "x-screen": "Enum labels"
+  },
+  "enumSeasonKindSummer": "వేసవి",
+  "@enumSeasonKindSummer": {
+    "description": "First part of a season code (summer-2026).",
+    "x-key": "enum.season_kind.summer",
+    "x-screen": "Enum labels"
+  },
+  "enumSeasonStatusAbandoned": "పంట వదిలేశారు",
+  "@enumSeasonStatusAbandoned": {
+    "description": "Season status and close-season outcome (crop lost or given up).",
+    "x-key": "enum.season_status.abandoned",
+    "x-screen": "Enum labels"
+  },
+  "enumSeasonStatusActive": "పంట పొలంలో ఉంది",
+  "@enumSeasonStatusActive": {
+    "description": "Season status.",
+    "x-key": "enum.season_status.active",
+    "x-screen": "Enum labels"
+  },
+  "enumSeasonStatusHarvested": "కోత పూర్తయింది",
+  "@enumSeasonStatusHarvested": {
+    "description": "Season status and close-season outcome.",
+    "x-key": "enum.season_status.harvested",
+    "x-screen": "Enum labels"
+  },
+  "enumSeverityHigh": "ఎక్కువ",
+  "@enumSeverityHigh": {
+    "description": "Issue severity.",
+    "x-key": "enum.severity.high",
+    "x-screen": "Enum labels"
+  },
+  "enumSeverityLow": "తక్కువ",
+  "@enumSeverityLow": {
+    "description": "Issue severity (wireframe F4).",
+    "x-key": "enum.severity.low",
+    "x-screen": "Enum labels"
+  },
+  "enumSeverityModerate": "మధ్యస్థం",
+  "@enumSeverityModerate": {
+    "description": "Issue severity (wireframe F4).",
+    "x-key": "enum.severity.moderate",
+    "x-screen": "Enum labels"
+  },
+  "enumVisitStatusCancelled": "రద్దయింది",
+  "@enumVisitStatusCancelled": {
+    "description": "Visit status.",
+    "x-key": "enum.visit_status.cancelled",
+    "x-screen": "Enum labels"
+  },
+  "enumVisitStatusDone": "వచ్చి వెళ్ళారు",
+  "@enumVisitStatusDone": {
+    "description": "Visit status.",
+    "x-key": "enum.visit_status.done",
+    "x-screen": "Enum labels"
+  },
+  "enumVisitStatusMissed": "రాలేదు",
+  "@enumVisitStatusMissed": {
+    "description": "Visit status.",
+    "x-key": "enum.visit_status.missed",
+    "x-screen": "Enum labels"
+  },
+  "enumVisitStatusPlanned": "రావాల్సి ఉంది",
+  "@enumVisitStatusPlanned": {
+    "description": "Visit status.",
+    "x-key": "enum.visit_status.planned",
+    "x-screen": "Enum labels"
+  },
+  "errorActiveSeasonExists": "ఈ పొలంలో ఇప్పటికే ఒక పంట ఉంది. ముందు దాన్ని ముగించండి.",
+  "@errorActiveSeasonExists": {
+    "description": "409 on start season.",
+    "x-key": "error.active_season_exists",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorCallbackClosed": "మీ FA ఈ అభ్యర్థన ఇప్పటికే ముగించారు.",
+  "@errorCallbackClosed": {
+    "description": "409 callback_closed on undo.",
+    "x-key": "error.callback_closed",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorDetailAttemptsLeft": "{count, plural, =0{ఇక ప్రయత్నాలు లేవు. కొత్త OTP అడగండి.} one{ఇంకా 1 సారి ప్రయత్నించవచ్చు.} other{ఇంకా {count} సార్లు ప్రయత్నించవచ్చు.}}",
+  "@errorDetailAttemptsLeft": {
+    "description": "Added after an error message when details.attempts_left is present (otp_invalid).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "error.detail.attempts_left",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorDetailRetryAfterSeconds": "{count, plural, one{1 సెకను తర్వాత మళ్ళీ ప్రయత్నించండి.} other{{count} సెకన్ల తర్వాత మళ్ళీ ప్రయత్నించండి.}}",
+  "@errorDetailRetryAfterSeconds": {
+    "description": "Added after an error message when the app puts the Retry-After seconds in details.retry_after_seconds.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "error.detail.retry_after_seconds",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorDeviceRevoked": "ఈ ఫోన్ నుంచి లాగౌట్ చేశాం. మళ్ళీ లాగిన్ అవ్వండి.",
+  "@errorDeviceRevoked": {
+    "description": "401 device_revoked: the app wipes local data and goes to sign-in.",
+    "x-key": "error.device_revoked",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorForbidden": "ఇది చేయడానికి అనుమతి లేదు.",
+  "@errorForbidden": {
+    "description": "403 forbidden (e.g. deactivated farmer).",
+    "x-key": "error.forbidden",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorInternal": "మా వైపు ఏదో తప్పు జరిగింది. మళ్ళీ ప్రయత్నించండి.",
+  "@errorInternal": {
+    "description": "500 internal.",
+    "x-key": "error.internal",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorInvalidCursor": "జాబితా పాతబడింది. మళ్ళీ తెరవండి.",
+  "@errorInvalidCursor": {
+    "description": "400 invalid_cursor on a paged list.",
+    "x-key": "error.invalid_cursor",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorInvalidRequest": "ఏదో సరిగా లేదు. మళ్ళీ ప్రయత్నించండి.",
+  "@errorInvalidRequest": {
+    "description": "400 invalid_request (malformed body or query).",
+    "x-key": "error.invalid_request",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorNetwork": "ఇంటర్నెట్ లేదు. కనెక్షన్ చూసి మళ్ళీ ప్రయత్నించండి.",
+  "@errorNetwork": {
+    "description": "App-side code: no connection.",
+    "x-key": "error.network",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorNoFaAssigned": "మీకు ఇంకా FA ని ఇవ్వలేదు. సహాయ కేంద్రానికి కాల్ చేయండి.",
+  "@errorNoFaAssigned": {
+    "description": "409 no_fa_assigned on call-back request.",
+    "x-key": "error.no_fa_assigned",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorNotFound": "ఇది దొరకలేదు. మళ్ళీ తెరిచి చూడండి.",
+  "@errorNotFound": {
+    "description": "404 not_found.",
+    "x-key": "error.not_found",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorNotInYourArea": "ఈ రైతు గ్రామం మీ ప్రాంతంలో లేదు.",
+  "@errorNotInYourArea": {
+    "description": "Sync reject reason on EnrolFarmer (FA app).",
+    "x-key": "error.not_in_your_area",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorOtpExpired": "ఈ OTP గడువు ముగిసింది. కొత్త OTP అడగండి.",
+  "@errorOtpExpired": {
+    "description": "400 otp_expired on OTP verify.",
+    "x-key": "error.otp_expired",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorOtpInvalid": "OTP తప్పు. SMS చూసి మళ్ళీ వేయండి.",
+  "@errorOtpInvalid": {
+    "description": "400 otp_invalid on OTP verify. Pair with error.detail.attempts_left.",
+    "x-key": "error.otp_invalid",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorPasswordChangeRequired": "కొనసాగడానికి మీ పాస్‌వర్డ్ మార్చండి.",
+  "@errorPasswordChangeRequired": {
+    "description": "403 password_change_required (FA app).",
+    "x-key": "error.password_change_required",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorPayloadTooLarge": "ఇది పంపడానికి చాలా పెద్దది.",
+  "@errorPayloadTooLarge": {
+    "description": "413 payload_too_large.",
+    "x-key": "error.payload_too_large",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorPhoneTaken": "ఈ ఫోన్ నంబర్ మరో రైతు పేరు మీద ఉంది.",
+  "@errorPhoneTaken": {
+    "description": "409 phone_taken.",
+    "x-key": "error.phone_taken",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorPhotoAlreadyUploaded": "ఈ ఫోటో ఇప్పటికే పంపారు.",
+  "@errorPhotoAlreadyUploaded": {
+    "description": "409 photo_already_uploaded (FA app).",
+    "x-key": "error.photo_already_uploaded",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorProfileAlreadyComplete": "మీ నమోదు ఇప్పటికే పూర్తయింది.",
+  "@errorProfileAlreadyComplete": {
+    "description": "409 on complete-profile; the app carries on to Home.",
+    "x-key": "error.profile_already_complete",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorProfileIncomplete": "ముందు మీ నమోదు పూర్తి చేయండి.",
+  "@errorProfileIncomplete": {
+    "description": "409 profile_incomplete.",
+    "x-key": "error.profile_incomplete",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorRateLimited": "చాలా సార్లు ప్రయత్నించారు. కాసేపు ఆగి మళ్ళీ ప్రయత్నించండి.",
+  "@errorRateLimited": {
+    "description": "429 rate_limited. Pair with error.detail.retry_after_seconds (from the Retry-After header).",
+    "x-key": "error.rate_limited",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorRefreshReused": "ఈ లాగిన్ వేరే చోట వాడారు. మళ్ళీ లాగిన్ అవ్వండి.",
+  "@errorRefreshReused": {
+    "description": "401 refresh_reused on /v1/auth/refresh.",
+    "x-key": "error.refresh_reused",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorRegisteredWithAnotherFa": "ఈ రైతు ఇప్పటికే వేరే FA దగ్గర నమోదయ్యారు.",
+  "@errorRegisteredWithAnotherFa": {
+    "description": "Sync reject reason on EnrolFarmer (FA app).",
+    "x-key": "error.registered_with_another_fa",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorSeasonExists": "ఈ సీజన్‌కు ఈ పొలంలో పంట ఇప్పటికే ఉంది.",
+  "@errorSeasonExists": {
+    "description": "409 season_exists on start season.",
+    "x-key": "error.season_exists",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorSeasonNotActive": "ఈ పంట ఇప్పటికే ముగిసింది.",
+  "@errorSeasonNotActive": {
+    "description": "409 season_not_active on close season.",
+    "x-key": "error.season_not_active",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorSessionRevoked": "మీరు లాగౌట్ అయ్యారు. మళ్ళీ లాగిన్ అవ్వండి.",
+  "@errorSessionRevoked": {
+    "description": "401 session_revoked.",
+    "x-key": "error.session_revoked",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorTempPasswordExpired": "మీ తాత్కాలిక పాస్‌వర్డ్ గడువు ముగిసింది. కొత్తది కోసం HO కి కాల్ చేయండి.",
+  "@errorTempPasswordExpired": {
+    "description": "401 temp_password_expired (FA app).",
+    "x-key": "error.temp_password_expired",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorTimeout": "ఇంటర్నెట్ నెమ్మదిగా ఉంది. మళ్ళీ ప్రయత్నించండి.",
+  "@errorTimeout": {
+    "description": "App-side code: the request timed out.",
+    "x-key": "error.timeout",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorUnauthorized": "మళ్ళీ లాగిన్ అవ్వండి.",
+  "@errorUnauthorized": {
+    "description": "401 unauthorized after a failed refresh.",
+    "x-key": "error.unauthorized",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorUnavailable": "సర్వీస్ ఇప్పుడు పని చేయడం లేదు. కాసేపటి తర్వాత ప్రయత్నించండి.",
+  "@errorUnavailable": {
+    "description": "503 unavailable.",
+    "x-key": "error.unavailable",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorUnknown": "ఏదో తప్పు జరిగింది. మళ్ళీ ప్రయత్నించండి.",
+  "@errorUnknown": {
+    "description": "Fallback for any code this app version does not know.",
+    "x-key": "error.unknown",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorUploadMissing": "ఫోటో అప్‌లోడ్ కాలేదు. మళ్ళీ పంపండి.",
+  "@errorUploadMissing": {
+    "description": "409 upload_missing on photo confirm (FA app).",
+    "x-key": "error.upload_missing",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorValidationFailed": "వివరాలు సరిగా లేవు. చూసి మళ్ళీ ఇవ్వండి.",
+  "@errorValidationFailed": {
+    "description": "400 validation_failed (details.fields names the fields).",
+    "x-key": "error.validation_failed",
+    "x-screen": "Errors (both apps)"
+  },
+  "errorVersionMismatch": "ఈ వివరాలు HO మార్చింది. మళ్ళీ తెరిచి చూడండి.",
+  "@errorVersionMismatch": {
+    "description": "409 version_mismatch (FA app).",
+    "x-key": "error.version_mismatch",
+    "x-screen": "Errors (both apps)"
+  },
+  "farmerAdviceAdvisedBy": "{name} గారి సలహా · {date}",
+  "@farmerAdviceAdvisedBy": {
+    "description": "Byline (wireframe \"Advised by Suresh · 12 Oct\").",
+    "placeholders": {
+      "date": {
+        "format": "MMMd",
+        "type": "DateTime"
+      },
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.advice.advised_by",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceAskAtShopBody": "దుకాణంలో ఈ పేరు అడగండి. సందేహం ఉంటే FA కి కాల్ చేయండి.",
+  "@farmerAdviceAskAtShopBody": {
+    "description": "F8b instruction (wireframe; the cashback sentence is dropped until Phase 2).",
+    "x-key": "farmer.advice.ask_at_shop_body",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceAskAtShopLabel": "దుకాణంలో ఇది అడగండి",
+  "@farmerAdviceAskAtShopLabel": {
+    "description": "F8b label above the salt name (wireframe \"ASK FOR THIS AT THE SHOP\").",
+    "x-key": "farmer.advice.ask_at_shop_label",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceDealerDistance": "{km} కి.మీ",
+  "@farmerAdviceDealerDistance": {
+    "description": "Dealer distance; km is pre-formatted, e.g. 1.8.",
+    "placeholders": {
+      "km": {
+        "example": "1.8",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.advice.dealer_distance",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceLocationNeeded": "దగ్గర దుకాణాలు చూడడానికి లొకేషన్ అనుమతి ఇవ్వండి",
+  "@farmerAdviceLocationNeeded": {
+    "description": "Dealer list without location permission.",
+    "x-key": "farmer.advice.location_needed",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceNearbyDealers": "దగ్గర దుకాణాలు",
+  "@farmerAdviceNearbyDealers": {
+    "description": "Dealer list header (wireframe).",
+    "x-key": "farmer.advice.nearby_dealers",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceNoDealers": "దగ్గరలో దుకాణాలు దొరకలేదు",
+  "@farmerAdviceNoDealers": {
+    "description": "Empty dealer list.",
+    "x-key": "farmer.advice.no_dealers",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceNoProduct": "షణ్ముఖ మందు లేదు",
+  "@farmerAdviceNoProduct": {
+    "description": "F8b line (wireframe).",
+    "x-key": "farmer.advice.no_product",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceProductTitle": "ఈ మందు కొనండి",
+  "@farmerAdviceProductTitle": {
+    "description": "F8a title (wireframe).",
+    "x-key": "farmer.advice.product_title",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceSaltTitle": "FA సలహా",
+  "@farmerAdviceSaltTitle": {
+    "description": "F8b title (wireframe).",
+    "x-key": "farmer.advice.salt_title",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceShowAtShop": "ఈ కార్డు దుకాణంలో చూపించండి",
+  "@farmerAdviceShowAtShop": {
+    "description": "F8a button that opens the full-screen card (wireframe).",
+    "x-key": "farmer.advice.show_at_shop",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceShowShopkeeper": "దుకాణదారుకు చూపించండి",
+  "@farmerAdviceShowShopkeeper": {
+    "description": "Full-screen card header (wireframe).",
+    "x-key": "farmer.advice.show_shopkeeper",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceTitle": "సలహా",
+  "@farmerAdviceTitle": {
+    "description": "Neutral advice header while loading, pending or not found (promises neither a product nor a salt).",
+    "x-key": "farmer.advice.title",
+    "x-screen": "F8 Advice"
+  },
+  "farmerAdviceVoiceHelpPending": "దీనికి సలహా ఇంకా రాలేదు. మీ FA తర్వాత చెబుతారు. ఇప్పుడే అడగాలంటే మీ FA కి కాల్ చేయండి.",
+  "@farmerAdviceVoiceHelpPending": {
+    "description": "Voice prompt for an advice item the FA has not filled in yet.",
+    "x-key": "farmer.advice.voice_help_pending",
+    "x-screen": "F8 Advice"
+  },
+  "farmerAdviceVoiceHelpProduct": "ఇది మీ FA చెప్పిన షణ్ముఖ మందు, ఎకరానికి ఎంత వేయాలో కింద ఉంది. ఈ కార్డు దుకాణంలో చూపించండి.",
+  "@farmerAdviceVoiceHelpProduct": {
+    "description": "Voice prompt for F8a.",
+    "x-key": "farmer.advice.voice_help_product",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerAdviceVoiceHelpSalt": "ఈ సమస్యకు షణ్ముఖ మందు లేదు. దుకాణంలో ఈ పేరు అడగండి. సందేహం ఉంటే FA కి కాల్ చేయండి.",
+  "@farmerAdviceVoiceHelpSalt": {
+    "description": "Voice prompt for F8b.",
+    "x-key": "farmer.advice.voice_help_salt",
+    "x-screen": "F8a/F8b Advice detail"
+  },
+  "farmerCalendarDay": "{day}వ రోజు",
+  "@farmerCalendarDay": {
+    "description": "Progress line when the crop has no duration.",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    },
+    "x-key": "farmer.calendar.day",
+    "x-screen": "F11 Crop calendar"
+  },
+  "farmerCalendarDayOf": "{day}వ రోజు (మొత్తం సుమారు {total} రోజులు)",
+  "@farmerCalendarDayOf": {
+    "description": "Progress line (wireframe \"day 137 of about 170\").",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    },
+    "x-key": "farmer.calendar.day_of",
+    "x-screen": "F11 Crop calendar"
+  },
+  "farmerCalendarNoSeason": "పంట మొదలుపెడితే క్యాలెండర్ కనిపిస్తుంది.",
+  "@farmerCalendarNoSeason": {
+    "description": "No active season.",
+    "x-key": "farmer.calendar.no_season",
+    "x-screen": "F11 Crop calendar"
+  },
+  "farmerCalendarNoSowingDate": "విత్తిన రోజు మీ FA కి చెప్పండి. అప్పుడు క్యాలెండర్ కనిపిస్తుంది.",
+  "@farmerCalendarNoSowingDate": {
+    "description": "Season without a sowing date; only the FA can add it.",
+    "x-key": "farmer.calendar.no_sowing_date",
+    "x-screen": "F11 Crop calendar"
+  },
+  "farmerCalendarNow": "ఇప్పుడు",
+  "@farmerCalendarNow": {
+    "description": "Marker on the current stage (wireframe \"(now)\").",
+    "x-key": "farmer.calendar.now",
+    "x-screen": "F11 Crop calendar"
+  },
+  "farmerCalendarTasks": "రాబోయే పనులు",
+  "@farmerCalendarTasks": {
+    "description": "Tasks section header (wireframe).",
+    "x-key": "farmer.calendar.tasks",
+    "x-screen": "F11 Crop calendar"
+  },
+  "farmerCalendarTasksLater": "చేయాల్సిన పనులు, SMS రిమైండర్లు త్వరలో వస్తాయి.",
+  "@farmerCalendarTasksLater": {
+    "description": "Shown in place of the task list (calendar module not built).",
+    "x-key": "farmer.calendar.tasks_later",
+    "x-screen": "F11 Crop calendar"
+  },
+  "farmerCalendarTitle": "పంట క్యాలెండర్",
+  "@farmerCalendarTitle": {
+    "description": "F11 title (wireframe).",
+    "x-key": "farmer.calendar.title",
+    "x-screen": "F11 Crop calendar"
+  },
+  "farmerCalendarVoiceHelp": "మీ పంట ఏ దశలో ఉందో ఇక్కడ చూడవచ్చు. విత్తిన రోజు నుంచి ఎన్ని రోజులైందో పైన ఉంది.",
+  "@farmerCalendarVoiceHelp": {
+    "description": "Voice prompt for F11.",
+    "x-key": "farmer.calendar.voice_help",
+    "x-screen": "F11 Crop calendar"
+  },
+  "farmerConsentAgree": "సరే, ఒప్పుకుంటున్నాను",
+  "@farmerConsentAgree": {
+    "description": "Primary button: grants the programme consent (wireframe).",
+    "x-key": "farmer.consent.agree",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentDeclined": "మీ అనుమతి లేకుండా సలహాలు పంపలేము. ఎప్పుడైనా ఒప్పుకోవచ్చు.",
+  "@farmerConsentDeclined": {
+    "description": "Shown after \"Not now\".",
+    "x-key": "farmer.consent.declined",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentNotNow": "ఇప్పుడు కాదు",
+  "@farmerConsentNotNow": {
+    "description": "Secondary button: does not grant.",
+    "x-key": "farmer.consent.not_now",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentPointChange": "'నా పొలం' లో ఎప్పుడైనా మార్చుకోవచ్చు",
+  "@farmerConsentPointChange": {
+    "description": "Consent point 3 (wireframe).",
+    "x-key": "farmer.consent.point_change",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentPointPartners": "ఇతర కంపెనీలకు మీరు ఒప్పుకుంటేనే పంపుతాం",
+  "@farmerConsentPointPartners": {
+    "description": "Consent point 2 (wireframe).",
+    "x-key": "farmer.consent.point_partners",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentPointSafe": "మీ పేరు, ఫోన్, పొలం వివరాలు షణ్ముఖ వద్ద భద్రంగా ఉంటాయి",
+  "@farmerConsentPointSafe": {
+    "description": "Consent point 1 (wireframe).",
+    "x-key": "farmer.consent.point_safe",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentPurpose": "మీ పంటకు సలహాలు ఇవ్వడానికి, మీ FA మీ పొలానికి రావడానికి మీ వివరాలు వాడుతాం.",
+  "@farmerConsentPurpose": {
+    "description": "Programme purpose, shown above the three points (notice_version is bundled with this text).",
+    "x-key": "farmer.consent.purpose",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentSaved": "మీ అనుమతి సేవ్ అయింది",
+  "@farmerConsentSaved": {
+    "description": "Snackbar after the consent is stored.",
+    "x-key": "farmer.consent.saved",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentTitle": "మీ అనుమతి",
+  "@farmerConsentTitle": {
+    "description": "Consent screen title (wireframe).",
+    "x-key": "farmer.consent.title",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentVoiceHelp": "మీ పంటకు సలహాలు ఇవ్వడానికి, మీ FA మీ పొలానికి రావడానికి మీ వివరాలు వాడుతాం. మీ పేరు, ఫోన్, పొలం వివరాలు షణ్ముఖ వద్ద భద్రంగా ఉంటాయి. ఇతర కంపెనీలకు మీరు ఒప్పుకుంటేనే పంపుతాం. 'నా పొలం' లో ఎప్పుడైనా మార్చుకోవచ్చు. ఒప్పుకుంటే, సరే నొక్కండి.",
+  "@farmerConsentVoiceHelp": {
+    "description": "Voice prompt that reads the whole consent notice (purpose first); audio_played is sent when it plays to the end.",
+    "x-key": "farmer.consent.voice_help",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentVoiceHelpDeclined": "మీ అనుమతి లేకుండా సలహాలు పంపలేము. ఎప్పుడైనా ఒప్పుకోవచ్చు. మాట్లాడాలంటే సహాయ కేంద్రానికి కాల్ చేయండి.",
+  "@farmerConsentVoiceHelpDeclined": {
+    "description": "Voice prompt for the \"Not now\" sheet of the consent screen.",
+    "x-key": "farmer.consent.voice_help_declined",
+    "x-screen": "F1a Consent"
+  },
+  "farmerConsentsAgree": "ఒప్పుకోండి",
+  "@farmerConsentsAgree": {
+    "description": "Grants the consent.",
+    "x-key": "farmer.consents.agree",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsChangedOn": "{date} న మార్చారు",
+  "@farmerConsentsChangedOn": {
+    "description": "When the consent was last set.",
+    "placeholders": {
+      "date": {
+        "format": "yMMMd",
+        "type": "DateTime"
+      }
+    },
+    "x-key": "farmer.consents.changed_on",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsDescLoyalty": "షణ్ముఖ బహుమతులు, క్యాష్‌బ్యాక్",
+  "@farmerConsentsDescLoyalty": {
+    "description": "What the loyalty consent covers.",
+    "x-key": "farmer.consents.desc_loyalty",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsDescProgramme": "మీ పంటకు సలహాలు, FA సందర్శనలు",
+  "@farmerConsentsDescProgramme": {
+    "description": "What the programme consent covers.",
+    "x-key": "farmer.consents.desc_programme",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsDescSchemesFinance": "పథకాలు, బీమా, రుణాల కోసం మీ వివరాలు",
+  "@farmerConsentsDescSchemesFinance": {
+    "description": "What the schemes_finance consent covers.",
+    "x-key": "farmer.consents.desc_schemes_finance",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsDescSoilPartner": "మట్టి పరీక్ష కంపెనీకి మీ పొలం లొకేషన్",
+  "@farmerConsentsDescSoilPartner": {
+    "description": "What the soil_partner consent covers.",
+    "x-key": "farmer.consents.desc_soil_partner",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsEmpty": "మీ అనుమతులు చూపించలేకపోయాం",
+  "@farmerConsentsEmpty": {
+    "description": "Consents screen when the list came back empty; Try again below.",
+    "x-key": "farmer.consents.empty",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsSubtitle": "ఎవరు ఏమి చూడవచ్చు",
+  "@farmerConsentsSubtitle": {
+    "description": "Consents list subtitle (wireframe).",
+    "x-key": "farmer.consents.subtitle",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsTitle": "అనుమతులు",
+  "@farmerConsentsTitle": {
+    "description": "Consents list title (wireframe).",
+    "x-key": "farmer.consents.title",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsVoiceHelp": "మీ వివరాలు ఎవరు చూడవచ్చో ఇక్కడ ఉంది. ఏది కావాలంటే అది ఒప్పుకోవచ్చు, ఎప్పుడైనా వెనక్కి తీసుకోవచ్చు.",
+  "@farmerConsentsVoiceHelp": {
+    "description": "Voice prompt for the consents list.",
+    "x-key": "farmer.consents.voice_help",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsWithdraw": "వెనక్కి తీసుకోండి",
+  "@farmerConsentsWithdraw": {
+    "description": "Withdraws the consent.",
+    "x-key": "farmer.consents.withdraw",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsWithdrawBody": "ఇక్కడే ఎప్పుడైనా మళ్ళీ ఒప్పుకోవచ్చు.",
+  "@farmerConsentsWithdrawBody": {
+    "description": "Withdraw dialog body, under the purpose name.",
+    "x-key": "farmer.consents.withdraw_body",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsWithdrawProgrammeVoice": "ఈ అనుమతి వెనక్కి తీసుకోవాలా? ఇది తీసేస్తే సలహాలు, FA సందర్శనలు ఆగిపోవచ్చు. ఇక్కడే ఎప్పుడైనా మళ్ళీ ఒప్పుకోవచ్చు.",
+  "@farmerConsentsWithdrawProgrammeVoice": {
+    "description": "Voice prompt for the withdraw dialog of the programme consent (with the warning).",
+    "x-key": "farmer.consents.withdraw_programme_voice",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsWithdrawProgrammeWarning": "ఇది తీసేస్తే సలహాలు, FA సందర్శనలు ఆగిపోవచ్చు.",
+  "@farmerConsentsWithdrawProgrammeWarning": {
+    "description": "Extra warning when withdrawing the programme consent.",
+    "x-key": "farmer.consents.withdraw_programme_warning",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsWithdrawTitle": "అనుమతి వెనక్కి తీసుకోవాలా?",
+  "@farmerConsentsWithdrawTitle": {
+    "description": "Withdraw confirmation title.",
+    "x-key": "farmer.consents.withdraw_title",
+    "x-screen": "F10 Consents"
+  },
+  "farmerConsentsWithdrawVoice": "ఈ అనుమతి వెనక్కి తీసుకోవాలా? ఇక్కడే ఎప్పుడైనా మళ్ళీ ఒప్పుకోవచ్చు.",
+  "@farmerConsentsWithdrawVoice": {
+    "description": "Voice prompt for the withdraw-consent dialog (any purpose but programme).",
+    "x-key": "farmer.consents.withdraw_voice",
+    "x-screen": "F10 Consents"
+  },
+  "farmerFarmAddPlot": "పొలం జోడించండి",
+  "@farmerFarmAddPlot": {
+    "description": "Button to add a plot (wireframe).",
+    "x-key": "farmer.farm.add_plot",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmChangeName": "పేరు మార్చండి",
+  "@farmerFarmChangeName": {
+    "description": "Profile name action.",
+    "x-key": "farmer.farm.change_name",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmChangeNameVoice": "మీ పేరు టైప్ చేసి, 'సేవ్' బటన్ నొక్కండి.",
+  "@farmerFarmChangeNameVoice": {
+    "description": "Voice prompt for the change-name dialog.",
+    "x-key": "farmer.farm.change_name_voice",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmChangePhoto": "ఫోటో మార్చండి",
+  "@farmerFarmChangePhoto": {
+    "description": "Profile photo action.",
+    "x-key": "farmer.farm.change_photo",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmCloseSeason": "పంట ముగించండి",
+  "@farmerFarmCloseSeason": {
+    "description": "Plot action.",
+    "x-key": "farmer.farm.close_season",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmConsents": "అనుమతులు",
+  "@farmerFarmConsents": {
+    "description": "Row label (wireframe).",
+    "x-key": "farmer.farm.consents",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmConsentsHint": "ఎవరు ఏమి చూడవచ్చు",
+  "@farmerFarmConsentsHint": {
+    "description": "Row subtitle (wireframe \"who can see what\").",
+    "x-key": "farmer.farm.consents_hint",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmFromGallery": "గ్యాలరీ",
+  "@farmerFarmFromGallery": {
+    "description": "Photo source option (wireframe F9b).",
+    "x-key": "farmer.farm.from_gallery",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmHelp": "సహాయం",
+  "@farmerFarmHelp": {
+    "description": "Row label; dials the helpline (wireframe).",
+    "x-key": "farmer.farm.help",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmLanguage": "భాష",
+  "@farmerFarmLanguage": {
+    "description": "Row label (wireframe).",
+    "x-key": "farmer.farm.language",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmLanguageChanged": "భాష మారింది",
+  "@farmerFarmLanguageChanged": {
+    "description": "Snackbar after the language changes.",
+    "x-key": "farmer.farm.language_changed",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmNoCrop": "ఇంకా పంట వేయలేదు",
+  "@farmerFarmNoCrop": {
+    "description": "Plot without an active season.",
+    "x-key": "farmer.farm.no_crop",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmPhotoUpdated": "ఫోటో మారింది",
+  "@farmerFarmPhotoUpdated": {
+    "description": "Snackbar after the photo upload.",
+    "x-key": "farmer.farm.photo_updated",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmPlot": "పొలం {number}",
+  "@farmerFarmPlot": {
+    "description": "Default plot name when the plot has no label (wireframe \"పొలం 1\").",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    },
+    "x-key": "farmer.farm.plot",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmPlots": "నా పొలాలు",
+  "@farmerFarmPlots": {
+    "description": "Section header above the plot cards.",
+    "x-key": "farmer.farm.plots",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmSignOutBody": "మళ్ళీ లాగిన్ అవ్వడానికి OTP కావాలి.",
+  "@farmerFarmSignOutBody": {
+    "description": "Sign-out confirmation body.",
+    "x-key": "farmer.farm.sign_out_body",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmSignOutTitle": "ఈ ఫోన్ నుంచి లాగౌట్ అవ్వాలా?",
+  "@farmerFarmSignOutTitle": {
+    "description": "Sign-out confirmation title.",
+    "x-key": "farmer.farm.sign_out_title",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmSignOutVoice": "ఈ ఫోన్ నుంచి లాగౌట్ అవ్వాలా? మళ్ళీ లాగిన్ అవ్వడానికి OTP కావాలి.",
+  "@farmerFarmSignOutVoice": {
+    "description": "Voice prompt for the sign-out confirmation.",
+    "x-key": "farmer.farm.sign_out_voice",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmSownOn": "{date} న విత్తారు",
+  "@farmerFarmSownOn": {
+    "description": "Plot row line (wireframe \"sown 12 Jun\").",
+    "placeholders": {
+      "date": {
+        "format": "MMMd",
+        "type": "DateTime"
+      }
+    },
+    "x-key": "farmer.farm.sown_on",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmSowsOn": "{date} న విత్తుతారు",
+  "@farmerFarmSowsOn": {
+    "description": "Plot row and crop calendar line when the sowing date is still ahead (counterpart of sown_on).",
+    "placeholders": {
+      "date": {
+        "format": "MMMd",
+        "type": "DateTime"
+      }
+    },
+    "x-key": "farmer.farm.sows_on",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmStartSeason": "పంట మొదలుపెట్టండి",
+  "@farmerFarmStartSeason": {
+    "description": "Plot action.",
+    "x-key": "farmer.farm.start_season",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmTakePhoto": "ఫోటో తీయండి",
+  "@farmerFarmTakePhoto": {
+    "description": "Photo source option.",
+    "x-key": "farmer.farm.take_photo",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmTitle": "నా పొలం",
+  "@farmerFarmTitle": {
+    "description": "F10 title (wireframe).",
+    "x-key": "farmer.farm.title",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmVillageChangeNote": "గ్రామం మార్చాలంటే మీ FA కి చెప్పండి",
+  "@farmerFarmVillageChangeNote": {
+    "description": "Note under the village (not editable here).",
+    "x-key": "farmer.farm.village_change_note",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmVoiceHelp": "ఇక్కడ మీ పేరు, ఫోటో, పొలాలు, భాష, అనుమతులు ఉన్నాయి. కొత్త పొలం జోడించవచ్చు, పంట మొదలుపెట్టవచ్చు.",
+  "@farmerFarmVoiceHelp": {
+    "description": "Voice prompt for F10.",
+    "x-key": "farmer.farm.voice_help",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFarmYourFa": "మీ FA",
+  "@farmerFarmYourFa": {
+    "description": "Row label; opens F3 (wireframe).",
+    "x-key": "farmer.farm.your_fa",
+    "x-screen": "F10 My farm"
+  },
+  "farmerFasCallFailed": "ఫోన్ యాప్ తెరుచుకోలేదు. {phone} కు కాల్ చేయండి.",
+  "@farmerFasCallFailed": {
+    "description": "Snack bar when the phone has no dialer (tablet); shows the number to call by hand. Also used on Home.",
+    "placeholders": {
+      "phone": {
+        "example": "+919000000014",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.fas.call_failed",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasCallHint": "మీ FA కి నేరుగా కాల్ చేయడానికి కాల్ నొక్కండి",
+  "@farmerFasCallHint": {
+    "description": "Hint above the list.",
+    "x-key": "farmer.fas.call_hint",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasCallback": "నాకు కాల్ చేయండి",
+  "@farmerFasCallback": {
+    "description": "Call-back request button (wireframe).",
+    "x-key": "farmer.fas.callback",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasCallbackCancelled": "అభ్యర్థన రద్దు చేశాం",
+  "@farmerFasCallbackCancelled": {
+    "description": "Snackbar after Undo.",
+    "x-key": "farmer.fas.callback_cancelled",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasCallbackSent": "అభ్యర్థన పంపాం",
+  "@farmerFasCallbackSent": {
+    "description": "Call-back sent title (wireframe).",
+    "x-key": "farmer.fas.callback_sent",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasCallbackSentBody": "{name} గారు ఈ రోజు మీకు కాల్ చేస్తారు",
+  "@farmerFasCallbackSentBody": {
+    "description": "Call-back sent line (wireframe \"Suresh will call you today\").",
+    "placeholders": {
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.fas.callback_sent_body",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasCount": "{count, plural, =0{ఇక్కడ ఇంకా FA లు లేరు} one{1 FA} other{{count} FA లు}}",
+  "@farmerFasCount": {
+    "description": "Count under the tabs.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "farmer.fas.count",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasLanguages": "భాషలు: {languages}",
+  "@farmerFasLanguages": {
+    "description": "FA card line.",
+    "placeholders": {
+      "languages": {
+        "example": "తెలుగు, English",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.fas.languages",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasLead": "ముఖ్య FA",
+  "@farmerFasLead": {
+    "description": "Badge on the lead FA for the area.",
+    "x-key": "farmer.fas.lead",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasTitle": "FA లు",
+  "@farmerFasTitle": {
+    "description": "F3 title (wireframe).",
+    "x-key": "farmer.fas.title",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasVoiceHelp": "మీ ప్రాంతంలోని FA లు ఇక్కడ ఉన్నారు. కాల్ నొక్కితే నేరుగా మాట్లాడవచ్చు. నాకు కాల్ చేయండి నొక్కితే మీ FA మీకు కాల్ చేస్తారు.",
+  "@farmerFasVoiceHelp": {
+    "description": "Voice prompt for F3.",
+    "x-key": "farmer.fas.voice_help",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasWhatsappFailed": "ఈ ఫోన్‌లో WhatsApp తెరుచుకోలేదు.",
+  "@farmerFasWhatsappFailed": {
+    "description": "Snack bar when WhatsApp could not be opened.",
+    "x-key": "farmer.fas.whatsapp_failed",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasWhatsappMessage": "నమస్కారం, నేను {name}, {village} రైతును.",
+  "@farmerFasWhatsappMessage": {
+    "description": "Text pre-filled in the WhatsApp chat (wa.me ?text=).",
+    "placeholders": {
+      "name": {
+        "example": "రవి",
+        "type": "String"
+      },
+      "village": {
+        "example": "కొండాపూర్",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.fas.whatsapp_message",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasWorkingHours": "పని వేళలు: {hours}",
+  "@farmerFasWorkingHours": {
+    "description": "FA card line; hours text comes from the server.",
+    "placeholders": {
+      "hours": {
+        "example": "9 am - 6 pm",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.fas.working_hours",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerFasYourFa": "మీ FA",
+  "@farmerFasYourFa": {
+    "description": "Badge on the farmer's own FA (wireframe).",
+    "x-key": "farmer.fas.your_fa",
+    "x-screen": "F3 Look for FAs"
+  },
+  "farmerHomeArea": "{acres, plural, =0{{guntas, plural, =1{1 గుంట} other{{guntas} గుంటలు}}} =1{{guntas, plural, =0{1 ఎకరం} =1{1 ఎకరం 1 గుంట} other{1 ఎకరం {guntas} గుంటలు}}} other{{guntas, plural, =0{{acres} ఎకరాలు} =1{{acres} ఎకరాలు 1 గుంట} other{{acres} ఎకరాలు {guntas} గుంటలు}}}}",
+  "@farmerHomeArea": {
+    "description": "Plot area as acres and guntas, spelled out; a zero part is left out (\"2 ఎకరాలు\", \"20 గుంటలు\", \"2 ఎకరాలు 20 గుంటలు\").",
+    "placeholders": {
+      "acres": {
+        "type": "int"
+      },
+      "guntas": {
+        "type": "int"
+      }
+    },
+    "x-key": "farmer.home.area",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeFaVerified": "షణ్ముఖ FA",
+  "@farmerHomeFaVerified": {
+    "description": "FA card subtitle.",
+    "x-key": "farmer.home.fa_verified",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeGreeting": "నమస్కారం, {name}",
+  "@farmerHomeGreeting": {
+    "description": "Home greeting (wireframe \"నమస్కారం, రవి\").",
+    "placeholders": {
+      "name": {
+        "example": "రవి",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.home.greeting",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeLockedBody": "ఇది మొదలవగానే SMS ద్వారా మీకు చెబుతాం.",
+  "@farmerHomeLockedBody": {
+    "description": "Sheet body for a locked tile.",
+    "x-key": "farmer.home.locked_body",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeLockedTitle": "ఈ సేవ త్వరలో వస్తుంది",
+  "@farmerHomeLockedTitle": {
+    "description": "Sheet shown when a locked tile is tapped.",
+    "x-key": "farmer.home.locked_title",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeLockedVoice": "ఈ సేవ త్వరలో వస్తుంది. మొదలవగానే SMS ద్వారా మీకు చెబుతాం.",
+  "@farmerHomeLockedVoice": {
+    "description": "Voice prompt for the coming-soon sheet of a locked Home tile.",
+    "x-key": "farmer.home.locked_voice",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeLookForFas": "FA లను చూడండి",
+  "@farmerHomeLookForFas": {
+    "description": "Link from the FA card to F3.",
+    "x-key": "farmer.home.look_for_fas",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeNextVisit": "FA వచ్చే రోజు",
+  "@farmerHomeNextVisit": {
+    "description": "Label above the next visit date (wireframe F4).",
+    "x-key": "farmer.home.next_visit",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeNoNextVisit": "ఇంకా రోజు నిర్ణయించలేదు",
+  "@farmerHomeNoNextVisit": {
+    "description": "Shown when there is no planned visit.",
+    "x-key": "farmer.home.no_next_visit",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeNoPlotBody": "'నా పొలం' పేజీలో మీ పొలం జోడించండి. అప్పుడు FA మీ పంటకు సలహా ఇస్తారు.",
+  "@farmerHomeNoPlotBody": {
+    "description": "Home card body when the farmer has no plot yet; the button opens My farm.",
+    "x-key": "farmer.home.no_plot_body",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeNoPlotTitle": "మీ పొలం జోడించండి",
+  "@farmerHomeNoPlotTitle": {
+    "description": "Home card when the farmer has no plot yet.",
+    "x-key": "farmer.home.no_plot_title",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeTileAdvisory": "సలహాలు",
+  "@farmerHomeTileAdvisory": {
+    "description": "Home tile (wireframe nav label).",
+    "x-key": "farmer.home.tile_advisory",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeTileAsk": "అడగండి",
+  "@farmerHomeTileAsk": {
+    "description": "Home tile, locked until Phase 3 (wireframe).",
+    "x-key": "farmer.home.tile_ask",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeTileCalendar": "క్యాలెండర్",
+  "@farmerHomeTileCalendar": {
+    "description": "Home tile (wireframe).",
+    "x-key": "farmer.home.tile_calendar",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeTilePests": "చీడపీడలు",
+  "@farmerHomeTilePests": {
+    "description": "Home tile; opens visits/advice (wireframe).",
+    "x-key": "farmer.home.tile_pests",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeTilePremium": "ప్రీమియం",
+  "@farmerHomeTilePremium": {
+    "description": "Home tile, locked until Phase 2 (wireframe).",
+    "x-key": "farmer.home.tile_premium",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeTileSchemes": "పథకాలు",
+  "@farmerHomeTileSchemes": {
+    "description": "Home tile, locked until Phase 3 (wireframe).",
+    "x-key": "farmer.home.tile_schemes",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeTileServices": "సేవలు",
+  "@farmerHomeTileServices": {
+    "description": "Home tile, locked until Phase 2 (wireframe).",
+    "x-key": "farmer.home.tile_services",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeTileSoilTest": "మట్టి పరీక్ష",
+  "@farmerHomeTileSoilTest": {
+    "description": "Home tile, locked until Phase 2 (wireframe).",
+    "x-key": "farmer.home.tile_soil_test",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeTileWallet": "వాలెట్",
+  "@farmerHomeTileWallet": {
+    "description": "Home tile, locked until Phase 2 (wireframe).",
+    "x-key": "farmer.home.tile_wallet",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeTileWeather": "వాతావరణం",
+  "@farmerHomeTileWeather": {
+    "description": "Home tile, locked until the feed exists (wireframe).",
+    "x-key": "farmer.home.tile_weather",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeUnread": "{count, plural, =0{కొత్త సలహాలు లేవు} one{1 కొత్త సలహా} other{{count} కొత్త సలహాలు}}",
+  "@farmerHomeUnread": {
+    "description": "Bell badge accessibility label.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "farmer.home.unread",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeVoiceHelp": "ఇది మీ హోమ్. మీ FA కి కాల్ చేయడానికి పచ్చ బటన్ నొక్కండి. కింద సందర్శనలు, సలహాలు, మీ పొలం ఉన్నాయి.",
+  "@farmerHomeVoiceHelp": {
+    "description": "Voice prompt for Home.",
+    "x-key": "farmer.home.voice_help",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeWeatherSoon": "వాతావరణం త్వరలో వస్తుంది",
+  "@farmerHomeWeatherSoon": {
+    "description": "Weather card placeholder (feed not built; hidden in prod).",
+    "x-key": "farmer.home.weather_soon",
+    "x-screen": "F2 Home"
+  },
+  "farmerHomeYourFa": "మీ FA: {name}",
+  "@farmerHomeYourFa": {
+    "description": "FA card title (wireframe \"మీ FA: సురేష్\").",
+    "placeholders": {
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.home.your_fa",
+    "x-screen": "F2 Home"
+  },
+  "farmerInboxEmptyBody": "కొత్త సలహాలు వస్తే ఇక్కడ కనిపిస్తాయి.",
+  "@farmerInboxEmptyBody": {
+    "description": "Empty inbox body.",
+    "x-key": "farmer.inbox.empty_body",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerInboxEmptyTitle": "ఇంకా సలహాలు లేవు",
+  "@farmerInboxEmptyTitle": {
+    "description": "Empty inbox title.",
+    "x-key": "farmer.inbox.empty_title",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerInboxForYourField": "మీ పొలానికి",
+  "@farmerInboxForYourField": {
+    "description": "Tag on personal notices (wireframe).",
+    "x-key": "farmer.inbox.for_your_field",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerInboxListened": "విన్నారు",
+  "@farmerInboxListened": {
+    "description": "Tag after the voice note played to the end.",
+    "x-key": "farmer.inbox.listened",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerInboxNewCount": "{count, plural, =0{కొత్తవి లేవు} one{1 కొత్తది} other{{count} కొత్తవి}}",
+  "@farmerInboxNewCount": {
+    "description": "Count next to the title (wireframe \"3 new\").",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "farmer.inbox.new_count",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerInboxNoAudio": "ఈ సలహాకు ఆడియో లేదు",
+  "@farmerInboxNoAudio": {
+    "description": "Shown instead of Listen when audio_url is null.",
+    "x-key": "farmer.inbox.no_audio",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerInboxNoAudioVoice": "ఈ సలహాకు ఇంకా ఆడియో రికార్డ్ చేయలేదు. స్క్రీన్ మీద చదవండి, లేదా మీ FA ని అడగండి.",
+  "@farmerInboxNoAudioVoice": {
+    "description": "Voice prompt on a notice that has no voice note of its own (audio_url is null).",
+    "x-key": "farmer.inbox.no_audio_voice",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerInboxPinned": "ముఖ్యమైనది",
+  "@farmerInboxPinned": {
+    "description": "Tag on pinned notices (wireframe \"PINNED\").",
+    "x-key": "farmer.inbox.pinned",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerInboxTitle": "సలహాలు",
+  "@farmerInboxTitle": {
+    "description": "F5 title (wireframe).",
+    "x-key": "farmer.inbox.title",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerInboxUnread": "కొత్తది",
+  "@farmerInboxUnread": {
+    "description": "Tag on unread notices.",
+    "x-key": "farmer.inbox.unread",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerInboxVoiceHelp": "షణ్ముఖ, CIV పంపిన పంట సలహాలు ఇక్కడ ఉన్నాయి. వినాలంటే 'వినండి' బటన్ నొక్కండి.",
+  "@farmerInboxVoiceHelp": {
+    "description": "Voice prompt for F5.",
+    "x-key": "farmer.inbox.voice_help",
+    "x-screen": "F5 Crop advisory"
+  },
+  "farmerLoginAccountPaused": "మీ ఖాతా ఇప్పుడు ఆగి ఉంది. సహాయ కేంద్రానికి కాల్ చేయండి.",
+  "@farmerLoginAccountPaused": {
+    "description": "Shown after sign-in when farmer_status is inactive.",
+    "x-key": "farmer.login.account_paused",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginCallHelpline": "సహాయ కేంద్రానికి కాల్",
+  "@farmerLoginCallHelpline": {
+    "description": "Button that dials the helpline (wireframe states).",
+    "x-key": "farmer.login.call_helpline",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginChangeNumber": "నంబర్ మార్చండి",
+  "@farmerLoginChangeNumber": {
+    "description": "Link back to the phone step.",
+    "x-key": "farmer.login.change_number",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginChooseLanguage": "భాష ఎంచుకోండి",
+  "@farmerLoginChooseLanguage": {
+    "description": "Label above the language chips.",
+    "x-key": "farmer.login.choose_language",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginNoOtp": "OTP రాలేదా?",
+  "@farmerLoginNoOtp": {
+    "description": "Link under the OTP boxes (wireframe states).",
+    "x-key": "farmer.login.no_otp",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginNoOtpHelp": "సహాయ కేంద్రానికి కాల్ చేయండి. వారు సహాయం చేస్తారు.",
+  "@farmerLoginNoOtpHelp": {
+    "description": "Sheet shown for \"OTP not received?\". Voice OTP (call me) is not built, so the helpline is offered instead.",
+    "x-key": "farmer.login.no_otp_help",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginOtpAutofill": "SMS రాగానే OTP దానంతట అదే నిండుతుంది",
+  "@farmerLoginOtpAutofill": {
+    "description": "Reserved for SMS autofill (not wired yet): hint under the OTP boxes once the app reads the SMS by itself.",
+    "x-key": "farmer.login.otp_autofill",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginOtpHint": "SMS లో వచ్చిన 6 అంకెల OTP వేయండి",
+  "@farmerLoginOtpHint": {
+    "description": "Hint under the OTP boxes (no SMS autofill yet).",
+    "x-key": "farmer.login.otp_hint",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginOtpSent": "OTP పంపాం",
+  "@farmerLoginOtpSent": {
+    "description": "Snackbar after (re)sending the OTP.",
+    "x-key": "farmer.login.otp_sent",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginOtpSentTo": "{phone} కు 6 అంకెల OTP పంపాం",
+  "@farmerLoginOtpSentTo": {
+    "description": "OTP step subtitle; phone is phone_masked from the server.",
+    "placeholders": {
+      "phone": {
+        "example": "+91 98xxxxxx10",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.login.otp_sent_to",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginOtpTitle": "OTP వేయండి",
+  "@farmerLoginOtpTitle": {
+    "description": "OTP step title.",
+    "x-key": "farmer.login.otp_title",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginOtpWaiting": "OTP కోసం చూస్తున్నాం…",
+  "@farmerLoginOtpWaiting": {
+    "description": "Shown while SMS autofill waits for the OTP.",
+    "x-key": "farmer.login.otp_waiting",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginPausedTitle": "మీ ఖాతా ఆగి ఉంది",
+  "@farmerLoginPausedTitle": {
+    "description": "Title of the account paused card (farmer_status inactive).",
+    "x-key": "farmer.login.paused_title",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginPhoneHint": "10 అంకెల నంబర్",
+  "@farmerLoginPhoneHint": {
+    "description": "Phone field hint (+91 prefix is shown by the field).",
+    "x-key": "farmer.login.phone_hint",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginPhoneInvalid": "10 అంకెల మొబైల్ నంబర్ ఇవ్వండి",
+  "@farmerLoginPhoneInvalid": {
+    "description": "Inline error on the phone field.",
+    "x-key": "farmer.login.phone_invalid",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginPhoneSubtitle": "ఈ నంబర్‌కు SMS లో OTP పంపుతాం",
+  "@farmerLoginPhoneSubtitle": {
+    "description": "Phone step subtitle.",
+    "x-key": "farmer.login.phone_subtitle",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginPhoneTitle": "మీ ఫోన్ నంబర్",
+  "@farmerLoginPhoneTitle": {
+    "description": "Phone step title.",
+    "x-key": "farmer.login.phone_title",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginResend": "OTP మళ్ళీ పంపండి",
+  "@farmerLoginResend": {
+    "description": "Resend button after the countdown.",
+    "x-key": "farmer.login.resend",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginResendIn": "{time} తర్వాత మళ్ళీ పంపవచ్చు",
+  "@farmerLoginResendIn": {
+    "description": "Resend countdown; time is m:ss, e.g. 0:24.",
+    "placeholders": {
+      "time": {
+        "example": "0:24",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.login.resend_in",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginSendOtp": "OTP పంపండి",
+  "@farmerLoginSendOtp": {
+    "description": "Primary button on the phone step.",
+    "x-key": "farmer.login.send_otp",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginTagline": "పంటకు సలహా, మీ FA ఒక్క కాల్ దూరంలో",
+  "@farmerLoginTagline": {
+    "description": "Tag line under the app name on the phone step.",
+    "x-key": "farmer.login.tagline",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginUseSimNumber": "SIM నంబర్ వాడండి",
+  "@farmerLoginUseSimNumber": {
+    "description": "Phone number hint picker button (wireframe \"From SIM\").",
+    "x-key": "farmer.login.use_sim_number",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginVerify": "సరిచూసి ముందుకు",
+  "@farmerLoginVerify": {
+    "description": "Primary button on the OTP step.",
+    "x-key": "farmer.login.verify",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginVoiceHelpNoOtp": "OTP రాలేదా? సహాయ కేంద్రానికి కాల్ చేయండి. వారు సహాయం చేస్తారు.",
+  "@farmerLoginVoiceHelpNoOtp": {
+    "description": "Voice prompt for the \"OTP not received?\" sheet.",
+    "x-key": "farmer.login.voice_help_no_otp",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginVoiceHelpOtp": "SMS లో వచ్చిన 6 అంకెల OTP ఇక్కడ వేయండి. OTP రాకపోతే సహాయ కేంద్రానికి కాల్ చేయండి.",
+  "@farmerLoginVoiceHelpOtp": {
+    "description": "Voice prompt for the OTP step (Listen button).",
+    "x-key": "farmer.login.voice_help_otp",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginVoiceHelpPaused": "మీ ఖాతా ఇప్పుడు ఆగి ఉంది. సహాయ కేంద్రానికి కాల్ చేయండి.",
+  "@farmerLoginVoiceHelpPaused": {
+    "description": "Voice prompt for the account paused screen (Listen button).",
+    "x-key": "farmer.login.voice_help_paused",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerLoginVoiceHelpPhone": "మీ ఫోన్ నంబర్ టైప్ చేసి, OTP పంపండి నొక్కండి.",
+  "@farmerLoginVoiceHelpPhone": {
+    "description": "Voice prompt for the phone step (Listen button).",
+    "x-key": "farmer.login.voice_help_phone",
+    "x-screen": "F1 Phone and OTP login"
+  },
+  "farmerNameDone": "నమోదు పూర్తయింది. మీ FA త్వరలో కాల్ చేస్తారు.",
+  "@farmerNameDone": {
+    "description": "Shown after complete-profile succeeds.",
+    "x-key": "farmer.name.done",
+    "x-screen": "Name entry (complete profile)"
+  },
+  "farmerNameFinish": "నమోదు పూర్తి చేయండి",
+  "@farmerNameFinish": {
+    "description": "Primary button: calls complete-profile.",
+    "x-key": "farmer.name.finish",
+    "x-screen": "Name entry (complete profile)"
+  },
+  "farmerNameHint": "మీ పేరు టైప్ చేయండి",
+  "@farmerNameHint": {
+    "description": "Name field hint.",
+    "x-key": "farmer.name.hint",
+    "x-screen": "Name entry (complete profile)"
+  },
+  "farmerNameRequired": "దయచేసి మీ పేరు రాయండి",
+  "@farmerNameRequired": {
+    "description": "Inline error when the name is blank.",
+    "x-key": "farmer.name.required",
+    "x-screen": "Name entry (complete profile)"
+  },
+  "farmerNameSubtitle": "మీ FA మిమ్మల్ని ఈ పేరుతో గుర్తిస్తారు",
+  "@farmerNameSubtitle": {
+    "description": "Name step subtitle.",
+    "x-key": "farmer.name.subtitle",
+    "x-screen": "Name entry (complete profile)"
+  },
+  "farmerNameTitle": "మీ పేరు",
+  "@farmerNameTitle": {
+    "description": "Name step title.",
+    "x-key": "farmer.name.title",
+    "x-screen": "Name entry (complete profile)"
+  },
+  "farmerNameVoiceHelp": "మీ పేరు టైప్ చేసి, నమోదు పూర్తి చేయండి నొక్కండి.",
+  "@farmerNameVoiceHelp": {
+    "description": "Voice prompt for the name step.",
+    "x-key": "farmer.name.voice_help",
+    "x-screen": "Name entry (complete profile)"
+  },
+  "farmerNavAdvisory": "సలహాలు",
+  "@farmerNavAdvisory": {
+    "description": "Bottom tab.",
+    "x-key": "farmer.nav.advisory",
+    "x-screen": "Bottom nav (farmer)"
+  },
+  "farmerNavFarm": "నా పొలం",
+  "@farmerNavFarm": {
+    "description": "Bottom tab (replaces Wallet until Phase 2).",
+    "x-key": "farmer.nav.farm",
+    "x-screen": "Bottom nav (farmer)"
+  },
+  "farmerNavHome": "హోమ్",
+  "@farmerNavHome": {
+    "description": "Bottom tab.",
+    "x-key": "farmer.nav.home",
+    "x-screen": "Bottom nav (farmer)"
+  },
+  "farmerNavVisits": "సందర్శనలు",
+  "@farmerNavVisits": {
+    "description": "Bottom tab.",
+    "x-key": "farmer.nav.visits",
+    "x-screen": "Bottom nav (farmer)"
+  },
+  "farmerNavWallet": "వాలెట్",
+  "@farmerNavWallet": {
+    "description": "Bottom tab (Phase 2; hidden in 1b).",
+    "x-key": "farmer.nav.wallet",
+    "x-screen": "Bottom nav (farmer)"
+  },
+  "farmerPlotAddAccuracy": "{meters} మీటర్ల లోపు సరిగ్గా ఉంది",
+  "@farmerPlotAddAccuracy": {
+    "description": "GPS accuracy line.",
+    "placeholders": {
+      "meters": {
+        "type": "int"
+      }
+    },
+    "x-key": "farmer.plot_add.accuracy",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddAcres": "ఎకరాలు",
+  "@farmerPlotAddAcres": {
+    "description": "Acres input label.",
+    "x-key": "farmer.plot_add.acres",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddAreaInvalid": "ఎకరాలు లేదా గుంటలు వేయండి",
+  "@farmerPlotAddAreaInvalid": {
+    "description": "Inline error: no area typed (0 acres and 0 guntas).",
+    "x-key": "farmer.plot_add.area_invalid",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddAreaTitle": "పొలం ఎంత ఉంది?",
+  "@farmerPlotAddAreaTitle": {
+    "description": "Area step title.",
+    "x-key": "farmer.plot_add.area_title",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddAreaTooBig": "పొలం {max} ఎకరాల లోపు ఉండాలి",
+  "@farmerPlotAddAreaTooBig": {
+    "description": "Inline error: area above the app's cap for one field (maxPlotAcres, below the API's 10000).",
+    "placeholders": {
+      "max": {
+        "example": "100",
+        "type": "int"
+      }
+    },
+    "x-key": "farmer.plot_add.area_too_big",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddGuntas": "గుంటలు",
+  "@farmerPlotAddGuntas": {
+    "description": "Guntas input label.",
+    "x-key": "farmer.plot_add.guntas",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddGuntasHint": "40 గుంటలు = 1 ఎకరం",
+  "@farmerPlotAddGuntasHint": {
+    "description": "Hint under the area inputs.",
+    "x-key": "farmer.plot_add.guntas_hint",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddGuntasInvalid": "గుంటలు 0 నుంచి 39 వరకు ఉండాలి",
+  "@farmerPlotAddGuntasInvalid": {
+    "description": "Inline error.",
+    "x-key": "farmer.plot_add.guntas_invalid",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddLabelHint": "ఉదా: బావి దగ్గర పొలం",
+  "@farmerPlotAddLabelHint": {
+    "description": "Label field hint.",
+    "x-key": "farmer.plot_add.label_hint",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddLabelTitle": "పొలానికి పేరు (అవసరమైతే)",
+  "@farmerPlotAddLabelTitle": {
+    "description": "Optional label step title.",
+    "x-key": "farmer.plot_add.label_title",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddLocating": "మీ చోటు చూస్తున్నాం…",
+  "@farmerPlotAddLocating": {
+    "description": "While GPS locks.",
+    "x-key": "farmer.plot_add.locating",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddLocationDenied": "లొకేషన్ లేకుండా పొలం గుర్తించలేము",
+  "@farmerPlotAddLocationDenied": {
+    "description": "Location permission denied.",
+    "x-key": "farmer.plot_add.location_denied",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddMarkSpot": "ఈ చోటు గుర్తించండి",
+  "@farmerPlotAddMarkSpot": {
+    "description": "Pin step button.",
+    "x-key": "farmer.plot_add.mark_spot",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddNoLocation": "మీ గ్రామం లొకేషన్ దొరకలేదు. ఈ పొలం జోడించమని మీ FA కి చెప్పండి.",
+  "@farmerPlotAddNoLocation": {
+    "description": "Location step when neither the village nor another plot has a location.",
+    "x-key": "farmer.plot_add.no_location",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddPinBody": "పొలంలో నిలబడి, ఈ చోటు గుర్తించండి నొక్కండి.",
+  "@farmerPlotAddPinBody": {
+    "description": "Pin step body.",
+    "x-key": "farmer.plot_add.pin_body",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddPinTitle": "మీ పొలంలో నిలబడండి",
+  "@farmerPlotAddPinTitle": {
+    "description": "Pin step title.",
+    "x-key": "farmer.plot_add.pin_title",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddSave": "పొలం సేవ్ చేయండి",
+  "@farmerPlotAddSave": {
+    "description": "Final step button.",
+    "x-key": "farmer.plot_add.save",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddSaved": "పొలం జోడించాం",
+  "@farmerPlotAddSaved": {
+    "description": "Snackbar after the plot is saved.",
+    "x-key": "farmer.plot_add.saved",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddTitle": "కొత్త పొలం",
+  "@farmerPlotAddTitle": {
+    "description": "Add plot title.",
+    "x-key": "farmer.plot_add.title",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddVillagePinBody": "ఇప్పటికి మీ గ్రామం లొకేషన్ వాడుతాం. మీ FA వచ్చినప్పుడు పొలం సరైన చోటు గుర్తిస్తారు.",
+  "@farmerPlotAddVillagePinBody": {
+    "description": "Location step body while GPS is not wired.",
+    "x-key": "farmer.plot_add.village_pin_body",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddVillagePinTitle": "మీ గ్రామం దగ్గర గుర్తిస్తాం",
+  "@farmerPlotAddVillagePinTitle": {
+    "description": "Location step title while GPS is not wired: the village location is used as the pin.",
+    "x-key": "farmer.plot_add.village_pin_title",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddVoiceHelpArea": "మీ పొలం ఎన్ని ఎకరాలు, ఎన్ని గుంటలు ఉందో వేయండి.",
+  "@farmerPlotAddVoiceHelpArea": {
+    "description": "Voice prompt for the area step.",
+    "x-key": "farmer.plot_add.voice_help_area",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddVoiceHelpLabel": "కావాలంటే మీ పొలానికి ఒక పేరు పెట్టండి. తర్వాత ముందుకు నొక్కండి.",
+  "@farmerPlotAddVoiceHelpLabel": {
+    "description": "Voice prompt for the field name step.",
+    "x-key": "farmer.plot_add.voice_help_label",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddVoiceHelpPin": "మీ పొలం మధ్యలో నిలబడి, ఈ చోటు గుర్తించండి నొక్కండి.",
+  "@farmerPlotAddVoiceHelpPin": {
+    "description": "Voice prompt for the pin step.",
+    "x-key": "farmer.plot_add.voice_help_pin",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddVoiceHelpVillagePin": "ఇప్పటికి ఈ పొలానికి మీ గ్రామం లొకేషన్ వాడుతాం. మీ FA వచ్చినప్పుడు సరైన చోటు గుర్తిస్తారు. ముందుకు నొక్కండి.",
+  "@farmerPlotAddVoiceHelpVillagePin": {
+    "description": "Voice prompt for the location step while GPS is not wired.",
+    "x-key": "farmer.plot_add.voice_help_village_pin",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerPlotAddWeakGps": "GPS సరిగా లేదు. ఆకాశం కనిపించే చోట నిలబడి మళ్ళీ ప్రయత్నించండి.",
+  "@farmerPlotAddWeakGps": {
+    "description": "Accuracy too low.",
+    "x-key": "farmer.plot_add.weak_gps",
+    "x-screen": "F10 Add plot"
+  },
+  "farmerSeasonCloseClosed": "పంట ముగిసింది",
+  "@farmerSeasonCloseClosed": {
+    "description": "Snackbar after the season is closed.",
+    "x-key": "farmer.season_close.closed",
+    "x-screen": "F10 Close season"
+  },
+  "farmerSeasonCloseNoUndo": "ఇది మళ్ళీ మార్చలేరు.",
+  "@farmerSeasonCloseNoUndo": {
+    "description": "Warning before closing.",
+    "x-key": "farmer.season_close.no_undo",
+    "x-screen": "F10 Close season"
+  },
+  "farmerSeasonCloseQuestion": "ఈ పంట ఏమైంది?",
+  "@farmerSeasonCloseQuestion": {
+    "description": "Outcome question; options are enum.season_status.harvested/abandoned.",
+    "x-key": "farmer.season_close.question",
+    "x-screen": "F10 Close season"
+  },
+  "farmerSeasonCloseTitle": "పంట ముగించండి",
+  "@farmerSeasonCloseTitle": {
+    "description": "Close season title.",
+    "x-key": "farmer.season_close.title",
+    "x-screen": "F10 Close season"
+  },
+  "farmerSeasonCloseVoiceHelp": "కోత పూర్తయిందా, లేక పంట వదిలేశారా? ఒకటి ఎంచుకోండి.",
+  "@farmerSeasonCloseVoiceHelp": {
+    "description": "Voice prompt for close season.",
+    "x-key": "farmer.season_close.voice_help",
+    "x-screen": "F10 Close season"
+  },
+  "farmerSeasonStartCurrent": "ఇప్పటి సీజన్",
+  "@farmerSeasonStartCurrent": {
+    "description": "Tag on the current season code.",
+    "x-key": "farmer.season_start.current",
+    "x-screen": "F10 Start season"
+  },
+  "farmerSeasonStartNotSown": "ఇంకా విత్తలేదు",
+  "@farmerSeasonStartNotSown": {
+    "description": "Skips the sowing date.",
+    "x-key": "farmer.season_start.not_sown",
+    "x-screen": "F10 Start season"
+  },
+  "farmerSeasonStartPreviousCrop": "ఇంతకు ముందు ఇక్కడ ఏ పంట వేశారు?",
+  "@farmerSeasonStartPreviousCrop": {
+    "description": "Optional previous crop step.",
+    "x-key": "farmer.season_start.previous_crop",
+    "x-screen": "F10 Start season"
+  },
+  "farmerSeasonStartSeasonLabel": "{season} {year}",
+  "@farmerSeasonStartSeasonLabel": {
+    "description": "Season picker option, e.g. \"రబీ 2026-27\"; season from enum.season_kind.",
+    "placeholders": {
+      "season": {
+        "example": "రబీ",
+        "type": "String"
+      },
+      "year": {
+        "example": "2026-27",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.season_start.season_label",
+    "x-screen": "F10 Start season"
+  },
+  "farmerSeasonStartSkip": "తెలియదు, వదిలేయండి",
+  "@farmerSeasonStartSkip": {
+    "description": "Skips an optional step.",
+    "x-key": "farmer.season_start.skip",
+    "x-screen": "F10 Start season"
+  },
+  "farmerSeasonStartSowingDate": "ఎప్పుడు విత్తారు?",
+  "@farmerSeasonStartSowingDate": {
+    "description": "Sowing date step.",
+    "x-key": "farmer.season_start.sowing_date",
+    "x-screen": "F10 Start season"
+  },
+  "farmerSeasonStartStarted": "పంట మొదలైంది",
+  "@farmerSeasonStartStarted": {
+    "description": "Snackbar after the season is saved.",
+    "x-key": "farmer.season_start.started",
+    "x-screen": "F10 Start season"
+  },
+  "farmerSeasonStartTitle": "పంట మొదలుపెట్టండి",
+  "@farmerSeasonStartTitle": {
+    "description": "Start season title.",
+    "x-key": "farmer.season_start.title",
+    "x-screen": "F10 Start season"
+  },
+  "farmerSeasonStartVoiceHelp": "సీజన్, పంట ఎంచుకోండి. విత్తిన రోజు తెలిస్తే అది కూడా ఇవ్వండి.",
+  "@farmerSeasonStartVoiceHelp": {
+    "description": "Voice prompt for start season.",
+    "x-key": "farmer.season_start.voice_help",
+    "x-screen": "F10 Start season"
+  },
+  "farmerSeasonStartWhichCrop": "ఏ పంట?",
+  "@farmerSeasonStartWhichCrop": {
+    "description": "Crop picker step.",
+    "x-key": "farmer.season_start.which_crop",
+    "x-screen": "F10 Start season"
+  },
+  "farmerSeasonStartWhichSeason": "ఏ సీజన్?",
+  "@farmerSeasonStartWhichSeason": {
+    "description": "Season picker step (codes from season_codes.all_open).",
+    "x-key": "farmer.season_start.which_season",
+    "x-screen": "F10 Start season"
+  },
+  "farmerStateCallFa": "FA కి కాల్",
+  "@farmerStateCallFa": {
+    "description": "Action on the no-visits card (wireframe).",
+    "x-key": "farmer.state.call_fa",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateErrorTitle": "ఏదో తప్పు జరిగింది",
+  "@farmerStateErrorTitle": {
+    "description": "Generic error card title.",
+    "x-key": "farmer.state.error_title",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateErrorVoice": "ఏదో తప్పు జరిగింది. మళ్ళీ ప్రయత్నించండి నొక్కండి.",
+  "@farmerStateErrorVoice": {
+    "description": "Voice prompt for the error card.",
+    "x-key": "farmer.state.error_voice",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateNoAdviceVoice": "ఇంకా సలహాలు లేవు. కొత్త సలహాలు వస్తే ఇక్కడ కనిపిస్తాయి.",
+  "@farmerStateNoAdviceVoice": {
+    "description": "Voice prompt for the empty inbox.",
+    "x-key": "farmer.state.no_advice_voice",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateNoFaAction": "సహాయ కేంద్రానికి కాల్",
+  "@farmerStateNoFaAction": {
+    "description": "Action on the no-FA card (wireframe).",
+    "x-key": "farmer.state.no_fa_action",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateNoFaTitle": "మీ FA త్వరలో కాల్ చేస్తారు",
+  "@farmerStateNoFaTitle": {
+    "description": "Home with no FA assigned (wireframe).",
+    "x-key": "farmer.state.no_fa_title",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateNoFaVoice": "మీ FA త్వరలో కాల్ చేస్తారు. అవసరమైతే సహాయ కేంద్రానికి కాల్ చేయండి.",
+  "@farmerStateNoFaVoice": {
+    "description": "Voice prompt for the no-FA card.",
+    "x-key": "farmer.state.no_fa_voice",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateNoVisitsBody": "మీ FA మొదటి సందర్శన ప్లాన్ చేస్తారు.",
+  "@farmerStateNoVisitsBody": {
+    "description": "F4 empty card body (wireframe).",
+    "x-key": "farmer.state.no_visits_body",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateNoVisitsTitle": "ఇంకా సందర్శనలు లేవు",
+  "@farmerStateNoVisitsTitle": {
+    "description": "F4 empty card title (wireframe).",
+    "x-key": "farmer.state.no_visits_title",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateNoVisitsVoice": "ఇంకా సందర్శనలు లేవు. మీ FA మొదటి సందర్శన ప్లాన్ చేస్తారు.",
+  "@farmerStateNoVisitsVoice": {
+    "description": "Voice prompt for the no-visits card.",
+    "x-key": "farmer.state.no_visits_voice",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateOfflineBody": "{time} కి సేవ్ చేసిన వివరాలు చూపిస్తున్నాం",
+  "@farmerStateOfflineBody": {
+    "description": "Offline card body (wireframe \"Showing saved ... from 7:00 am\").",
+    "placeholders": {
+      "time": {
+        "format": "jm",
+        "type": "DateTime"
+      }
+    },
+    "x-key": "farmer.state.offline_body",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateOfflineNothingSaved": "ఇంకా ఏమీ సేవ్ కాలేదు. ఇంటర్నెట్ వచ్చాక మళ్ళీ ప్రయత్నించండి.",
+  "@farmerStateOfflineNothingSaved": {
+    "description": "Offline with no cached data.",
+    "x-key": "farmer.state.offline_nothing_saved",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateOfflineNothingVoice": "ఇంటర్నెట్ లేదు. ఇంకా ఏమీ సేవ్ కాలేదు. ఇంటర్నెట్ వచ్చాక మళ్ళీ ప్రయత్నించండి.",
+  "@farmerStateOfflineNothingVoice": {
+    "description": "Voice prompt for the offline card when nothing is saved on the phone.",
+    "x-key": "farmer.state.offline_nothing_voice",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateOfflineTitle": "ఇంటర్నెట్ లేదు",
+  "@farmerStateOfflineTitle": {
+    "description": "Offline card title (wireframe).",
+    "x-key": "farmer.state.offline_title",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerStateOfflineVoice": "ఇంటర్నెట్ లేదు. ఇంతకు ముందు సేవ్ చేసిన వివరాలు చూపిస్తున్నాం.",
+  "@farmerStateOfflineVoice": {
+    "description": "Voice prompt for the offline banner shown over saved details (Home).",
+    "x-key": "farmer.state.offline_voice",
+    "x-screen": "Empty, offline and error states (farmer)"
+  },
+  "farmerVillageBrowse": "జిల్లా, మండలం నుంచి వెతకండి",
+  "@farmerVillageBrowse": {
+    "description": "Button that opens the district > mandal > village browser.",
+    "x-key": "farmer.village.browse",
+    "x-screen": "Village picker"
+  },
+  "farmerVillageChooseDistrict": "జిల్లా ఎంచుకోండి",
+  "@farmerVillageChooseDistrict": {
+    "description": "Browser step 1.",
+    "x-key": "farmer.village.choose_district",
+    "x-screen": "Village picker"
+  },
+  "farmerVillageChooseMandal": "మండలం ఎంచుకోండి",
+  "@farmerVillageChooseMandal": {
+    "description": "Browser step 2.",
+    "x-key": "farmer.village.choose_mandal",
+    "x-screen": "Village picker"
+  },
+  "farmerVillageChooseVillage": "గ్రామం ఎంచుకోండి",
+  "@farmerVillageChooseVillage": {
+    "description": "Browser step 3.",
+    "x-key": "farmer.village.choose_village",
+    "x-screen": "Village picker"
+  },
+  "farmerVillageConfirm": "అవును, ఇదే నా గ్రామం",
+  "@farmerVillageConfirm": {
+    "description": "Confirm button after choosing a village.",
+    "x-key": "farmer.village.confirm",
+    "x-screen": "Village picker"
+  },
+  "farmerVillageNoResults": "{query} పేరుతో గ్రామం దొరకలేదు",
+  "@farmerVillageNoResults": {
+    "description": "Empty search result.",
+    "placeholders": {
+      "query": {
+        "example": "కొండాపూర్",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.village.no_results",
+    "x-screen": "Village picker"
+  },
+  "farmerVillageResultArea": "{mandal} మండలం, {district} జిల్లా",
+  "@farmerVillageResultArea": {
+    "description": "Second line of a village search result.",
+    "placeholders": {
+      "district": {
+        "example": "రంగారెడ్డి",
+        "type": "String"
+      },
+      "mandal": {
+        "example": "శేరిలింగంపల్లి",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.village.result_area",
+    "x-screen": "Village picker"
+  },
+  "farmerVillageSearchHint": "గ్రామం పేరు టైప్ చేయండి",
+  "@farmerVillageSearchHint": {
+    "description": "Search field hint (Telugu or English).",
+    "x-key": "farmer.village.search_hint",
+    "x-screen": "Village picker"
+  },
+  "farmerVillageSubtitle": "మీ పొలం ఉన్న గ్రామం ఎంచుకోండి",
+  "@farmerVillageSubtitle": {
+    "description": "Village picker subtitle.",
+    "x-key": "farmer.village.subtitle",
+    "x-screen": "Village picker"
+  },
+  "farmerVillageTitle": "మీ గ్రామం",
+  "@farmerVillageTitle": {
+    "description": "Village picker title.",
+    "x-key": "farmer.village.title",
+    "x-screen": "Village picker"
+  },
+  "farmerVillageVoiceHelp": "మీ పొలం ఉన్న గ్రామం పేరు టైప్ చేయండి. దొరకకపోతే జిల్లా, మండలం నుంచి వెతకండి.",
+  "@farmerVillageVoiceHelp": {
+    "description": "Voice prompt for the village picker.",
+    "x-key": "farmer.village.voice_help",
+    "x-screen": "Village picker"
+  },
+  "farmerVisitsAdvicePending": "సలహా ఇంకా రాలేదు. మీ FA తర్వాత చెబుతారు.",
+  "@farmerVisitsAdvicePending": {
+    "description": "Issue whose advice_status is unresolved.",
+    "x-key": "farmer.visits.advice_pending",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsByFa": "{date} · {name}",
+  "@farmerVisitsByFa": {
+    "description": "Visit row header (wireframe \"12 అక్టో · సురేష్\").",
+    "placeholders": {
+      "date": {
+        "format": "MMMd",
+        "type": "DateTime"
+      },
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.visits.by_fa",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsCallBefore": "{name} గారు వచ్చే ముందు కాల్ చేస్తారు",
+  "@farmerVisitsCallBefore": {
+    "description": "Next visit banner note (wireframe \"Suresh will call before coming\").",
+    "placeholders": {
+      "name": {
+        "example": "సురేష్",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.visits.call_before",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsMedicine": "మందు: {name}",
+  "@farmerVisitsMedicine": {
+    "description": "Advised product line (wireframe \"మందు: Sample 5 SG\").",
+    "placeholders": {
+      "name": {
+        "example": "Sample 5 SG",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.visits.medicine",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsNextVisit": "FA వచ్చే రోజు",
+  "@farmerVisitsNextVisit": {
+    "description": "Next visit banner label (wireframe).",
+    "x-key": "farmer.visits.next_visit",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsNoIssues": "సమస్యలు ఏమీ కనిపించలేదు",
+  "@farmerVisitsNoIssues": {
+    "description": "Visit with no issues.",
+    "x-key": "farmer.visits.no_issues",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsPhotos": "{count, plural, one{1 ఫోటో} other{{count} ఫోటోలు}}",
+  "@farmerVisitsPhotos": {
+    "description": "Photo count on a visit row.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "farmer.visits.photos",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsSaltOnly": "షణ్ముఖ మందు లేదు, దుకాణంలో అడగండి",
+  "@farmerVisitsSaltOnly": {
+    "description": "Line on salt-only advice (wireframe).",
+    "x-key": "farmer.visits.salt_only",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsSeeAdvice": "సలహా చూడండి",
+  "@farmerVisitsSeeAdvice": {
+    "description": "Opens the advice detail (F8a/F8b).",
+    "x-key": "farmer.visits.see_advice",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsShanmukhaProduct": "షణ్ముఖ మందు",
+  "@farmerVisitsShanmukhaProduct": {
+    "description": "Tag on an advised Shanmukha product (wireframe).",
+    "x-key": "farmer.visits.shanmukha_product",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsStage": "{stage}",
+  "@farmerVisitsStage": {
+    "description": "Crop stage at the visit; stage name comes from the server. Telugu stage names already include the word (\"పూత దశ\"), English ones don't (\"Flowering\"), so only English adds it.",
+    "placeholders": {
+      "stage": {
+        "example": "పూత దశ",
+        "type": "String"
+      }
+    },
+    "x-key": "farmer.visits.stage",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsTitle": "సందర్శనలు",
+  "@farmerVisitsTitle": {
+    "description": "F4 title (wireframe).",
+    "x-key": "farmer.visits.title",
+    "x-screen": "F4 My visits"
+  },
+  "farmerVisitsVoiceHelp": "మీ FA మీ పొలానికి వచ్చిన రోజులు, చూసిన సమస్యలు, ఇచ్చిన సలహాలు ఇక్కడ ఉన్నాయి. పైన FA వచ్చే రోజు ఉంది.",
+  "@farmerVisitsVoiceHelp": {
+    "description": "Voice prompt for F4.",
+    "x-key": "farmer.visits.voice_help",
+    "x-screen": "F4 My visits"
+  }
+}

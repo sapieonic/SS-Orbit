@@ -1,0 +1,13 @@
+.dart_tool/
+build/
+.flutter-plugins-dependencies
+*.iml
+.idea/
+# FVM 3 keeps the SDK link, version cache and state under .fvm/. .fvmrc stays tracked.
+.fvm/
+pubspec_overrides.yaml
+
+# Release signing (see README, "Release signing"). Never commit these.
+key.properties
+*.jks
+*.keystore

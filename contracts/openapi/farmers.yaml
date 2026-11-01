@@ -45,7 +45,8 @@ paths:
       description: >-
         Name, language and photo. The village is changed through the FA or HO. photo_key must be
         a key returned by POST /v1/farmer/me/photo/upload-url (farmers/{your id}/photo-...);
-        upload the image before saving the key.
+        upload the image before saving the key. 409 profile_incomplete until the sign-up is
+        finished (POST /v1/farmer/me/complete-profile).
       tags: [farmer-app]
       requestBody:
         required: true
@@ -66,6 +67,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
   /v1/farmer/me/complete-profile:
     post:
       operationId: completeMyProfile
@@ -176,7 +179,9 @@ paths:
     post:
       operationId: addMyPlot
       summary: Add a plot
-      description: A pin and a typed area. The FA can walk the boundary later.
+      description: >-
+        A pin and a typed area. The FA can walk the boundary later. 409 profile_incomplete until the
+        sign-up is finished (POST /v1/farmer/me/complete-profile).
       tags: [farmer-app]
       requestBody:
         required: true
@@ -197,6 +202,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
   /v1/farmer/me/plots/{plot_id}/seasons:
     post:
       operationId: startMySeason
