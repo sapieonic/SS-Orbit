@@ -1,0 +1,10 @@
+# Test config for `flutter test` (and `melos run test`) in the FA app.
+
+tags:
+  # Repository contract suite against a running dev backend
+  # (lib/src/data/README.md, "Swap to the real API", step 5). Skipped by default so CI and
+  # `melos run test` work without a backend; every other test still runs. To run it:
+  #   flutter test --run-skipped --tags dev-backend \
+  #     --dart-define=ORBIT_CONTRACT_BASE_URL=http://localhost:8080
+  dev-backend:
+    skip: "Needs a running dev backend (make dev-up, migrate, seed, run-api); run with --run-skipped --tags dev-backend."

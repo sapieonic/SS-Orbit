@@ -1,5 +1,5 @@
 # Repo root shortcuts. Backend targets live in backend/Makefile.
-.PHONY: dev-up dev-down migrate backend-% tokens i18n mobile-check farmer-run
+.PHONY: dev-up dev-down migrate backend-% tokens i18n mobile-check farmer-run fa-run
 
 dev-up:
 	$(MAKE) -C backend dev-up
@@ -30,3 +30,7 @@ mobile-check:
 # for now: iOS flavour schemes need Xcode on a Mac.
 farmer-run:
 	cd mobile/apps/farmer && flutter run --flavor dev
+
+# FA app on the connected Android device or emulator, dev flavour, mock data (Android only too).
+fa-run:
+	cd mobile/apps/fa && flutter run --flavor dev

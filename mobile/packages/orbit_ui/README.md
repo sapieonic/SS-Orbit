@@ -121,6 +121,12 @@ wireframes' bilingual pattern: Telugu first, smaller English below.
 | `OrbitNavigationBar` | `destinations` (`OrbitNavigationDestination(icon, label, selectedIcon, badge)`), `selectedIndex`, `onDestinationSelected` |
 | `InfoRow`, `KeyValueRow` | `icon`, `text`, `secondaryText`, `trailing`; `label`, `value`, `secondaryValue` |
 | `BilingualText` | `primary`, `secondary`, `primaryStyle`, `secondaryStyle`, `textAlign` |
+| `PinPad`, `PinPadKey`, `PinDots` | `onDigit`, `onDelete`, `deleteLabel`, `leading` (`PinPadKey.icon` / `.text`), `enabled`, `keyHeight` (64); dots: `length`, `filled`, `semanticLabel`, `error` |
+| `FilterChipsBar` | `items` (`FilterChipItem(label, count)`), `selectedIndex`, `onSelected`, `semanticLabel`, `padding`: pick-one chips that scroll sideways |
+| `DayStrip` | `days` (`DayStripDay(weekday, day, semanticLabel, dots, isToday)`), `selectedIndex`, `onSelected`, `semanticLabel` |
+| `ConflictCard` | `title`, `meta`, `statusLabel`, `mineLabel`/`mineValue`, `theirsLabel`/`theirsValue`, `keepMineLabel`/`onKeepMine` (label null hides Keep mine: only HO's can be kept), `keepTheirsLabel`/`onKeepTheirs`, `resolving` |
+| `SwitchRow` | `title`, `subtitle`, `value`, `onChanged`, `bordered`: a 60 dp setting row that toggles as a whole |
+| `StepIndicator` | `labels`, `currentIndex` (`labels.length` = all done), `semanticLabel`, `doneLabel`, `currentLabel`: named steps with done ticks |
 
 ## Accessibility built in
 
