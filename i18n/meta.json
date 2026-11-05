@@ -1058,6 +1058,5629 @@
     "screen": "Errors (both apps)",
     "voice": false
   },
+  "fa.action_error.already_enrolled": {
+    "description": "FaActionError already_enrolled: the phone is already one of the FA's farmers.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.area_too_small": {
+    "description": "FaActionError area_too_small: the plot area rounds to nothing.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.boundary_crosses_itself": {
+    "description": "FaActionError boundary_crosses_itself: the walked boundary crosses itself.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.cannot_clear": {
+    "description": "FaActionError cannot_clear: a field (the Telugu name) cannot be emptied from the FA app.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.invalid_date": {
+    "description": "FaActionError invalid_date: a day in the past (or a visit time in the future).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.invalid_phone": {
+    "description": "FaActionError invalid_phone: not a 10-digit Indian mobile number.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.invalid_season_code": {
+    "description": "FaActionError invalid_season_code: the season is not open.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.location_required": {
+    "description": "FaActionError location_required: a plot needs a boundary or a pin.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.no_data": {
+    "description": "FaActionError no_data: no snapshot on the phone yet (first sign-in before the first pull).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.no_season": {
+    "description": "FaActionError no_season: no active plot or season to plan or log a visit on.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.not_editable": {
+    "description": "FaActionError not_editable: the queued visit log was already sent.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.not_found": {
+    "description": "FaActionError not_found: the farmer, plot, visit, village, crop or alert referred to is gone from the phone.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.not_planned": {
+    "description": "FaActionError not_planned: the visit is not planned any more.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.nothing_to_change": {
+    "description": "FaActionError nothing_to_change: the edit would change nothing.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.out_of_range": {
+    "description": "FaActionError out_of_range: a number such as plot area or GPS accuracy is out of range.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.proof_invalid": {
+    "description": "FaActionError proof_invalid: the consent proof expired or is for another phone.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.required": {
+    "description": "FaActionError required: a required value is empty.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.too_long": {
+    "description": "FaActionError too_long: a text is too long (e.g. a name over 100 characters). Also the inline error under the name field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.too_many": {
+    "description": "FaActionError too_many: more than 20 photos or issues.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.action_error.wrong_state": {
+    "description": "FaActionError wrong_state: the sync row is no longer in a state that allows this (Keep mine, Keep HO's, dismiss).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any action (snack bar)",
+    "voice": false
+  },
+  "fa.alerts.acknowledged": {
+    "description": "Status line after Got it.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.call_farmer": {
+    "description": "Call button when the farmer name is not known.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.call_plan_visit": {
+    "description": "Button on a new farmer alert: calls the farmer, then opens plan a visit.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.callback_closed": {
+    "description": "Status line once the call-back is closed.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.callback_hint": {
+    "description": "Line on a call-back alert.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.close_callback": {
+    "description": "Button shown after the FA called back.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.close_callback_hint": {
+    "description": "Line above Close call-back after the call.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.earlier": {
+    "description": "Collapsed section of acknowledged and closed alerts, with how many.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.empty_body": {
+    "description": "Empty state text.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.empty_tab_body": {
+    "description": "Empty state text of one filter chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.empty_tab_title": {
+    "description": "Empty state of one filter chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.empty_title": {
+    "description": "Empty state title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.finish_enrolment": {
+    "description": "Button on a new farmer alert: opens enrolment with the phone filled in.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.got_it": {
+    "description": "Button on an HO note: tells HO the FA read it.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.kind_callback": {
+    "description": "Pill on a call-back alert.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.kind_ho_note": {
+    "description": "Pill on a note from head office.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.kind_new_farmer": {
+    "description": "Pill on a new farmer alert.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.kind_other": {
+    "description": "Pill on an alert of a kind this app does not know.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.offline_body": {
+    "description": "Offline banner on Alerts.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.open_farmer": {
+    "description": "Button on a new farmer alert once the farmer is fully enrolled.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.status_closed": {
+    "description": "Status line on an older closed alert.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.subtitle": {
+    "description": "Header sub-line: open alerts that need the FA.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.tab_all": {
+    "description": "Filter chip: every alert.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.tab_callbacks": {
+    "description": "Filter chip: farmers asking to be called.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.tab_ho": {
+    "description": "Filter chip: notes from head office.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.tab_new_farmers": {
+    "description": "Filter chip: new farmer alerts.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.alerts.tabs_label": {
+    "description": "Screen reader label of the filter chips row.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A6 Alerts",
+    "voice": false
+  },
+  "fa.auth.call_failed": {
+    "description": "Snack bar when the dialer did not open.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.call_ho": {
+    "description": "Button that opens the dialer with the HO helpline.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.farmers_count": {
+    "description": "How many farmers are saved on the phone.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.hide": {
+    "description": "Button in a password field that hides the text again.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.hide_password": {
+    "description": "Screen reader label of the Hide button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.offline_saved": {
+    "description": "Pill on the PIN screen without network.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.online": {
+    "description": "Pill on the PIN screen when the phone has network.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.pin_delete": {
+    "description": "Screen reader label of the PIN pad delete key.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.pin_entered": {
+    "description": "Screen reader label of the PIN dots.",
+    "placeholders": {
+      "filled": {
+        "type": "int"
+      },
+      "length": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.plots_count": {
+    "description": "How many plots are saved on the phone.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.role": {
+    "description": "Under the app name on the splash and login.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.show": {
+    "description": "Button in a password field that shows the text.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.auth.show_password": {
+    "description": "Screen reader label of the Show button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA auth (shared)",
+    "voice": false
+  },
+  "fa.blocked.before": {
+    "description": "Screen reader label of the steps card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.new_login": {
+    "description": "Removed screen secondary button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.nothing_lost": {
+    "description": "Note under the steps.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.open_store": {
+    "description": "Main button once nothing waits.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.removed_body": {
+    "description": "Removed screen body.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.removed_note": {
+    "description": "Removed screen info card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.send_failed": {
+    "description": "Error after a failed push.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.send_then_update": {
+    "description": "Main button before sending.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.sending": {
+    "description": "Main button while sending.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.step_nothing": {
+    "description": "Step 1 when nothing waits.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.step_send": {
+    "description": "Step 1 before sending.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.step_sending": {
+    "description": "Step 1 while sending.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.step_sent": {
+    "description": "Step 1 after sending.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.step_store": {
+    "description": "Step 2.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.step_unlock": {
+    "description": "Step 3.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.store_failed": {
+    "description": "Snack bar when the store did not open.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.update_anyway": {
+    "description": "Secondary button after a failed push.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.update_body": {
+    "description": "Update screen body with the minimum version.",
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.blocked.update_body_plain": {
+    "description": "Update screen body when the minimum version is not known.",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A12 Blocked",
+    "voice": false
+  },
+  "fa.calendar.add": {
+    "description": "Header pill button that opens Plan a visit. Keep very short.",
+    "max_len": 10,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.cancel_body": {
+    "description": "Confirm dialog body. date is like \"Tue, 3 Nov\".",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.cancel_title": {
+    "description": "Confirm dialog title before cancelling a planned visit.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.cancel_visit": {
+    "description": "Menu item and confirm button: cancels a planned visit.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.cancelled": {
+    "description": "Notice after cancelling a planned visit.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.day_label": {
+    "description": "Screen reader label of one day in the week strip. date is like \"Tue, 27 Oct\".",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "date": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.done_count": {
+    "description": "Header sub-line part: how many of the day's visits are done.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.empty_body": {
+    "description": "Empty day text.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.empty_title": {
+    "description": "Empty day title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.find_due": {
+    "description": "Empty day button: opens Farmers on the Visit due filter.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.footer_note": {
+    "description": "Note at the bottom of the calendar.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.keep_visit": {
+    "description": "Confirm dialog button that does not cancel.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.moved": {
+    "description": "Notice after moving a visit to another day.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.next_week": {
+    "description": "Screen reader label of the arrow that shows the week after.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.offline": {
+    "description": "Banner on the calendar while offline.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.planned": {
+    "description": "Notice after planning a visit. date is like \"Wed, 4 Nov\".",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.previous_week": {
+    "description": "Screen reader label of the arrow that shows the week before.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.reschedule": {
+    "description": "Menu item on a planned visit: opens Plan a visit filled in, and cancels this one when saved.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.saved_no_advice": {
+    "description": "Notice on the calendar after a visit log without advice was saved (no SMS goes to the farmer).",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.saved_pending": {
+    "description": "Notice on the calendar after a visit log was saved and is not synced yet.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.saved_sent": {
+    "description": "Notice on the calendar after a visit log was saved and synced.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.start_visit": {
+    "description": "Button on today's planned visit card: opens the visit log.",
+    "max_len": 20,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.status_done": {
+    "description": "Status pill of a visit whose log is saved.",
+    "max_len": 16,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.status_first_visit": {
+    "description": "Status pill of a planned visit to a farmer the FA has never visited.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.status_overdue": {
+    "description": "Status pill of a planned visit whose day has passed, or a missed visit.",
+    "max_len": 16,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.status_planned": {
+    "description": "Status pill of a visit still to do.",
+    "max_len": 16,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.this_week": {
+    "description": "Button that jumps back to today's week.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.title": {
+    "description": "Calendar screen title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.visit_count": {
+    "description": "Header sub-line part: visits on the picked day.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.visit_options": {
+    "description": "Screen reader label of the menu button on a visit card (Reschedule, Cancel visit).",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.calendar.week_of": {
+    "description": "Screen reader label of the week strip and the label between the week arrows. date is like \"2 Nov\".",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A3 Visit calendar",
+    "voice": false
+  },
+  "fa.change_pin.again": {
+    "description": "Step 3.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Change PIN",
+    "voice": false
+  },
+  "fa.change_pin.changed": {
+    "description": "Snack bar after the change.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Change PIN",
+    "voice": false
+  },
+  "fa.change_pin.new": {
+    "description": "Step 2.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Change PIN",
+    "voice": false
+  },
+  "fa.change_pin.old": {
+    "description": "Step 1.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Change PIN",
+    "voice": false
+  },
+  "fa.change_pin.wrong_old": {
+    "description": "After a wrong current PIN.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Change PIN",
+    "voice": false
+  },
+  "fa.common.area": {
+    "description": "Plot area as acres and guntas (40 guntas = 1 acre), both parts always shown, e.g. \"2 ac 4 gunta\".",
+    "max_len": 20,
+    "placeholders": {
+      "acres": {
+        "type": "int"
+      },
+      "guntas": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA common",
+    "voice": false
+  },
+  "fa.common.call_failed": {
+    "description": "Snack bar when the dialer did not open for a farmer's number (Farmers, map, Farmer 360, calendar, alerts).",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA any farmer Call button",
+    "voice": false
+  },
+  "fa.common.directions_failed": {
+    "description": "Snack bar when no maps app opened for directions.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any Directions button",
+    "voice": false
+  },
+  "fa.common.distance_km": {
+    "description": "Distance from the FA, e.g. \"1.2 km\". The number is formatted by the app (one decimal).",
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA common",
+    "voice": false
+  },
+  "fa.common.distance_m": {
+    "description": "Distance under 1 km, e.g. \"350 m\".",
+    "placeholders": {
+      "distance": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA common",
+    "voice": false
+  },
+  "fa.common.error_title": {
+    "description": "Error card title for any other error; the error text comes under it.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA common",
+    "voice": false
+  },
+  "fa.common.log_out": {
+    "description": "Log out action (error card for a session error, Me).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA common",
+    "voice": false
+  },
+  "fa.common.not_synced": {
+    "description": "Tag on a farmer, plot or visit saved on this phone and not yet sent to HO.",
+    "max_len": 22,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA common",
+    "voice": false
+  },
+  "fa.common.offline_body": {
+    "description": "Error card text when a screen needs the network and there is none.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA common",
+    "voice": false
+  },
+  "fa.common.offline_title": {
+    "description": "Error card title when a screen needs the network and there is none.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA common",
+    "voice": false
+  },
+  "fa.common.time": {
+    "description": "A time of day, e.g. \"11:05 am\".",
+    "placeholders": {
+      "time": {
+        "format": "jm",
+        "type": "DateTime"
+      }
+    },
+    "screen": "FA common",
+    "voice": false
+  },
+  "fa.common.whatsapp_failed": {
+    "description": "Snack bar when WhatsApp did not open.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA any farmer WhatsApp button",
+    "voice": false
+  },
+  "fa.consent.agreed": {
+    "description": "Consent box after the OTP is confirmed.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.confirm": {
+    "description": "Button: verify the consent OTP.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.how": {
+    "description": "Consent box before the OTP is sent.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.needs_phone": {
+    "description": "Under the disabled Send button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.notice": {
+    "description": "The consent notice the FA reads or plays to the farmer, shown in the farmer's language (notice_version fa-v1). Changing it means a new notice version.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.offline_body": {
+    "description": "Offline consent box body.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.offline_title": {
+    "description": "Offline: no consent OTP.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.otp_label": {
+    "description": "Label of the OTP boxes.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.play": {
+    "description": "Listen button that plays the consent notice to the farmer.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.played": {
+    "description": "Listen button label after the notice was played.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.recorded": {
+    "description": "The consent OTP was confirmed at time.",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.recorded_played": {
+    "description": "The consent OTP was confirmed and the notice played, in language.",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.resend": {
+    "description": "Button: send a new consent OTP.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.resend_in": {
+    "description": "Countdown before the OTP can be sent again.",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.save": {
+    "description": "Button: queue RecordConsent.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.saved": {
+    "description": "Snack bar after RecordConsent is queued.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.send_otp": {
+    "description": "Button: send the consent OTP SMS.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.sent": {
+    "description": "Consent box after the OTP is sent.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.sheet_title": {
+    "description": "Title of the record-consent sheet (Farmer 360).",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.consent.title": {
+    "description": "Title of the consent box.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Consent",
+    "voice": false
+  },
+  "fa.enrol.back_to_farmers": {
+    "description": "Screen reader label of the back arrow on enrol step 1.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.call_ho": {
+    "description": "Button: dial the HO helpline.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.checked_at_sync": {
+    "description": "After the lookup error text.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.checking": {
+    "description": "While the phone lookup runs.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.continue_claim": {
+    "description": "Continue button when the farmer is an unassigned self sign-up.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.deactivated_body": {
+    "description": "Body of the deactivated card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.deactivated_title": {
+    "description": "Lookup result deactivated.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.error_already_enrolled": {
+    "description": "FaActionError already_enrolled.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.error_invalid_phone": {
+    "description": "FaActionError invalid_phone.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.error_invalid_season_code": {
+    "description": "FaActionError invalid_season_code.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.error_location_required": {
+    "description": "FaActionError location_required.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.error_no_data": {
+    "description": "FaActionError no_data.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.error_out_of_range": {
+    "description": "FaActionError out_of_range (area, GPS accuracy).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.error_proof_invalid": {
+    "description": "FaActionError proof_invalid.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.error_required": {
+    "description": "FaActionError required.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.error_too_long": {
+    "description": "FaActionError too_long; name over 100 characters.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.finish_enrolment": {
+    "description": "Button: go to the missing enrolment step (plot or crop).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.language_label": {
+    "description": "Label of the language chips.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.leave_body": {
+    "description": "Dialog body: leaving loses the form.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.leave_confirm": {
+    "description": "Dialog button: leave and lose the form.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.leave_stay": {
+    "description": "Dialog button: stay on the form.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.leave_title": {
+    "description": "Dialog title: back with details filled in.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.lookup_failed_title": {
+    "description": "The phone lookup failed (not offline): enrolment can go on.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.mine_body": {
+    "description": "Body of the already-your-farmer card.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.mine_body_unknown": {
+    "description": "Body of the already-your-farmer card when the farmer is not on the phone yet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.mine_title": {
+    "description": "Lookup result: the number is already this FA's farmer.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.name_label": {
+    "description": "Label of the name field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.name_required": {
+    "description": "Validation error under the name field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.name_te_label": {
+    "description": "Label of the Telugu name field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.no_consent_body": {
+    "description": "Dialog body: enrol without consent.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.no_consent_confirm": {
+    "description": "Dialog button: enrol without consent.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.no_consent_title": {
+    "description": "Dialog title: online but no consent OTP confirmed.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.offline_body": {
+    "description": "Offline banner body on enrol step 1.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.offline_hint": {
+    "description": "Hint under Continue (online).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.offline_title": {
+    "description": "Offline banner title on enrol step 1.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.open_farmer": {
+    "description": "Button: open Farmer 360.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.other_fa_body": {
+    "description": "Body of the other-FA card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.other_fa_title": {
+    "description": "Lookup result other_fa.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.other_number": {
+    "description": "Under a card that stops enrolment of this number.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.outside_body": {
+    "description": "Body of the outside-your-area card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.outside_title": {
+    "description": "Lookup result outside_my_area.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.pending_body": {
+    "description": "Body of the self sign-up card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.pending_title": {
+    "description": "The number is a self sign-up of this FA that still needs its profile.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.phone_invalid": {
+    "description": "Validation error under the phone field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.phone_label": {
+    "description": "Label of the phone field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.photo": {
+    "description": "Button that opens the camera for the farmer photo; also the photo label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.photo_added": {
+    "description": "The farmer photo uploaded.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.photo_failed": {
+    "description": "The farmer photo upload failed.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.photo_no_camera": {
+    "description": "Snack bar: the camera could not be used.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.photo_offline": {
+    "description": "Offline: no farmer photo now.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.photo_retake": {
+    "description": "Button: take the farmer photo again.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.photo_uploading": {
+    "description": "While the farmer photo uploads.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.record_consent": {
+    "description": "Button: record consent for a farmer enrolled without it.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.registered_body": {
+    "description": "Body of the already-registered card; enrolment continues and the server merges.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.registered_title": {
+    "description": "Lookup result unassigned_in_my_area: a self sign-up with no FA.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.step_crop": {
+    "description": "Step 3 name in the enrolment step row.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.step_current": {
+    "description": "Screen reader suffix of the current step.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.step_done": {
+    "description": "Screen reader suffix of a finished step.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.step_farm": {
+    "description": "Step 2 name in the enrolment step row.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.step_farmer": {
+    "description": "Step 1 name in the enrolment step row.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.steps_label": {
+    "description": "Screen reader label of the enrolment step row.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.title": {
+    "description": "Header title of enrol step 1.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.title_name": {
+    "description": "Header title of enrol steps 2 and 3 with the farmer name.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.unknown_body": {
+    "description": "Body of the unknown-status card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol.unknown_title": {
+    "description": "Lookup returned a status this app version does not know.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4a Enrol farmer",
+    "voice": false
+  },
+  "fa.enrol_crop.back_to_farmers": {
+    "description": "Success button: open Farmers.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.consent_done": {
+    "description": "Summary consent row: consent given.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.consent_pending": {
+    "description": "Summary consent row: consent pending.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.crop_heading": {
+    "description": "Heading of the crop chips.",
+    "placeholders": {
+      "season": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.enrolled": {
+    "description": "Success title after Finish enrolment.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.error_crop": {
+    "description": "Finish without a crop.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.error_sowing": {
+    "description": "Finish without a sowing choice.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.fallow": {
+    "description": "Previous crop chip: none or unknown.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.finish": {
+    "description": "Button: queue StartSeason.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.not_sown": {
+    "description": "Sowing date chip: no date.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.not_sown_note": {
+    "description": "Note under the chips for not sown yet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.plan_visit": {
+    "description": "Success button: plan the first visit.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.previous_label": {
+    "description": "Heading of the previous crop chips.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.saved_on_phone": {
+    "description": "Success note while not synced.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.season_heading": {
+    "description": "Heading of the season chips.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.season_label": {
+    "description": "A season, e.g. Rabi 2026-27.",
+    "placeholders": {
+      "season": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.sms_note": {
+    "description": "Under Finish enrolment while the enrolment is on the phone.",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.sow_day": {
+    "description": "Note under the sowing date chips.",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.sow_day_stage": {
+    "description": "Note under the sowing date chips with the crop stage.",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "stage": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.sow_pick": {
+    "description": "Sowing date chip: open the date picker.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.sow_today": {
+    "description": "Sowing date chip: today.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.sow_yesterday": {
+    "description": "Sowing date chip: yesterday.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.sowing_label": {
+    "description": "Heading of the sowing date chips; date picker title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.summary": {
+    "description": "Screen reader label of the summary card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.summary_after": {
+    "description": "Summary crop row part: the previous crop.",
+    "placeholders": {
+      "crop": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.summary_consent": {
+    "description": "Summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.summary_crop": {
+    "description": "Summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.summary_farmer": {
+    "description": "Summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.summary_no_crop": {
+    "description": "Summary crop row without a crop.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.summary_sown": {
+    "description": "Summary crop row part.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_crop.this_season": {
+    "description": "Under the current season chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4c Enrol crop",
+    "voice": false
+  },
+  "fa.enrol_plot.acres_decimal": {
+    "description": "The area in decimal acres, after acres and guntas.",
+    "placeholders": {
+      "acres": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.area": {
+    "description": "Label of the area row.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.area_not_yet": {
+    "description": "Area row before there is an area.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.change_village": {
+    "description": "Button: pick another village.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.close": {
+    "description": "Button: join the last corner to the first.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.closed": {
+    "description": "Walk status once closed.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.error_typed": {
+    "description": "Save without a typed area.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.error_walk": {
+    "description": "Save without a closed boundary.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.gps_checking": {
+    "description": "Waiting for a GPS fix.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.gps_checking_body": {
+    "description": "Body of the checking GPS card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.gps_denied": {
+    "description": "GPS card: permission denied.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.gps_good": {
+    "description": "GPS pill while good enough.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.gps_low_body": {
+    "description": "Body of the GPS too rough card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.gps_low_title": {
+    "description": "GPS too rough to walk the boundary.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.gps_no_fix": {
+    "description": "GPS card: no fix in time.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.gps_off": {
+    "description": "GPS card: location service off.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.gps_problem_body": {
+    "description": "Body of the GPS problem card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.gps_rough": {
+    "description": "GPS pill while too rough.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.guntas_per_acre": {
+    "description": "Hint under the area fields.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.guntas_too_many": {
+    "description": "Validation error of the guntas field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.label": {
+    "description": "The new plot label (stored in English as data).",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.mandal": {
+    "description": "Mandal row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.metres_so_far": {
+    "description": "Distance walked so far.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.mode_type": {
+    "description": "Tab and button: type the area instead.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.mode_walk": {
+    "description": "Tab: mark the plot by walking its edge.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.need_corners": {
+    "description": "Under the disabled Close boundary button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.pause": {
+    "description": "Button: pause recording the walk.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.paused": {
+    "description": "Walk status while paused.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.pick_village": {
+    "description": "Title of the village picker.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.pin_here": {
+    "description": "Where the typed plot pin goes.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.pin_village": {
+    "description": "Typed plot pin without GPS.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.ready": {
+    "description": "Walk status before starting.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.recording": {
+    "description": "Walk status while recording.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.resume": {
+    "description": "Button: resume recording the walk.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.rough_while_walking": {
+    "description": "Warning while walking with a rough fix.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.save_next": {
+    "description": "Button: queue SavePlot and open step 3.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.saved_note": {
+    "description": "Under Save & next.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.sketch_closed": {
+    "description": "Screen reader label of the closed boundary sketch.",
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.sketch_pin": {
+    "description": "Screen reader label of the pin sketch.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.sketch_walking": {
+    "description": "Screen reader label of the boundary sketch.",
+    "placeholders": {
+      "corners": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.start": {
+    "description": "Button: the first corner is where the FA stands.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.typed_note": {
+    "description": "Note above the typed area fields.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.undo": {
+    "description": "Button: drop the last recorded corner.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.village": {
+    "description": "Village row label (picked by hand).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.village_from_gps": {
+    "description": "Village row label (nearest to the GPS).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.walk_again": {
+    "description": "Button: drop the boundary and walk again.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.enrol_plot.walking": {
+    "description": "Area row while walking.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A4 Enrol plot",
+    "voice": false
+  },
+  "fa.farmer360.action_failed": {
+    "description": "Snack bar when a local action failed.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.advised": {
+    "description": "Advice given on the last visit: a product name, else a salt name.",
+    "placeholders": {
+      "advice": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.callback_asked": {
+    "description": "When the call-back was asked, e.g. \"25 min ago\".",
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.callback_close": {
+    "description": "Button after calling the farmer back.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.callback_closed": {
+    "description": "Snack bar after closing the call-back.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.conflict_keep_mine": {
+    "description": "Conflict card button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.conflict_keep_theirs": {
+    "description": "Conflict card button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.conflict_meta": {
+    "description": "Conflict card line.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.conflict_mine": {
+    "description": "Conflict card: your value heading.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.conflict_status": {
+    "description": "Conflict card pill.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.conflict_theirs": {
+    "description": "Conflict card: HO's value heading.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.conflict_title": {
+    "description": "Conflict card title.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.consent_count": {
+    "description": "Consents granted, e.g. \"2 of 4 agreed\".",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.consent_pending": {
+    "description": "Pill: programme consent not recorded yet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.edit_language": {
+    "description": "Edit profile field: language of SMS and app.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.edit_name": {
+    "description": "Edit profile field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.edit_name_te": {
+    "description": "Edit profile field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.edit_nothing_changed": {
+    "description": "Save tapped without a change.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.edit_profile": {
+    "description": "Button and sheet title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.edit_required": {
+    "description": "Validation: empty name.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.edit_saved": {
+    "description": "Snack bar after saving the profile.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.edit_too_long": {
+    "description": "Validation: name too long.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.next_visit_none": {
+    "description": "No planned visit.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.no_issues": {
+    "description": "Last visit without issues.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.no_plot": {
+    "description": "Farmer with no plot.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.no_visit": {
+    "description": "No done visit.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.plan_visit": {
+    "description": "Button: opens Plan a visit.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.plot_day": {
+    "description": "Days after sowing when the stage is unknown.",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.plot_no_crop": {
+    "description": "Plot without an active season.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.plot_stage_day": {
+    "description": "Crop stage and days after sowing, e.g. \"Flowering · day 137\".",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "stage": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.record_consent": {
+    "description": "Button for a farmer enrolled without consent.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.row_callback": {
+    "description": "Summary row label: the farmer asked for a call.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.row_consent": {
+    "description": "Summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.row_last_visit": {
+    "description": "Summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.row_next_visit": {
+    "description": "Summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.row_plan": {
+    "description": "Summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.row_plot": {
+    "description": "Summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.start_visit": {
+    "description": "Quick action: opens the visit log.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmer360.summary_label": {
+    "description": "Screen reader label of the summary card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A8 Farmer 360",
+    "voice": false
+  },
+  "fa.farmers.action_directions": {
+    "description": "Button / label: opens maps at the farm.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.action_finish_enrolment": {
+    "description": "Card and map button: continue enrolment where it stopped.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.action_open_farmer": {
+    "description": "Map card main button: opens Farmer 360.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2m Farmers map",
+    "voice": false
+  },
+  "fa.farmers.count": {
+    "description": "Header sub-line part: farmers in the territory.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.empty_action": {
+    "description": "Empty list button: opens Enrol.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.empty_body": {
+    "description": "Empty list text.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.empty_title": {
+    "description": "Empty list title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.filter_30_days": {
+    "description": "Filter chip and map legend: no visit for 30 days or more.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.filter_all": {
+    "description": "Filter chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.filter_finish_enrolment": {
+    "description": "Filter chip: consent, plot or crop missing.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.filter_label": {
+    "description": "Screen reader label of the filter chips.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.filter_new": {
+    "description": "Filter chip and map legend: joined today or yesterday.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.filter_visit_due": {
+    "description": "Filter chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.map_attribution": {
+    "description": "Map tile attribution required by OpenStreetMap. Keep as is.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2m Farmers map",
+    "voice": false
+  },
+  "fa.farmers.map_legend_others": {
+    "description": "Map legend: other farmers.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2m Farmers map",
+    "voice": false
+  },
+  "fa.farmers.map_offline": {
+    "description": "Pill on the map when offline (pins still work).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2m Farmers map",
+    "voice": false
+  },
+  "fa.farmers.map_selected": {
+    "description": "Screen reader label of the card under the map.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2m Farmers map",
+    "voice": false
+  },
+  "fa.farmers.map_you": {
+    "description": "Screen reader label of the FA marker.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2m Farmers map",
+    "voice": false
+  },
+  "fa.farmers.meta_days_since_visit": {
+    "description": "Card meta part, shown in red at 30 days or more.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_joined_on": {
+    "description": "Card meta part, date like \"12 Oct\".",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_joined_today": {
+    "description": "Card meta part.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_joined_yesterday": {
+    "description": "Card meta part.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_last_visit_days": {
+    "description": "Card meta part.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_never_visited": {
+    "description": "Card meta part: never visited, days since joining (red at 30+).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_no_crop": {
+    "description": "Card meta part: no crop on any plot.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_visit_due_on": {
+    "description": "Card meta part: a visit planned this week; day is a short weekday like \"Thu\".",
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_visit_due_today": {
+    "description": "Card meta part: a visit is planned today.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_visit_overdue": {
+    "description": "Card meta part: a planned visit date has passed.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_visited_today": {
+    "description": "Card meta part.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.meta_visited_yesterday": {
+    "description": "Card meta part.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.nearest_first": {
+    "description": "Header sub-line part: list order.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.no_data_action": {
+    "description": "Button before the first sync: opens Sync.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.no_data_body": {
+    "description": "Before the first sync.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.no_data_title": {
+    "description": "Before the first sync.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.no_match_filter": {
+    "description": "No farmer under the chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.no_match_search": {
+    "description": "No search result.",
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.no_match_title": {
+    "description": "Nothing matches the filter or search.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.search_clear": {
+    "description": "Tooltip of the clear button in the search field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.search_close": {
+    "description": "Tooltip of the header icon while search is open.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.search_hint": {
+    "description": "Hint in the search field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.search_open": {
+    "description": "Tooltip of the header search icon.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.show_all": {
+    "description": "Button that clears filter and search.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.shown": {
+    "description": "Header sub-line part when a filter or search is on.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.tag_new": {
+    "description": "Tag on a farmer who joined yesterday or still needs enrolment.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.tag_new_today": {
+    "description": "Tag on a farmer who joined today.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.title": {
+    "description": "Farmers tab header title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.view_list": {
+    "description": "List / Map switch: list.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.farmers.view_map": {
+    "description": "List / Map switch: map.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A2 Farmers near me",
+    "voice": false
+  },
+  "fa.login.ended_body": {
+    "description": "Banner body: the server session ended.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.ended_title": {
+    "description": "Banner title: the server session ended.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.error_offline_again": {
+    "description": "Login failed offline while a session (and unsynced records) is on the phone.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.error_offline_first": {
+    "description": "Login failed offline and there is no session on the phone yet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.error_wrong": {
+    "description": "401 unauthorized: one message for a wrong ID or password.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.expired_body": {
+    "description": "Banner body: the PIN offline grace is over.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.expired_title": {
+    "description": "Banner title: the PIN offline grace is over.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.footer_ho": {
+    "description": "Footer part: the HO helpline.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.footer_synced": {
+    "description": "Footer part: last sync, e.g. \"last synced Today 10:42 AM\".",
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.footer_version": {
+    "description": "Footer part: app version.",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.forgot": {
+    "description": "Link that opens the dialer with the HO helpline.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.ho_note": {
+    "description": "Info card at the bottom of the login.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.locked_body": {
+    "description": "Banner body: the PIN is locked out.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.locked_title": {
+    "description": "Banner title: the PIN is locked out.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.log_in": {
+    "description": "Main button.",
+    "max_len": 24,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.login_id": {
+    "description": "Label of the login ID field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.other_fa_body": {
+    "description": "Dialog body: another FA's unsynced records are on this phone.",
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.other_fa_confirm": {
+    "description": "Dialog button: delete the other FA's records and log in.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.other_fa_title": {
+    "description": "Dialog title: another FA's unsynced records are on this phone.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.password": {
+    "description": "Label of the password field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.pin_note": {
+    "description": "Info line under the password: the PIN is set after login (replaces the design's Remember this device checkbox).",
+    "placeholders": {
+      "length": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.temp_expired_title": {
+    "description": "Banner title: the temporary password is older than 72 hours.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.use_pin": {
+    "description": "Button back to the PIN screen while the PIN still works.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.login.works_offline": {
+    "description": "Pill beside the forgot link.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1 Login",
+    "voice": false
+  },
+  "fa.me.area": {
+    "description": "Profile card: the FA's villages.",
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.call_ho": {
+    "description": "Row title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.call_ho_sub": {
+    "description": "Row sub-line: the helpline and its hours.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.change_password": {
+    "description": "Row title and page title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.change_pin": {
+    "description": "Row title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.change_pin_sub": {
+    "description": "Change PIN sub-line: the offline grace and what is left of it.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      },
+      "left": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.footer": {
+    "description": "Footer.",
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.language": {
+    "description": "Language row title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.language_sub": {
+    "description": "Language row sub-line.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.log_in_now": {
+    "description": "Banner action.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.logout_anyway": {
+    "description": "Log out warning button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.logout_body": {
+    "description": "Log out confirm body.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.logout_title": {
+    "description": "Log out confirm title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.logout_unsynced": {
+    "description": "Log out warning, bold part.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.logout_unsynced_body": {
+    "description": "Log out warning, rest.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.needs_password_body": {
+    "description": "Banner body: the server session ended.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.needs_password_title": {
+    "description": "Banner: the server session ended.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.password_saved": {
+    "description": "Snack bar after Change password.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.profile": {
+    "description": "Screen reader label of the profile card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.stat_enrolled": {
+    "description": "Under the count of farmers enrolled this month.",
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.stat_farmers": {
+    "description": "Under the farmer count.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.stat_visits": {
+    "description": "Under the count of visits done this month.",
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.subtitle": {
+    "description": "Header sub-line.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.sync_last": {
+    "description": "Sync row sub-line part.",
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.sync_never": {
+    "description": "Sync row sub-line before the first sync.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.sync_now": {
+    "description": "Log out warning button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.sync_waiting": {
+    "description": "Sync row sub-line part: queued records.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.this_month": {
+    "description": "Screen reader label of the counts row.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.wifi": {
+    "description": "Switch row title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.wifi_off": {
+    "description": "Switch sub-line when off.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.me.wifi_on": {
+    "description": "Switch sub-line when on.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A11 Me",
+    "voice": false
+  },
+  "fa.nav.alerts": {
+    "description": "Bottom bar tab: alerts from HO and farmers (badge shows open alerts).",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA bottom nav",
+    "voice": false
+  },
+  "fa.nav.calendar": {
+    "description": "Bottom bar tab: the visit calendar.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA bottom nav",
+    "voice": false
+  },
+  "fa.nav.enrol": {
+    "description": "Bottom bar tab: enrol a farmer.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA bottom nav",
+    "voice": false
+  },
+  "fa.nav.farmers": {
+    "description": "Bottom bar tab: farmers near me (list and map).",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA bottom nav",
+    "voice": false
+  },
+  "fa.new_password.again": {
+    "description": "Label of the confirm field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.back_label": {
+    "description": "Screen reader label of the back arrow.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.current": {
+    "description": "Label of the current password field (Me, Change password).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.current_temp": {
+    "description": "Label of the field for the password HO gave (shown when the app no longer has it).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.leave_body": {
+    "description": "Dialog body when going back on the first login.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.leave_title": {
+    "description": "Dialog title when going back on the first login.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.needs_network": {
+    "description": "Note under the button in Me, and the Me row sub-line.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.needs_network_first": {
+    "description": "Note under the button on the first login.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.new": {
+    "description": "Label of the new password field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.note": {
+    "description": "Warning note at the top.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.offline": {
+    "description": "Error: saving failed offline.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.rule_current": {
+    "description": "Rule.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.rule_done": {
+    "description": "Screen reader suffix of a rule that holds.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.rule_length": {
+    "description": "Rule.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.rule_letter_digit": {
+    "description": "Rule.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.rule_login_id": {
+    "description": "Rule.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.rule_match": {
+    "description": "Rule.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.rule_not_yet": {
+    "description": "Screen reader suffix of a rule that does not hold yet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.rules": {
+    "description": "Screen reader label of the rule checklist.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.save": {
+    "description": "Main button.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.saved_body": {
+    "description": "Success body.",
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.saved_title": {
+    "description": "Success title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.step": {
+    "description": "Header sub-line.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.title": {
+    "description": "Header title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.wrong_current": {
+    "description": "Error: the current password did not match (Me).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.new_password.wrong_temp": {
+    "description": "Error: the temporary password did not match.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1c New password",
+    "voice": false
+  },
+  "fa.plan_visit.change_farmer": {
+    "description": "Button that goes back to the farmer picker.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.day": {
+    "description": "Section label: which day.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.move": {
+    "description": "Save button when moving a visit.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.moving_from": {
+    "description": "Note when moving a visit: the day it is on now.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.nearest_first": {
+    "description": "Sub-line of the farmer picker list.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.no_crop": {
+    "description": "Farmer picker row of a farmer with no crop to visit (disabled).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.no_crop_body": {
+    "description": "State card text.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.no_crop_title": {
+    "description": "State card: the farmer has no plot with a crop.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.no_match": {
+    "description": "Farmer picker with no results.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.other_date": {
+    "description": "Date chip that opens a date picker.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.pick_farmer": {
+    "description": "Heading of the farmer picker.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.plot": {
+    "description": "Section label: which plot.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.purpose": {
+    "description": "Section label: why the visit is planned.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.purpose_advice_follow_up": {
+    "description": "Visit purpose chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.purpose_first_visit": {
+    "description": "Visit purpose chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.purpose_hint": {
+    "description": "Hint of the purpose text box.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.purpose_other": {
+    "description": "Visit purpose chip that shows a text box.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.purpose_pest_follow_up": {
+    "description": "Visit purpose chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.purpose_required": {
+    "description": "Error when Other is picked and the text box is empty.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.purpose_soil_sample": {
+    "description": "Visit purpose chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.purpose_stage_check": {
+    "description": "Visit purpose chip.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.reschedule_title": {
+    "description": "Plan screen title when moving a planned visit to another day.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.save": {
+    "description": "Save button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.saved_offline": {
+    "description": "Note under the save button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.search_hint": {
+    "description": "Search field hint on the farmer picker.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.plan_visit.slot": {
+    "description": "Section label: morning, afternoon or any time.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA Plan a visit",
+    "voice": false
+  },
+  "fa.setup.done_title": {
+    "description": "Last step title.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.download_failed": {
+    "description": "Download card when the download failed (offline).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.download_lists": {
+    "description": "Download card, after the farmer and plot counts.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.download_progress": {
+    "description": "Screen reader label of the progress bar.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.download_title": {
+    "description": "Download card title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.downloading": {
+    "description": "Download card status while it runs.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.language_note": {
+    "description": "Note under the language choice.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.open_farmers": {
+    "description": "Last step button.",
+    "max_len": 28,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.password_saved": {
+    "description": "Banner on the language step right after the password change.",
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.pin_again": {
+    "description": "PIN step, confirm entry.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.pin_back_label": {
+    "description": "Screen reader label of the Back key on the PIN pad.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.pin_hint_again": {
+    "description": "Hint under the dots, confirm entry.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.pin_hint_first": {
+    "description": "Hint under the dots, first entry.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.pin_mismatch": {
+    "description": "Error: the confirm PIN differs.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.pin_note": {
+    "description": "Note at the bottom of the PIN step.",
+    "placeholders": {
+      "tries": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.pin_pick": {
+    "description": "PIN step, first entry.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.pin_weak": {
+    "description": "Error: repeated or sequential PIN.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.pin_year": {
+    "description": "Error: the PIN looks like a birth year.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.question": {
+    "description": "Question above the language choice.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.step_again": {
+    "description": "Header sub-line on a later password login without a PIN.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.step_first": {
+    "description": "Header sub-line on the first login.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.te_sub": {
+    "description": "Second line of the Telugu choice.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.title_done": {
+    "description": "Header title, last step.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.title_language": {
+    "description": "Header title, language step.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.title_pin": {
+    "description": "Header title, PIN step.",
+    "placeholders": {
+      "length": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.setup.to_pin": {
+    "description": "Button to the PIN step.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1d Language and PIN",
+    "voice": false
+  },
+  "fa.shell.me": {
+    "description": "Screen reader label of the FA's initials avatar in the header. Tap opens Me.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA header",
+    "voice": false
+  },
+  "fa.shell.sync_all_synced": {
+    "description": "Screen reader label of the header's sync pill when nothing is waiting.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA header",
+    "voice": false
+  },
+  "fa.shell.sync_needs_you": {
+    "description": "Screen reader label of the header's sync pill when records are in conflict or were rejected.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA header",
+    "voice": false
+  },
+  "fa.shell.sync_running": {
+    "description": "Screen reader label of the header's sync pill while a sync runs.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA header",
+    "voice": false
+  },
+  "fa.shell.sync_waiting": {
+    "description": "Screen reader label of the header's sync pill when records are queued. Tap opens Sync.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA header",
+    "voice": false
+  },
+  "fa.shell.title_dev": {
+    "description": "Placeholder title of the dev menu (dev builds only) until it is built.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA placeholders",
+    "voice": false
+  },
+  "fa.shell.title_farmer": {
+    "description": "Placeholder title of Farmer 360 until it is built.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA placeholders",
+    "voice": false
+  },
+  "fa.shell.title_me": {
+    "description": "Placeholder title of the Me screen until it is built.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA placeholders",
+    "voice": false
+  },
+  "fa.shell.title_plan_visit": {
+    "description": "Placeholder title of Plan visit until it is built.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA placeholders",
+    "voice": false
+  },
+  "fa.shell.title_removed": {
+    "description": "Placeholder title of the device removed screen until it is built.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA placeholders",
+    "voice": false
+  },
+  "fa.shell.title_sync": {
+    "description": "Placeholder title of the Sync screen until it is built.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA placeholders",
+    "voice": false
+  },
+  "fa.shell.title_visit_log": {
+    "description": "Placeholder title of the visit log until it is built.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA placeholders",
+    "voice": false
+  },
+  "fa.sync.all_synced_body": {
+    "description": "Banner text when nothing waits.",
+    "placeholders": {
+      "time": {
+        "example": "10:58 AM",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.all_synced_title": {
+    "description": "Banner title when nothing waits.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.busy": {
+    "description": "Snack bar when another runner holds the sync lease.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.call_ho": {
+    "description": "Button: call the HO helpline.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.conflict_meta_farmer": {
+    "description": "Conflict card line for a farmer.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.conflict_meta_other": {
+    "description": "Conflict card line for other records.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.conflict_meta_plot": {
+    "description": "Conflict card line for a plot.",
+    "placeholders": {
+      "plot": {
+        "example": "Plot 2",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.conflict_only_theirs": {
+    "description": "Conflict card line when Keep mine is not possible.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.conflict_waiting": {
+    "description": "On a conflict card: the FA edited the same plot or farmer again after the conflict; that edit is held in the card until Keep mine (sends it) or Keep HO's (drops it).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync, A8 Farmer 360",
+    "voice": false
+  },
+  "fa.sync.dismiss": {
+    "description": "Button that taps a finished or refused row away.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.dropped_heading": {
+    "description": "Heading of the records not saved because a refused one they need was refused (dropped before sending, or refused with it).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.error_title": {
+    "description": "Banner title after a failed sync (the error text follows).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.first_sync_body": {
+    "description": "Banner text before the first sync.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.keep_mine": {
+    "description": "Conflict card button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.keep_theirs": {
+    "description": "Conflict card button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.last_synced_just_now": {
+    "description": "Header sub-line.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.last_synced_on": {
+    "description": "Header sub-line with the day and time of the last sync.",
+    "placeholders": {
+      "date": {
+        "example": "30 Oct",
+        "type": "String"
+      },
+      "time": {
+        "example": "10:42 AM",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.last_synced_today": {
+    "description": "Header sub-line with the time of the last sync today.",
+    "placeholders": {
+      "time": {
+        "example": "10:42 AM",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.mobile_data_title": {
+    "description": "Banner title when records wait and the phone is on mobile data.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.needs_you_body": {
+    "description": "Banner text when records need the FA.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.needs_you_title": {
+    "description": "Banner title: records synced today and records that need the FA.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "synced": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.never_synced": {
+    "description": "Header sub-line and banner title before the first sync.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.offline_body": {
+    "description": "Banner text when offline.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.offline_title": {
+    "description": "Banner title when offline.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.photos_count": {
+    "description": "Row meta: photos of a visit log.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.photos_held": {
+    "description": "Banner text when only photos wait for Wi-Fi.",
+    "placeholders": {
+      "size": {
+        "example": "4.2 MB",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.pill_conflict": {
+    "description": "Pill on a conflict card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.pill_not_saved": {
+    "description": "Pill on a refused record.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.pill_synced": {
+    "description": "Row pill: HO has it.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.pill_uploading": {
+    "description": "Row pill: being sent.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.pill_waiting": {
+    "description": "Row pill: not sent yet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.progress_label": {
+    "description": "Screen reader label of the progress bar.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.reason_client": {
+    "description": "Refused: the app sent something the server could not read.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.reason_consent_expired": {
+    "description": "Refused: the consent OTP proof expired before sending.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.reason_not_in_area": {
+    "description": "Refused: village not in the FA area.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.reason_other": {
+    "description": "Heading above an English reason from the server.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.reason_other_fa": {
+    "description": "Refused: the farmer is registered with another FA.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.reason_parent": {
+    "description": "Dropped because the record it depends on was refused.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.reason_server": {
+    "description": "Refused: the server failed 5 times.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.resolved_mine": {
+    "description": "Row line after Keep mine.",
+    "placeholders": {
+      "value": {
+        "example": "1 ac 30 gunta",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.resolved_ready": {
+    "description": "Added to the resolved line while the kept version waits to go up.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.resolved_theirs": {
+    "description": "Row line after Keep HO's.",
+    "placeholders": {
+      "value": {
+        "example": "2 ac 0 gunta",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.retry_body": {
+    "description": "Banner text with the next retry time.",
+    "placeholders": {
+      "time": {
+        "example": "11:05 AM",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.retry_title": {
+    "description": "Banner title while waiting for the next retry.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.size_kb": {
+    "description": "Size in kilobytes.",
+    "placeholders": {
+      "size": {
+        "example": "420",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.size_mb": {
+    "description": "Size in megabytes.",
+    "placeholders": {
+      "size": {
+        "example": "3.1",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.sync_now": {
+    "description": "Main button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.synced_today": {
+    "description": "Records synced today.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.syncing_body": {
+    "description": "Banner text while a sync runs.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.syncing_body_photos": {
+    "description": "Banner text while a sync runs with photos.",
+    "placeholders": {
+      "size": {
+        "example": "4.2 MB",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.syncing_title": {
+    "description": "Banner title and button label while a sync runs.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.theirs": {
+    "description": "Conflict card: the HO value heading.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.type_alert": {
+    "description": "Record type: an alert acknowledged.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.type_callback": {
+    "description": "Record type: a call-back closed.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.type_cancel": {
+    "description": "Record type: a planned visit cancelled.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.type_consent": {
+    "description": "Record type: a consent record.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.type_enrol": {
+    "description": "Record type: a farmer enrolment.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.type_farmer": {
+    "description": "Record type: farmer profile change.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.type_plan": {
+    "description": "Record type: a visit planned.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.type_plot": {
+    "description": "Record type: a plot saved.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.type_season": {
+    "description": "Record type: a crop season started.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.type_visit": {
+    "description": "Record type: a visit logged.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.unknown_farmer": {
+    "description": "Row title when the farmer name is not known.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.value_boundary_walked": {
+    "description": "Conflict value: the plot has a walked boundary.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.value_empty": {
+    "description": "Conflict value: empty.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.value_no_boundary": {
+    "description": "Conflict value: the plot has no boundary.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.value_no_photo": {
+    "description": "Conflict value: no farmer photo.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.value_photo": {
+    "description": "Conflict value: a farmer photo.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.value_version": {
+    "description": "Conflict value: a record version number.",
+    "placeholders": {
+      "version": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.waiting_records": {
+    "description": "Banner text: records waiting.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.waiting_records_photos": {
+    "description": "Banner text: records and photos waiting.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "size": {
+        "example": "4.2 MB",
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.waiting_title": {
+    "description": "Banner title when records wait.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.wifi_off": {
+    "description": "Setting sub-line when off.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.wifi_on": {
+    "description": "Setting sub-line when on.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.wifi_title": {
+    "description": "Setting title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.sync.yours": {
+    "description": "Conflict card: the FA value heading.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A7 Sync",
+    "voice": false
+  },
+  "fa.unlock.enter_pin": {
+    "description": "Label above the dots.",
+    "placeholders": {
+      "length": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1b PIN unlock",
+    "voice": false
+  },
+  "fa.unlock.grace_note": {
+    "description": "Note at the bottom.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1b PIN unlock",
+    "voice": false
+  },
+  "fa.unlock.tries_left": {
+    "description": "Tries left before the password is needed.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1b PIN unlock",
+    "voice": false
+  },
+  "fa.unlock.use_password": {
+    "description": "Link to the password login.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1b PIN unlock",
+    "voice": false
+  },
+  "fa.unlock.welcome": {
+    "description": "Greeting.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A1b PIN unlock",
+    "voice": false
+  },
+  "fa.unlock.wrong_pin": {
+    "description": "After a wrong PIN.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A1b PIN unlock",
+    "voice": false
+  },
+  "fa.visit_log.add_issue": {
+    "description": "Button that adds another issue.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.advice_ho": {
+    "description": "Saved summary: issues without an advice rule.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.already_logged": {
+    "description": "State card: the planned visit was already logged or cancelled.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.back_to_calendar": {
+    "description": "Button on the saved summary and the back arrow label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.camera_failed": {
+    "description": "Snack bar when the camera fails.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.check_details": {
+    "description": "Snack bar when Save finds a missing stage or severity.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.day_after_sowing": {
+    "description": "Header sub-line part: days after sowing, as in \"Ravi K · Plot 1 · Cotton · day 137\".",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.discard": {
+    "description": "Dialog button that leaves without saving.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.discard_body": {
+    "description": "Dialog text.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.discard_title": {
+    "description": "Dialog when leaving the visit log with unsaved details.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.edit_visit": {
+    "description": "Button on the saved summary while the visit is not sent yet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.farmer_present": {
+    "description": "Switch: was the farmer at the field.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.farmer_present_note": {
+    "description": "Sub-line of the farmer present switch.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.gps_finding": {
+    "description": "Footer while the GPS fix is coming.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.gps_fix": {
+    "description": "Footer: where the phone is. lat and lng have two decimals.",
+    "placeholders": {
+      "lat": {
+        "type": "String"
+      },
+      "lng": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.gps_none": {
+    "description": "Footer when the GPS fails (the visit saves without a location).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.gps_retry": {
+    "description": "Screen reader label of the footer button that asks the GPS again.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.issue": {
+    "description": "Step heading.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.issue_from": {
+    "description": "After the Issue heading.",
+    "placeholders": {
+      "crop": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.issue_label": {
+    "description": "Screen reader label of the issue picker button.",
+    "placeholders": {
+      "issue": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.issue_row": {
+    "description": "An issue already added, above the one being edited.",
+    "placeholders": {
+      "issue": {
+        "type": "String"
+      },
+      "number": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.issue_severity": {
+    "description": "Saved summary: an issue and how bad.",
+    "placeholders": {
+      "issue": {
+        "type": "String"
+      },
+      "severity": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.issue_type": {
+    "description": "Screen reader label of the issue type segments.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.lang_en": {
+    "description": "Language name inside the SMS note.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.lang_te": {
+    "description": "Language name inside the SMS note.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.more_count": {
+    "description": "Saved summary: more issues or advice.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.more_photos": {
+    "description": "Screen reader label of the \"+N\" thumbnail.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.next_none": {
+    "description": "Next visit chip: no follow-up visit.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.next_other": {
+    "description": "Next visit chip that opens a date picker.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.next_visit": {
+    "description": "Step heading.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.next_week": {
+    "description": "Next visit chip: a week from today.",
+    "max_len": 12,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_crop_body": {
+    "description": "State card text.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_crop_title": {
+    "description": "State card: the farmer has no plot with a crop.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_issue": {
+    "description": "First row of the issue picker: clears the issue.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_issue_match": {
+    "description": "Issue picker with no results.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_issues_listed": {
+    "description": "Shown when the crop has no issues in the masters.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_photo_body": {
+    "description": "Dialog text.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_photo_title": {
+    "description": "Dialog title when saving without photos.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_product": {
+    "description": "Card when the advice is a salt only.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_product_note": {
+    "description": "Second line of the salt-only card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_rule": {
+    "description": "Card when the masters have no rule for the issue.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.no_rule_note": {
+    "description": "Second line of the no-rule card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.none": {
+    "description": "Saved summary value when nothing was entered.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.not_planned": {
+    "description": "Saved summary: no next visit.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.open_farmer": {
+    "description": "Button on the saved summary: opens Farmer 360.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.photo": {
+    "description": "Screen reader label of a photo thumbnail.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.photo_count": {
+    "description": "After the Photos heading: how many were taken (aim 1 to 3).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.photo_max": {
+    "description": "Note when the photo limit is reached.",
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.photos": {
+    "description": "Step heading.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.pick_issue": {
+    "description": "Issue picker button before an issue is picked, and the picker sheet title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.pick_issue_hint": {
+    "description": "Sub-line of the issue picker button before an issue is picked.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.pick_salt": {
+    "description": "Salt picker sheet title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.plot": {
+    "description": "Plot chips when the farmer has more than one crop.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.present_no": {
+    "description": "Footer part.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.present_yes": {
+    "description": "Footer part.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.product": {
+    "description": "Card when the advice has a Shanmukha product.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.product_note": {
+    "description": "Second line of the product card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.remove_issue": {
+    "description": "Screen reader label of the remove button on an added issue.",
+    "placeholders": {
+      "issue": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.remove_photo": {
+    "description": "Button on a photo in the photos sheet.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.row_advice": {
+    "description": "Saved summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.row_issues": {
+    "description": "Saved summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.row_next": {
+    "description": "Saved summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.row_photos": {
+    "description": "Saved summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.row_stage": {
+    "description": "Saved summary row label.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.salt": {
+    "description": "Step heading.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.salt_after_issue": {
+    "description": "Recommend salt step before an issue is picked.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.salt_label": {
+    "description": "Screen reader label of the salt picker button.",
+    "placeholders": {
+      "salt": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.salt_only": {
+    "description": "Saved summary: advice without a Shanmukha product.",
+    "placeholders": {
+      "salt": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.save": {
+    "description": "Main save button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.save_changes": {
+    "description": "Save button while editing a saved visit.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.save_without_photos": {
+    "description": "Dialog button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.saved_pending": {
+    "description": "Saved summary sub-line before sync.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.saved_synced": {
+    "description": "Saved summary sub-line after sync.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.saved_title": {
+    "description": "Saved summary title.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.search_issues": {
+    "description": "Search field in the issue picker.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.severity": {
+    "description": "Screen reader label of the severity buttons.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.severity_required": {
+    "description": "Error when an issue has no severity.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.sms_none": {
+    "description": "Saved summary note when no issue had an advice rule.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.sms_pending": {
+    "description": "Saved summary note before sync.",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.sms_sent": {
+    "description": "Saved summary note after sync.",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.stage": {
+    "description": "Step heading.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.stage_required": {
+    "description": "Error when no stage is picked.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.stay": {
+    "description": "Dialog button that stays.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.step": {
+    "description": "Numbered step heading, e.g. \"1 · Photos\".",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "title": {
+        "type": "String"
+      }
+    },
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.suggested": {
+    "description": "After the Recommend salt heading when the masters suggest a salt.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.summary": {
+    "description": "Screen reader label of the saved summary card.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.take_photo": {
+    "description": "Camera button label (screen reader) and dialog button.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.type_deficiency": {
+    "description": "Issue type segment.",
+    "max_len": 14,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.type_disease": {
+    "description": "Issue type segment.",
+    "max_len": 14,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.type_pest": {
+    "description": "Issue type segment.",
+    "max_len": 14,
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visit_log.works_offline": {
+    "description": "Footer part: saving does not need the internet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA A5 Visit log",
+    "voice": false
+  },
+  "fa.visits.error_invalid_date": {
+    "description": "Action error: a day in the past (or a visit time in the future).",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA visits (calendar, plan, visit log)",
+    "voice": false
+  },
+  "fa.visits.error_no_data": {
+    "description": "Action error: no snapshot yet.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA visits (calendar, plan, visit log)",
+    "voice": false
+  },
+  "fa.visits.error_no_season": {
+    "description": "Action error: no active season.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA visits (calendar, plan, visit log)",
+    "voice": false
+  },
+  "fa.visits.error_not_editable": {
+    "description": "Action error: the queued visit log was sent.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA visits (calendar, plan, visit log)",
+    "voice": false
+  },
+  "fa.visits.error_not_found": {
+    "description": "Action error: something referred to is gone.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA visits (calendar, plan, visit log)",
+    "voice": false
+  },
+  "fa.visits.error_not_planned": {
+    "description": "Action error: the visit is not planned any more.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA visits (calendar, plan, visit log)",
+    "voice": false
+  },
+  "fa.visits.error_required": {
+    "description": "Action error: a required value is empty.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA visits (calendar, plan, visit log)",
+    "voice": false
+  },
+  "fa.visits.error_too_many": {
+    "description": "Action error: more than 20 photos or issues.",
+    "placeholders": {},
+    "review": "pending",
+    "screen": "FA visits (calendar, plan, visit log)",
+    "voice": false
+  },
   "farmer.advice.advised_by": {
     "description": "Byline (wireframe \"Advised by Suresh · 12 Oct\").",
     "placeholders": {

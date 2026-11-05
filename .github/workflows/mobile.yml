@@ -1,5 +1,5 @@
 # Mobile CI: dart format, generated tokens/strings committed and fresh, analyze, tests,
-# and a debug APK of the Farmer app (dev flavour). Flutter version comes from mobile/.fvmrc,
+# and debug APKs of the Farmer and FA apps (dev flavour). Flutter version comes from mobile/.fvmrc,
 # melos is pinned to the version in mobile/pubspec.lock.
 name: mobile
 
@@ -40,4 +40,7 @@ jobs:
         run: melos run check:ci
       - name: Build Farmer app (dev, debug)
         working-directory: mobile/apps/farmer
+        run: flutter build apk --debug --flavor dev
+      - name: Build FA app (dev, debug)
+        working-directory: mobile/apps/fa
         run: flutter build apk --debug --flavor dev

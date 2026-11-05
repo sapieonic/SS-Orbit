@@ -875,6 +875,5045 @@
     "x-key": "error.version_mismatch",
     "x-screen": "Errors (both apps)"
   },
+  "faActionErrorAlreadyEnrolled": "ఈ రైతు ఇప్పటికే మీ దగ్గర ఉన్నారు.",
+  "@faActionErrorAlreadyEnrolled": {
+    "description": "FaActionError already_enrolled: the phone is already one of the FA's farmers.",
+    "x-key": "fa.action_error.already_enrolled",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorAreaTooSmall": "ఈ విస్తీర్ణం చాలా చిన్నది. గట్టు మళ్ళీ నడవండి లేదా విస్తీర్ణం టైప్ చేయండి.",
+  "@faActionErrorAreaTooSmall": {
+    "description": "FaActionError area_too_small: the plot area rounds to nothing.",
+    "x-key": "fa.action_error.area_too_small",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorBoundaryCrossesItself": "గట్టు తనను తానే దాటుతోంది. మళ్ళీ నడవండి.",
+  "@faActionErrorBoundaryCrossesItself": {
+    "description": "FaActionError boundary_crosses_itself: the walked boundary crosses itself.",
+    "x-key": "fa.action_error.boundary_crosses_itself",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorCannotClear": "దీన్ని ఇక్కడ ఖాళీగా వదలలేరు. తీసేయాలంటే HO కి చెప్పండి.",
+  "@faActionErrorCannotClear": {
+    "description": "FaActionError cannot_clear: a field (the Telugu name) cannot be emptied from the FA app.",
+    "x-key": "fa.action_error.cannot_clear",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorInvalidDate": "ఈ రోజు లేదా తర్వాతి రోజు ఎంచుకోండి.",
+  "@faActionErrorInvalidDate": {
+    "description": "FaActionError invalid_date: a day in the past (or a visit time in the future).",
+    "x-key": "fa.action_error.invalid_date",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorInvalidPhone": "ఇది సరైన మొబైల్ నంబర్ కాదు.",
+  "@faActionErrorInvalidPhone": {
+    "description": "FaActionError invalid_phone: not a 10-digit Indian mobile number.",
+    "x-key": "fa.action_error.invalid_phone",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorInvalidSeasonCode": "ఈ సీజన్ ముగిసింది. వేరేది ఎంచుకోండి.",
+  "@faActionErrorInvalidSeasonCode": {
+    "description": "FaActionError invalid_season_code: the season is not open.",
+    "x-key": "fa.action_error.invalid_season_code",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorLocationRequired": "ముందు పొలం గట్టు నడవండి లేదా పిన్ పెట్టండి.",
+  "@faActionErrorLocationRequired": {
+    "description": "FaActionError location_required: a plot needs a boundary or a pin.",
+    "x-key": "fa.action_error.location_required",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorNoData": "మీ రైతుల వివరాలు ఇంకా ఈ ఫోన్‌లో లేవు. ముందు ఒకసారి ఇంటర్నెట్‌తో సింక్ చేయండి.",
+  "@faActionErrorNoData": {
+    "description": "FaActionError no_data: no snapshot on the phone yet (first sign-in before the first pull).",
+    "x-key": "fa.action_error.no_data",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorNoSeason": "ఈ పొలంలో ఇంకా పంట లేదు. ముందు పంట నమోదు చేయండి.",
+  "@faActionErrorNoSeason": {
+    "description": "FaActionError no_season: no active plot or season to plan or log a visit on.",
+    "x-key": "fa.action_error.no_season",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorNotEditable": "ఈ సందర్శన ఇప్పటికే HO కి వెళ్ళింది, ఇక మార్చలేరు.",
+  "@faActionErrorNotEditable": {
+    "description": "FaActionError not_editable: the queued visit log was already sent.",
+    "x-key": "fa.action_error.not_editable",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorNotFound": "ఇది ఇప్పుడు ఈ ఫోన్‌లో లేదు. వెనక్కి వెళ్ళి మళ్ళీ తెరవండి.",
+  "@faActionErrorNotFound": {
+    "description": "FaActionError not_found: the farmer, plot, visit, village, crop or alert referred to is gone from the phone.",
+    "x-key": "fa.action_error.not_found",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorNotPlanned": "ఈ సందర్శన ఇప్పటికే పూర్తయింది లేదా రద్దయింది.",
+  "@faActionErrorNotPlanned": {
+    "description": "FaActionError not_planned: the visit is not planned any more.",
+    "x-key": "fa.action_error.not_planned",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorNothingToChange": "ఏమీ మారలేదు, సేవ్ చేయడానికి ఏమీ లేదు.",
+  "@faActionErrorNothingToChange": {
+    "description": "FaActionError nothing_to_change: the edit would change nothing.",
+    "x-key": "fa.action_error.nothing_to_change",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorOutOfRange": "ఈ సంఖ్య సరిగ్గా లేదు. సరిచూడండి.",
+  "@faActionErrorOutOfRange": {
+    "description": "FaActionError out_of_range: a number such as plot area or GPS accuracy is out of range.",
+    "x-key": "fa.action_error.out_of_range",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorProofInvalid": "అనుమతి OTP గడువు ముగిసింది. కొత్త OTP పంపండి.",
+  "@faActionErrorProofInvalid": {
+    "description": "FaActionError proof_invalid: the consent proof expired or is for another phone.",
+    "x-key": "fa.action_error.proof_invalid",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorRequired": "అన్ని వివరాలు నింపండి.",
+  "@faActionErrorRequired": {
+    "description": "FaActionError required: a required value is empty.",
+    "x-key": "fa.action_error.required",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorTooLong": "ఇది చాలా పొడవుగా ఉంది.",
+  "@faActionErrorTooLong": {
+    "description": "FaActionError too_long: a text is too long (e.g. a name over 100 characters). Also the inline error under the name field.",
+    "x-key": "fa.action_error.too_long",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorTooMany": "ఫోటోలు లేదా సమస్యలు చాలా ఎక్కువ. 20 వరకే ఉంచండి.",
+  "@faActionErrorTooMany": {
+    "description": "FaActionError too_many: more than 20 photos or issues.",
+    "x-key": "fa.action_error.too_many",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faActionErrorWrongState": "ఇది ఇప్పటికే మారింది. మళ్ళీ చూసి ఇంకోసారి ప్రయత్నించండి.",
+  "@faActionErrorWrongState": {
+    "description": "FaActionError wrong_state: the sync row is no longer in a state that allows this (Keep mine, Keep HO's, dismiss).",
+    "x-key": "fa.action_error.wrong_state",
+    "x-screen": "FA any action (snack bar)"
+  },
+  "faAlertsAcknowledged": "చూశారు · మీరు చదివినట్లు HO కి తెలుస్తుంది",
+  "@faAlertsAcknowledged": {
+    "description": "Status line after Got it.",
+    "x-key": "fa.alerts.acknowledged",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsCallFarmer": "రైతుకు కాల్ చేయండి",
+  "@faAlertsCallFarmer": {
+    "description": "Call button when the farmer name is not known.",
+    "x-key": "fa.alerts.call_farmer",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsCallPlanVisit": "కాల్ · సందర్శన ప్లాన్",
+  "@faAlertsCallPlanVisit": {
+    "description": "Button on a new farmer alert: calls the farmer, then opens plan a visit.",
+    "x-key": "fa.alerts.call_plan_visit",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsCallbackClosed": "కాల్ బ్యాక్ మూసివేయబడింది",
+  "@faAlertsCallbackClosed": {
+    "description": "Status line once the call-back is closed.",
+    "x-key": "fa.alerts.callback_closed",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsCallbackHint": "కాల్ లాగ్ చేసినప్పుడు మూసివేయబడుతుంది",
+  "@faAlertsCallbackHint": {
+    "description": "Line on a call-back alert.",
+    "x-key": "fa.alerts.callback_hint",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsCloseCallback": "కాల్ బ్యాక్ మూసివేయండి",
+  "@faAlertsCloseCallback": {
+    "description": "Button shown after the FA called back.",
+    "x-key": "fa.alerts.close_callback",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsCloseCallbackHint": "మాట్లాడారా? అభ్యర్థనను మూసివేయండి.",
+  "@faAlertsCloseCallbackHint": {
+    "description": "Line above Close call-back after the call.",
+    "x-key": "fa.alerts.close_callback_hint",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsEarlier": "ఇంతకు ముందువి · {count}",
+  "@faAlertsEarlier": {
+    "description": "Collapsed section of acknowledged and closed alerts, with how many.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.alerts.earlier",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsEmptyBody": "కొత్త రైతులు, కాల్ బ్యాక్ అభ్యర్థనలు, HO సందేశాలు ఇక్కడ కనిపిస్తాయి.",
+  "@faAlertsEmptyBody": {
+    "description": "Empty state text.",
+    "x-key": "fa.alerts.empty_body",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsEmptyTabBody": "ఈ రకం హెచ్చరికలు ఇప్పుడు లేవు.",
+  "@faAlertsEmptyTabBody": {
+    "description": "Empty state text of one filter chip.",
+    "x-key": "fa.alerts.empty_tab_body",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsEmptyTabTitle": "ఇక్కడ ఏమీ లేదు",
+  "@faAlertsEmptyTabTitle": {
+    "description": "Empty state of one filter chip.",
+    "x-key": "fa.alerts.empty_tab_title",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsEmptyTitle": "హెచ్చరికలు లేవు",
+  "@faAlertsEmptyTitle": {
+    "description": "Empty state title.",
+    "x-key": "fa.alerts.empty_title",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsFinishEnrolment": "నమోదు పూర్తి చేయండి",
+  "@faAlertsFinishEnrolment": {
+    "description": "Button on a new farmer alert: opens enrolment with the phone filled in.",
+    "x-key": "fa.alerts.finish_enrolment",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsGotIt": "సరే, చూశాను",
+  "@faAlertsGotIt": {
+    "description": "Button on an HO note: tells HO the FA read it.",
+    "x-key": "fa.alerts.got_it",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsKindCallback": "కాల్ చేయమన్నారు",
+  "@faAlertsKindCallback": {
+    "description": "Pill on a call-back alert.",
+    "x-key": "fa.alerts.kind_callback",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsKindHoNote": "HO సందేశం",
+  "@faAlertsKindHoNote": {
+    "description": "Pill on a note from head office.",
+    "x-key": "fa.alerts.kind_ho_note",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsKindNewFarmer": "కొత్త రైతు",
+  "@faAlertsKindNewFarmer": {
+    "description": "Pill on a new farmer alert.",
+    "x-key": "fa.alerts.kind_new_farmer",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsKindOther": "హెచ్చరిక",
+  "@faAlertsKindOther": {
+    "description": "Pill on an alert of a kind this app does not know.",
+    "x-key": "fa.alerts.kind_other",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsOfflineBody": "ఈ ఫోన్‌లో ఉన్న హెచ్చరికలు చూపిస్తున్నాం. నెట్‌వర్క్ వచ్చాక కిందకి లాగి రిఫ్రెష్ చేయండి.",
+  "@faAlertsOfflineBody": {
+    "description": "Offline banner on Alerts.",
+    "x-key": "fa.alerts.offline_body",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsOpenFarmer": "రైతును చూడండి",
+  "@faAlertsOpenFarmer": {
+    "description": "Button on a new farmer alert once the farmer is fully enrolled.",
+    "x-key": "fa.alerts.open_farmer",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsStatusClosed": "మూసివేయబడింది",
+  "@faAlertsStatusClosed": {
+    "description": "Status line on an older closed alert.",
+    "x-key": "fa.alerts.status_closed",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsSubtitle": "{count, plural, =0{ఏ పనీ లేదు} one{1 పని చేయాలి} other{{count} పనులు చేయాలి}}",
+  "@faAlertsSubtitle": {
+    "description": "Header sub-line: open alerts that need the FA.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.alerts.subtitle",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsTabAll": "అన్నీ",
+  "@faAlertsTabAll": {
+    "description": "Filter chip: every alert.",
+    "x-key": "fa.alerts.tab_all",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsTabCallbacks": "కాల్ బ్యాక్‌లు",
+  "@faAlertsTabCallbacks": {
+    "description": "Filter chip: farmers asking to be called.",
+    "x-key": "fa.alerts.tab_callbacks",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsTabHo": "HO నుండి",
+  "@faAlertsTabHo": {
+    "description": "Filter chip: notes from head office.",
+    "x-key": "fa.alerts.tab_ho",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsTabNewFarmers": "కొత్త రైతులు",
+  "@faAlertsTabNewFarmers": {
+    "description": "Filter chip: new farmer alerts.",
+    "x-key": "fa.alerts.tab_new_farmers",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAlertsTabsLabel": "హెచ్చరిక రకం",
+  "@faAlertsTabsLabel": {
+    "description": "Screen reader label of the filter chips row.",
+    "x-key": "fa.alerts.tabs_label",
+    "x-screen": "FA A6 Alerts"
+  },
+  "faAuthCallFailed": "డయలర్ తెరవలేకపోయాం. HO కి {phone} నంబర్‌కు కాల్ చేయండి.",
+  "@faAuthCallFailed": {
+    "description": "Snack bar when the dialer did not open.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.auth.call_failed",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthCallHo": "HO కి కాల్ చేయండి · {phone}",
+  "@faAuthCallHo": {
+    "description": "Button that opens the dialer with the HO helpline.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.auth.call_ho",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthFarmersCount": "{count, plural, one{1 రైతు} other{{count} మంది రైతులు}}",
+  "@faAuthFarmersCount": {
+    "description": "How many farmers are saved on the phone.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.auth.farmers_count",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthHide": "దాచు",
+  "@faAuthHide": {
+    "description": "Button in a password field that hides the text again.",
+    "x-key": "fa.auth.hide",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthHidePassword": "పాస్‌వర్డ్ దాచు",
+  "@faAuthHidePassword": {
+    "description": "Screen reader label of the Hide button.",
+    "x-key": "fa.auth.hide_password",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthOfflineSaved": "ఆఫ్‌లైన్ · మీ రైతుల వివరాలు ఈ ఫోన్‌లో ఉన్నాయి",
+  "@faAuthOfflineSaved": {
+    "description": "Pill on the PIN screen without network.",
+    "x-key": "fa.auth.offline_saved",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthOnline": "ఆన్‌లైన్",
+  "@faAuthOnline": {
+    "description": "Pill on the PIN screen when the phone has network.",
+    "x-key": "fa.auth.online",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthPinDelete": "అంకె తొలగించండి",
+  "@faAuthPinDelete": {
+    "description": "Screen reader label of the PIN pad delete key.",
+    "x-key": "fa.auth.pin_delete",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthPinEntered": "{length} అంకెల్లో {filled} నమోదు చేశారు",
+  "@faAuthPinEntered": {
+    "description": "Screen reader label of the PIN dots.",
+    "placeholders": {
+      "filled": {
+        "type": "int"
+      },
+      "length": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.auth.pin_entered",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthPlotsCount": "{count, plural, one{1 పొలం} other{{count} పొలాలు}}",
+  "@faAuthPlotsCount": {
+    "description": "How many plots are saved on the phone.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.auth.plots_count",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthRole": "ఫీల్డ్ అసిస్టెంట్",
+  "@faAuthRole": {
+    "description": "Under the app name on the splash and login.",
+    "x-key": "fa.auth.role",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthShow": "చూపించు",
+  "@faAuthShow": {
+    "description": "Button in a password field that shows the text.",
+    "x-key": "fa.auth.show",
+    "x-screen": "FA auth (shared)"
+  },
+  "faAuthShowPassword": "పాస్‌వర్డ్ చూపించు",
+  "@faAuthShowPassword": {
+    "description": "Screen reader label of the Show button.",
+    "x-key": "fa.auth.show_password",
+    "x-screen": "FA auth (shared)"
+  },
+  "faBlockedBefore": "అప్‌డేట్ చేసే ముందు",
+  "@faBlockedBefore": {
+    "description": "Screen reader label of the steps card.",
+    "x-key": "fa.blocked.before",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedNewLogin": "కొత్త పాస్‌వర్డ్‌తో లాగిన్ అవ్వండి",
+  "@faBlockedNewLogin": {
+    "description": "Removed screen secondary button.",
+    "x-key": "fa.blocked.new_login",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedNothingLost": "ఏదీ పోదు: మీరు యాప్ వదిలే ముందు సేవ్ అయిన రికార్డులు పంపుతాం.",
+  "@faBlockedNothingLost": {
+    "description": "Note under the steps.",
+    "x-key": "fa.blocked.nothing_lost",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedOpenStore": "Play Store తెరవండి",
+  "@faBlockedOpenStore": {
+    "description": "Main button once nothing waits.",
+    "x-key": "fa.blocked.open_store",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedRemovedBody": "HO ఈ ఫోన్ నుంచి మీ లాగిన్‌ను తొలగించింది. రైతుల వివరాలు ఈ ఫోన్ నుంచి తొలగించబడ్డాయి.",
+  "@faBlockedRemovedBody": {
+    "description": "Removed screen body.",
+    "x-key": "fa.blocked.removed_body",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedRemovedNote": "ఫోన్ పోయినప్పుడు లేదా వేరేవారి చేతికి వెళ్ళినప్పుడు ఇలా జరుగుతుంది. పొరపాటు అనిపిస్తే HO కి కాల్ చేయండి; వారు కొత్త లాగిన్ ఇస్తారు.",
+  "@faBlockedRemovedNote": {
+    "description": "Removed screen info card.",
+    "x-key": "fa.blocked.removed_note",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedSendFailed": "రికార్డులు పంపలేకపోయాం. ఇంటర్నెట్‌కు కనెక్ట్ అయి మళ్ళీ ప్రయత్నించండి. ఇప్పుడే అప్‌డేట్ చేస్తే అవి ఈ ఫోన్‌లోనే ఉండి అప్‌డేట్ తర్వాత పంపబడతాయి.",
+  "@faBlockedSendFailed": {
+    "description": "Error after a failed push.",
+    "x-key": "fa.blocked.send_failed",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedSendThenUpdate": "రికార్డులు పంపి, అప్‌డేట్ చేయండి",
+  "@faBlockedSendThenUpdate": {
+    "description": "Main button before sending.",
+    "x-key": "fa.blocked.send_then_update",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedSending": "పంపుతోంది…",
+  "@faBlockedSending": {
+    "description": "Main button while sending.",
+    "x-key": "fa.blocked.sending",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedStepNothing": "మీ రికార్డులన్నీ పంపబడ్డాయి",
+  "@faBlockedStepNothing": {
+    "description": "Step 1 when nothing waits.",
+    "x-key": "fa.blocked.step_nothing",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedStepSend": "{count, plural, one{సేవ్ అయిన 1 రికార్డు HO కి పంపండి} other{సేవ్ అయిన {count} రికార్డులు HO కి పంపండి}}",
+  "@faBlockedStepSend": {
+    "description": "Step 1 before sending.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.blocked.step_send",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedStepSending": "{count, plural, one{1 రికార్డు పంపుతోంది…} other{{count} రికార్డులు పంపుతోంది…}}",
+  "@faBlockedStepSending": {
+    "description": "Step 1 while sending.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.blocked.step_sending",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedStepSent": "{count, plural, one{1 రికార్డు HO కి పంపబడింది} other{{count} రికార్డులు HO కి పంపబడ్డాయి}}",
+  "@faBlockedStepSent": {
+    "description": "Step 1 after sending.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.blocked.step_sent",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedStepStore": "Play Store తెరిచి అప్‌డేట్ చేయండి",
+  "@faBlockedStepStore": {
+    "description": "Step 2.",
+    "x-key": "fa.blocked.step_store",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedStepUnlock": "ఎప్పటిలాగే PIN తో తెరవండి",
+  "@faBlockedStepUnlock": {
+    "description": "Step 3.",
+    "x-key": "fa.blocked.step_unlock",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedStoreFailed": "Play Store తెరవలేకపోయాం. మీరే తెరిచి Orbit Shifting అప్‌డేట్ చేయండి, లేదా HO కి కాల్ చేయండి.",
+  "@faBlockedStoreFailed": {
+    "description": "Snack bar when the store did not open.",
+    "x-key": "fa.blocked.store_failed",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedUpdateAnyway": "పంపకుండా అప్‌డేట్ చేయండి",
+  "@faBlockedUpdateAnyway": {
+    "description": "Secondary button after a failed push.",
+    "x-key": "fa.blocked.update_anyway",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedUpdateBody": "ఈ వెర్షన్ ({version}) పాతది. రికార్డులు సరిగ్గా సింక్ అవ్వడానికి అందరూ {min} లేదా కొత్తది వాడాలని HO కోరుతోంది.",
+  "@faBlockedUpdateBody": {
+    "description": "Update screen body with the minimum version.",
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.blocked.update_body",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faBlockedUpdateBodyPlain": "ఈ వెర్షన్ ({version}) పాతది. రికార్డులు సరిగ్గా సింక్ అవ్వడానికి అప్‌డేట్ చేయండి.",
+  "@faBlockedUpdateBodyPlain": {
+    "description": "Update screen body when the minimum version is not known.",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.blocked.update_body_plain",
+    "x-screen": "FA A12 Blocked"
+  },
+  "faCalendarAdd": "జోడించు",
+  "@faCalendarAdd": {
+    "description": "Header pill button that opens Plan a visit. Keep very short.",
+    "x-key": "fa.calendar.add",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarCancelBody": "ఇది {date} కి ప్లాన్ చేశారు. తర్వాతి సింక్ తర్వాత రైతుకు ఇది కనిపించదు.",
+  "@faCalendarCancelBody": {
+    "description": "Confirm dialog body. date is like \"Tue, 3 Nov\".",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.cancel_body",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarCancelTitle": "{name} సందర్శన రద్దు చేయాలా?",
+  "@faCalendarCancelTitle": {
+    "description": "Confirm dialog title before cancelling a planned visit.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.cancel_title",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarCancelVisit": "సందర్శన రద్దు చేయండి",
+  "@faCalendarCancelVisit": {
+    "description": "Menu item and confirm button: cancels a planned visit.",
+    "x-key": "fa.calendar.cancel_visit",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarCancelled": "{name} సందర్శన రద్దు చేశారు",
+  "@faCalendarCancelled": {
+    "description": "Notice after cancelling a planned visit.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.cancelled",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarDayLabel": "{date}, {count, plural, =0{సందర్శనలు లేవు} one{1 సందర్శన} other{{count} సందర్శనలు}}",
+  "@faCalendarDayLabel": {
+    "description": "Screen reader label of one day in the week strip. date is like \"Tue, 27 Oct\".",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "date": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.day_label",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarDoneCount": "{count} పూర్తి",
+  "@faCalendarDoneCount": {
+    "description": "Header sub-line part: how many of the day's visits are done.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.calendar.done_count",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarEmptyBody": "సందర్శన రావాల్సిన రైతులను ఎంచుకుని, కాల్ చేసి రోజు ఖరారు చేయండి.",
+  "@faCalendarEmptyBody": {
+    "description": "Empty day text.",
+    "x-key": "fa.calendar.empty_body",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarEmptyTitle": "సందర్శనలు ఏవీ ప్లాన్ చేయలేదు",
+  "@faCalendarEmptyTitle": {
+    "description": "Empty day title.",
+    "x-key": "fa.calendar.empty_title",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarFindDue": "సందర్శన రావాల్సిన రైతులు",
+  "@faCalendarFindDue": {
+    "description": "Empty day button: opens Farmers on the Visit due filter.",
+    "x-key": "fa.calendar.find_due",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarFooterNote": "సందర్శన లాగ్ సేవ్ చేయగానే అది పూర్తయినట్టు మారుతుంది.",
+  "@faCalendarFooterNote": {
+    "description": "Note at the bottom of the calendar.",
+    "x-key": "fa.calendar.footer_note",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarKeepVisit": "ఉంచండి",
+  "@faCalendarKeepVisit": {
+    "description": "Confirm dialog button that does not cancel.",
+    "x-key": "fa.calendar.keep_visit",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarMoved": "సందర్శన మార్చారు · {name} · {date}",
+  "@faCalendarMoved": {
+    "description": "Notice after moving a visit to another day.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.moved",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarNextWeek": "తర్వాత వారం",
+  "@faCalendarNextWeek": {
+    "description": "Screen reader label of the arrow that shows the week after.",
+    "x-key": "fa.calendar.next_week",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarOffline": "ఇంటర్నెట్ లేదు · సందర్శనలు ఈ ఫోన్‌లో సేవ్ అయి, తర్వాత సింక్ అవుతాయి",
+  "@faCalendarOffline": {
+    "description": "Banner on the calendar while offline.",
+    "x-key": "fa.calendar.offline",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarPlanned": "సందర్శన ప్లాన్ అయింది · {name} · {date}",
+  "@faCalendarPlanned": {
+    "description": "Notice after planning a visit. date is like \"Wed, 4 Nov\".",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.planned",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarPreviousWeek": "ముందు వారం",
+  "@faCalendarPreviousWeek": {
+    "description": "Screen reader label of the arrow that shows the week before.",
+    "x-key": "fa.calendar.previous_week",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarReschedule": "వేరే రోజుకు మార్చండి",
+  "@faCalendarReschedule": {
+    "description": "Menu item on a planned visit: opens Plan a visit filled in, and cancels this one when saved.",
+    "x-key": "fa.calendar.reschedule",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarSavedNoAdvice": "సందర్శన సేవ్ అయింది · {name} పూర్తయింది",
+  "@faCalendarSavedNoAdvice": {
+    "description": "Notice on the calendar after a visit log without advice was saved (no SMS goes to the farmer).",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.saved_no_advice",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarSavedPending": "సందర్శన సేవ్ అయింది · {name} పూర్తయింది · సింక్ అయ్యాక సలహా SMS లో వెళ్తుంది",
+  "@faCalendarSavedPending": {
+    "description": "Notice on the calendar after a visit log was saved and is not synced yet.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.saved_pending",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarSavedSent": "సందర్శన సేవ్ అయింది · {name} పూర్తయింది · సలహా పంపాం",
+  "@faCalendarSavedSent": {
+    "description": "Notice on the calendar after a visit log was saved and synced.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.saved_sent",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarStartVisit": "సందర్శన మొదలు",
+  "@faCalendarStartVisit": {
+    "description": "Button on today's planned visit card: opens the visit log.",
+    "x-key": "fa.calendar.start_visit",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarStatusDone": "పూర్తయింది",
+  "@faCalendarStatusDone": {
+    "description": "Status pill of a visit whose log is saved.",
+    "x-key": "fa.calendar.status_done",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarStatusFirstVisit": "కొత్త · మొదటి సందర్శన",
+  "@faCalendarStatusFirstVisit": {
+    "description": "Status pill of a planned visit to a farmer the FA has never visited.",
+    "x-key": "fa.calendar.status_first_visit",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarStatusOverdue": "ఆలస్యం",
+  "@faCalendarStatusOverdue": {
+    "description": "Status pill of a planned visit whose day has passed, or a missed visit.",
+    "x-key": "fa.calendar.status_overdue",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarStatusPlanned": "ప్లాన్ చేశారు",
+  "@faCalendarStatusPlanned": {
+    "description": "Status pill of a visit still to do.",
+    "x-key": "fa.calendar.status_planned",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarThisWeek": "ఈ వారం",
+  "@faCalendarThisWeek": {
+    "description": "Button that jumps back to today's week.",
+    "x-key": "fa.calendar.this_week",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarTitle": "సందర్శనల క్యాలెండర్",
+  "@faCalendarTitle": {
+    "description": "Calendar screen title.",
+    "x-key": "fa.calendar.title",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarVisitCount": "{count, plural, =0{సందర్శనలు లేవు} one{1 సందర్శన} other{{count} సందర్శనలు}}",
+  "@faCalendarVisitCount": {
+    "description": "Header sub-line part: visits on the picked day.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.calendar.visit_count",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarVisitOptions": "{name} · మరిన్ని",
+  "@faCalendarVisitOptions": {
+    "description": "Screen reader label of the menu button on a visit card (Reschedule, Cancel visit).",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.visit_options",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faCalendarWeekOf": "{date} వారం",
+  "@faCalendarWeekOf": {
+    "description": "Screen reader label of the week strip and the label between the week arrows. date is like \"2 Nov\".",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.calendar.week_of",
+    "x-screen": "FA A3 Visit calendar"
+  },
+  "faChangePinAgain": "కొత్త PIN మళ్ళీ టైప్ చేయండి",
+  "@faChangePinAgain": {
+    "description": "Step 3.",
+    "x-key": "fa.change_pin.again",
+    "x-screen": "FA A11 Change PIN"
+  },
+  "faChangePinChanged": "PIN మారింది",
+  "@faChangePinChanged": {
+    "description": "Snack bar after the change.",
+    "x-key": "fa.change_pin.changed",
+    "x-screen": "FA A11 Change PIN"
+  },
+  "faChangePinNew": "కొత్త PIN ఎంచుకోండి",
+  "@faChangePinNew": {
+    "description": "Step 2.",
+    "x-key": "fa.change_pin.new",
+    "x-screen": "FA A11 Change PIN"
+  },
+  "faChangePinOld": "మీ ప్రస్తుత PIN ఎంటర్ చేయండి",
+  "@faChangePinOld": {
+    "description": "Step 1.",
+    "x-key": "fa.change_pin.old",
+    "x-screen": "FA A11 Change PIN"
+  },
+  "faChangePinWrongOld": "ప్రస్తుత PIN తప్పు",
+  "@faChangePinWrongOld": {
+    "description": "After a wrong current PIN.",
+    "x-key": "fa.change_pin.wrong_old",
+    "x-screen": "FA A11 Change PIN"
+  },
+  "faCommonArea": "{acres} ఎ. {guntas} గుం.",
+  "@faCommonArea": {
+    "description": "Plot area as acres and guntas (40 guntas = 1 acre), both parts always shown, e.g. \"2 ac 4 gunta\".",
+    "placeholders": {
+      "acres": {
+        "type": "int"
+      },
+      "guntas": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.common.area",
+    "x-screen": "FA common"
+  },
+  "faCommonCallFailed": "డయలర్ తెరవలేకపోయాం. {phone} కి కాల్ చేయండి.",
+  "@faCommonCallFailed": {
+    "description": "Snack bar when the dialer did not open for a farmer's number (Farmers, map, Farmer 360, calendar, alerts).",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.common.call_failed",
+    "x-screen": "FA any farmer Call button"
+  },
+  "faCommonDirectionsFailed": "మ్యాప్స్ తెరవలేకపోయాం.",
+  "@faCommonDirectionsFailed": {
+    "description": "Snack bar when no maps app opened for directions.",
+    "x-key": "fa.common.directions_failed",
+    "x-screen": "FA any Directions button"
+  },
+  "faCommonDistanceKm": "{distance} కి.మీ.",
+  "@faCommonDistanceKm": {
+    "description": "Distance from the FA, e.g. \"1.2 km\". The number is formatted by the app (one decimal).",
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.common.distance_km",
+    "x-screen": "FA common"
+  },
+  "faCommonDistanceM": "{distance} మీ.",
+  "@faCommonDistanceM": {
+    "description": "Distance under 1 km, e.g. \"350 m\".",
+    "placeholders": {
+      "distance": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.common.distance_m",
+    "x-screen": "FA common"
+  },
+  "faCommonErrorTitle": "ఏదో తప్పు జరిగింది",
+  "@faCommonErrorTitle": {
+    "description": "Error card title for any other error; the error text comes under it.",
+    "x-key": "fa.common.error_title",
+    "x-screen": "FA common"
+  },
+  "faCommonLogOut": "లాగ్ అవుట్",
+  "@faCommonLogOut": {
+    "description": "Log out action (error card for a session error, Me).",
+    "x-key": "fa.common.log_out",
+    "x-screen": "FA common"
+  },
+  "faCommonNotSynced": "ఇంకా సింక్ కాలేదు",
+  "@faCommonNotSynced": {
+    "description": "Tag on a farmer, plot or visit saved on this phone and not yet sent to HO.",
+    "x-key": "fa.common.not_synced",
+    "x-screen": "FA common"
+  },
+  "faCommonOfflineBody": "నెట్‌వర్క్ వచ్చాక మళ్ళీ ప్రయత్నించండి. మీ రైతుల వివరాలు ఈ ఫోన్‌లో ఉన్నాయి.",
+  "@faCommonOfflineBody": {
+    "description": "Error card text when a screen needs the network and there is none.",
+    "x-key": "fa.common.offline_body",
+    "x-screen": "FA common"
+  },
+  "faCommonOfflineTitle": "ఇంటర్నెట్ లేదు",
+  "@faCommonOfflineTitle": {
+    "description": "Error card title when a screen needs the network and there is none.",
+    "x-key": "fa.common.offline_title",
+    "x-screen": "FA common"
+  },
+  "faCommonTime": "{time}",
+  "@faCommonTime": {
+    "description": "A time of day, e.g. \"11:05 am\".",
+    "placeholders": {
+      "time": {
+        "format": "jm",
+        "type": "DateTime"
+      }
+    },
+    "x-key": "fa.common.time",
+    "x-screen": "FA common"
+  },
+  "faCommonWhatsappFailed": "వాట్సాప్ తెరవలేకపోయాం. ఫోన్‌లో ఉందా?",
+  "@faCommonWhatsappFailed": {
+    "description": "Snack bar when WhatsApp did not open.",
+    "x-key": "fa.common.whatsapp_failed",
+    "x-screen": "FA any farmer WhatsApp button"
+  },
+  "faConsentAgreed": "రైతు ఒప్పుకున్నారు. రైతు తర్వాత ఒప్పుకుంటేనే ఇతర కంపెనీలకు వివరాలు వెళ్తాయి.",
+  "@faConsentAgreed": {
+    "description": "Consent box after the OTP is confirmed.",
+    "x-key": "fa.consent.agreed",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentConfirm": "నిర్ధారించండి",
+  "@faConsentConfirm": {
+    "description": "Button: verify the consent OTP.",
+    "x-key": "fa.consent.confirm",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentHow": "రైతు ఫోన్‌కి OTP వస్తుంది. రైతు తమ భాషలో అనుమతి విని, OTP మీకు చదివి చెబుతారు.",
+  "@faConsentHow": {
+    "description": "Consent box before the OTP is sent.",
+    "x-key": "fa.consent.how",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentNeedsPhone": "ముందు రైతు మొబైల్ నంబర్ ఇవ్వండి.",
+  "@faConsentNeedsPhone": {
+    "description": "Under the disabled Send button.",
+    "x-key": "fa.consent.needs_phone",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentNotice": "మీ పంటకు సలహాలు ఇవ్వడానికి, మీ FA మీ పొలానికి రావడానికి మీ వివరాలు వాడుతాం. మీ వివరాలు షణ్ముఖ వద్ద భద్రంగా ఉంటాయి. మీరు ఒప్పుకుంటేనే ఇతర కంపెనీలకు పంపుతాం. ఒప్పుకుంటే, మీకు వచ్చిన OTP ని మీ FA కి చెప్పండి.",
+  "@faConsentNotice": {
+    "description": "The consent notice the FA reads or plays to the farmer, shown in the farmer's language (notice_version fa-v1). Changing it means a new notice version.",
+    "x-key": "fa.consent.notice",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentOfflineBody": "అది లేకుంటే అనుమతి పెండింగ్‌లో ఉంటుంది. నెట్‌వర్క్ వచ్చాక రైతు పేజీ నుండి నమోదు చేయండి.",
+  "@faConsentOfflineBody": {
+    "description": "Offline consent box body.",
+    "x-key": "fa.consent.offline_body",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentOfflineTitle": "అనుమతికి ఇంటర్నెట్ కావాలి",
+  "@faConsentOfflineTitle": {
+    "description": "Offline: no consent OTP.",
+    "x-key": "fa.consent.offline_title",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentOtpLabel": "రైతు చెప్పే OTP",
+  "@faConsentOtpLabel": {
+    "description": "Label of the OTP boxes.",
+    "x-key": "fa.consent.otp_label",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentPlay": "అనుమతి వినిపించండి",
+  "@faConsentPlay": {
+    "description": "Listen button that plays the consent notice to the farmer.",
+    "x-key": "fa.consent.play",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentPlayed": "వినిపించాం",
+  "@faConsentPlayed": {
+    "description": "Listen button label after the notice was played.",
+    "x-key": "fa.consent.played",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentRecorded": "అనుమతి నమోదైంది · {time}",
+  "@faConsentRecorded": {
+    "description": "The consent OTP was confirmed at time.",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.consent.recorded",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentRecordedPlayed": "అనుమతి నమోదైంది · {time} · {language} ఆడియో వినిపించాం",
+  "@faConsentRecordedPlayed": {
+    "description": "The consent OTP was confirmed and the notice played, in language.",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.consent.recorded_played",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentResend": "OTP మళ్ళీ పంపండి",
+  "@faConsentResend": {
+    "description": "Button: send a new consent OTP.",
+    "x-key": "fa.consent.resend",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentResendIn": "{seconds, plural, one{1 సెకనులో మళ్ళీ పంపవచ్చు} other{{seconds} సెకన్లలో మళ్ళీ పంపవచ్చు}}",
+  "@faConsentResendIn": {
+    "description": "Countdown before the OTP can be sent again.",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.consent.resend_in",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentSave": "అనుమతి సేవ్ చేయండి",
+  "@faConsentSave": {
+    "description": "Button: queue RecordConsent.",
+    "x-key": "fa.consent.save",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentSaved": "అనుమతి ఈ ఫోన్‌లో సేవ్ అయింది · ఆన్‌లైన్ అయ్యాక సింక్ అవుతుంది",
+  "@faConsentSaved": {
+    "description": "Snack bar after RecordConsent is queued.",
+    "x-key": "fa.consent.saved",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentSendOtp": "అనుమతి OTP పంపండి",
+  "@faConsentSendOtp": {
+    "description": "Button: send the consent OTP SMS.",
+    "x-key": "fa.consent.send_otp",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentSent": "{phone} కి రైతు భాషలో అనుమతి సందేశంతో OTP పంపాం.",
+  "@faConsentSent": {
+    "description": "Consent box after the OTP is sent.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.consent.sent",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentSheetTitle": "అనుమతి నమోదు · {name}",
+  "@faConsentSheetTitle": {
+    "description": "Title of the record-consent sheet (Farmer 360).",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.consent.sheet_title",
+    "x-screen": "FA A4a Consent"
+  },
+  "faConsentTitle": "రైతు అనుమతి",
+  "@faConsentTitle": {
+    "description": "Title of the consent box.",
+    "x-key": "fa.consent.title",
+    "x-screen": "FA A4a Consent"
+  },
+  "faEnrolBackToFarmers": "రైతుల జాబితాకు వెనక్కి",
+  "@faEnrolBackToFarmers": {
+    "description": "Screen reader label of the back arrow on enrol step 1.",
+    "x-key": "fa.enrol.back_to_farmers",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolCallHo": "HO కి కాల్ చేయండి",
+  "@faEnrolCallHo": {
+    "description": "Button: dial the HO helpline.",
+    "x-key": "fa.enrol.call_ho",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolCheckedAtSync": "కొనసాగించవచ్చు: సింక్ అప్పుడు నంబర్ మళ్ళీ చూస్తాం.",
+  "@faEnrolCheckedAtSync": {
+    "description": "After the lookup error text.",
+    "x-key": "fa.enrol.checked_at_sync",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolChecking": "నంబర్ చూస్తున్నాం…",
+  "@faEnrolChecking": {
+    "description": "While the phone lookup runs.",
+    "x-key": "fa.enrol.checking",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolContinueClaim": "కొనసాగించండి · నాకు కేటాయించండి",
+  "@faEnrolContinueClaim": {
+    "description": "Continue button when the farmer is an unassigned self sign-up.",
+    "x-key": "fa.enrol.continue_claim",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolDeactivatedBody": "HO ఈ రైతును నిలిపివేసింది, కాబట్టి మళ్ళీ నమోదు చేయలేరు.",
+  "@faEnrolDeactivatedBody": {
+    "description": "Body of the deactivated card.",
+    "x-key": "fa.enrol.deactivated_body",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolDeactivatedTitle": "రైతు ఖాతా నిలిపివేయబడింది",
+  "@faEnrolDeactivatedTitle": {
+    "description": "Lookup result deactivated.",
+    "x-key": "fa.enrol.deactivated_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolErrorAlreadyEnrolled": "ఈ రైతు ఇప్పటికే మీ దగ్గర ఉన్నారు.",
+  "@faEnrolErrorAlreadyEnrolled": {
+    "description": "FaActionError already_enrolled.",
+    "x-key": "fa.enrol.error_already_enrolled",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolErrorInvalidPhone": "ఇది సరైన మొబైల్ నంబర్ కాదు.",
+  "@faEnrolErrorInvalidPhone": {
+    "description": "FaActionError invalid_phone.",
+    "x-key": "fa.enrol.error_invalid_phone",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolErrorInvalidSeasonCode": "ఈ సీజన్ ముగిసింది. వేరేది ఎంచుకోండి.",
+  "@faEnrolErrorInvalidSeasonCode": {
+    "description": "FaActionError invalid_season_code.",
+    "x-key": "fa.enrol.error_invalid_season_code",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolErrorLocationRequired": "ముందు పొలం గట్టు నడవండి లేదా పిన్ పెట్టండి.",
+  "@faEnrolErrorLocationRequired": {
+    "description": "FaActionError location_required.",
+    "x-key": "fa.enrol.error_location_required",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolErrorNoData": "మీ రైతుల వివరాలు ఇంకా ఈ ఫోన్‌లో లేవు. ఒకసారి ఇంటర్నెట్‌తో సింక్ చేసి, తర్వాత నమోదు చేయండి.",
+  "@faEnrolErrorNoData": {
+    "description": "FaActionError no_data.",
+    "x-key": "fa.enrol.error_no_data",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolErrorOutOfRange": "ఈ సంఖ్య సరిగ్గా లేదు. సరిచూడండి.",
+  "@faEnrolErrorOutOfRange": {
+    "description": "FaActionError out_of_range (area, GPS accuracy).",
+    "x-key": "fa.enrol.error_out_of_range",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolErrorProofInvalid": "అనుమతి OTP గడువు ముగిసింది. కొత్త OTP పంపండి.",
+  "@faEnrolErrorProofInvalid": {
+    "description": "FaActionError proof_invalid.",
+    "x-key": "fa.enrol.error_proof_invalid",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolErrorRequired": "అన్ని వివరాలు నింపండి.",
+  "@faEnrolErrorRequired": {
+    "description": "FaActionError required.",
+    "x-key": "fa.enrol.error_required",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolErrorTooLong": "ఇది చాలా పొడవుగా ఉంది.",
+  "@faEnrolErrorTooLong": {
+    "description": "FaActionError too_long; name over 100 characters.",
+    "x-key": "fa.enrol.error_too_long",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolFinishEnrolment": "నమోదు పూర్తి చేయండి",
+  "@faEnrolFinishEnrolment": {
+    "description": "Button: go to the missing enrolment step (plot or crop).",
+    "x-key": "fa.enrol.finish_enrolment",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolLanguageLabel": "రైతు భాష",
+  "@faEnrolLanguageLabel": {
+    "description": "Label of the language chips.",
+    "x-key": "fa.enrol.language_label",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolLeaveBody": "ఇక్కడ నింపినవి సేవ్ కావు.",
+  "@faEnrolLeaveBody": {
+    "description": "Dialog body: leaving loses the form.",
+    "x-key": "fa.enrol.leave_body",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolLeaveConfirm": "వదిలేయండి",
+  "@faEnrolLeaveConfirm": {
+    "description": "Dialog button: leave and lose the form.",
+    "x-key": "fa.enrol.leave_confirm",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolLeaveStay": "ఉండండి",
+  "@faEnrolLeaveStay": {
+    "description": "Dialog button: stay on the form.",
+    "x-key": "fa.enrol.leave_stay",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolLeaveTitle": "నమోదు వదిలేయాలా?",
+  "@faEnrolLeaveTitle": {
+    "description": "Dialog title: back with details filled in.",
+    "x-key": "fa.enrol.leave_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolLookupFailedTitle": "నంబర్ చూడలేకపోయాం",
+  "@faEnrolLookupFailedTitle": {
+    "description": "The phone lookup failed (not offline): enrolment can go on.",
+    "x-key": "fa.enrol.lookup_failed_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolMineBody": "{name} ఇప్పటికే మీ రైతుల్లో ఉన్నారు.",
+  "@faEnrolMineBody": {
+    "description": "Body of the already-your-farmer card.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol.mine_body",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolMineBodyUnknown": "ఈ నంబర్ ఇప్పటికే మీ రైతుల్లో ఉంది.",
+  "@faEnrolMineBodyUnknown": {
+    "description": "Body of the already-your-farmer card when the farmer is not on the phone yet.",
+    "x-key": "fa.enrol.mine_body_unknown",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolMineTitle": "ఇప్పటికే మీ రైతు",
+  "@faEnrolMineTitle": {
+    "description": "Lookup result: the number is already this FA's farmer.",
+    "x-key": "fa.enrol.mine_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolNameLabel": "రైతు పేరు",
+  "@faEnrolNameLabel": {
+    "description": "Label of the name field.",
+    "x-key": "fa.enrol.name_label",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolNameRequired": "రైతు పేరు ఇవ్వండి.",
+  "@faEnrolNameRequired": {
+    "description": "Validation error under the name field.",
+    "x-key": "fa.enrol.name_required",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolNameTeLabel": "తెలుగులో పేరు (ఐచ్ఛికం)",
+  "@faEnrolNameTeLabel": {
+    "description": "Label of the Telugu name field.",
+    "x-key": "fa.enrol.name_te_label",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolNoConsentBody": "రైతు పేజీ నుండి నమోదు చేసే వరకు అనుమతి పెండింగ్‌లో ఉంటుంది.",
+  "@faEnrolNoConsentBody": {
+    "description": "Dialog body: enrol without consent.",
+    "x-key": "fa.enrol.no_consent_body",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolNoConsentConfirm": "అనుమతి లేకుండా నమోదు",
+  "@faEnrolNoConsentConfirm": {
+    "description": "Dialog button: enrol without consent.",
+    "x-key": "fa.enrol.no_consent_confirm",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolNoConsentTitle": "అనుమతి లేకుండా నమోదు చేయాలా?",
+  "@faEnrolNoConsentTitle": {
+    "description": "Dialog title: online but no consent OTP confirmed.",
+    "x-key": "fa.enrol.no_consent_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolOfflineBody": "ఇప్పుడే నమోదు చేయండి: సింక్ అప్పుడు నంబర్ మళ్ళీ చూస్తాం. అనుమతి, ఫోటో తర్వాత రైతు పేజీ నుండి చేర్చవచ్చు.",
+  "@faEnrolOfflineBody": {
+    "description": "Offline banner body on enrol step 1.",
+    "x-key": "fa.enrol.offline_body",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolOfflineHint": "ఆఫ్‌లైన్‌లో ఉన్నారా? సింక్ అప్పుడు నంబర్ మళ్ళీ చూస్తాం.",
+  "@faEnrolOfflineHint": {
+    "description": "Hint under Continue (online).",
+    "x-key": "fa.enrol.offline_hint",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolOfflineTitle": "ఇంటర్నెట్ లేదు",
+  "@faEnrolOfflineTitle": {
+    "description": "Offline banner title on enrol step 1.",
+    "x-key": "fa.enrol.offline_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolOpenFarmer": "రైతును తెరవండి",
+  "@faEnrolOpenFarmer": {
+    "description": "Button: open Farmer 360.",
+    "x-key": "fa.enrol.open_farmer",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolOtherFaBody": "ఈ రైతు వేరే FA దగ్గర ఉన్నారు. రైతును HO మాత్రమే మార్చగలదు. HO కి కాల్ చేయండి.",
+  "@faEnrolOtherFaBody": {
+    "description": "Body of the other-FA card.",
+    "x-key": "fa.enrol.other_fa_body",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolOtherFaTitle": "వేరే FA రైతు",
+  "@faEnrolOtherFaTitle": {
+    "description": "Lookup result other_fa.",
+    "x-key": "fa.enrol.other_fa_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolOtherNumber": "వేరే రైతును నమోదు చేయాలంటే, వేరే నంబర్ ఇవ్వండి.",
+  "@faEnrolOtherNumber": {
+    "description": "Under a card that stops enrolment of this number.",
+    "x-key": "fa.enrol.other_number",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolOutsideBody": "ఈ రైతు మీ ప్రాంతం బయటి గ్రామంలో నమోదై ఉన్నారు. మార్చడానికి HO కి కాల్ చేయండి.",
+  "@faEnrolOutsideBody": {
+    "description": "Body of the outside-your-area card.",
+    "x-key": "fa.enrol.outside_body",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolOutsideTitle": "గ్రామం మీ ప్రాంతంలో లేదు",
+  "@faEnrolOutsideTitle": {
+    "description": "Lookup result outside_my_area.",
+    "x-key": "fa.enrol.outside_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPendingBody": "ఈ రైతు స్వయంగా చేరారు. వివరాలు, అనుమతి ఇక్కడ పూర్తి చేయండి.",
+  "@faEnrolPendingBody": {
+    "description": "Body of the self sign-up card.",
+    "x-key": "fa.enrol.pending_body",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPendingTitle": "రైతు యాప్‌లో చేరారు",
+  "@faEnrolPendingTitle": {
+    "description": "The number is a self sign-up of this FA that still needs its profile.",
+    "x-key": "fa.enrol.pending_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPhoneInvalid": "రైతు 10 అంకెల మొబైల్ నంబర్ ఇవ్వండి.",
+  "@faEnrolPhoneInvalid": {
+    "description": "Validation error under the phone field.",
+    "x-key": "fa.enrol.phone_invalid",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPhoneLabel": "రైతు మొబైల్ నంబర్",
+  "@faEnrolPhoneLabel": {
+    "description": "Label of the phone field.",
+    "x-key": "fa.enrol.phone_label",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPhoto": "రైతు ఫోటో",
+  "@faEnrolPhoto": {
+    "description": "Button that opens the camera for the farmer photo; also the photo label.",
+    "x-key": "fa.enrol.photo",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPhotoAdded": "ఫోటో చేరింది",
+  "@faEnrolPhotoAdded": {
+    "description": "The farmer photo uploaded.",
+    "x-key": "fa.enrol.photo_added",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPhotoFailed": "ఫోటో వెళ్ళలేదు. మళ్ళీ ప్రయత్నించండి, లేదా ఫోటో లేకుండా కొనసాగండి.",
+  "@faEnrolPhotoFailed": {
+    "description": "The farmer photo upload failed.",
+    "x-key": "fa.enrol.photo_failed",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPhotoNoCamera": "కెమెరా తెరవలేకపోయాం. కెమెరా అనుమతి చూడండి.",
+  "@faEnrolPhotoNoCamera": {
+    "description": "Snack bar: the camera could not be used.",
+    "x-key": "fa.enrol.photo_no_camera",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPhotoOffline": "ఫోటోకి ఇంటర్నెట్ కావాలి. తర్వాత రైతు పేజీ నుండి చేర్చండి.",
+  "@faEnrolPhotoOffline": {
+    "description": "Offline: no farmer photo now.",
+    "x-key": "fa.enrol.photo_offline",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPhotoRetake": "మళ్ళీ తీయండి",
+  "@faEnrolPhotoRetake": {
+    "description": "Button: take the farmer photo again.",
+    "x-key": "fa.enrol.photo_retake",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolPhotoUploading": "ఫోటో పంపుతున్నాం…",
+  "@faEnrolPhotoUploading": {
+    "description": "While the farmer photo uploads.",
+    "x-key": "fa.enrol.photo_uploading",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolRecordConsent": "అనుమతి నమోదు చేయండి",
+  "@faEnrolRecordConsent": {
+    "description": "Button: record consent for a farmer enrolled without it.",
+    "x-key": "fa.enrol.record_consent",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolRegisteredBody": "ఈ రైతు స్వయంగా చేరారు, ఇంకా FA లేరు. కొత్తది చేయకుండా, వారి రికార్డులోనే చేరుస్తాం.",
+  "@faEnrolRegisteredBody": {
+    "description": "Body of the already-registered card; enrolment continues and the server merges.",
+    "x-key": "fa.enrol.registered_body",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolRegisteredTitle": "ఇప్పటికే నమోదై ఉన్నారు",
+  "@faEnrolRegisteredTitle": {
+    "description": "Lookup result unassigned_in_my_area: a self sign-up with no FA.",
+    "x-key": "fa.enrol.registered_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolStepCrop": "పంట",
+  "@faEnrolStepCrop": {
+    "description": "Step 3 name in the enrolment step row.",
+    "x-key": "fa.enrol.step_crop",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolStepCurrent": "ప్రస్తుత దశ",
+  "@faEnrolStepCurrent": {
+    "description": "Screen reader suffix of the current step.",
+    "x-key": "fa.enrol.step_current",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolStepDone": "పూర్తైంది",
+  "@faEnrolStepDone": {
+    "description": "Screen reader suffix of a finished step.",
+    "x-key": "fa.enrol.step_done",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolStepFarm": "పొలం",
+  "@faEnrolStepFarm": {
+    "description": "Step 2 name in the enrolment step row.",
+    "x-key": "fa.enrol.step_farm",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolStepFarmer": "రైతు",
+  "@faEnrolStepFarmer": {
+    "description": "Step 1 name in the enrolment step row.",
+    "x-key": "fa.enrol.step_farmer",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolStepsLabel": "దశలు",
+  "@faEnrolStepsLabel": {
+    "description": "Screen reader label of the enrolment step row.",
+    "x-key": "fa.enrol.steps_label",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolTitle": "రైతు నమోదు",
+  "@faEnrolTitle": {
+    "description": "Header title of enrol step 1.",
+    "x-key": "fa.enrol.title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolTitleName": "నమోదు · {name}",
+  "@faEnrolTitleName": {
+    "description": "Header title of enrol steps 2 and 3 with the farmer name.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol.title_name",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolUnknownBody": "ఈ నంబర్ గురించి HO కి కాల్ చేసి అడగండి.",
+  "@faEnrolUnknownBody": {
+    "description": "Body of the unknown-status card.",
+    "x-key": "fa.enrol.unknown_body",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolUnknownTitle": "ఈ నంబర్‌ను నమోదు చేయలేము",
+  "@faEnrolUnknownTitle": {
+    "description": "Lookup returned a status this app version does not know.",
+    "x-key": "fa.enrol.unknown_title",
+    "x-screen": "FA A4a Enrol farmer"
+  },
+  "faEnrolCropBackToFarmers": "రైతుల జాబితాకు",
+  "@faEnrolCropBackToFarmers": {
+    "description": "Success button: open Farmers.",
+    "x-key": "fa.enrol_crop.back_to_farmers",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropConsentDone": "ఇచ్చారు ✓",
+  "@faEnrolCropConsentDone": {
+    "description": "Summary consent row: consent given.",
+    "x-key": "fa.enrol_crop.consent_done",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropConsentPending": "పెండింగ్ · రైతు పేజీ నుండి నమోదు చేయండి",
+  "@faEnrolCropConsentPending": {
+    "description": "Summary consent row: consent pending.",
+    "x-key": "fa.enrol_crop.consent_pending",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropCropHeading": "ఈ సీజన్ పంట · {season}",
+  "@faEnrolCropCropHeading": {
+    "description": "Heading of the crop chips.",
+    "placeholders": {
+      "season": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_crop.crop_heading",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropEnrolled": "{name} నమోదు అయ్యారు",
+  "@faEnrolCropEnrolled": {
+    "description": "Success title after Finish enrolment.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_crop.enrolled",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropErrorCrop": "పంట ఎంచుకోండి.",
+  "@faEnrolCropErrorCrop": {
+    "description": "Finish without a crop.",
+    "x-key": "fa.enrol_crop.error_crop",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropErrorSowing": "విత్తిన తేదీ ఎంచుకోండి.",
+  "@faEnrolCropErrorSowing": {
+    "description": "Finish without a sowing choice.",
+    "x-key": "fa.enrol_crop.error_sowing",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropFallow": "ఖాళీ / తెలియదు",
+  "@faEnrolCropFallow": {
+    "description": "Previous crop chip: none or unknown.",
+    "x-key": "fa.enrol_crop.fallow",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropFinish": "నమోదు పూర్తి చేయండి",
+  "@faEnrolCropFinish": {
+    "description": "Button: queue StartSeason.",
+    "x-key": "fa.enrol_crop.finish",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropNotSown": "ఇంకా విత్తలేదు",
+  "@faEnrolCropNotSown": {
+    "description": "Sowing date chip: no date.",
+    "x-key": "fa.enrol_crop.not_sown",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropNotSownNote": "విత్తిన తేదీ లేకుంటే పంట దశ తెలియదు.",
+  "@faEnrolCropNotSownNote": {
+    "description": "Note under the chips for not sown yet.",
+    "x-key": "fa.enrol_crop.not_sown_note",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropPlanVisit": "మొదటి సందర్శన ప్లాన్ చేయండి",
+  "@faEnrolCropPlanVisit": {
+    "description": "Success button: plan the first visit.",
+    "x-key": "fa.enrol_crop.plan_visit",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropPreviousLabel": "ఈ పొలంలో ముందు పంట",
+  "@faEnrolCropPreviousLabel": {
+    "description": "Heading of the previous crop chips.",
+    "x-key": "fa.enrol_crop.previous_label",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSavedOnPhone": "ఈ ఫోన్‌లో సేవ్ అయింది. ఆన్‌లైన్ అయ్యాక HO కి వెళ్తుంది.",
+  "@faEnrolCropSavedOnPhone": {
+    "description": "Success note while not synced.",
+    "x-key": "fa.enrol_crop.saved_on_phone",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSeasonHeading": "సీజన్",
+  "@faEnrolCropSeasonHeading": {
+    "description": "Heading of the season chips.",
+    "x-key": "fa.enrol_crop.season_heading",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSeasonLabel": "{season} {year}",
+  "@faEnrolCropSeasonLabel": {
+    "description": "A season, e.g. Rabi 2026-27.",
+    "placeholders": {
+      "season": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_crop.season_label",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSmsNote": "సింక్ అయ్యాక {name} కి {language} లో స్వాగత SMS వెళ్తుంది.",
+  "@faEnrolCropSmsNote": {
+    "description": "Under Finish enrolment while the enrolment is on the phone.",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_crop.sms_note",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSowDay": "విత్తిన {day}వ రోజు",
+  "@faEnrolCropSowDay": {
+    "description": "Note under the sowing date chips.",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.enrol_crop.sow_day",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSowDayStage": "{day}వ రోజు · {stage} దశ",
+  "@faEnrolCropSowDayStage": {
+    "description": "Note under the sowing date chips with the crop stage.",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "stage": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_crop.sow_day_stage",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSowPick": "తేదీ ఎంచుకోండి",
+  "@faEnrolCropSowPick": {
+    "description": "Sowing date chip: open the date picker.",
+    "x-key": "fa.enrol_crop.sow_pick",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSowToday": "ఈరోజు · {date}",
+  "@faEnrolCropSowToday": {
+    "description": "Sowing date chip: today.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_crop.sow_today",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSowYesterday": "నిన్న · {date}",
+  "@faEnrolCropSowYesterday": {
+    "description": "Sowing date chip: yesterday.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_crop.sow_yesterday",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSowingLabel": "విత్తిన తేదీ",
+  "@faEnrolCropSowingLabel": {
+    "description": "Heading of the sowing date chips; date picker title.",
+    "x-key": "fa.enrol_crop.sowing_label",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSummary": "సారాంశం",
+  "@faEnrolCropSummary": {
+    "description": "Screen reader label of the summary card.",
+    "x-key": "fa.enrol_crop.summary",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSummaryAfter": "{crop} తర్వాత",
+  "@faEnrolCropSummaryAfter": {
+    "description": "Summary crop row part: the previous crop.",
+    "placeholders": {
+      "crop": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_crop.summary_after",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSummaryConsent": "అనుమతి",
+  "@faEnrolCropSummaryConsent": {
+    "description": "Summary row label.",
+    "x-key": "fa.enrol_crop.summary_consent",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSummaryCrop": "పంట",
+  "@faEnrolCropSummaryCrop": {
+    "description": "Summary row label.",
+    "x-key": "fa.enrol_crop.summary_crop",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSummaryFarmer": "రైతు",
+  "@faEnrolCropSummaryFarmer": {
+    "description": "Summary row label.",
+    "x-key": "fa.enrol_crop.summary_farmer",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSummaryNoCrop": "ఇంకా ఎంచుకోలేదు",
+  "@faEnrolCropSummaryNoCrop": {
+    "description": "Summary crop row without a crop.",
+    "x-key": "fa.enrol_crop.summary_no_crop",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropSummarySown": "{date} న విత్తారు",
+  "@faEnrolCropSummarySown": {
+    "description": "Summary crop row part.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_crop.summary_sown",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolCropThisSeason": "ఈ సీజన్",
+  "@faEnrolCropThisSeason": {
+    "description": "Under the current season chip.",
+    "x-key": "fa.enrol_crop.this_season",
+    "x-screen": "FA A4c Enrol crop"
+  },
+  "faEnrolPlotAcresDecimal": "({acres} ఎ.)",
+  "@faEnrolPlotAcresDecimal": {
+    "description": "The area in decimal acres, after acres and guntas.",
+    "placeholders": {
+      "acres": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_plot.acres_decimal",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotArea": "విస్తీర్ణం",
+  "@faEnrolPlotArea": {
+    "description": "Label of the area row.",
+    "x-key": "fa.enrol_plot.area",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotAreaNotYet": "ఇంకా లేదు",
+  "@faEnrolPlotAreaNotYet": {
+    "description": "Area row before there is an area.",
+    "x-key": "fa.enrol_plot.area_not_yet",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotChangeVillage": "గ్రామం మార్చండి",
+  "@faEnrolPlotChangeVillage": {
+    "description": "Button: pick another village.",
+    "x-key": "fa.enrol_plot.change_village",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotClose": "గట్టు పూర్తి చేయండి",
+  "@faEnrolPlotClose": {
+    "description": "Button: join the last corner to the first.",
+    "x-key": "fa.enrol_plot.close",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotClosed": "గట్టు పూర్తైంది",
+  "@faEnrolPlotClosed": {
+    "description": "Walk status once closed.",
+    "x-key": "fa.enrol_plot.closed",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotErrorTyped": "విస్తీర్ణం ఎకరాలు, గుంటల్లో ఇవ్వండి.",
+  "@faEnrolPlotErrorTyped": {
+    "description": "Save without a typed area.",
+    "x-key": "fa.enrol_plot.error_typed",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotErrorWalk": "గట్టు నడిచి పూర్తి చేయండి, లేదా విస్తీర్ణం టైప్ చేయండి.",
+  "@faEnrolPlotErrorWalk": {
+    "description": "Save without a closed boundary.",
+    "x-key": "fa.enrol_plot.error_walk",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGpsChecking": "GPS చూస్తున్నాం…",
+  "@faEnrolPlotGpsChecking": {
+    "description": "Waiting for a GPS fix.",
+    "x-key": "fa.enrol_plot.gps_checking",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGpsCheckingBody": "ఫోన్‌ను పైకి పట్టుకుని కొన్ని సెకన్లు కదలకుండా ఉండండి.",
+  "@faEnrolPlotGpsCheckingBody": {
+    "description": "Body of the checking GPS card.",
+    "x-key": "fa.enrol_plot.gps_checking_body",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGpsDenied": "లొకేషన్ అనుమతి లేదు",
+  "@faEnrolPlotGpsDenied": {
+    "description": "GPS card: permission denied.",
+    "x-key": "fa.enrol_plot.gps_denied",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGpsGood": "GPS ±{metres} మీ. · బాగుంది",
+  "@faEnrolPlotGpsGood": {
+    "description": "GPS pill while good enough.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.enrol_plot.gps_good",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGpsLowBody": "గట్టు నడవడానికి ఇది సరిపోదు. చెట్లు, షెడ్లకు దూరంగా ఖాళీ చోటుకి వెళ్ళండి, లేదా విస్తీర్ణం టైప్ చేయండి.",
+  "@faEnrolPlotGpsLowBody": {
+    "description": "Body of the GPS too rough card.",
+    "x-key": "fa.enrol_plot.gps_low_body",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGpsLowTitle": "GPS ±{metres} మీ.",
+  "@faEnrolPlotGpsLowTitle": {
+    "description": "GPS too rough to walk the boundary.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.enrol_plot.gps_low_title",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGpsNoFix": "ఇంకా GPS సిగ్నల్ రాలేదు",
+  "@faEnrolPlotGpsNoFix": {
+    "description": "GPS card: no fix in time.",
+    "x-key": "fa.enrol_plot.gps_no_fix",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGpsOff": "లొకేషన్ ఆఫ్‌లో ఉంది",
+  "@faEnrolPlotGpsOff": {
+    "description": "GPS card: location service off.",
+    "x-key": "fa.enrol_plot.gps_off",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGpsProblemBody": "ఈ యాప్‌కి లొకేషన్ ఆన్ చేయండి, ఖాళీ చోటుకి వెళ్ళండి, లేదా విస్తీర్ణం టైప్ చేయండి.",
+  "@faEnrolPlotGpsProblemBody": {
+    "description": "Body of the GPS problem card.",
+    "x-key": "fa.enrol_plot.gps_problem_body",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGpsRough": "GPS ±{metres} మీ. · సరిపోదు",
+  "@faEnrolPlotGpsRough": {
+    "description": "GPS pill while too rough.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.enrol_plot.gps_rough",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGuntasPerAcre": "40 గుంటలు = 1 ఎకరం",
+  "@faEnrolPlotGuntasPerAcre": {
+    "description": "Hint under the area fields.",
+    "x-key": "fa.enrol_plot.guntas_per_acre",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotGuntasTooMany": "గుంటలు 40 కంటే తక్కువ ఉండాలి.",
+  "@faEnrolPlotGuntasTooMany": {
+    "description": "Validation error of the guntas field.",
+    "x-key": "fa.enrol_plot.guntas_too_many",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotLabel": "పొలం {number}",
+  "@faEnrolPlotLabel": {
+    "description": "The new plot label (stored in English as data).",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.enrol_plot.label",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotMandal": "మండలం",
+  "@faEnrolPlotMandal": {
+    "description": "Mandal row label.",
+    "x-key": "fa.enrol_plot.mandal",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotMetresSoFar": "ఇప్పటి వరకు {metres} మీ.",
+  "@faEnrolPlotMetresSoFar": {
+    "description": "Distance walked so far.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.enrol_plot.metres_so_far",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotModeType": "విస్తీర్ణం టైప్ చేయండి",
+  "@faEnrolPlotModeType": {
+    "description": "Tab and button: type the area instead.",
+    "x-key": "fa.enrol_plot.mode_type",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotModeWalk": "గట్టు నడవండి",
+  "@faEnrolPlotModeWalk": {
+    "description": "Tab: mark the plot by walking its edge.",
+    "x-key": "fa.enrol_plot.mode_walk",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotNeedCorners": "గట్టు పూర్తి చేయడానికి కనీసం 3 మూలలు నడవండి.",
+  "@faEnrolPlotNeedCorners": {
+    "description": "Under the disabled Close boundary button.",
+    "x-key": "fa.enrol_plot.need_corners",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotPause": "ఆపండి",
+  "@faEnrolPlotPause": {
+    "description": "Button: pause recording the walk.",
+    "x-key": "fa.enrol_plot.pause",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotPaused": "ఆపాం · {metres} మీ.",
+  "@faEnrolPlotPaused": {
+    "description": "Walk status while paused.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.enrol_plot.paused",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotPickVillage": "ఈ పొలం ఏ గ్రామంలో ఉంది?",
+  "@faEnrolPlotPickVillage": {
+    "description": "Title of the village picker.",
+    "x-key": "fa.enrol_plot.pick_village",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotPinHere": "మీరు ఉన్న చోట పిన్ · GPS ±{metres} మీ.",
+  "@faEnrolPlotPinHere": {
+    "description": "Where the typed plot pin goes.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.enrol_plot.pin_here",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotPinVillage": "GPS లేదు: పిన్ గ్రామం మధ్యలో పెడతాం.",
+  "@faEnrolPlotPinVillage": {
+    "description": "Typed plot pin without GPS.",
+    "x-key": "fa.enrol_plot.pin_village",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotReady": "ఒక మూలలో నిలబడి, 'మొదలు ఇక్కడ' నొక్కండి",
+  "@faEnrolPlotReady": {
+    "description": "Walk status before starting.",
+    "x-key": "fa.enrol_plot.ready",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotRecording": "రికార్డ్ అవుతోంది · {metres} మీ.",
+  "@faEnrolPlotRecording": {
+    "description": "Walk status while recording.",
+    "placeholders": {
+      "metres": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.enrol_plot.recording",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotResume": "కొనసాగించండి",
+  "@faEnrolPlotResume": {
+    "description": "Button: resume recording the walk.",
+    "x-key": "fa.enrol_plot.resume",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotRoughWhileWalking": "ఇక్కడ GPS సరిగ్గా లేదు: మెరుగయ్యే వరకు మూలలు నమోదు కావు.",
+  "@faEnrolPlotRoughWhileWalking": {
+    "description": "Warning while walking with a rough fix.",
+    "x-key": "fa.enrol_plot.rough_while_walking",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotSaveNext": "సేవ్ చేసి ముందుకు",
+  "@faEnrolPlotSaveNext": {
+    "description": "Button: queue SavePlot and open step 3.",
+    "x-key": "fa.enrol_plot.save_next",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotSavedNote": "ఈ ఫోన్‌లో సేవ్ అవుతుంది · ఆన్‌లైన్ అయ్యాక సింక్ అవుతుంది",
+  "@faEnrolPlotSavedNote": {
+    "description": "Under Save & next.",
+    "x-key": "fa.enrol_plot.saved_note",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotSketchClosed": "గట్టు పూర్తైంది, {area}",
+  "@faEnrolPlotSketchClosed": {
+    "description": "Screen reader label of the closed boundary sketch.",
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.enrol_plot.sketch_closed",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotSketchPin": "మీరు ఉన్న చోట పిన్",
+  "@faEnrolPlotSketchPin": {
+    "description": "Screen reader label of the pin sketch.",
+    "x-key": "fa.enrol_plot.sketch_pin",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotSketchWalking": "{corners, plural, =0{పొలం చిత్రం, ఇంకా నడవలేదు} one{పొలం చిత్రం, 1 మూల నడిచారు} other{పొలం చిత్రం, {corners} మూలలు నడిచారు}}",
+  "@faEnrolPlotSketchWalking": {
+    "description": "Screen reader label of the boundary sketch.",
+    "placeholders": {
+      "corners": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.enrol_plot.sketch_walking",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotStart": "మొదలు ఇక్కడ",
+  "@faEnrolPlotStart": {
+    "description": "Button: the first corner is where the FA stands.",
+    "x-key": "fa.enrol_plot.start",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotTypedNote": "GPS సరిగ్గా లేనప్పుడు ఇది వాడండి. గట్టు నడిచే వరకు పొలం పిన్‌గా మాత్రమే కనిపిస్తుంది.",
+  "@faEnrolPlotTypedNote": {
+    "description": "Note above the typed area fields.",
+    "x-key": "fa.enrol_plot.typed_note",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotUndo": "చివరి మూల తీసేయండి",
+  "@faEnrolPlotUndo": {
+    "description": "Button: drop the last recorded corner.",
+    "x-key": "fa.enrol_plot.undo",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotVillage": "గ్రామం",
+  "@faEnrolPlotVillage": {
+    "description": "Village row label (picked by hand).",
+    "x-key": "fa.enrol_plot.village",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotVillageFromGps": "గ్రామం · GPS నుండి",
+  "@faEnrolPlotVillageFromGps": {
+    "description": "Village row label (nearest to the GPS).",
+    "x-key": "fa.enrol_plot.village_from_gps",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotWalkAgain": "మళ్ళీ నడవండి",
+  "@faEnrolPlotWalkAgain": {
+    "description": "Button: drop the boundary and walk again.",
+    "x-key": "fa.enrol_plot.walk_again",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faEnrolPlotWalking": "నడుస్తున్నారు…",
+  "@faEnrolPlotWalking": {
+    "description": "Area row while walking.",
+    "x-key": "fa.enrol_plot.walking",
+    "x-screen": "FA A4 Enrol plot"
+  },
+  "faFarmer360ActionFailed": "ఈ ఫోన్‌లో సేవ్ కాలేదు. మళ్లీ ప్రయత్నించండి.",
+  "@faFarmer360ActionFailed": {
+    "description": "Snack bar when a local action failed.",
+    "x-key": "fa.farmer360.action_failed",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360Advised": "{advice} సూచించారు",
+  "@faFarmer360Advised": {
+    "description": "Advice given on the last visit: a product name, else a salt name.",
+    "placeholders": {
+      "advice": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.farmer360.advised",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360CallbackAsked": "{when} అడిగారు",
+  "@faFarmer360CallbackAsked": {
+    "description": "When the call-back was asked, e.g. \"25 min ago\".",
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.farmer360.callback_asked",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360CallbackClose": "తిరిగి కాల్ పూర్తయింది",
+  "@faFarmer360CallbackClose": {
+    "description": "Button after calling the farmer back.",
+    "x-key": "fa.farmer360.callback_close",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360CallbackClosed": "తిరిగి కాల్ మూసివేశాం.",
+  "@faFarmer360CallbackClosed": {
+    "description": "Snack bar after closing the call-back.",
+    "x-key": "fa.farmer360.callback_closed",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360ConflictKeepMine": "నాది ఉంచండి",
+  "@faFarmer360ConflictKeepMine": {
+    "description": "Conflict card button.",
+    "x-key": "fa.farmer360.conflict_keep_mine",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360ConflictKeepTheirs": "HOది ఉంచండి",
+  "@faFarmer360ConflictKeepTheirs": {
+    "description": "Conflict card button.",
+    "x-key": "fa.farmer360.conflict_keep_theirs",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360ConflictMeta": "మీరు ఆఫ్‌లైన్‌లో ఉన్నప్పుడు HO ఈ ప్రొఫైల్ మార్చారు",
+  "@faFarmer360ConflictMeta": {
+    "description": "Conflict card line.",
+    "x-key": "fa.farmer360.conflict_meta",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360ConflictMine": "మీది",
+  "@faFarmer360ConflictMine": {
+    "description": "Conflict card: your value heading.",
+    "x-key": "fa.farmer360.conflict_mine",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360ConflictStatus": "తేడా ఉంది",
+  "@faFarmer360ConflictStatus": {
+    "description": "Conflict card pill.",
+    "x-key": "fa.farmer360.conflict_status",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360ConflictTheirs": "HOది",
+  "@faFarmer360ConflictTheirs": {
+    "description": "Conflict card: HO's value heading.",
+    "x-key": "fa.farmer360.conflict_theirs",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360ConflictTitle": "ప్రొఫైల్ · {name}",
+  "@faFarmer360ConflictTitle": {
+    "description": "Conflict card title.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.farmer360.conflict_title",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360ConsentCount": "{total}లో {count}కి అంగీకారం",
+  "@faFarmer360ConsentCount": {
+    "description": "Consents granted, e.g. \"2 of 4 agreed\".",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.farmer360.consent_count",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360ConsentPending": "నమోదు కాలేదు",
+  "@faFarmer360ConsentPending": {
+    "description": "Pill: programme consent not recorded yet.",
+    "x-key": "fa.farmer360.consent_pending",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360EditLanguage": "రైతు భాష",
+  "@faFarmer360EditLanguage": {
+    "description": "Edit profile field: language of SMS and app.",
+    "x-key": "fa.farmer360.edit_language",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360EditName": "పేరు (ఇంగ్లీష్)",
+  "@faFarmer360EditName": {
+    "description": "Edit profile field.",
+    "x-key": "fa.farmer360.edit_name",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360EditNameTe": "తెలుగులో పేరు",
+  "@faFarmer360EditNameTe": {
+    "description": "Edit profile field.",
+    "x-key": "fa.farmer360.edit_name_te",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360EditNothingChanged": "ఏమీ మారలేదు.",
+  "@faFarmer360EditNothingChanged": {
+    "description": "Save tapped without a change.",
+    "x-key": "fa.farmer360.edit_nothing_changed",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360EditProfile": "ప్రొఫైల్ మార్చండి",
+  "@faFarmer360EditProfile": {
+    "description": "Button and sheet title.",
+    "x-key": "fa.farmer360.edit_profile",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360EditRequired": "పేరు రాయండి",
+  "@faFarmer360EditRequired": {
+    "description": "Validation: empty name.",
+    "x-key": "fa.farmer360.edit_required",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360EditSaved": "సేవ్ అయింది. తదుపరి సింక్‌లో HOకి వెళ్తుంది.",
+  "@faFarmer360EditSaved": {
+    "description": "Snack bar after saving the profile.",
+    "x-key": "fa.farmer360.edit_saved",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360EditTooLong": "100 అక్షరాల లోపు రాయండి",
+  "@faFarmer360EditTooLong": {
+    "description": "Validation: name too long.",
+    "x-key": "fa.farmer360.edit_too_long",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360NextVisitNone": "ఏదీ ప్లాన్ చేయలేదు",
+  "@faFarmer360NextVisitNone": {
+    "description": "No planned visit.",
+    "x-key": "fa.farmer360.next_visit_none",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360NoIssues": "సమస్యలు కనిపించలేదు",
+  "@faFarmer360NoIssues": {
+    "description": "Last visit without issues.",
+    "x-key": "fa.farmer360.no_issues",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360NoPlot": "ఇంకా పొలం లేదు",
+  "@faFarmer360NoPlot": {
+    "description": "Farmer with no plot.",
+    "x-key": "fa.farmer360.no_plot",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360NoVisit": "ఇంకా సందర్శన లేదు",
+  "@faFarmer360NoVisit": {
+    "description": "No done visit.",
+    "x-key": "fa.farmer360.no_visit",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360PlanVisit": "సందర్శన ప్లాన్ చేయండి",
+  "@faFarmer360PlanVisit": {
+    "description": "Button: opens Plan a visit.",
+    "x-key": "fa.farmer360.plan_visit",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360PlotDay": "{day}వ రోజు",
+  "@faFarmer360PlotDay": {
+    "description": "Days after sowing when the stage is unknown.",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.farmer360.plot_day",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360PlotNoCrop": "పంట ఇంకా మొదలుపెట్టలేదు",
+  "@faFarmer360PlotNoCrop": {
+    "description": "Plot without an active season.",
+    "x-key": "fa.farmer360.plot_no_crop",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360PlotStageDay": "{stage} · {day}వ రోజు",
+  "@faFarmer360PlotStageDay": {
+    "description": "Crop stage and days after sowing, e.g. \"Flowering · day 137\".",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "stage": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.farmer360.plot_stage_day",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360RecordConsent": "అంగీకారం నమోదు చేయండి",
+  "@faFarmer360RecordConsent": {
+    "description": "Button for a farmer enrolled without consent.",
+    "x-key": "fa.farmer360.record_consent",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360RowCallback": "తిరిగి కాల్",
+  "@faFarmer360RowCallback": {
+    "description": "Summary row label: the farmer asked for a call.",
+    "x-key": "fa.farmer360.row_callback",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360RowConsent": "అంగీకారం",
+  "@faFarmer360RowConsent": {
+    "description": "Summary row label.",
+    "x-key": "fa.farmer360.row_consent",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360RowLastVisit": "చివరి సందర్శన",
+  "@faFarmer360RowLastVisit": {
+    "description": "Summary row label.",
+    "x-key": "fa.farmer360.row_last_visit",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360RowNextVisit": "తదుపరి సందర్శన",
+  "@faFarmer360RowNextVisit": {
+    "description": "Summary row label.",
+    "x-key": "fa.farmer360.row_next_visit",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360RowPlan": "ప్లాన్",
+  "@faFarmer360RowPlan": {
+    "description": "Summary row label.",
+    "x-key": "fa.farmer360.row_plan",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360RowPlot": "పొలం",
+  "@faFarmer360RowPlot": {
+    "description": "Summary row label.",
+    "x-key": "fa.farmer360.row_plot",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360StartVisit": "సందర్శన మొదలు",
+  "@faFarmer360StartVisit": {
+    "description": "Quick action: opens the visit log.",
+    "x-key": "fa.farmer360.start_visit",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmer360SummaryLabel": "రైతు సారాంశం",
+  "@faFarmer360SummaryLabel": {
+    "description": "Screen reader label of the summary card.",
+    "x-key": "fa.farmer360.summary_label",
+    "x-screen": "FA A8 Farmer 360"
+  },
+  "faFarmersActionDirections": "దారి",
+  "@faFarmersActionDirections": {
+    "description": "Button / label: opens maps at the farm.",
+    "x-key": "fa.farmers.action_directions",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersActionFinishEnrolment": "నమోదు పూర్తి చేయండి",
+  "@faFarmersActionFinishEnrolment": {
+    "description": "Card and map button: continue enrolment where it stopped.",
+    "x-key": "fa.farmers.action_finish_enrolment",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersActionOpenFarmer": "రైతును తెరవండి",
+  "@faFarmersActionOpenFarmer": {
+    "description": "Map card main button: opens Farmer 360.",
+    "x-key": "fa.farmers.action_open_farmer",
+    "x-screen": "FA A2m Farmers map"
+  },
+  "faFarmersCount": "{count, plural, one{1 రైతు} other{{count} రైతులు}}",
+  "@faFarmersCount": {
+    "description": "Header sub-line part: farmers in the territory.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.farmers.count",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersEmptyAction": "రైతును నమోదు చేయండి",
+  "@faFarmersEmptyAction": {
+    "description": "Empty list button: opens Enrol.",
+    "x-key": "fa.farmers.empty_action",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersEmptyBody": "మీరు నమోదు చేసిన రైతులు ఇక్కడ కనిపిస్తారు, దగ్గర వారు ముందు.",
+  "@faFarmersEmptyBody": {
+    "description": "Empty list text.",
+    "x-key": "fa.farmers.empty_body",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersEmptyTitle": "ఇంకా రైతులు లేరు",
+  "@faFarmersEmptyTitle": {
+    "description": "Empty list title.",
+    "x-key": "fa.farmers.empty_title",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersFilter30Days": "30+ రోజులు",
+  "@faFarmersFilter30Days": {
+    "description": "Filter chip and map legend: no visit for 30 days or more.",
+    "x-key": "fa.farmers.filter_30_days",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersFilterAll": "అందరూ",
+  "@faFarmersFilterAll": {
+    "description": "Filter chip.",
+    "x-key": "fa.farmers.filter_all",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersFilterFinishEnrolment": "నమోదు పూర్తి కావాలి",
+  "@faFarmersFilterFinishEnrolment": {
+    "description": "Filter chip: consent, plot or crop missing.",
+    "x-key": "fa.farmers.filter_finish_enrolment",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersFilterLabel": "రైతులను వడపోయండి",
+  "@faFarmersFilterLabel": {
+    "description": "Screen reader label of the filter chips.",
+    "x-key": "fa.farmers.filter_label",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersFilterNew": "కొత్త",
+  "@faFarmersFilterNew": {
+    "description": "Filter chip and map legend: joined today or yesterday.",
+    "x-key": "fa.farmers.filter_new",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersFilterVisitDue": "సందర్శన బాకీ",
+  "@faFarmersFilterVisitDue": {
+    "description": "Filter chip.",
+    "x-key": "fa.farmers.filter_visit_due",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMapAttribution": "© OpenStreetMap contributors",
+  "@faFarmersMapAttribution": {
+    "description": "Map tile attribution required by OpenStreetMap. Keep as is.",
+    "x-key": "fa.farmers.map_attribution",
+    "x-screen": "FA A2m Farmers map"
+  },
+  "faFarmersMapLegendOthers": "ఇతరులు",
+  "@faFarmersMapLegendOthers": {
+    "description": "Map legend: other farmers.",
+    "x-key": "fa.farmers.map_legend_others",
+    "x-screen": "FA A2m Farmers map"
+  },
+  "faFarmersMapOffline": "ప్రస్తుతానికి మ్యాప్‌కు ఇంటర్నెట్ కావాలి",
+  "@faFarmersMapOffline": {
+    "description": "Pill on the map when offline (pins still work).",
+    "x-key": "fa.farmers.map_offline",
+    "x-screen": "FA A2m Farmers map"
+  },
+  "faFarmersMapSelected": "ఎంచుకున్న రైతు",
+  "@faFarmersMapSelected": {
+    "description": "Screen reader label of the card under the map.",
+    "x-key": "fa.farmers.map_selected",
+    "x-screen": "FA A2m Farmers map"
+  },
+  "faFarmersMapYou": "మీ స్థానం",
+  "@faFarmersMapYou": {
+    "description": "Screen reader label of the FA marker.",
+    "x-key": "fa.farmers.map_you",
+    "x-screen": "FA A2m Farmers map"
+  },
+  "faFarmersMetaDaysSinceVisit": "{count, plural, one{సందర్శన జరిగి 1 రోజు} other{సందర్శన జరిగి {count} రోజులు}}",
+  "@faFarmersMetaDaysSinceVisit": {
+    "description": "Card meta part, shown in red at 30 days or more.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.farmers.meta_days_since_visit",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaJoinedOn": "{date}న చేరారు",
+  "@faFarmersMetaJoinedOn": {
+    "description": "Card meta part, date like \"12 Oct\".",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.farmers.meta_joined_on",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaJoinedToday": "ఈరోజు చేరారు",
+  "@faFarmersMetaJoinedToday": {
+    "description": "Card meta part.",
+    "x-key": "fa.farmers.meta_joined_today",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaJoinedYesterday": "నిన్న చేరారు",
+  "@faFarmersMetaJoinedYesterday": {
+    "description": "Card meta part.",
+    "x-key": "fa.farmers.meta_joined_yesterday",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaLastVisitDays": "{count, plural, one{చివరి సందర్శన 1 రోజు క్రితం} other{చివరి సందర్శన {count} రోజుల క్రితం}}",
+  "@faFarmersMetaLastVisitDays": {
+    "description": "Card meta part.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.farmers.meta_last_visit_days",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaNeverVisited": "{count, plural, one{1 రోజులో సందర్శన లేదు} other{{count} రోజులుగా సందర్శన లేదు}}",
+  "@faFarmersMetaNeverVisited": {
+    "description": "Card meta part: never visited, days since joining (red at 30+).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.farmers.meta_never_visited",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaNoCrop": "ఇంకా పంట లేదు",
+  "@faFarmersMetaNoCrop": {
+    "description": "Card meta part: no crop on any plot.",
+    "x-key": "fa.farmers.meta_no_crop",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaVisitDueOn": "{day} సందర్శన",
+  "@faFarmersMetaVisitDueOn": {
+    "description": "Card meta part: a visit planned this week; day is a short weekday like \"Thu\".",
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.farmers.meta_visit_due_on",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaVisitDueToday": "ఈరోజు సందర్శన",
+  "@faFarmersMetaVisitDueToday": {
+    "description": "Card meta part: a visit is planned today.",
+    "x-key": "fa.farmers.meta_visit_due_today",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaVisitOverdue": "సందర్శన ఆలస్యం",
+  "@faFarmersMetaVisitOverdue": {
+    "description": "Card meta part: a planned visit date has passed.",
+    "x-key": "fa.farmers.meta_visit_overdue",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaVisitedToday": "ఈరోజు సందర్శించారు",
+  "@faFarmersMetaVisitedToday": {
+    "description": "Card meta part.",
+    "x-key": "fa.farmers.meta_visited_today",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersMetaVisitedYesterday": "చివరి సందర్శన నిన్న",
+  "@faFarmersMetaVisitedYesterday": {
+    "description": "Card meta part.",
+    "x-key": "fa.farmers.meta_visited_yesterday",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersNearestFirst": "దగ్గర వారు ముందు",
+  "@faFarmersNearestFirst": {
+    "description": "Header sub-line part: list order.",
+    "x-key": "fa.farmers.nearest_first",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersNoDataAction": "సింక్ తెరవండి",
+  "@faFarmersNoDataAction": {
+    "description": "Button before the first sync: opens Sync.",
+    "x-key": "fa.farmers.no_data_action",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersNoDataBody": "మొదటి సింక్‌లో అవి వస్తాయి. ఇంటర్నెట్ కలిపి సింక్ చేయండి.",
+  "@faFarmersNoDataBody": {
+    "description": "Before the first sync.",
+    "x-key": "fa.farmers.no_data_body",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersNoDataTitle": "రైతుల వివరాలు ఇంకా ఈ ఫోన్‌లో లేవు",
+  "@faFarmersNoDataTitle": {
+    "description": "Before the first sync.",
+    "x-key": "fa.farmers.no_data_title",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersNoMatchFilter": "ఈ వడపోతలో ఇప్పుడు రైతులు లేరు.",
+  "@faFarmersNoMatchFilter": {
+    "description": "No farmer under the chip.",
+    "x-key": "fa.farmers.no_match_filter",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersNoMatchSearch": "\"{query}\"కి రైతు లేరు. పేరు లేదా నంబర్ చూడండి.",
+  "@faFarmersNoMatchSearch": {
+    "description": "No search result.",
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.farmers.no_match_search",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersNoMatchTitle": "సరిపోయే రైతులు లేరు",
+  "@faFarmersNoMatchTitle": {
+    "description": "Nothing matches the filter or search.",
+    "x-key": "fa.farmers.no_match_title",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersSearchClear": "వెతికినది తుడిచివేయండి",
+  "@faFarmersSearchClear": {
+    "description": "Tooltip of the clear button in the search field.",
+    "x-key": "fa.farmers.search_clear",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersSearchClose": "వెతకడం ఆపండి",
+  "@faFarmersSearchClose": {
+    "description": "Tooltip of the header icon while search is open.",
+    "x-key": "fa.farmers.search_close",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersSearchHint": "పేరు లేదా ఫోన్ నంబర్",
+  "@faFarmersSearchHint": {
+    "description": "Hint in the search field.",
+    "x-key": "fa.farmers.search_hint",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersSearchOpen": "పేరు లేదా ఫోన్‌తో వెతకండి",
+  "@faFarmersSearchOpen": {
+    "description": "Tooltip of the header search icon.",
+    "x-key": "fa.farmers.search_open",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersShowAll": "అందరు రైతులను చూపండి",
+  "@faFarmersShowAll": {
+    "description": "Button that clears filter and search.",
+    "x-key": "fa.farmers.show_all",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersShown": "{count} చూపిస్తున్నాం",
+  "@faFarmersShown": {
+    "description": "Header sub-line part when a filter or search is on.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.farmers.shown",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersTagNew": "కొత్త",
+  "@faFarmersTagNew": {
+    "description": "Tag on a farmer who joined yesterday or still needs enrolment.",
+    "x-key": "fa.farmers.tag_new",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersTagNewToday": "ఈరోజు కొత్త",
+  "@faFarmersTagNewToday": {
+    "description": "Tag on a farmer who joined today.",
+    "x-key": "fa.farmers.tag_new_today",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersTitle": "నా దగ్గర రైతులు",
+  "@faFarmersTitle": {
+    "description": "Farmers tab header title.",
+    "x-key": "fa.farmers.title",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersViewList": "జాబితా",
+  "@faFarmersViewList": {
+    "description": "List / Map switch: list.",
+    "x-key": "fa.farmers.view_list",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faFarmersViewMap": "మ్యాప్",
+  "@faFarmersViewMap": {
+    "description": "List / Map switch: map.",
+    "x-key": "fa.farmers.view_map",
+    "x-screen": "FA A2 Farmers near me"
+  },
+  "faLoginEndedBody": "మీ రికార్డులు ఈ ఫోన్‌లో భద్రంగా ఉన్నాయి. పాస్‌వర్డ్‌తో లాగిన్ అయ్యాక అవి పంపబడతాయి.",
+  "@faLoginEndedBody": {
+    "description": "Banner body: the server session ended.",
+    "x-key": "fa.login.ended_body",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginEndedTitle": "సింక్ కోసం మళ్ళీ లాగిన్ అవ్వండి",
+  "@faLoginEndedTitle": {
+    "description": "Banner title: the server session ended.",
+    "x-key": "fa.login.ended_title",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginErrorOfflineAgain": "ఇంటర్నెట్ లేదు. నెట్‌వర్క్ వచ్చాక మీ పాస్‌వర్డ్‌తో లాగిన్ అవ్వండి. మీ రికార్డులు ఈ ఫోన్‌లో భద్రంగా ఉన్నాయి.",
+  "@faLoginErrorOfflineAgain": {
+    "description": "Login failed offline while a session (and unsynced records) is on the phone.",
+    "x-key": "fa.login.error_offline_again",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginErrorOfflineFirst": "లాగిన్ అవ్వడానికి నెట్‌వర్క్ కావాలి. మొబైల్ డేటా లేదా Wi-Fi ఆన్ చేసి మళ్ళీ ప్రయత్నించండి.",
+  "@faLoginErrorOfflineFirst": {
+    "description": "Login failed offline and there is no session on the phone yet.",
+    "x-key": "fa.login.error_offline_first",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginErrorWrong": "లాగిన్ ID లేదా పాస్‌వర్డ్ తప్పు. సరిచూసి మళ్ళీ ప్రయత్నించండి.",
+  "@faLoginErrorWrong": {
+    "description": "401 unauthorized: one message for a wrong ID or password.",
+    "x-key": "fa.login.error_wrong",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginExpiredBody": "మీ PIN ఆఫ్‌లైన్‌లో {days} రోజులు పనిచేస్తుంది. నెట్‌వర్క్ వచ్చాక మీ పాస్‌వర్డ్‌తో లాగిన్ అవ్వండి.",
+  "@faLoginExpiredBody": {
+    "description": "Banner body: the PIN offline grace is over.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.login.expired_body",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginExpiredTitle": "సెషన్ ముగిసింది",
+  "@faLoginExpiredTitle": {
+    "description": "Banner title: the PIN offline grace is over.",
+    "x-key": "fa.login.expired_title",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginFooterHo": "HO {phone}",
+  "@faLoginFooterHo": {
+    "description": "Footer part: the HO helpline.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.login.footer_ho",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginFooterSynced": "చివరి సింక్ {day} {time}",
+  "@faLoginFooterSynced": {
+    "description": "Footer part: last sync, e.g. \"last synced Today 10:42 AM\".",
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.login.footer_synced",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginFooterVersion": "వెర్షన్ {version}",
+  "@faLoginFooterVersion": {
+    "description": "Footer part: app version.",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.login.footer_version",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginForgot": "పాస్‌వర్డ్ మర్చిపోయారా? HO కి కాల్ చేయండి",
+  "@faLoginForgot": {
+    "description": "Link that opens the dialer with the HO helpline.",
+    "x-key": "fa.login.forgot",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginHoNote": "మీ లాగిన్‌ను హెడ్ ఆఫీస్ ఇస్తుంది, అది మీకు మాత్రమే. మీరు బదిలీ అయినా వెళ్ళిపోయినా, HO మీ రైతులను కొత్త FA కి అప్పగిస్తుంది; లాగిన్‌లు ఎప్పుడూ పంచుకోరు.",
+  "@faLoginHoNote": {
+    "description": "Info card at the bottom of the login.",
+    "x-key": "fa.login.ho_note",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginLockedBody": "మీ పాస్‌వర్డ్‌తో లాగిన్ అయ్యి కొత్త PIN పెట్టుకోండి. మీ రికార్డులు ఈ ఫోన్‌లో భద్రంగా ఉన్నాయి.",
+  "@faLoginLockedBody": {
+    "description": "Banner body: the PIN is locked out.",
+    "x-key": "fa.login.locked_body",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginLockedTitle": "చాలా సార్లు తప్పు PIN",
+  "@faLoginLockedTitle": {
+    "description": "Banner title: the PIN is locked out.",
+    "x-key": "fa.login.locked_title",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginLogIn": "లాగిన్ అవ్వండి",
+  "@faLoginLogIn": {
+    "description": "Main button.",
+    "x-key": "fa.login.log_in",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginLoginId": "లాగిన్ ID",
+  "@faLoginLoginId": {
+    "description": "Label of the login ID field.",
+    "x-key": "fa.login.login_id",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginOtherFaBody": "{count, plural, one{ఈ ఫోన్‌లో {code} యొక్క 1 రికార్డు ఇంకా సింక్ కాలేదు.} other{ఈ ఫోన్‌లో {code} యొక్క {count} రికార్డులు ఇంకా సింక్ కాలేదు.}} వేరే FA గా లాగిన్ అయితే అవి తొలగిపోతాయి.",
+  "@faLoginOtherFaBody": {
+    "description": "Dialog body: another FA's unsynced records are on this phone.",
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.login.other_fa_body",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginOtherFaConfirm": "తొలగించి లాగిన్ అవ్వండి",
+  "@faLoginOtherFaConfirm": {
+    "description": "Dialog button: delete the other FA's records and log in.",
+    "x-key": "fa.login.other_fa_confirm",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginOtherFaTitle": "వేరే FA గా లాగిన్ అవ్వాలా?",
+  "@faLoginOtherFaTitle": {
+    "description": "Dialog title: another FA's unsynced records are on this phone.",
+    "x-key": "fa.login.other_fa_title",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginPassword": "పాస్‌వర్డ్",
+  "@faLoginPassword": {
+    "description": "Label of the password field.",
+    "x-key": "fa.login.password",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginPinNote": "తర్వాతి సారి ఆఫ్‌లైన్‌లో కూడా {length} అంకెల PIN తో తెరవండి",
+  "@faLoginPinNote": {
+    "description": "Info line under the password: the PIN is set after login (replaces the design's Remember this device checkbox).",
+    "placeholders": {
+      "length": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.login.pin_note",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginTempExpiredTitle": "తాత్కాలిక పాస్‌వర్డ్ గడువు ముగిసింది",
+  "@faLoginTempExpiredTitle": {
+    "description": "Banner title: the temporary password is older than 72 hours.",
+    "x-key": "fa.login.temp_expired_title",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginUsePin": "బదులుగా PIN తో తెరవండి",
+  "@faLoginUsePin": {
+    "description": "Button back to the PIN screen while the PIN still works.",
+    "x-key": "fa.login.use_pin",
+    "x-screen": "FA A1 Login"
+  },
+  "faLoginWorksOffline": "ఆఫ్‌లైన్‌లో పనిచేస్తుంది",
+  "@faLoginWorksOffline": {
+    "description": "Pill beside the forgot link.",
+    "x-key": "fa.login.works_offline",
+    "x-screen": "FA A1 Login"
+  },
+  "faMeArea": "ప్రాంతం: {area}",
+  "@faMeArea": {
+    "description": "Profile card: the FA's villages.",
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.me.area",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeCallHo": "HO కి కాల్ చేయండి",
+  "@faMeCallHo": {
+    "description": "Row title.",
+    "x-key": "fa.me.call_ho",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeCallHoSub": "{phone} · ఉదయం 9 నుంచి సాయంత్రం 6",
+  "@faMeCallHoSub": {
+    "description": "Row sub-line: the helpline and its hours.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.me.call_ho_sub",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeChangePassword": "పాస్‌వర్డ్ మార్చండి",
+  "@faMeChangePassword": {
+    "description": "Row title and page title.",
+    "x-key": "fa.me.change_password",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeChangePin": "PIN మార్చండి",
+  "@faMeChangePin": {
+    "description": "Row title.",
+    "x-key": "fa.me.change_pin",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeChangePinSub": "{days} రోజులు ఆఫ్‌లైన్‌లో పనిచేస్తుంది · {left, plural, one{ఇంకా 1 రోజు} other{ఇంకా {left} రోజులు}}",
+  "@faMeChangePinSub": {
+    "description": "Change PIN sub-line: the offline grace and what is left of it.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      },
+      "left": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.me.change_pin_sub",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeFooter": "వెర్షన్ {version} · ఫోన్ ID {id}",
+  "@faMeFooter": {
+    "description": "Footer.",
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.me.footer",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeLanguage": "యాప్ భాష",
+  "@faMeLanguage": {
+    "description": "Language row title.",
+    "x-key": "fa.me.language",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeLanguageSub": "రైతుల పేర్లు, పంటలు కూడా ఇదే భాషలో",
+  "@faMeLanguageSub": {
+    "description": "Language row sub-line.",
+    "x-key": "fa.me.language_sub",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeLogInNow": "ఇప్పుడే లాగిన్ అవ్వండి",
+  "@faMeLogInNow": {
+    "description": "Banner action.",
+    "x-key": "fa.me.log_in_now",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeLogoutAnyway": "అయినా లాగ్ అవుట్",
+  "@faMeLogoutAnyway": {
+    "description": "Log out warning button.",
+    "x-key": "fa.me.logout_anyway",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeLogoutBody": "మళ్ళీ లాగిన్ అవ్వడానికి మీ లాగిన్ ID, పాస్‌వర్డ్, నెట్‌వర్క్ కావాలి.",
+  "@faMeLogoutBody": {
+    "description": "Log out confirm body.",
+    "x-key": "fa.me.logout_body",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeLogoutTitle": "లాగ్ అవుట్ అవ్వాలా?",
+  "@faMeLogoutTitle": {
+    "description": "Log out confirm title.",
+    "x-key": "fa.me.logout_title",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeLogoutUnsynced": "{count, plural, one{1 రికార్డు ఇంకా సింక్ కాలేదు.} other{{count} రికార్డులు ఇంకా సింక్ కాలేదు.}}",
+  "@faMeLogoutUnsynced": {
+    "description": "Log out warning, bold part.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.me.logout_unsynced",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeLogoutUnsyncedBody": "ముందు సింక్ చేయండి. ఇప్పుడు లాగ్ అవుట్ అయితే అవి ఈ ఫోన్‌లోనే ఉండి, మళ్ళీ లాగిన్ అయినప్పుడు పంపబడతాయి.",
+  "@faMeLogoutUnsyncedBody": {
+    "description": "Log out warning, rest.",
+    "x-key": "fa.me.logout_unsynced_body",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeNeedsPasswordBody": "మీరు ఆఫ్‌లైన్‌లో పని కొనసాగించవచ్చు. లాగిన్ అయ్యాక రికార్డులు పంపబడతాయి.",
+  "@faMeNeedsPasswordBody": {
+    "description": "Banner body: the server session ended.",
+    "x-key": "fa.me.needs_password_body",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeNeedsPasswordTitle": "సింక్ కోసం పాస్‌వర్డ్‌తో లాగిన్ అవ్వండి",
+  "@faMeNeedsPasswordTitle": {
+    "description": "Banner: the server session ended.",
+    "x-key": "fa.me.needs_password_title",
+    "x-screen": "FA A11 Me"
+  },
+  "faMePasswordSaved": "పాస్‌వర్డ్ మారింది",
+  "@faMePasswordSaved": {
+    "description": "Snack bar after Change password.",
+    "x-key": "fa.me.password_saved",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeProfile": "మీ ప్రొఫైల్",
+  "@faMeProfile": {
+    "description": "Screen reader label of the profile card.",
+    "x-key": "fa.me.profile",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeStatEnrolled": "{month} లో నమోదు",
+  "@faMeStatEnrolled": {
+    "description": "Under the count of farmers enrolled this month.",
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.me.stat_enrolled",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeStatFarmers": "{count, plural, one{రైతు} other{రైతులు}}",
+  "@faMeStatFarmers": {
+    "description": "Under the farmer count.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.me.stat_farmers",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeStatVisits": "{month} లో సందర్శనలు",
+  "@faMeStatVisits": {
+    "description": "Under the count of visits done this month.",
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.me.stat_visits",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeSubtitle": "ప్రొఫైల్, సెట్టింగ్‌లు",
+  "@faMeSubtitle": {
+    "description": "Header sub-line.",
+    "x-key": "fa.me.subtitle",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeSyncLast": "చివరి సింక్ {day} {time}",
+  "@faMeSyncLast": {
+    "description": "Sync row sub-line part.",
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.me.sync_last",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeSyncNever": "ఇంకా సింక్ కాలేదు",
+  "@faMeSyncNever": {
+    "description": "Sync row sub-line before the first sync.",
+    "x-key": "fa.me.sync_never",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeSyncNow": "ఇప్పుడే సింక్ చేయండి",
+  "@faMeSyncNow": {
+    "description": "Log out warning button.",
+    "x-key": "fa.me.sync_now",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeSyncWaiting": "{count, plural, one{1 వేచి ఉంది} other{{count} వేచి ఉన్నాయి}}",
+  "@faMeSyncWaiting": {
+    "description": "Sync row sub-line part: queued records.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.me.sync_waiting",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeThisMonth": "ఈ నెల",
+  "@faMeThisMonth": {
+    "description": "Screen reader label of the counts row.",
+    "x-key": "fa.me.this_month",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeWifi": "ఫోటోలు Wi-Fi లో మాత్రమే అప్‌లోడ్",
+  "@faMeWifi": {
+    "description": "Switch row title.",
+    "x-key": "fa.me.wifi",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeWifiOff": "ఆఫ్ · ఫోటోలు మొబైల్ డేటాలో కూడా అప్‌లోడ్ అవుతాయి",
+  "@faMeWifiOff": {
+    "description": "Switch sub-line when off.",
+    "x-key": "fa.me.wifi_off",
+    "x-screen": "FA A11 Me"
+  },
+  "faMeWifiOn": "ఆన్ · రికార్డులు మొబైల్ డేటాలో కూడా సింక్ అవుతాయి",
+  "@faMeWifiOn": {
+    "description": "Switch sub-line when on.",
+    "x-key": "fa.me.wifi_on",
+    "x-screen": "FA A11 Me"
+  },
+  "faNavAlerts": "హెచ్చరికలు",
+  "@faNavAlerts": {
+    "description": "Bottom bar tab: alerts from HO and farmers (badge shows open alerts).",
+    "x-key": "fa.nav.alerts",
+    "x-screen": "FA bottom nav"
+  },
+  "faNavCalendar": "క్యాలెండర్",
+  "@faNavCalendar": {
+    "description": "Bottom bar tab: the visit calendar.",
+    "x-key": "fa.nav.calendar",
+    "x-screen": "FA bottom nav"
+  },
+  "faNavEnrol": "నమోదు",
+  "@faNavEnrol": {
+    "description": "Bottom bar tab: enrol a farmer.",
+    "x-key": "fa.nav.enrol",
+    "x-screen": "FA bottom nav"
+  },
+  "faNavFarmers": "రైతులు",
+  "@faNavFarmers": {
+    "description": "Bottom bar tab: farmers near me (list and map).",
+    "x-key": "fa.nav.farmers",
+    "x-screen": "FA bottom nav"
+  },
+  "faNewPasswordAgain": "మళ్ళీ టైప్ చేయండి",
+  "@faNewPasswordAgain": {
+    "description": "Label of the confirm field.",
+    "x-key": "fa.new_password.again",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordBackLabel": "లాగిన్‌కు వెనక్కి",
+  "@faNewPasswordBackLabel": {
+    "description": "Screen reader label of the back arrow.",
+    "x-key": "fa.new_password.back_label",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordCurrent": "ప్రస్తుత పాస్‌వర్డ్",
+  "@faNewPasswordCurrent": {
+    "description": "Label of the current password field (Me, Change password).",
+    "x-key": "fa.new_password.current",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordCurrentTemp": "తాత్కాలిక పాస్‌వర్డ్",
+  "@faNewPasswordCurrentTemp": {
+    "description": "Label of the field for the password HO gave (shown when the app no longer has it).",
+    "x-key": "fa.new_password.current_temp",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordLeaveBody": "మీరు లాగ్ అవుట్ అవుతారు. పూర్తి చేయడానికి తాత్కాలిక పాస్‌వర్డ్‌తో మళ్ళీ లాగిన్ అవ్వండి.",
+  "@faNewPasswordLeaveBody": {
+    "description": "Dialog body when going back on the first login.",
+    "x-key": "fa.new_password.leave_body",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordLeaveTitle": "కొత్త పాస్‌వర్డ్ లేకుండా వెళ్ళాలా?",
+  "@faNewPasswordLeaveTitle": {
+    "description": "Dialog title when going back on the first login.",
+    "x-key": "fa.new_password.leave_title",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordNeedsNetwork": "నెట్‌వర్క్ కావాలి",
+  "@faNewPasswordNeedsNetwork": {
+    "description": "Note under the button in Me, and the Me row sub-line.",
+    "x-key": "fa.new_password.needs_network",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordNeedsNetworkFirst": "నెట్‌వర్క్ కావాలి · ఇది పూర్తయ్యే వరకు యాప్ వాడలేరు",
+  "@faNewPasswordNeedsNetworkFirst": {
+    "description": "Note under the button on the first login.",
+    "x-key": "fa.new_password.needs_network_first",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordNew": "కొత్త పాస్‌వర్డ్",
+  "@faNewPasswordNew": {
+    "description": "Label of the new password field.",
+    "x-key": "fa.new_password.new",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordNote": "HO మీకు తాత్కాలిక పాస్‌వర్డ్ ఇచ్చింది. అది 72 గంటలు మాత్రమే పనిచేస్తుంది; మీకు మాత్రమే తెలిసేలా ఇప్పుడే మీ సొంతది పెట్టుకోండి.",
+  "@faNewPasswordNote": {
+    "description": "Warning note at the top.",
+    "x-key": "fa.new_password.note",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordOffline": "పాస్‌వర్డ్ సేవ్ చేయడానికి నెట్‌వర్క్ కావాలి. కనెక్ట్ అయి మళ్ళీ ప్రయత్నించండి.",
+  "@faNewPasswordOffline": {
+    "description": "Error: saving failed offline.",
+    "x-key": "fa.new_password.offline",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordRuleCurrent": "పాత పాస్‌వర్డ్ కాకూడదు",
+  "@faNewPasswordRuleCurrent": {
+    "description": "Rule.",
+    "x-key": "fa.new_password.rule_current",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordRuleDone": "పూర్తయింది",
+  "@faNewPasswordRuleDone": {
+    "description": "Screen reader suffix of a rule that holds.",
+    "x-key": "fa.new_password.rule_done",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordRuleLength": "కనీసం 8 అక్షరాలు",
+  "@faNewPasswordRuleLength": {
+    "description": "Rule.",
+    "x-key": "fa.new_password.rule_length",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordRuleLetterDigit": "ఒక అక్షరం, ఒక అంకె ఉండాలి",
+  "@faNewPasswordRuleLetterDigit": {
+    "description": "Rule.",
+    "x-key": "fa.new_password.rule_letter_digit",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordRuleLoginId": "మీ లాగిన్ ID కాకూడదు",
+  "@faNewPasswordRuleLoginId": {
+    "description": "Rule.",
+    "x-key": "fa.new_password.rule_login_id",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordRuleMatch": "రెండు బాక్సుల్లో ఒకటే ఉండాలి",
+  "@faNewPasswordRuleMatch": {
+    "description": "Rule.",
+    "x-key": "fa.new_password.rule_match",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordRuleNotYet": "ఇంకా లేదు",
+  "@faNewPasswordRuleNotYet": {
+    "description": "Screen reader suffix of a rule that does not hold yet.",
+    "x-key": "fa.new_password.rule_not_yet",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordRules": "పాస్‌వర్డ్ నియమాలు",
+  "@faNewPasswordRules": {
+    "description": "Screen reader label of the rule checklist.",
+    "x-key": "fa.new_password.rules",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordSave": "పాస్‌వర్డ్ సేవ్ చేయండి",
+  "@faNewPasswordSave": {
+    "description": "Main button.",
+    "x-key": "fa.new_password.save",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordSavedBody": "నెట్‌వర్క్‌లో లాగిన్ అయ్యేటప్పుడు {code} తో దీన్ని వాడండి. రోజూ మీ PIN తో యాప్ తెరవండి.",
+  "@faNewPasswordSavedBody": {
+    "description": "Success body.",
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.new_password.saved_body",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordSavedTitle": "పాస్‌వర్డ్ సేవ్ అయింది",
+  "@faNewPasswordSavedTitle": {
+    "description": "Success title.",
+    "x-key": "fa.new_password.saved_title",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordStep": "దశ 1/2 · మొదటి లాగిన్",
+  "@faNewPasswordStep": {
+    "description": "Header sub-line.",
+    "x-key": "fa.new_password.step",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordTitle": "మీ సొంత పాస్‌వర్డ్ పెట్టుకోండి",
+  "@faNewPasswordTitle": {
+    "description": "Header title.",
+    "x-key": "fa.new_password.title",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordWrongCurrent": "ప్రస్తుత పాస్‌వర్డ్ తప్పు.",
+  "@faNewPasswordWrongCurrent": {
+    "description": "Error: the current password did not match (Me).",
+    "x-key": "fa.new_password.wrong_current",
+    "x-screen": "FA A1c New password"
+  },
+  "faNewPasswordWrongTemp": "తాత్కాలిక పాస్‌వర్డ్ తప్పు. HO ఇచ్చిన పాస్‌వర్డ్ టైప్ చేయండి.",
+  "@faNewPasswordWrongTemp": {
+    "description": "Error: the temporary password did not match.",
+    "x-key": "fa.new_password.wrong_temp",
+    "x-screen": "FA A1c New password"
+  },
+  "faPlanVisitChangeFarmer": "రైతును మార్చండి",
+  "@faPlanVisitChangeFarmer": {
+    "description": "Button that goes back to the farmer picker.",
+    "x-key": "fa.plan_visit.change_farmer",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitDay": "రోజు",
+  "@faPlanVisitDay": {
+    "description": "Section label: which day.",
+    "x-key": "fa.plan_visit.day",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitMove": "సందర్శన మార్చండి",
+  "@faPlanVisitMove": {
+    "description": "Save button when moving a visit.",
+    "x-key": "fa.plan_visit.move",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitMovingFrom": "ఇప్పుడు {date} కి ప్లాన్ అయింది",
+  "@faPlanVisitMovingFrom": {
+    "description": "Note when moving a visit: the day it is on now.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.plan_visit.moving_from",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitNearestFirst": "దగ్గర వారు ముందు",
+  "@faPlanVisitNearestFirst": {
+    "description": "Sub-line of the farmer picker list.",
+    "x-key": "fa.plan_visit.nearest_first",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitNoCrop": "ఇంకా పంట నమోదు కాలేదు",
+  "@faPlanVisitNoCrop": {
+    "description": "Farmer picker row of a farmer with no crop to visit (disabled).",
+    "x-key": "fa.plan_visit.no_crop",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitNoCropBody": "ముందు {name} పంట నమోదు చేసి, తర్వాత సందర్శన ప్లాన్ చేయండి.",
+  "@faPlanVisitNoCropBody": {
+    "description": "State card text.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.plan_visit.no_crop_body",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitNoCropTitle": "సందర్శనకు ఇంకా పంట లేదు",
+  "@faPlanVisitNoCropTitle": {
+    "description": "State card: the farmer has no plot with a crop.",
+    "x-key": "fa.plan_visit.no_crop_title",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitNoMatch": "ఈ వెతుకులాటకు రైతు దొరకలేదు",
+  "@faPlanVisitNoMatch": {
+    "description": "Farmer picker with no results.",
+    "x-key": "fa.plan_visit.no_match",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitOtherDate": "వేరే తేదీ",
+  "@faPlanVisitOtherDate": {
+    "description": "Date chip that opens a date picker.",
+    "x-key": "fa.plan_visit.other_date",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPickFarmer": "ఏ రైతు దగ్గరకు వెళ్తున్నారు?",
+  "@faPlanVisitPickFarmer": {
+    "description": "Heading of the farmer picker.",
+    "x-key": "fa.plan_visit.pick_farmer",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPlot": "పొలం",
+  "@faPlanVisitPlot": {
+    "description": "Section label: which plot.",
+    "x-key": "fa.plan_visit.plot",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPurpose": "ఎందుకు వెళ్తున్నారు",
+  "@faPlanVisitPurpose": {
+    "description": "Section label: why the visit is planned.",
+    "x-key": "fa.plan_visit.purpose",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPurposeAdviceFollowUp": "సలహా తర్వాత పరిశీలన",
+  "@faPlanVisitPurposeAdviceFollowUp": {
+    "description": "Visit purpose chip.",
+    "x-key": "fa.plan_visit.purpose_advice_follow_up",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPurposeFirstVisit": "మొదటి సందర్శన",
+  "@faPlanVisitPurposeFirstVisit": {
+    "description": "Visit purpose chip.",
+    "x-key": "fa.plan_visit.purpose_first_visit",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPurposeHint": "ఎందుకో కొన్ని మాటల్లో",
+  "@faPlanVisitPurposeHint": {
+    "description": "Hint of the purpose text box.",
+    "x-key": "fa.plan_visit.purpose_hint",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPurposeOther": "ఇతర",
+  "@faPlanVisitPurposeOther": {
+    "description": "Visit purpose chip that shows a text box.",
+    "x-key": "fa.plan_visit.purpose_other",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPurposePestFollowUp": "పురుగు పరిశీలన",
+  "@faPlanVisitPurposePestFollowUp": {
+    "description": "Visit purpose chip.",
+    "x-key": "fa.plan_visit.purpose_pest_follow_up",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPurposeRequired": "ఎందుకు వెళ్తున్నారో రాయండి",
+  "@faPlanVisitPurposeRequired": {
+    "description": "Error when Other is picked and the text box is empty.",
+    "x-key": "fa.plan_visit.purpose_required",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPurposeSoilSample": "మట్టి నమూనా",
+  "@faPlanVisitPurposeSoilSample": {
+    "description": "Visit purpose chip.",
+    "x-key": "fa.plan_visit.purpose_soil_sample",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitPurposeStageCheck": "పంట దశ చూడటం",
+  "@faPlanVisitPurposeStageCheck": {
+    "description": "Visit purpose chip.",
+    "x-key": "fa.plan_visit.purpose_stage_check",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitRescheduleTitle": "సందర్శన రోజు మార్చండి",
+  "@faPlanVisitRescheduleTitle": {
+    "description": "Plan screen title when moving a planned visit to another day.",
+    "x-key": "fa.plan_visit.reschedule_title",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitSave": "సందర్శన సేవ్ చేయండి",
+  "@faPlanVisitSave": {
+    "description": "Save button.",
+    "x-key": "fa.plan_visit.save",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitSavedOffline": "ఈ ఫోన్‌లో సేవ్ అయింది · తర్వాతి సింక్‌లో HO కి వెళ్తుంది",
+  "@faPlanVisitSavedOffline": {
+    "description": "Note under the save button.",
+    "x-key": "fa.plan_visit.saved_offline",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitSearchHint": "పేరు లేదా ఫోన్ నంబర్‌తో వెతకండి",
+  "@faPlanVisitSearchHint": {
+    "description": "Search field hint on the farmer picker.",
+    "x-key": "fa.plan_visit.search_hint",
+    "x-screen": "FA Plan a visit"
+  },
+  "faPlanVisitSlot": "సమయం",
+  "@faPlanVisitSlot": {
+    "description": "Section label: morning, afternoon or any time.",
+    "x-key": "fa.plan_visit.slot",
+    "x-screen": "FA Plan a visit"
+  },
+  "faSetupDoneTitle": "{name}, మీరు సిద్ధం",
+  "@faSetupDoneTitle": {
+    "description": "Last step title.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.setup.done_title",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupDownloadFailed": "మీ రైతుల వివరాలు ఇంకా డౌన్‌లోడ్ కాలేదు. నెట్‌వర్క్ రాగానే డౌన్‌లోడ్ అవుతాయి.",
+  "@faSetupDownloadFailed": {
+    "description": "Download card when the download failed (offline).",
+    "x-key": "fa.setup.download_failed",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupDownloadLists": "పంట, సలహా జాబితాలు · ఇకపై ఆఫ్‌లైన్‌లో పనిచేస్తుంది",
+  "@faSetupDownloadLists": {
+    "description": "Download card, after the farmer and plot counts.",
+    "x-key": "fa.setup.download_lists",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupDownloadProgress": "డౌన్‌లోడ్ పురోగతి",
+  "@faSetupDownloadProgress": {
+    "description": "Screen reader label of the progress bar.",
+    "x-key": "fa.setup.download_progress",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupDownloadTitle": "మీ ప్రాంతం ఈ ఫోన్‌లో సేవ్ అవుతోంది",
+  "@faSetupDownloadTitle": {
+    "description": "Download card title.",
+    "x-key": "fa.setup.download_title",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupDownloading": "డౌన్‌లోడ్ అవుతోంది…",
+  "@faSetupDownloading": {
+    "description": "Download card status while it runs.",
+    "x-key": "fa.setup.downloading",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupLanguageNote": "రైతుల పేర్లు, పంటలు, సలహాలు మీరు ఎంచుకున్న భాషలో కనిపిస్తాయి. దీన్ని తర్వాత \"నేను\" లో మార్చుకోవచ్చు.",
+  "@faSetupLanguageNote": {
+    "description": "Note under the language choice.",
+    "x-key": "fa.setup.language_note",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupOpenFarmers": "నా రైతులను తెరవండి",
+  "@faSetupOpenFarmers": {
+    "description": "Last step button.",
+    "x-key": "fa.setup.open_farmers",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupPasswordSaved": "పాస్‌వర్డ్ సేవ్ అయింది. నెట్‌వర్క్‌లో లాగిన్ అయ్యేటప్పుడు {code} తో దీన్ని వాడండి.",
+  "@faSetupPasswordSaved": {
+    "description": "Banner on the language step right after the password change.",
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.setup.password_saved",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupPinAgain": "అదే PIN మళ్ళీ టైప్ చేయండి",
+  "@faSetupPinAgain": {
+    "description": "PIN step, confirm entry.",
+    "x-key": "fa.setup.pin_again",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupPinBackLabel": "భాషకు వెనక్కి",
+  "@faSetupPinBackLabel": {
+    "description": "Screen reader label of the Back key on the PIN pad.",
+    "x-key": "fa.setup.pin_back_label",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupPinHintAgain": "నిర్ధారణ కోసం ఇంకోసారి",
+  "@faSetupPinHintAgain": {
+    "description": "Hint under the dots, confirm entry.",
+    "x-key": "fa.setup.pin_hint_again",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupPinHintFirst": "ఒకసారికి {days} రోజులు ఆఫ్‌లైన్‌లో పనిచేస్తుంది",
+  "@faSetupPinHintFirst": {
+    "description": "Hint under the dots, first entry.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.setup.pin_hint_first",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupPinMismatch": "PIN లు సరిపోలలేదు. మళ్ళీ మొదలుపెట్టండి.",
+  "@faSetupPinMismatch": {
+    "description": "Error: the confirm PIN differs.",
+    "x-key": "fa.setup.pin_mismatch",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupPinNote": "మీ PIN ఈ ఫోన్‌లోనే ఉంటుంది. 1234, 0000 లేదా మీ పుట్టిన సంవత్సరం వద్దు. {tries} సార్లు తప్పు అయితే పాస్‌వర్డ్ కావాలి.",
+  "@faSetupPinNote": {
+    "description": "Note at the bottom of the PIN step.",
+    "placeholders": {
+      "tries": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.setup.pin_note",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupPinPick": "యాప్ తెరవడానికి PIN ఎంచుకోండి",
+  "@faSetupPinPick": {
+    "description": "PIN step, first entry.",
+    "x-key": "fa.setup.pin_pick",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupPinWeak": "సులభంగా ఊహించవచ్చు. వేరేది ఎంచుకోండి.",
+  "@faSetupPinWeak": {
+    "description": "Error: repeated or sequential PIN.",
+    "x-key": "fa.setup.pin_weak",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupPinYear": "ఇది సంవత్సరంలా ఉంది. వేరేది ఎంచుకోండి.",
+  "@faSetupPinYear": {
+    "description": "Error: the PIN looks like a birth year.",
+    "x-key": "fa.setup.pin_year",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupQuestion": "యాప్ ఏ భాషలో ఉండాలి?",
+  "@faSetupQuestion": {
+    "description": "Question above the language choice.",
+    "x-key": "fa.setup.question",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupStepAgain": "ఈ ఫోన్‌ను సిద్ధం చేయండి",
+  "@faSetupStepAgain": {
+    "description": "Header sub-line on a later password login without a PIN.",
+    "x-key": "fa.setup.step_again",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupStepFirst": "దశ 2/2 · మొదటి లాగిన్",
+  "@faSetupStepFirst": {
+    "description": "Header sub-line on the first login.",
+    "x-key": "fa.setup.step_first",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupTeSub": "తెలుగు · సిఫార్సు",
+  "@faSetupTeSub": {
+    "description": "Second line of the Telugu choice.",
+    "x-key": "fa.setup.te_sub",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupTitleDone": "అంతా సిద్ధం",
+  "@faSetupTitleDone": {
+    "description": "Header title, last step.",
+    "x-key": "fa.setup.title_done",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupTitleLanguage": "యాప్ భాష",
+  "@faSetupTitleLanguage": {
+    "description": "Header title, language step.",
+    "x-key": "fa.setup.title_language",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupTitlePin": "{length} అంకెల PIN పెట్టుకోండి",
+  "@faSetupTitlePin": {
+    "description": "Header title, PIN step.",
+    "placeholders": {
+      "length": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.setup.title_pin",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faSetupToPin": "ముందుకు · PIN పెట్టండి",
+  "@faSetupToPin": {
+    "description": "Button to the PIN step.",
+    "x-key": "fa.setup.to_pin",
+    "x-screen": "FA A1d Language and PIN"
+  },
+  "faShellMe": "నేను · ప్రొఫైల్, సెట్టింగ్‌లు",
+  "@faShellMe": {
+    "description": "Screen reader label of the FA's initials avatar in the header. Tap opens Me.",
+    "x-key": "fa.shell.me",
+    "x-screen": "FA header"
+  },
+  "faShellSyncAllSynced": "అన్ని రికార్డులు సింక్ అయ్యాయి",
+  "@faShellSyncAllSynced": {
+    "description": "Screen reader label of the header's sync pill when nothing is waiting.",
+    "x-key": "fa.shell.sync_all_synced",
+    "x-screen": "FA header"
+  },
+  "faShellSyncNeedsYou": "{count, plural, one{1 రికార్డుకు మీ నిర్ణయం కావాలి} other{{count} రికార్డులకు మీ నిర్ణయం కావాలి}}",
+  "@faShellSyncNeedsYou": {
+    "description": "Screen reader label of the header's sync pill when records are in conflict or were rejected.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.shell.sync_needs_you",
+    "x-screen": "FA header"
+  },
+  "faShellSyncRunning": "సింక్ అవుతోంది",
+  "@faShellSyncRunning": {
+    "description": "Screen reader label of the header's sync pill while a sync runs.",
+    "x-key": "fa.shell.sync_running",
+    "x-screen": "FA header"
+  },
+  "faShellSyncWaiting": "{count, plural, one{1 రికార్డు సింక్ కోసం వేచి ఉంది} other{{count} రికార్డులు సింక్ కోసం వేచి ఉన్నాయి}}",
+  "@faShellSyncWaiting": {
+    "description": "Screen reader label of the header's sync pill when records are queued. Tap opens Sync.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.shell.sync_waiting",
+    "x-screen": "FA header"
+  },
+  "faShellTitleDev": "డెవ్ మెనూ",
+  "@faShellTitleDev": {
+    "description": "Placeholder title of the dev menu (dev builds only) until it is built.",
+    "x-key": "fa.shell.title_dev",
+    "x-screen": "FA placeholders"
+  },
+  "faShellTitleFarmer": "రైతు",
+  "@faShellTitleFarmer": {
+    "description": "Placeholder title of Farmer 360 until it is built.",
+    "x-key": "fa.shell.title_farmer",
+    "x-screen": "FA placeholders"
+  },
+  "faShellTitleMe": "నేను",
+  "@faShellTitleMe": {
+    "description": "Placeholder title of the Me screen until it is built.",
+    "x-key": "fa.shell.title_me",
+    "x-screen": "FA placeholders"
+  },
+  "faShellTitlePlanVisit": "సందర్శన ప్లాన్",
+  "@faShellTitlePlanVisit": {
+    "description": "Placeholder title of Plan visit until it is built.",
+    "x-key": "fa.shell.title_plan_visit",
+    "x-screen": "FA placeholders"
+  },
+  "faShellTitleRemoved": "ఈ ఫోన్ తొలగించబడింది",
+  "@faShellTitleRemoved": {
+    "description": "Placeholder title of the device removed screen until it is built.",
+    "x-key": "fa.shell.title_removed",
+    "x-screen": "FA placeholders"
+  },
+  "faShellTitleSync": "సింక్",
+  "@faShellTitleSync": {
+    "description": "Placeholder title of the Sync screen until it is built.",
+    "x-key": "fa.shell.title_sync",
+    "x-screen": "FA placeholders"
+  },
+  "faShellTitleVisitLog": "సందర్శన లాగ్",
+  "@faShellTitleVisitLog": {
+    "description": "Placeholder title of the visit log until it is built.",
+    "x-key": "fa.shell.title_visit_log",
+    "x-screen": "FA placeholders"
+  },
+  "faSyncAllSyncedBody": "{time} వరకు అన్నీ HO దగ్గర ఉన్నాయి",
+  "@faSyncAllSyncedBody": {
+    "description": "Banner text when nothing waits.",
+    "placeholders": {
+      "time": {
+        "example": "10:58 AM",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.all_synced_body",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncAllSyncedTitle": "అన్నీ సింక్ అయ్యాయి",
+  "@faSyncAllSyncedTitle": {
+    "description": "Banner title when nothing waits.",
+    "x-key": "fa.sync.all_synced_title",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncBusy": "ఇంకో సింక్ జరుగుతోంది. కాసేపట్లో మళ్లీ ప్రయత్నించండి.",
+  "@faSyncBusy": {
+    "description": "Snack bar when another runner holds the sync lease.",
+    "x-key": "fa.sync.busy",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncCallHo": "HO కి కాల్",
+  "@faSyncCallHo": {
+    "description": "Button: call the HO helpline.",
+    "x-key": "fa.sync.call_ho",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncConflictMetaFarmer": "మీరు ఆఫ్‌లైన్‌లో ఉన్నప్పుడు HO ఈ రైతు వివరాలు మార్చింది",
+  "@faSyncConflictMetaFarmer": {
+    "description": "Conflict card line for a farmer.",
+    "x-key": "fa.sync.conflict_meta_farmer",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncConflictMetaOther": "మీరు ఆఫ్‌లైన్‌లో ఉన్నప్పుడు HO దీన్ని మార్చింది",
+  "@faSyncConflictMetaOther": {
+    "description": "Conflict card line for other records.",
+    "x-key": "fa.sync.conflict_meta_other",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncConflictMetaPlot": "మీరు ఆఫ్‌లైన్‌లో ఉన్నప్పుడు HO {plot} ని మార్చింది",
+  "@faSyncConflictMetaPlot": {
+    "description": "Conflict card line for a plot.",
+    "placeholders": {
+      "plot": {
+        "example": "Plot 2",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.conflict_meta_plot",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncConflictOnlyTheirs": "దీనికి HO వెర్షన్ మాత్రమే ఉంచవచ్చు.",
+  "@faSyncConflictOnlyTheirs": {
+    "description": "Conflict card line when Keep mine is not possible.",
+    "x-key": "fa.sync.conflict_only_theirs",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncConflictWaiting": "మీ తర్వాతి మార్పు ఈ ఎంపిక కోసం ఆగి ఉంది.",
+  "@faSyncConflictWaiting": {
+    "description": "On a conflict card: the FA edited the same plot or farmer again after the conflict; that edit is held in the card until Keep mine (sends it) or Keep HO's (drops it).",
+    "x-key": "fa.sync.conflict_waiting",
+    "x-screen": "FA A7 Sync, A8 Farmer 360"
+  },
+  "faSyncDismiss": "తీసివేయి",
+  "@faSyncDismiss": {
+    "description": "Button that taps a finished or refused row away.",
+    "x-key": "fa.sync.dismiss",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncDroppedHeading": "దీని వల్ల ఇవి కూడా సేవ్ కాలేదు:",
+  "@faSyncDroppedHeading": {
+    "description": "Heading of the records not saved because a refused one they need was refused (dropped before sending, or refused with it).",
+    "x-key": "fa.sync.dropped_heading",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncErrorTitle": "సింక్ కాలేదు",
+  "@faSyncErrorTitle": {
+    "description": "Banner title after a failed sync (the error text follows).",
+    "x-key": "fa.sync.error_title",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncFirstSyncBody": "మీ రైతుల వివరాల కోసం ఇప్పుడే సింక్ నొక్కండి.",
+  "@faSyncFirstSyncBody": {
+    "description": "Banner text before the first sync.",
+    "x-key": "fa.sync.first_sync_body",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncKeepMine": "నాది ఉంచు",
+  "@faSyncKeepMine": {
+    "description": "Conflict card button.",
+    "x-key": "fa.sync.keep_mine",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncKeepTheirs": "HO ది ఉంచు",
+  "@faSyncKeepTheirs": {
+    "description": "Conflict card button.",
+    "x-key": "fa.sync.keep_theirs",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncLastSyncedJustNow": "ఇప్పుడే సింక్ అయింది",
+  "@faSyncLastSyncedJustNow": {
+    "description": "Header sub-line.",
+    "x-key": "fa.sync.last_synced_just_now",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncLastSyncedOn": "చివరి సింక్ {date}, {time}",
+  "@faSyncLastSyncedOn": {
+    "description": "Header sub-line with the day and time of the last sync.",
+    "placeholders": {
+      "date": {
+        "example": "30 Oct",
+        "type": "String"
+      },
+      "time": {
+        "example": "10:42 AM",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.last_synced_on",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncLastSyncedToday": "చివరి సింక్ ఈరోజు {time}",
+  "@faSyncLastSyncedToday": {
+    "description": "Header sub-line with the time of the last sync today.",
+    "placeholders": {
+      "time": {
+        "example": "10:42 AM",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.last_synced_today",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncMobileDataTitle": "మొబైల్ డేటాలో ఉన్నారు",
+  "@faSyncMobileDataTitle": {
+    "description": "Banner title when records wait and the phone is on mobile data.",
+    "x-key": "fa.sync.mobile_data_title",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncNeedsYouBody": "వెర్షన్ ఎంచుకోండి లేదా ఎరుపు వరుసలను తీసివేయండి.",
+  "@faSyncNeedsYouBody": {
+    "description": "Banner text when records need the FA.",
+    "x-key": "fa.sync.needs_you_body",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncNeedsYouTitle": "{count, plural, one{{synced} సింక్ అయ్యాయి · 1 మీ కోసం} other{{synced} సింక్ అయ్యాయి · {count} మీ కోసం}}",
+  "@faSyncNeedsYouTitle": {
+    "description": "Banner title: records synced today and records that need the FA.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "synced": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.sync.needs_you_title",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncNeverSynced": "ఇంకా సింక్ కాలేదు",
+  "@faSyncNeverSynced": {
+    "description": "Header sub-line and banner title before the first sync.",
+    "x-key": "fa.sync.never_synced",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncOfflineBody": "{count, plural, =0{మీ పని ఈ ఫోన్‌లో భద్రంగా ఉంది.} one{1 రికార్డ్ ఈ ఫోన్‌లో ఉంది. నెట్‌వర్క్ వచ్చినప్పుడు వెళ్తుంది.} other{{count} రికార్డ్‌లు ఈ ఫోన్‌లో ఉన్నాయి. నెట్‌వర్క్ వచ్చినప్పుడు వెళ్తాయి.}}",
+  "@faSyncOfflineBody": {
+    "description": "Banner text when offline.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.sync.offline_body",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncOfflineTitle": "ఇంటర్నెట్ లేదు",
+  "@faSyncOfflineTitle": {
+    "description": "Banner title when offline.",
+    "x-key": "fa.sync.offline_title",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncPhotosCount": "{count, plural, one{1 ఫోటో} other{{count} ఫోటోలు}}",
+  "@faSyncPhotosCount": {
+    "description": "Row meta: photos of a visit log.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.sync.photos_count",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncPhotosHeld": "{size} ఫోటోలు Wi-Fi కోసం వేచి ఉన్నాయి. రికార్డ్‌లు సింక్ అవుతాయి.",
+  "@faSyncPhotosHeld": {
+    "description": "Banner text when only photos wait for Wi-Fi.",
+    "placeholders": {
+      "size": {
+        "example": "4.2 MB",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.photos_held",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncPillConflict": "తేడా ఉంది",
+  "@faSyncPillConflict": {
+    "description": "Pill on a conflict card.",
+    "x-key": "fa.sync.pill_conflict",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncPillNotSaved": "సేవ్ కాలేదు",
+  "@faSyncPillNotSaved": {
+    "description": "Pill on a refused record.",
+    "x-key": "fa.sync.pill_not_saved",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncPillSynced": "సింక్ అయింది",
+  "@faSyncPillSynced": {
+    "description": "Row pill: HO has it.",
+    "x-key": "fa.sync.pill_synced",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncPillUploading": "పంపుతోంది",
+  "@faSyncPillUploading": {
+    "description": "Row pill: being sent.",
+    "x-key": "fa.sync.pill_uploading",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncPillWaiting": "వేచి ఉంది",
+  "@faSyncPillWaiting": {
+    "description": "Row pill: not sent yet.",
+    "x-key": "fa.sync.pill_waiting",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncProgressLabel": "అప్‌లోడ్ పురోగతి",
+  "@faSyncProgressLabel": {
+    "description": "Screen reader label of the progress bar.",
+    "x-key": "fa.sync.progress_label",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncReasonClient": "యాప్ దీన్ని పంపలేకపోయింది. HO కి చెప్పండి.",
+  "@faSyncReasonClient": {
+    "description": "Refused: the app sent something the server could not read.",
+    "x-key": "fa.sync.reason_client",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncReasonConsentExpired": "అనుమతి కోడ్ గడువు ముగిసింది. రైతు పేజీలో మళ్లీ అనుమతి తీసుకోండి.",
+  "@faSyncReasonConsentExpired": {
+    "description": "Refused: the consent OTP proof expired before sending.",
+    "x-key": "fa.sync.reason_consent_expired",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncReasonNotInArea": "గ్రామం మీ ప్రాంతంలో లేదు",
+  "@faSyncReasonNotInArea": {
+    "description": "Refused: village not in the FA area.",
+    "x-key": "fa.sync.reason_not_in_area",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncReasonOther": "HO దీన్ని తీసుకోలేదు",
+  "@faSyncReasonOther": {
+    "description": "Heading above an English reason from the server.",
+    "x-key": "fa.sync.reason_other",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncReasonOtherFa": "ఈ రైతు వేరే FA దగ్గర ఉన్నారు. HO కి కాల్ చేయండి.",
+  "@faSyncReasonOtherFa": {
+    "description": "Refused: the farmer is registered with another FA.",
+    "x-key": "fa.sync.reason_other_fa",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncReasonParent": "పంపలేదు: దీనికి కావాల్సిన రికార్డ్ సేవ్ కాలేదు",
+  "@faSyncReasonParent": {
+    "description": "Dropped because the record it depends on was refused.",
+    "x-key": "fa.sync.reason_parent",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncReasonServer": "సేవ్ కాలేదు. HO కి తెలియజేశాం.",
+  "@faSyncReasonServer": {
+    "description": "Refused: the server failed 5 times.",
+    "x-key": "fa.sync.reason_server",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncResolvedMine": "మీది ఉంచారు · {value}",
+  "@faSyncResolvedMine": {
+    "description": "Row line after Keep mine.",
+    "placeholders": {
+      "value": {
+        "example": "1 ac 30 gunta",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.resolved_mine",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncResolvedReady": "సింక్‌కు సిద్ధం",
+  "@faSyncResolvedReady": {
+    "description": "Added to the resolved line while the kept version waits to go up.",
+    "x-key": "fa.sync.resolved_ready",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncResolvedTheirs": "HO ది ఉంచారు · {value}",
+  "@faSyncResolvedTheirs": {
+    "description": "Row line after Keep HO's.",
+    "placeholders": {
+      "value": {
+        "example": "2 ac 0 gunta",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.resolved_theirs",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncRetryBody": "మళ్లీ {time} కి ప్రయత్నిస్తాం. లేదా ఇప్పుడే సింక్ నొక్కండి.",
+  "@faSyncRetryBody": {
+    "description": "Banner text with the next retry time.",
+    "placeholders": {
+      "time": {
+        "example": "11:05 AM",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.retry_body",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncRetryTitle": "సర్వర్ అందలేదు",
+  "@faSyncRetryTitle": {
+    "description": "Banner title while waiting for the next retry.",
+    "x-key": "fa.sync.retry_title",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncSizeKb": "{size} KB",
+  "@faSyncSizeKb": {
+    "description": "Size in kilobytes.",
+    "placeholders": {
+      "size": {
+        "example": "420",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.size_kb",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncSizeMb": "{size} MB",
+  "@faSyncSizeMb": {
+    "description": "Size in megabytes.",
+    "placeholders": {
+      "size": {
+        "example": "3.1",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.size_mb",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncSyncNow": "ఇప్పుడే సింక్ చేయి",
+  "@faSyncSyncNow": {
+    "description": "Main button.",
+    "x-key": "fa.sync.sync_now",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncSyncedToday": "{count, plural, =0{ఈరోజు ఏ రికార్డ్ సింక్ కాలేదు} one{ఈరోజు 1 రికార్డ్ సింక్ అయింది} other{ఈరోజు {count} రికార్డ్‌లు సింక్ అయ్యాయి}}",
+  "@faSyncSyncedToday": {
+    "description": "Records synced today.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.sync.synced_today",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncSyncingBody": "రికార్డ్‌లు పంపుతోంది",
+  "@faSyncSyncingBody": {
+    "description": "Banner text while a sync runs.",
+    "x-key": "fa.sync.syncing_body",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncSyncingBodyPhotos": "రికార్డ్‌లు, {size} ఫోటోలు పంపుతోంది",
+  "@faSyncSyncingBodyPhotos": {
+    "description": "Banner text while a sync runs with photos.",
+    "placeholders": {
+      "size": {
+        "example": "4.2 MB",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.syncing_body_photos",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncSyncingTitle": "సింక్ అవుతోంది…",
+  "@faSyncSyncingTitle": {
+    "description": "Banner title and button label while a sync runs.",
+    "x-key": "fa.sync.syncing_title",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTheirs": "HO ది",
+  "@faSyncTheirs": {
+    "description": "Conflict card: the HO value heading.",
+    "x-key": "fa.sync.theirs",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTypeAlert": "హెచ్చరిక చదివారు",
+  "@faSyncTypeAlert": {
+    "description": "Record type: an alert acknowledged.",
+    "x-key": "fa.sync.type_alert",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTypeCallback": "కాల్ బ్యాక్",
+  "@faSyncTypeCallback": {
+    "description": "Record type: a call-back closed.",
+    "x-key": "fa.sync.type_callback",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTypeCancel": "సందర్శన రద్దు",
+  "@faSyncTypeCancel": {
+    "description": "Record type: a planned visit cancelled.",
+    "x-key": "fa.sync.type_cancel",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTypeConsent": "అనుమతి",
+  "@faSyncTypeConsent": {
+    "description": "Record type: a consent record.",
+    "x-key": "fa.sync.type_consent",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTypeEnrol": "నమోదు",
+  "@faSyncTypeEnrol": {
+    "description": "Record type: a farmer enrolment.",
+    "x-key": "fa.sync.type_enrol",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTypeFarmer": "రైతు వివరాలు",
+  "@faSyncTypeFarmer": {
+    "description": "Record type: farmer profile change.",
+    "x-key": "fa.sync.type_farmer",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTypePlan": "సందర్శన ప్లాన్",
+  "@faSyncTypePlan": {
+    "description": "Record type: a visit planned.",
+    "x-key": "fa.sync.type_plan",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTypePlot": "పొలం",
+  "@faSyncTypePlot": {
+    "description": "Record type: a plot saved.",
+    "x-key": "fa.sync.type_plot",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTypeSeason": "పంట",
+  "@faSyncTypeSeason": {
+    "description": "Record type: a crop season started.",
+    "x-key": "fa.sync.type_season",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncTypeVisit": "సందర్శన లాగ్",
+  "@faSyncTypeVisit": {
+    "description": "Record type: a visit logged.",
+    "x-key": "fa.sync.type_visit",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncUnknownFarmer": "రైతు",
+  "@faSyncUnknownFarmer": {
+    "description": "Row title when the farmer name is not known.",
+    "x-key": "fa.sync.unknown_farmer",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncValueBoundaryWalked": "సరిహద్దు నడిచారు",
+  "@faSyncValueBoundaryWalked": {
+    "description": "Conflict value: the plot has a walked boundary.",
+    "x-key": "fa.sync.value_boundary_walked",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncValueEmpty": "ఖాళీ",
+  "@faSyncValueEmpty": {
+    "description": "Conflict value: empty.",
+    "x-key": "fa.sync.value_empty",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncValueNoBoundary": "సరిహద్దు లేదు",
+  "@faSyncValueNoBoundary": {
+    "description": "Conflict value: the plot has no boundary.",
+    "x-key": "fa.sync.value_no_boundary",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncValueNoPhoto": "ఫోటో లేదు",
+  "@faSyncValueNoPhoto": {
+    "description": "Conflict value: no farmer photo.",
+    "x-key": "fa.sync.value_no_photo",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncValuePhoto": "కొత్త ఫోటో",
+  "@faSyncValuePhoto": {
+    "description": "Conflict value: a farmer photo.",
+    "x-key": "fa.sync.value_photo",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncValueVersion": "వెర్షన్ {version}",
+  "@faSyncValueVersion": {
+    "description": "Conflict value: a record version number.",
+    "placeholders": {
+      "version": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.sync.value_version",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncWaitingRecords": "{count, plural, one{1 రికార్డ్ వేచి ఉంది} other{{count} రికార్డ్‌లు వేచి ఉన్నాయి}}",
+  "@faSyncWaitingRecords": {
+    "description": "Banner text: records waiting.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.sync.waiting_records",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncWaitingRecordsPhotos": "{count, plural, =0{{size} ఫోటోలు వేచి ఉన్నాయి} one{1 రికార్డ్, {size} ఫోటోలు వేచి ఉన్నాయి} other{{count} రికార్డ్‌లు, {size} ఫోటోలు వేచి ఉన్నాయి}}",
+  "@faSyncWaitingRecordsPhotos": {
+    "description": "Banner text: records and photos waiting.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "size": {
+        "example": "4.2 MB",
+        "type": "String"
+      }
+    },
+    "x-key": "fa.sync.waiting_records_photos",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncWaitingTitle": "సింక్ కోసం వేచి ఉన్నాయి",
+  "@faSyncWaitingTitle": {
+    "description": "Banner title when records wait.",
+    "x-key": "fa.sync.waiting_title",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncWifiOff": "ఆఫ్ · ఫోటోలు మొబైల్ డేటాలో కూడా వెళ్తాయి",
+  "@faSyncWifiOff": {
+    "description": "Setting sub-line when off.",
+    "x-key": "fa.sync.wifi_off",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncWifiOn": "ఆన్ · రికార్డ్‌లు మొబైల్ డేటాలో కూడా సింక్ అవుతాయి",
+  "@faSyncWifiOn": {
+    "description": "Setting sub-line when on.",
+    "x-key": "fa.sync.wifi_on",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncWifiTitle": "ఫోటోలు Wi-Fi లో మాత్రమే పంపు",
+  "@faSyncWifiTitle": {
+    "description": "Setting title.",
+    "x-key": "fa.sync.wifi_title",
+    "x-screen": "FA A7 Sync"
+  },
+  "faSyncYours": "మీది",
+  "@faSyncYours": {
+    "description": "Conflict card: the FA value heading.",
+    "x-key": "fa.sync.yours",
+    "x-screen": "FA A7 Sync"
+  },
+  "faUnlockEnterPin": "మీ {length} అంకెల PIN ఎంటర్ చేయండి",
+  "@faUnlockEnterPin": {
+    "description": "Label above the dots.",
+    "placeholders": {
+      "length": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.unlock.enter_pin",
+    "x-screen": "FA A1b PIN unlock"
+  },
+  "faUnlockGraceNote": "PIN ఆఫ్‌లైన్‌లో {days} రోజులు పనిచేస్తుంది. ఆ తర్వాత నెట్‌వర్క్ వచ్చాక పాస్‌వర్డ్‌తో లాగిన్ అవ్వండి.",
+  "@faUnlockGraceNote": {
+    "description": "Note at the bottom.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.unlock.grace_note",
+    "x-screen": "FA A1b PIN unlock"
+  },
+  "faUnlockTriesLeft": "{count, plural, one{ఇంకా 1 ప్రయత్నం ఉంది} other{ఇంకా {count} ప్రయత్నాలు ఉన్నాయి}}",
+  "@faUnlockTriesLeft": {
+    "description": "Tries left before the password is needed.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.unlock.tries_left",
+    "x-screen": "FA A1b PIN unlock"
+  },
+  "faUnlockUsePassword": "బదులుగా పాస్‌వర్డ్ వాడండి",
+  "@faUnlockUsePassword": {
+    "description": "Link to the password login.",
+    "x-key": "fa.unlock.use_password",
+    "x-screen": "FA A1b PIN unlock"
+  },
+  "faUnlockWelcome": "మళ్ళీ స్వాగతం, {name}",
+  "@faUnlockWelcome": {
+    "description": "Greeting.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.unlock.welcome",
+    "x-screen": "FA A1b PIN unlock"
+  },
+  "faUnlockWrongPin": "తప్పు PIN",
+  "@faUnlockWrongPin": {
+    "description": "After a wrong PIN.",
+    "x-key": "fa.unlock.wrong_pin",
+    "x-screen": "FA A1b PIN unlock"
+  },
+  "faVisitLogAddIssue": "ఇంకో సమస్య జోడించండి",
+  "@faVisitLogAddIssue": {
+    "description": "Button that adds another issue.",
+    "x-key": "fa.visit_log.add_issue",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogAdviceHo": "HO చూసుకుంటుంది",
+  "@faVisitLogAdviceHo": {
+    "description": "Saved summary: issues without an advice rule.",
+    "x-key": "fa.visit_log.advice_ho",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogAlreadyLogged": "ఈ సందర్శన ఇప్పటికే లాగ్ చేశారు",
+  "@faVisitLogAlreadyLogged": {
+    "description": "State card: the planned visit was already logged or cancelled.",
+    "x-key": "fa.visit_log.already_logged",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogBackToCalendar": "క్యాలెండర్‌కి వెళ్ళండి",
+  "@faVisitLogBackToCalendar": {
+    "description": "Button on the saved summary and the back arrow label.",
+    "x-key": "fa.visit_log.back_to_calendar",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogCameraFailed": "కెమెరా తెరుచుకోలేదు. మళ్ళీ ప్రయత్నించండి.",
+  "@faVisitLogCameraFailed": {
+    "description": "Snack bar when the camera fails.",
+    "x-key": "fa.visit_log.camera_failed",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogCheckDetails": "కొన్ని వివరాలు లేవు. ఎరుపు గుర్తులు చూడండి.",
+  "@faVisitLogCheckDetails": {
+    "description": "Snack bar when Save finds a missing stage or severity.",
+    "x-key": "fa.visit_log.check_details",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogDayAfterSowing": "{count}వ రోజు",
+  "@faVisitLogDayAfterSowing": {
+    "description": "Header sub-line part: days after sowing, as in \"Ravi K · Plot 1 · Cotton · day 137\".",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.visit_log.day_after_sowing",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogDiscard": "వెళ్ళిపోండి",
+  "@faVisitLogDiscard": {
+    "description": "Dialog button that leaves without saving.",
+    "x-key": "fa.visit_log.discard",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogDiscardBody": "ఈ సందర్శనకు మీరు ఇచ్చిన వివరాలు పోతాయి.",
+  "@faVisitLogDiscardBody": {
+    "description": "Dialog text.",
+    "x-key": "fa.visit_log.discard_body",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogDiscardTitle": "సేవ్ చేయకుండా వెళ్ళాలా?",
+  "@faVisitLogDiscardTitle": {
+    "description": "Dialog when leaving the visit log with unsaved details.",
+    "x-key": "fa.visit_log.discard_title",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogEditVisit": "ఈ సందర్శన మార్చండి",
+  "@faVisitLogEditVisit": {
+    "description": "Button on the saved summary while the visit is not sent yet.",
+    "x-key": "fa.visit_log.edit_visit",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogFarmerPresent": "రైతు ఉన్నారు",
+  "@faVisitLogFarmerPresent": {
+    "description": "Switch: was the farmer at the field.",
+    "x-key": "fa.visit_log.farmer_present",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogFarmerPresentNote": "మీరు ఒక్కరే పొలం చూస్తే ఆపేయండి",
+  "@faVisitLogFarmerPresentNote": {
+    "description": "Sub-line of the farmer present switch.",
+    "x-key": "fa.visit_log.farmer_present_note",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogGpsFinding": "GPS వెతుకుతోంది…",
+  "@faVisitLogGpsFinding": {
+    "description": "Footer while the GPS fix is coming.",
+    "x-key": "fa.visit_log.gps_finding",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogGpsFix": "{lat}°N {lng}°E",
+  "@faVisitLogGpsFix": {
+    "description": "Footer: where the phone is. lat and lng have two decimals.",
+    "placeholders": {
+      "lat": {
+        "type": "String"
+      },
+      "lng": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.gps_fix",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogGpsNone": "GPS దొరకలేదు",
+  "@faVisitLogGpsNone": {
+    "description": "Footer when the GPS fails (the visit saves without a location).",
+    "x-key": "fa.visit_log.gps_none",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogGpsRetry": "GPS మళ్ళీ ప్రయత్నించండి",
+  "@faVisitLogGpsRetry": {
+    "description": "Screen reader label of the footer button that asks the GPS again.",
+    "x-key": "fa.visit_log.gps_retry",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogIssue": "సమస్య",
+  "@faVisitLogIssue": {
+    "description": "Step heading.",
+    "x-key": "fa.visit_log.issue",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogIssueFrom": "{crop} జాబితా నుంచి",
+  "@faVisitLogIssueFrom": {
+    "description": "After the Issue heading.",
+    "placeholders": {
+      "crop": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.issue_from",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogIssueLabel": "సమస్య: {issue}. మార్చండి",
+  "@faVisitLogIssueLabel": {
+    "description": "Screen reader label of the issue picker button.",
+    "placeholders": {
+      "issue": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.issue_label",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogIssueRow": "సమస్య {number} · {issue}",
+  "@faVisitLogIssueRow": {
+    "description": "An issue already added, above the one being edited.",
+    "placeholders": {
+      "issue": {
+        "type": "String"
+      },
+      "number": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.visit_log.issue_row",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogIssueSeverity": "{issue} ({severity})",
+  "@faVisitLogIssueSeverity": {
+    "description": "Saved summary: an issue and how bad.",
+    "placeholders": {
+      "issue": {
+        "type": "String"
+      },
+      "severity": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.issue_severity",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogIssueType": "సమస్య రకం",
+  "@faVisitLogIssueType": {
+    "description": "Screen reader label of the issue type segments.",
+    "x-key": "fa.visit_log.issue_type",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogLangEn": "ఇంగ్లీష్",
+  "@faVisitLogLangEn": {
+    "description": "Language name inside the SMS note.",
+    "x-key": "fa.visit_log.lang_en",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogLangTe": "తెలుగు",
+  "@faVisitLogLangTe": {
+    "description": "Language name inside the SMS note.",
+    "x-key": "fa.visit_log.lang_te",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogMoreCount": "+ ఇంకా {count}",
+  "@faVisitLogMoreCount": {
+    "description": "Saved summary: more issues or advice.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.visit_log.more_count",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogMorePhotos": "ఇంకా {count} ఫోటోలు, అన్నీ చూడండి",
+  "@faVisitLogMorePhotos": {
+    "description": "Screen reader label of the \"+N\" thumbnail.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.visit_log.more_photos",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNextNone": "ఇప్పుడు వద్దు",
+  "@faVisitLogNextNone": {
+    "description": "Next visit chip: no follow-up visit.",
+    "x-key": "fa.visit_log.next_none",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNextOther": "వేరే తేదీ",
+  "@faVisitLogNextOther": {
+    "description": "Next visit chip that opens a date picker.",
+    "x-key": "fa.visit_log.next_other",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNextVisit": "తదుపరి సందర్శన",
+  "@faVisitLogNextVisit": {
+    "description": "Step heading.",
+    "x-key": "fa.visit_log.next_visit",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNextWeek": "+1 వారం",
+  "@faVisitLogNextWeek": {
+    "description": "Next visit chip: a week from today.",
+    "x-key": "fa.visit_log.next_week",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoCropBody": "ముందు {name} పంట నమోదు చేసి, తర్వాత సందర్శన లాగ్ చేయండి.",
+  "@faVisitLogNoCropBody": {
+    "description": "State card text.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.no_crop_body",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoCropTitle": "సందర్శన లాగ్ చేయడానికి పంట లేదు",
+  "@faVisitLogNoCropTitle": {
+    "description": "State card: the farmer has no plot with a crop.",
+    "x-key": "fa.visit_log.no_crop_title",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoIssue": "సమస్య ఏమీ లేదు",
+  "@faVisitLogNoIssue": {
+    "description": "First row of the issue picker: clears the issue.",
+    "x-key": "fa.visit_log.no_issue",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoIssueMatch": "ఈ పేరుతో సమస్య లేదు",
+  "@faVisitLogNoIssueMatch": {
+    "description": "Issue picker with no results.",
+    "x-key": "fa.visit_log.no_issue_match",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoIssuesListed": "ఈ పంటకు ఇంకా సమస్యల జాబితా లేదు.",
+  "@faVisitLogNoIssuesListed": {
+    "description": "Shown when the crop has no issues in the masters.",
+    "x-key": "fa.visit_log.no_issues_listed",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoPhotoBody": "ఫోటో ఉంటే HO సలహాను సరిచూడగలరు. ఫోటో లేకుండా సేవ్ చేయాలా?",
+  "@faVisitLogNoPhotoBody": {
+    "description": "Dialog text.",
+    "x-key": "fa.visit_log.no_photo_body",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoPhotoTitle": "ఇంకా ఫోటోలు లేవు",
+  "@faVisitLogNoPhotoTitle": {
+    "description": "Dialog title when saving without photos.",
+    "x-key": "fa.visit_log.no_photo_title",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoProduct": "షణ్ముఖ ఉత్పత్తి లేదు",
+  "@faVisitLogNoProduct": {
+    "description": "Card when the advice is a salt only.",
+    "x-key": "fa.visit_log.no_product",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoProductNote": "రైతుకు మందు పేరు మాత్రమే కనిపిస్తుంది, బ్రాండ్ కాదు",
+  "@faVisitLogNoProductNote": {
+    "description": "Second line of the salt-only card.",
+    "x-key": "fa.visit_log.no_product_note",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoRule": "ఈ సమస్యకు సలహా నియమం లేదు",
+  "@faVisitLogNoRule": {
+    "description": "Card when the masters have no rule for the issue.",
+    "x-key": "fa.visit_log.no_rule",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNoRuleNote": "HO రైతుతో మాట్లాడుతుంది.",
+  "@faVisitLogNoRuleNote": {
+    "description": "Second line of the no-rule card.",
+    "x-key": "fa.visit_log.no_rule_note",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNone": "ఏమీ లేవు",
+  "@faVisitLogNone": {
+    "description": "Saved summary value when nothing was entered.",
+    "x-key": "fa.visit_log.none",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogNotPlanned": "ప్లాన్ చేయలేదు",
+  "@faVisitLogNotPlanned": {
+    "description": "Saved summary: no next visit.",
+    "x-key": "fa.visit_log.not_planned",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogOpenFarmer": "{name} వివరాలు చూడండి",
+  "@faVisitLogOpenFarmer": {
+    "description": "Button on the saved summary: opens Farmer 360.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.open_farmer",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogPhoto": "ఫోటో {number}",
+  "@faVisitLogPhoto": {
+    "description": "Screen reader label of a photo thumbnail.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.visit_log.photo",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogPhotoCount": "{count, plural, =0{1 నుంచి 3 తీయండి} one{1 ఫోటో} other{{count} ఫోటోలు}}",
+  "@faVisitLogPhotoCount": {
+    "description": "After the Photos heading: how many were taken (aim 1 to 3).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.visit_log.photo_count",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogPhotoMax": "గరిష్టంగా {max} ఫోటోలు",
+  "@faVisitLogPhotoMax": {
+    "description": "Note when the photo limit is reached.",
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.visit_log.photo_max",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogPhotos": "ఫోటోలు",
+  "@faVisitLogPhotos": {
+    "description": "Step heading.",
+    "x-key": "fa.visit_log.photos",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogPickIssue": "సమస్య ఎంచుకోండి",
+  "@faVisitLogPickIssue": {
+    "description": "Issue picker button before an issue is picked, and the picker sheet title.",
+    "x-key": "fa.visit_log.pick_issue",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogPickIssueHint": "పంట బాగుంటే వదిలేయండి",
+  "@faVisitLogPickIssueHint": {
+    "description": "Sub-line of the issue picker button before an issue is picked.",
+    "x-key": "fa.visit_log.pick_issue_hint",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogPickSalt": "మందు ఎంచుకోండి",
+  "@faVisitLogPickSalt": {
+    "description": "Salt picker sheet title.",
+    "x-key": "fa.visit_log.pick_salt",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogPlot": "పొలం",
+  "@faVisitLogPlot": {
+    "description": "Plot chips when the farmer has more than one crop.",
+    "x-key": "fa.visit_log.plot",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogPresentNo": "రైతు లేరు",
+  "@faVisitLogPresentNo": {
+    "description": "Footer part.",
+    "x-key": "fa.visit_log.present_no",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogPresentYes": "రైతు ఉన్నారు ✓",
+  "@faVisitLogPresentYes": {
+    "description": "Footer part.",
+    "x-key": "fa.visit_log.present_yes",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogProduct": "షణ్ముఖ ఉత్పత్తి: {name}",
+  "@faVisitLogProduct": {
+    "description": "Card when the advice has a Shanmukha product.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.product",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogProductNote": "దగ్గరి డీలర్లతో పాటు రైతుకు కనిపిస్తుంది",
+  "@faVisitLogProductNote": {
+    "description": "Second line of the product card.",
+    "x-key": "fa.visit_log.product_note",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogRemoveIssue": "{issue} సమస్య తీసేయండి",
+  "@faVisitLogRemoveIssue": {
+    "description": "Screen reader label of the remove button on an added issue.",
+    "placeholders": {
+      "issue": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.remove_issue",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogRemovePhoto": "ఫోటో {number} తీసేయండి",
+  "@faVisitLogRemovePhoto": {
+    "description": "Button on a photo in the photos sheet.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    },
+    "x-key": "fa.visit_log.remove_photo",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogRowAdvice": "సలహా",
+  "@faVisitLogRowAdvice": {
+    "description": "Saved summary row label.",
+    "x-key": "fa.visit_log.row_advice",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogRowIssues": "సమస్యలు",
+  "@faVisitLogRowIssues": {
+    "description": "Saved summary row label.",
+    "x-key": "fa.visit_log.row_issues",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogRowNext": "తదుపరి సందర్శన",
+  "@faVisitLogRowNext": {
+    "description": "Saved summary row label.",
+    "x-key": "fa.visit_log.row_next",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogRowPhotos": "ఫోటోలు",
+  "@faVisitLogRowPhotos": {
+    "description": "Saved summary row label.",
+    "x-key": "fa.visit_log.row_photos",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogRowStage": "దశ",
+  "@faVisitLogRowStage": {
+    "description": "Saved summary row label.",
+    "x-key": "fa.visit_log.row_stage",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSalt": "మందు సూచన",
+  "@faVisitLogSalt": {
+    "description": "Step heading.",
+    "x-key": "fa.visit_log.salt",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSaltAfterIssue": "ముందు సమస్య ఎంచుకోండి",
+  "@faVisitLogSaltAfterIssue": {
+    "description": "Recommend salt step before an issue is picked.",
+    "x-key": "fa.visit_log.salt_after_issue",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSaltLabel": "మందు: {salt}. మార్చండి",
+  "@faVisitLogSaltLabel": {
+    "description": "Screen reader label of the salt picker button.",
+    "placeholders": {
+      "salt": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.salt_label",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSaltOnly": "{salt} · మందు పేరు మాత్రమే",
+  "@faVisitLogSaltOnly": {
+    "description": "Saved summary: advice without a Shanmukha product.",
+    "placeholders": {
+      "salt": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.salt_only",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSave": "సేవ్ చేసి రైతుకు చెప్పండి",
+  "@faVisitLogSave": {
+    "description": "Main save button.",
+    "x-key": "fa.visit_log.save",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSaveChanges": "మార్పులు సేవ్ చేయండి",
+  "@faVisitLogSaveChanges": {
+    "description": "Save button while editing a saved visit.",
+    "x-key": "fa.visit_log.save_changes",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSaveWithoutPhotos": "ఫోటో లేకుండా సేవ్",
+  "@faVisitLogSaveWithoutPhotos": {
+    "description": "Dialog button.",
+    "x-key": "fa.visit_log.save_without_photos",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSavedPending": "ఈ ఫోన్‌లో సేవ్ అయింది · తర్వాతి సింక్‌లో HO కి వెళ్తుంది",
+  "@faVisitLogSavedPending": {
+    "description": "Saved summary sub-line before sync.",
+    "x-key": "fa.visit_log.saved_pending",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSavedSynced": "సింక్ అయింది · HO కి చేరింది",
+  "@faVisitLogSavedSynced": {
+    "description": "Saved summary sub-line after sync.",
+    "x-key": "fa.visit_log.saved_synced",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSavedTitle": "సందర్శన సేవ్ అయింది",
+  "@faVisitLogSavedTitle": {
+    "description": "Saved summary title.",
+    "x-key": "fa.visit_log.saved_title",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSearchIssues": "సమస్య వెతకండి",
+  "@faVisitLogSearchIssues": {
+    "description": "Search field in the issue picker.",
+    "x-key": "fa.visit_log.search_issues",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSeverity": "ఎంత తీవ్రంగా ఉంది?",
+  "@faVisitLogSeverity": {
+    "description": "Screen reader label of the severity buttons.",
+    "x-key": "fa.visit_log.severity",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSeverityRequired": "తీవ్రత ఎంచుకోండి",
+  "@faVisitLogSeverityRequired": {
+    "description": "Error when an issue has no severity.",
+    "x-key": "fa.visit_log.severity_required",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSmsNone": "పంపడానికి ఇంకా సలహా లేదు. సమస్యల గురించి HO చూసుకుంటుంది.",
+  "@faVisitLogSmsNone": {
+    "description": "Saved summary note when no issue had an advice rule.",
+    "x-key": "fa.visit_log.sms_none",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSmsPending": "ఇది సింక్ అయ్యాక {name} గారికి సలహా {language}లో SMS ద్వారా, ఆర్బిట్ యాప్‌లో వెళ్తుంది.",
+  "@faVisitLogSmsPending": {
+    "description": "Saved summary note before sync.",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.sms_pending",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSmsSent": "{name} గారికి సలహా {language}లో SMS ద్వారా, ఆర్బిట్ యాప్‌లో వెళ్ళింది.",
+  "@faVisitLogSmsSent": {
+    "description": "Saved summary note after sync.",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.sms_sent",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogStage": "పంట దశ",
+  "@faVisitLogStage": {
+    "description": "Step heading.",
+    "x-key": "fa.visit_log.stage",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogStageRequired": "పంట దశ ఎంచుకోండి",
+  "@faVisitLogStageRequired": {
+    "description": "Error when no stage is picked.",
+    "x-key": "fa.visit_log.stage_required",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogStay": "ఇక్కడే ఉండండి",
+  "@faVisitLogStay": {
+    "description": "Dialog button that stays.",
+    "x-key": "fa.visit_log.stay",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogStep": "{number} · {title}",
+  "@faVisitLogStep": {
+    "description": "Numbered step heading, e.g. \"1 · Photos\".",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "title": {
+        "type": "String"
+      }
+    },
+    "x-key": "fa.visit_log.step",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSuggested": "మాస్టర్ సూచించింది",
+  "@faVisitLogSuggested": {
+    "description": "After the Recommend salt heading when the masters suggest a salt.",
+    "x-key": "fa.visit_log.suggested",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogSummary": "సేవ్ చేసిన వివరాలు",
+  "@faVisitLogSummary": {
+    "description": "Screen reader label of the saved summary card.",
+    "x-key": "fa.visit_log.summary",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogTakePhoto": "ఫోటో తీయండి",
+  "@faVisitLogTakePhoto": {
+    "description": "Camera button label (screen reader) and dialog button.",
+    "x-key": "fa.visit_log.take_photo",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogTypeDeficiency": "పోషక లోపం",
+  "@faVisitLogTypeDeficiency": {
+    "description": "Issue type segment.",
+    "x-key": "fa.visit_log.type_deficiency",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogTypeDisease": "తెగులు",
+  "@faVisitLogTypeDisease": {
+    "description": "Issue type segment.",
+    "x-key": "fa.visit_log.type_disease",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogTypePest": "పురుగు",
+  "@faVisitLogTypePest": {
+    "description": "Issue type segment.",
+    "x-key": "fa.visit_log.type_pest",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitLogWorksOffline": "నెట్ లేకున్నా పనిచేస్తుంది",
+  "@faVisitLogWorksOffline": {
+    "description": "Footer part: saving does not need the internet.",
+    "x-key": "fa.visit_log.works_offline",
+    "x-screen": "FA A5 Visit log"
+  },
+  "faVisitsErrorInvalidDate": "ఈ రోజు లేదా తర్వాతి రోజు ఎంచుకోండి.",
+  "@faVisitsErrorInvalidDate": {
+    "description": "Action error: a day in the past (or a visit time in the future).",
+    "x-key": "fa.visits.error_invalid_date",
+    "x-screen": "FA visits (calendar, plan, visit log)"
+  },
+  "faVisitsErrorNoData": "మీ రైతుల వివరాలు ఇంకా ఈ ఫోన్‌లో లేవు. ముందు సింక్ చేయండి.",
+  "@faVisitsErrorNoData": {
+    "description": "Action error: no snapshot yet.",
+    "x-key": "fa.visits.error_no_data",
+    "x-screen": "FA visits (calendar, plan, visit log)"
+  },
+  "faVisitsErrorNoSeason": "ఈ పొలంలో ఇంకా పంట లేదు. ముందు పంట నమోదు చేయండి.",
+  "@faVisitsErrorNoSeason": {
+    "description": "Action error: no active season.",
+    "x-key": "fa.visits.error_no_season",
+    "x-screen": "FA visits (calendar, plan, visit log)"
+  },
+  "faVisitsErrorNotEditable": "ఈ సందర్శన ఇప్పటికే HO కి వెళ్ళింది, ఇక మార్చలేరు.",
+  "@faVisitsErrorNotEditable": {
+    "description": "Action error: the queued visit log was sent.",
+    "x-key": "fa.visits.error_not_editable",
+    "x-screen": "FA visits (calendar, plan, visit log)"
+  },
+  "faVisitsErrorNotFound": "ఈ రైతు, పొలం లేదా సందర్శన ఇప్పుడు ఈ ఫోన్‌లో లేదు. మళ్ళీ తెరవండి.",
+  "@faVisitsErrorNotFound": {
+    "description": "Action error: something referred to is gone.",
+    "x-key": "fa.visits.error_not_found",
+    "x-screen": "FA visits (calendar, plan, visit log)"
+  },
+  "faVisitsErrorNotPlanned": "ఈ సందర్శన ఇప్పటికే పూర్తయింది లేదా రద్దయింది.",
+  "@faVisitsErrorNotPlanned": {
+    "description": "Action error: the visit is not planned any more.",
+    "x-key": "fa.visits.error_not_planned",
+    "x-screen": "FA visits (calendar, plan, visit log)"
+  },
+  "faVisitsErrorRequired": "కొన్ని వివరాలు లేవు.",
+  "@faVisitsErrorRequired": {
+    "description": "Action error: a required value is empty.",
+    "x-key": "fa.visits.error_required",
+    "x-screen": "FA visits (calendar, plan, visit log)"
+  },
+  "faVisitsErrorTooMany": "ఫోటోలు లేదా సమస్యలు చాలా ఎక్కువ. 20 వరకే ఉంచండి.",
+  "@faVisitsErrorTooMany": {
+    "description": "Action error: more than 20 photos or issues.",
+    "x-key": "fa.visits.error_too_many",
+    "x-screen": "FA visits (calendar, plan, visit log)"
+  },
   "farmerAdviceAdvisedBy": "{name} గారి సలహా · {date}",
   "@farmerAdviceAdvisedBy": {
     "description": "Byline (wireframe \"Advised by Suresh · 12 Oct\").",

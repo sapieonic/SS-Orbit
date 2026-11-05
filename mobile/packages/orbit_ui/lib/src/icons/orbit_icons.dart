@@ -50,6 +50,9 @@ abstract final class OrbitIcons {
   /// Send.
   static const IconData send = LucideIcons.send;
 
+  /// More options (a card's or row's menu).
+  static const IconData more = LucideIcons.ellipsis_vertical;
+
   // Calls and messages.
 
   /// Phone call.
@@ -234,4 +237,33 @@ abstract final class OrbitIcons {
 
   /// Document.
   static const IconData document = LucideIcons.file_text;
+
+  // FA app.
+
+  /// Records waiting to sync (the header's sync pill).
+  static const IconData sync = LucideIcons.cloud;
+
+  /// Everything synced.
+  static const IconData synced = LucideIcons.cloud_check;
+
+  /// Uploading.
+  static const IconData upload = LucideIcons.cloud_upload;
+
+  /// Enrol a farmer (bottom-bar tab).
+  static const IconData enrol = LucideIcons.circle_plus;
+
+  /// Delete the last digit (PIN pad).
+  static const IconData backspace = LucideIcons.delete;
+
+  /// Fingerprint unlock.
+  static const IconData fingerprint = LucideIcons.fingerprint_pattern;
+
+  /// List view.
+  static const IconData list = LucideIcons.list;
+
+  /// Map view.
+  static const IconData map = LucideIcons.map;
+
+  /// Directions to a place.
+  static const IconData directions = LucideIcons.navigation;
 }

@@ -216,6 +216,16 @@ void main() {
     Future<void> play(String id) =>
         player.playUrl(Uri.parse('http://127.0.0.1:9/expired'), cacheKey: id);
 
+    // A failure seen after the load deletes the file in the background, on
+    // real disk IO, so a fixed number of event-loop turns can be too few on
+    // a slow machine. Waits until it is gone, for up to 5 s.
+    Future<void> waitUntilDeleted(File file) async {
+      final deadline = DateTime.now().add(const Duration(seconds: 5));
+      while (file.existsSync() && DateTime.now().isBefore(deadline)) {
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+      }
+    }
+
     test('a cached file that fails to load is deleted', () async {
       final file = cachedNote('notice-1');
       final boom = Exception('Source error');
@@ -232,6 +242,7 @@ void main() {
       await play('notice-2');
       await pumpEventQueue();
       expect(player.state.value, isA<VoiceError>());
+      await waitUntilDeleted(file);
       expect(file.existsSync(), isFalse);
     });
 
@@ -242,6 +253,7 @@ void main() {
       audio.fail(Exception('decoder'));
       await pumpEventQueue();
       expect(player.state.value, isA<VoiceError>());
+      await waitUntilDeleted(file);
       expect(file.existsSync(), isFalse);
     });
 
